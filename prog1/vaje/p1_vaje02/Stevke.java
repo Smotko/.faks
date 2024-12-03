@@ -5,10 +5,10 @@ public class Stevke{
 		
 		long stevilo = sc.nextLong();
 		
-		while (stevilo > 0L){
-			int i = (int)(stevilo % 10L);
-			stevilo = stevilo / 10L;
+		while (stevilo > 0){
+			int i = (int)(stevilo % 10);
 			System.out.println(i);
+			stevilo /= 10;
 		}	
 	}
 }

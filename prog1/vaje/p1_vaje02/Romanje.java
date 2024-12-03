@@ -7,15 +7,18 @@ public class Romanje{
 		int p = sc.nextInt();
 		int z = sc.nextInt();
 		
-		int Dan = 1;
+		int dan = 1;
+		int n = d;
 		
-		while (d > 0){
-			if (d < p){
+		while(d > 0 && p > 0){
+			if(p > d){
 				p = d;
-				System.out.println(Dan + ": " + d + " -> " + (d - p));
-				d = d + z;
-				Dan++;
 			}
-		}	
+			n -= p;
+			System.out.printf("%d: %d -> %d%n", dan, d, n);
+			d = n;
+			p -= z;
+			dan++;
+		}
 	}
 }
