@@ -5,18 +5,14 @@ public class Piramida{
 		
 		int n = sc.nextInt();
 
-		for (int i = 0; i < n; i++){
-			for(int j = 0; j < n - i - 1; j ++){
-				System.out.print(" ");
+		for(int i = 0; i < n; i++){
+			for(int j = n; j > i + 1; j--){
+				System.out.print(' ');
 			}
-			for(int j = 0; j < i*2 + 1 ; j ++){
-				System.out.print("*");
+			for(int j = 0; j < i * 2 + 1; j++){
+				System.out.print('*');
 			}
-			if(n == i+1){
-				break;
-			}
-
-			System.out.println("");
-		}		
+			System.out.println();
+		}
 	}
 }

@@ -5,21 +5,15 @@ public class Anka{
 		
 		int m = sc.nextInt();
 		int d = sc.nextInt();
-		int st= 0;
+		int st = 0;
 
-		for (int a = 0; a < 10; a++){
-			if (a % 2 == 1){
-				for(int b = 0; b < 10; b++){
-					if (b > m){
-						for(int c = 0; c < 10; c++){
-							if (c % d == 0){
-							System.out.println(a+"-"+b+"-"+c);
-							st ++;
-							}
-						}
-					} 
+		for(int i = 1; i < 10; i+=2){
+			for(int j = m + 1; j < 10; j++){
+				for(int k = 0; k < 10 && k % d == 0; k+= d){
+					System.out.printf("%d-%d-%d%n",i ,j, k);
+					st++;
 				}
-		}
+			}
 		}
 		System.out.println(st);
 	}		
