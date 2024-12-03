@@ -3,20 +3,25 @@ public class Zgoscenke{
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();
-		int k = sc.nextInt();
-		int zasedenost = 0;
-		int st = 1;
+		int n = sc.nextInt(); //st zgoscenk
+		int k = sc.nextInt(); //enote
+		int i = 1;
+		int nezasedeno = 0;
 
-		while(sc.hasNextInt() && st < n){
-			int fileSize = sc.nextInt();
-			if (fileSize - zasedenost > k) {
-				st++;
+		while(sc.hasNextInt()){
+			int x = sc.nextInt();
+			if(nezasedeno + x <= k){
+				nezasedeno += x;
 			}else{
-				zasedenost = fileSize;
+				nezasedeno = 0;
+				if(i < n){
+					i++;
+					nezasedeno += x;
+				}else{
+					break;
+				}
 			}
-			
-			System.out.println(fileSize + " EP  -> zgoscenka " + st + " ("+ fileSize +" EP)");
+			System.out.printf("%d EP -> zgoscenka %d (%d EP)%n", x, i, nezasedeno);
 		}
 	}		
 }
