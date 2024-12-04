@@ -6,7 +6,7 @@ public class CollatzovoZaporedje{
      * podanega stevila.
      */
     
-	 private static int dolzinaZaporedja(int stevilo) {
+	private static int dolzinaZaporedja(int stevilo) {
 		int dolzina = 1;
         while (stevilo != 1) {
 			if (stevilo % 2 == 0){
@@ -24,19 +24,19 @@ public class CollatzovoZaporedje{
         
         int spMeja = sc.nextInt();
         int zgMeja = sc.nextInt();
-
-		int dolzina = dolzinaZaporedja(spMeja);
+		int dolzina = 0;
 		int stevilo = spMeja;
-		int najdolzina = dolzina;
+		int najdolzina = 0;
 
 		for (int i = spMeja; i <= zgMeja; i++) {
-			if(dolzina < najdolzina){
+			
+			dolzina = dolzinaZaporedja(i);
+			if(dolzina > najdolzina){
 				najdolzina = dolzina;
-				dolzina = dolzinaZaporedja(i);
 				stevilo = i;
 			}
 		}
 		System.out.println(stevilo);
-		System.out.println(dolzina);
+		System.out.println(najdolzina);
     }
 }

@@ -15,19 +15,22 @@ public class Sinus{
             // Calculate the y-value (height) based on the sine function
             double radians = kot * radianFactor;
             int y = (int) (Math.sin(radians) * amplituda);
-
             // Normalize output: shift right to make room for negative values
-            int offset = amplituda;
 
             // Print spaces up to the calculated position and draw the wave
-            znaki(' ', offset + y);
+            znaki(' ', amplituda + y);
             System.out.println("*");
         }
 		
 	}
 	
 	public static void main(String[] args) {
-		narisiSinus(0, 360, 20);
+		Scanner sc = new Scanner(System.in);
+		int kotZacetka = sc.nextInt();
+		int kotKonca = sc.nextInt();
+		int amplituda = sc.nextInt();
+
+		narisiSinus(kotZacetka, kotKonca, amplituda);
 	}
 	/*
 	public static void main(String[] args){
