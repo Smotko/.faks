@@ -1,0 +1,27 @@
+
+import java.util.*;
+import java.util.function.*;
+
+public class Test05 {
+
+    public static void main(String[] args) {
+        Comparator<String> comp = (a, b) -> a.compareTo(b);
+
+        List<List<String>> seznami = List.of(
+            List.of("adnkntlpnwxfd", "ziypjafghxw", "aima", "yuvca", "aoilcrcznij", "ylbnywnjoebuiliw", "avav", "xmspwjgyurbtwpnfifvz", "bokvy", "wbclomr", "cqd", "vubrddbhvfeax", "dduvhsgarzkcxexvd", "vihu", "dwavnodl", "vdrzfu", "eqtpuc", "ubvidfo", "fbkubswnzkjcqksreypo", "tqdtafddnghc", "fidkmid", "tan", "fot", "syomvscfbwqlkofv", "gnmcvscmslxj", "scnxtnnw", "hglexlzrkgr", "rvymyvqkbgef", "iccbsqko", "rlqfuyjlbvrlwyn", "ifswumwyi", "reoafqiiwh", "irjtrpkaedxvrnqsh", "qywcfwcqm", "jlaxpsofvzyjzayklnn", "oukjtqgcuv", "jy", "ojmnyuixlhwnmvztmqeq", "klger", "oa", "ksaisitezwltqvkz", "nuafusgba", "kwlhcbjloylpwlz", "nddtchiv", "mesrlcznorosge", "mnbfxglemsikpbk", "mulcpvtuevdkr", "lpwozdyzjekpacwqr", "nmaxnmflgws", "ksodddsmkbzlr", "nxjtozfmnkljgbxl", "koogcwgeiwxyslcptzn", "oh", "jzxgj", "otgotmqh", "jlpihhoktla", "qoxyhvngzdk", "jhrmnku", "ree", "ihaqflrudoddj", "rg", "id", "rtlnvsqfyekkjjhnfu", "huhbgc", "rydvcekispvswog", "hgejkxuzjdafzza", "scutuzjjkpgwumouqmc", "giuxqbgebhyxwnrvwtm", "taidghns", "xoq", "tbvshd", "fhbbl", "twjfnviibcpwjvyyqjgm", "escw", "uvk", "emhaclzihmzztqagux", "vfzqktvlxowevziiz", "dqvsbjndqcilueapr", "vrplgfzax", "daosllhrwyglir", "walyxxoj", "bxjxqfo", "xhkynlnsohxyxrqjfp", "bafncjtpgjeshjmuvmls", "fjphmngux", "aqnznlzc", "ypgxwrukkokivwvou", "amim", "zeodrvsqdwnnukmppes", "agkivxienfouaeh"),
+            List.of("atkarycj", "yyuvmhabubbul", "axxsxf", "yqeuvgtrpjmg", "brlqymsoefkb", "wrbvhugd", "bvyaoqnt", "wdvlooa", "chjezrcdwfzdefzkmx", "vffb", "dpnnvwjshkxqspo", "vbeqprzzsn", "eliy", "uzdpjbxmjfrmsg", "gkixnuys", "uwopxmknqmymohlgtko", "gnqxisc", "uwlwtvluxrjbtgbkdlb", "gps", "uihxqdtwanhzuus", "igmenv", "ugbl", "jmpeeo", "tzjiyutdc", "jyyfjsaoxxfaovt", "rines", "kfwfoodxenaxxbvpye", "qwvcuy", "lleqpkzai", "pbqzxjknzzrrgqogazt", "mekq", "opvejeekex", "mmfin", "okmzyjseqmxzz", "mufdwcppvlfkyvqw", "mvzqmxmffpzj", "ncrdvy", "mngminl", "nenrgoirugcwda", "mevfueici", "nkxnlzhvzsdpvrpij", "makj", "qhe", "luntiv", "qngxqxbrvlzomprkvak", "kebzrfmqcqgv", "qxgnkq", "jx", "seirxvrfeggkrtqwqsfq", "idfxph", "sic", "hfchpogasdmcwhcbkd", "skbiixoqrqngoxwgkj", "hcgtpzdngqbhikzkjepf", "stpjcwgnbp", "fwucvkgjkvudidxnxpz", "thjprgrdwfomu", "fjdcntzydm", "tu", "fiikvearytritsixttkp", "tyudikwbuqfsuqyasiy", "cryl", "uoufgoqve", "byiwpmzlxajo", "utsbagzrfhpzw", "bwoz", "xwtnvomppon", "anytnhyyzhlnsgde", "yfurws", "ahqpusbl", "zjctbezwoxizjohic", "afgzaqnfs", "zywtzcvxvopizehxyzdm"),
+            List.of("amakeugpqyajbu", "ywrnrl", "cqwz", "yrkpksvepfdzcnwpw", "dgzqxa", "yiayix", "euaqjejiehramq", "vxvkiysclhfldexe", "ewbnrrtyranesgejmk", "vrmwwtngnlomzppxgfye", "ggrllgnv", "uppglucfmhm", "gydaeayl", "ubvacigetqdjevuimqjc", "hi", "tttedexqojdmdzggph", "hlt", "tiziirchrevo", "issdlorbampexzctu", "spqejmmpstvob", "jelvqxog", "qng", "kpeoc", "qd", "kxhykqlmkysjfttqv", "piwukulsfsobkzqtrpsk", "ltyalli", "ospmbut", "msyugerkboujddht", "nqjxmmnapvfmh", "oixtjgsgmauclyup", "mjjzcdwjwvkahj", "p", "ltrkduedzpf", "psuhhdulgkhgibrzbke", "krrqzpko", "qmepkuavnarec", "jpiiibcemiz", "rvtiugazobayfgkrmo", "dgvvc", "srsmwnwsgvtz", "ihaqflrudoddj", "tkk", "hklmhjw", "tvncxhnutjp", "hfyfjnbvfxquydr", "uidnirklwyugnafj", "gha", "uwtkcmjtvhpkrw", "fjgqme", "vwmvddpvdwwytonw", "eufwqqhlhfjeqox", "ybmrn", "ehfqhmkda", "yksvxvygmh", "jeklfxpjoadu", "yrmxlopsmcfpnp", "balzuawvakf", "z"),
+            List.of("fg", "txoizuac", "anlbpqwgqdtu", "aqfvqvi"),
+            List.of("unwfobqcgdccxiyv", "zhuwywohyb", "nesycaxwcyg", "spbzqurlxmhdvjv", "srsmwnwsgvtz", "phpzzphwhaqalw", "kfbeeltgu"),
+            List.of("ezgpxxs", "twsekmrixcblglgkfqca", "nomnqbbsbufixca", "qbgarbndwtuvu", "sbtunknfzffedgb", "glgprpfvxivy", "txj"),
+            List.of("aoqyfjwp", "zzekpcpgzgwlvjxglrld", "cmpaobautxsrp", "xzvasdxhfhzb", "djfuirtbflplhjbzl", "xnwwienpbnjzk", "dsmjzhjdchkftoovlme", "xfegh", "dumrdmyuiadygobfynd", "wrbvhugd", "egbjiioofzxfvoi", "wkvlhxepdheomimg", "epvccwmethwsz", "wbvijmuhpgyvrmlyog", "fmhqxolwjpjetzvadvgj", "vncucq", "igyzxhaclvnagqnwcg", "uzwbzkkmfflxwanwd", "ilrddalckkvs", "tvvml", "jivaipx", "tbvshd", "jwsoxbmcijm", "slkkek", "kd", "sclvdd", "lholcnjswcmxzmcl", "rtmnjcbodiuzjdy", "mjgdbs", "rabysshvtlqdtdld", "msvxzgstezzxocimue", "qseyty", "nqazzgwxmb", "qflauhhuzfnskzy", "ojwwzvs", "qd", "oymsrowwc", "pmuqdfahkazc", "pkdjhibvnabuylir", "pgbioflonub", "polfsjymbkhqs", "owavjrlp", "qecxwnemsm", "ofyukvszm", "qksqegreo", "niatrfeibz", "qwhqqs", "mqof", "rnpskvzbtaivu", "lsjffeankzo", "ryttukjhbi", "krxktfwynysq", "sjxrm", "kbpcbseoqxnwplz", "snikkgmhovrvq", "jmisecjufcp", "trhvclrueyb", "jgsqepkiarshksylaz", "ubmohmazwukojru", "ijvotmjnczkcz", "vjjcavoxlxuoiciavmit", "icwcgbprbftdca", "vwgpxqzgydzqlmteqct", "exl", "wiarcnzp", "ekxcwkhdnphmsya", "wquynjgcfnwp", "edpjs", "wulwzpdqyrb", "duml", "xhyxsjhionfjq", "dlmncnaxmfzw", "xxostd", "cxjgbqgbzegynlce", "yjbgqovaj", "bfu"),
+            List.of("mfgtpdmbipnqkmmsvyd", "rzxqbsykdbg"),
+            List.of("awjtthzvumlbye", "rpohttdmjmjwctrr", "kqrtv", "grrkkk"),
+            List.of("plulcwczee", "xvdke", "ykuafsxfu", "jcsgu")
+        );
+
+        for (List<String> seznam: seznami) {
+            System.out.println(Cetrta.alternirajoceMonotono(seznam, comp));
+        }
+    }
+}
