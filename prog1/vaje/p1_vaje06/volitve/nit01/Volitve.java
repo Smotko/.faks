@@ -6,7 +6,7 @@ public class Volitve {
      * Vrne skupno stevilo glasov, ki jih je v podanem letu prejela 
      * stranka. [1-3]
      */
-     
+                                    //st let, st strank, st glasov na voliscu
     public static int steviloGlasov(int[][][] t, int leto, int stranka) {
         int stGlasov = 0;
         for(int volisce = 0; volisce < t[leto][stranka].length; volisce++){

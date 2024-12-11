@@ -38,7 +38,7 @@ public class ZgoscenkeDve {
                 break;
             }
             zasedenosti[ixMin] += fileSize;
-            System.out.println(fileSize + " EP -> zgoscenka " + ixMin + " " + Arrays.toString(zasedenosti));
+            System.out.println(fileSize + " EP -> zgoscenka " + (ixMin + 1) + " " + Arrays.toString(zasedenosti));
         }
     }
 }

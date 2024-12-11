@@ -1,4 +1,4 @@
-public class Volitve {
+//public class Volitve {
 
 	//  izidi[stevilo let][stevilo strank][stevilo volisc]
 	

@@ -1,53 +1,9 @@
 import java.util.Scanner;
 
 public class VrstaZbor {
-    
-    /** 
-     * Naredi tabelo, prebere visine vojakov in jo vrne
-     */
-    
-    private static int[] preberiVisine(int n, Scanner sc) {
-        int[] visine = new int[n];
-        for(int i = 0; i < n; i++){
-            visine[i] = sc.nextInt();
-        }
-        return visine;
-    }
-    
-    private static void izpisi(int[] t) {
-        for(int i = 0; i < t.length; i++){
-            System.out.printf("%d", t[i]);
-        }
-    }
-    
-    /** 
-     * Vrne true natanko v primeru, ce je element tabele 't' na indeksu 'ix' vecji
-     * ali enak kot njegov levi sosed in hkrati manjsi ali enak kot njegov desni sosed.
-     */
-    
-    private static boolean lokalnoPravilno(int[] t, int ix) {
 
-        boolean pravilnost = false;
-        if(t[0]<t[1]){
-            pravilnost = true;
-        }else{
-            pravilnost = false;
-        }
-
-        if(t[t.length-1]<t[t.length]){
-            pravilnost = true;
-        }else{
-            pravilnost = false;
-        }
-
-        for(int i = 0; i <= t.length - 2; i++){
-            if(t[i] < t[i+1] && t[i+1] < t[i+2]){
-                pravilnost = true;
-            }else{
-                pravilnost = false;
-            }
-        }
-        return pravilnost;
+    private static boolean lokalnoPravilno(int[] t, int i) {
+        return t[i] >= t[i-1] && t[i] <= t[i+1];
     }
 
     public static void main(String[] args) {
@@ -55,19 +11,40 @@ public class VrstaZbor {
         
         int stVojakov = sc.nextInt();
         int[] visine = new int[stVojakov];
-
-        boolean vsajeden = false;
+        boolean vsajEden = false;
 
         for(int i = 0; i < stVojakov; i++){
-            if(lokalnoPravilno(visine, i) == true){
-                System.out.println(i);
-                vsajeden = true;
-            }
-
-            if(!vsajeden){
-                System.out.println("NOBEDEN");
-            }
+            visine[i] = sc.nextInt();
         }
-            
-    }
+
+        if(stVojakov >= 3){
+            if(visine[0] < visine[1]){
+                System.out.println(0);
+                vsajEden = true;
+            }
+            for(int i = 1; i < stVojakov - 1; i++){
+                if(lokalnoPravilno(visine, i)){
+                    System.out.println(i);
+                    vsajEden = true;
+                }
+            }
+            if(visine[stVojakov-2] < visine[stVojakov-1]){
+                System.out.println(stVojakov-1);
+                vsajEden = true;
+            }
+        }else if(stVojakov == 2){
+            if(visine[0] <= visine[1]){
+                System.out.println(0);
+                System.out.println(1);
+                vsajEden = true;
+            }
+        }else if(stVojakov == 1){
+            System.out.println(0);
+            vsajEden = true;
+        }else{
+
+        }
+        if(!vsajEden)
+            System.out.println("NOBEDEN");
+        }
 }
