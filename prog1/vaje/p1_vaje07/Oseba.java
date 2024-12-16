@@ -1,4 +1,3 @@
-package p1_vaje07;
     /**
  * Razred [Oseba]
  */
@@ -59,7 +58,7 @@ public class Oseba {
     
     @Override
     public String toString() {
-        return String.format("%d%d%d%d", 
+        return String.format("%s %s (%s), %d", 
                 this.ime, this.priimek, this.spol, this.lr);
     }
  
@@ -69,7 +68,7 @@ public class Oseba {
      
      public int starost(int leto) {
         return leto - this.lr;
-     }
+    }
      
     /**
      * Vrne <true> v primeru, ce je dana oseba 'this' starejsa od
@@ -81,9 +80,9 @@ public class Oseba {
     }
     
     public static Oseba starejsa(Oseba a, Oseba b) {
-        if(a.jeSestraOd(b)){
+        if(a.jeStarejsaOd(b)){
             return a;
-        }else if (b.jeSestraOd(a)){
+        }else if (b.jeStarejsaOd(a)){
             return b;
         }else{
             return null;
@@ -95,10 +94,7 @@ public class Oseba {
      */
      
     public String imeOceta() {
-        if (this.oce == null)
-            return null;
-        return this.oce.ime;
-        // return (this.oce == null) ? null : this.oce.ime;
+        return (this.oce == null) ? null : this.oce.ime;
     }
     
     /**
@@ -119,7 +115,7 @@ public class Oseba {
     
     public boolean jeSestraOd(Oseba os) {
         if(this.spol == 'Z'){
-            jeBratAliSestraOd(os);
+            return jeBratAliSestraOd(os);
         }
         return false;
     }
@@ -142,11 +138,8 @@ public class Oseba {
         Oseba p = os.oce;
         while(p != this && p != null){
             p = p.oce;
-            if(p.oce == os){
-                return true;
-            }
         }
-        return false;
+        return p == this;
     }
     
     /**
@@ -157,12 +150,31 @@ public class Oseba {
     
     
     public boolean jePrednikOd(Oseba os) {
-
-        return false;
+        if(os == null){
+            return false;
+        }
+        
+        Oseba o = os.oce;
+        Oseba m = os.mati;
+        if(o == this || m == this){
+            return true;
+        }
+        return jePrednikOd(os.oce) || jePrednikOd(os.mati);
     }
     
     public boolean staVSorodu(Oseba os) {
-        return false;
+        if(os == null){
+            return false;
+        }
+        
+        Oseba o = os.oce;
+        Oseba m = os.mati;
+        Oseba to = os.oce;
+        Oseba tm = os.mati;
+        if(o == to || m == tm){
+            return true;
+        }
+        return staVSorodu(os.oce) || staVSorodu(os.mati);
     }
     
     public String druzinskaImena() {

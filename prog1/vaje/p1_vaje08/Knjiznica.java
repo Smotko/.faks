@@ -12,7 +12,7 @@
     private int[] zaloga;
     private int[] vsehIzposoj;
     private boolean[][] izposoje;
-    private Transakcije
+    //private Transakcije;
 
     // konstruktor
     
@@ -94,7 +94,7 @@
      * @return  indeks naslova
      */
 
-     public int najNaslov() {
+    public int najNaslov() {
         int iNajNaslov = 0;
         for (int iNaslov = 1; iNaslov < this.vsehIzposoj.length; iNaslov++) {
             if (vsehIzposoj[iNaslov] > vsehIzposoj[iNajNaslov])
