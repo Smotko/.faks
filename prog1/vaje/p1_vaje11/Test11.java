@@ -504,7 +504,10 @@ public class Test11 {
         liki.dodaj(new Kvadrat(5));
         liki.dodaj(new Kvadrat(12));
 
+        //ne deluje
         Lik.urediPoTipuInObseguObratno(liki);
+
+
         Lik.izpisi(liki);
     }
 }

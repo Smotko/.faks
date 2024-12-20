@@ -1,0 +1,434 @@
+
+Q: Kaksnega tipa morjo bit spremenljivke da bo mozno a==b==c in kaksne so moznosti da to vrne true
+A: Naceloma sta a in b lahko inta/karkol ampak c mora bit tipa boolean, on je misljen meu da reces da so vsi tipa boolean
+   pravilne možnosti so: a,b,c = true; a,b= false c= true; a = true b,c = false
+
+---------------------------------------------
+Q: jaz sicer nism mu uprasanj ampak sm vidu prvi slide pa je blo.. kdaj je res !a || b && c
+A: a,b,c = true; 
+   a = true, b,c = false;
+   a = false, b,c = true;
+   a = true, b,c = false;
+   a,b = false, c = true;
+
+---------------------------------------------
+Q: Kaj se izpiše: 
+	int a = 1;
+	do {
+	System.out.println(a);
+	a++;
+	} while (a < 0);
+	System.out.println(a);
+A: 1
+   2
+
+---------------------------------------------
+Q: int a = 10; int b = 20; int c = ++a; int d = b++;
+A: a = 11, b = 21, c = 11, d = 20;
+
+---------------------------------------------
+Q: Kokrat se bo izvedu ta loop: for (int i = 1; i > 0; i++) {...}
+A: Neskončna zanaka
+
+---------------------------------------------
+Q: Kaj je rezultat 1 > 2
+A: false
+
+---------------------------------------------
+Q: Kaj vrne (1 ==3) == (4==5)?
+A: true, ker je (false==false) => true
+
+-------------------------------------------
+Q:Kateri so referenčni in kateri primitivni tipi?
+	*int		//primitiven //ima vrednosti
+	*int[] 		//referenčni //ima KAZALEC!!!!!
+	*Integer	//referenčni
+	*Integer[]	//referenčni
+
+(podvprašanje)Q:Razlika med primitivnimi in referenčnimi tipi
+
+-------------------------------------------
+Q: Kakšna je ASCII koda za '1'
+A: 49
+
+--------------------------------------------
+Q: Koliko je ‘1’ + 2?
+A: 51
+
+--------------------------------------------
+Q: Kaj je ‘5’ - ‘3’
+A: 2
+
+--------------------------------------------
+Q: Kaj vrne vrstica: '1' + 2 ?
+A: Prva vrednost je tipa char (uporabi se ASCII vrednost za '1'), prištejemo vrednost 2. Torej (po ASCII) 49 + 2 = 51.
+
+--------------------------------------------
+Q: Zakaj vrnejo vrstice:
+	System.out.println("prva" == "prva")  ... true
+	System.out.println("prva" == new String("prva"))  ... false
+	System.out.println(new String("prva") == new String("prva"))  ... false  (to vrstico upam, da sem se prav zapomnil)
+A: Pri prvi se gre za enakost kazalca na niz "prva". V tem primeru je enak, ker ni ponovno kreiran niz.
+   Pri drugi je podobno, vendar je false zato, ker z 'new' eksplicitno kreiramo nov niz (različen kazalec).
+   Pri tretji (če sem prav zapisal), pa je na podoben način kot druga.
+
+--------------------------------------------
+Q: razlika med 'a' in "a":
+A: eden je char in primitiven tip, drugi je referenčni in String
+
+---------------------------------------------
+Q: Kakšnega tipa je lahko b v izrazu double a = b?
+A: b je lahko double, int ali byte
+
+---------------------------------------------
+Q: Kako prevajalnik prevede:
+	Integer a = 2;
+	Integer b = 3;
+	System.out.print(a * b);
+A: Integer.valueOf(a) * Integer.valueOf(b) //se pretvori v int
+
+-------------------------------------------
+Q: ali se naslednji program prevede "1".equals(2)
+A: "1".equals(2) se prevede v String.valueOf("1").equals(Integer.valueOf(2))
+
+---------------------------------------------
+Q: Ali vedno obstaja alternativa uporabi besede break; v zankah?
+A: Da, uporabimo lahko for(int i = 0; i < quantity && boolean_a == true; i++)
+
+---------------------------------------------
+Q: Kaj se zgodi če v stavku switch pozabimo break?
+A: Izvedejo se vsi case-i, ki sledijo. 
+Npr.:
+	int a =	3;
+	switch(a){
+		case 1: System.out.println(1);
+		case 2: System.out.println(2);
+		case 3: System.out.println(3);
+		case 4: System.out.println(4);
+		case 5: System.out.println(5);
+		default: System.out.println(6);
+	}
+izpis:
+3
+4
+5
+6
+
+---------------------------------------------
+Q: for loop s printf
+
+---------------------------------------------
+Q: Neka naloga z tabelami in kaj izpisejo.
+
+---------------------------------------------
+Q: kako izračunamo št. elementov v 2D tabeli
+A: tab.length * tab[0].length; 			// čeje tabela "simetrična" = vse "vrstice" imajo enako število polj
+   int stevec = 0;				// če tabla ni "simetrična" = vrstice imajo različno tevilo polj
+   for (int i = 0; i < tab.length; i++){
+	for (int j = 0; j < tab[i].length; j++){
+	      stevec++;
+	}
+   }
+
+---------------------------------------------
+Q: Kako izracunamo velikost 2d tabele? Kako dobimo dolzino vrstice?
+A: Imamo eno for zanko in notri gledamo za vsako vrstico posebaj. tab[i].length
+
+---------------------------------------------
+Q: Kako v zgoščeni tabeli določamo indekse ključev
+A: V hashmapu je npr., to je tista stvar k dopušča da je več stvari hkrati na enmu indeksu. To nardi z vozlišči, tako da eno vozlišče kaže na naslednjega, ta prvo vozlišče pa je dejansko v tabeli.
+   Indekse pa dobiš tako da kličeš hashcode() na ključe in potem rezultat preslikaš v meje tabele z mod...fora je da imajo lahko različni ključi iste indekse (ker preslikuješ v meje tabele) zato rabš zgoščeno tabelo
+
+---------------------------------------------
+Q: Kaj je razlika med objektom in objektno spremenljivko
+A: Spremenljivka hrani kazalec na objekt, medtem ko je objekt dejansko prostor v spominu, kjer so shranjene vse spremenljivk
+
+---------------------------------------------
+Q: Razlika med objektom in razredom
+A: Objekt je primer razreda, ki je samo "okvir"/"predloga".
+   Objekt je en primer iz resničnega sveta (redirka, šilček, svinčnik...), razred pa je skupina podobnih objektov (šolske potrebščine).
+   Objekt je fiziča, medtem ko je razred logična entiteta.* 
+   Objektov je lahko več, medtem ko je razred en sam (v smislu, da je možno deklarirati več objektov istega razreda, ne moremo, pa isti razred "napisati" večkrat v istem programu).
+
+*("Entiteta je objekt, ki obstaja, ali za katero mislimo, da obstaja v svetu in ga lahko ločimo od drugih objektov.
+Entitete se delijo na realne in abstraktne. Realne predstavljajo nek realen objekt ali dogodek, medtem ko abstraktne predstavljajo idejo.")
+
+---------------------------------------------
+object a = new object();
+object b = new object();
+object c = a;
+
+System.out.print(a == b); // false
+System.out.print(a.equals(b)); // false, ker equals ni redefiniran in dela isto kot ==; Equals sam po seb ne gleda atributov
+System.out.print(a == c); // true
+System.out.print(a.equals(c)); // true
+
+---------------------------------------------
+Q: Katero metodo moramo implementirati razredu A da lahko System.out.println(a)
+A: toString()
+
+--------------------------------------------
+Q: dal kodo dveh razredov, eden deduje drugega in vprašal, zakaj se ne bo prevedlo
+A: (hoče izpisati atribut subclassa s tipom superclassa)
+
+--------------------------------------------
+Q: Prestej stevilo atributov, ki spadajo za podrazred
+A: (en iz nadrazreda ostali iz podrazreda)
+
+-------------------------------------------
+Q: sm meu nek odsek programa napisan in mogu povedat kaksna je spremenljivka v casu prevajanja kaksna pa v casu izvjanja
+A:	Object a = new Student.... ( s tem da student extenda object)
+
+---------------------------------------------
+Q: Kaj je abstraktna metoda?
+A: Abstraktna metoda je metoda, ki nima telesa.
+   Abstraktna metoda je vedno del abstraknega razreda ali vmesnika, če je abstrakna metoda znotraj nekega raztreda, je le-ta abstrakten.
+   Abstraktna metoda se redefinira v podrazredu abstraktnega razreda ("pri redefiniciji se ji doda telo").
+
+---------------------------------------------
+Q: A je razred abstrakten ce imaš samo 1 abstraktno metodo? Kaj pomen da je razred abstrakten? A je abstrakten razred tudi če nima abstraktne metode? Kakšna je abstraktna metoda?
+A: Če razred vsebuje abstraktno metodo je tudi sam abstrakten.
+   Abstraktni razred je razred, ki služi kot "postavitev okvirja". Njegovih neposrednih objektov ne ustvarjamo, pač pa le objekte njegovih podrazredov, ki niso abstraktni.
+   Abstraktna metoda ni pogoj, da je nek rared abstrakten. Lahko ustvarimo abstrakten razred brez metod.
+   Abstraktna metoda je metoda brez telesa (glej zgornje vprašanje).
+
+---------------------------------------------
+Q: zakaj metoda ne more bit hkrati privatna in abstraktna
+A: če je neka metoda privatna, to pomeni, da se do nje lahko dostopa samo znotraj razreda v katerem se nahaja oz. kateremu pripada
+   če pa je metoda abstraktna, je torej znotraj abstraknega razreda, potem ne nemore biti privatna, saj iz abstraknega razreda do nje ne bomo dostopali,
+   iz drugih razredov pa to ne bo mogoče
+   iz abstraktnega razreda ne bomo dostopali do nje, ker je abstrakni razred zgolj in samo abstraktni razred zntraj katerega se razen "postavljanja okvirja" ne naredi ničesar drugega
+   torej je takšna metoda popolnoma brez pomena - poleg vsega naštetega pa moramo iz podrazredov dostopadi do vseh metod abstraktnega razreda,
+   kar pa v primeru prvatne metode ni mogoče
+A: Nima smisla da bi bila abstraktna metoda abstraktna in privatna
+
+---------------------------------------------
+Q: Ali se lahko sproži kakšna izjema (nekaj v tem smislu)?
+	public Integer f(Integer a){
+	return a + 1;
+	}
+A: treba zaradi nestatičnosti te metode f še prej nardit objekt razreda, da jo lahko prej izvedeš, torej recimo tkole:
+	public class Test1 {
+	   public Integer f(Integer a){
+	      return a + 1;
+	   }
+	   public static void main(String[] args){
+	      Test1 test = new Test1();
+	      System.out.println(test.f(4));
+	   }
+	}
+   v primeru, da je public static Integer f(Integer a) je pa čist brez objekta lahko torej "System.out.println(f(4));"
+
+-------------------------------------------
+Q: Zakaj se izogibamo nepotrebnim setterjem?
+A: Ker lahko spremenimo tudi nek drug objekt ki kaže na tega npr. 
+	Oseba a = new Oseba("ime","pirrimek",80);
+	Oseba b = a;
+	a.spremeniIme("Janko"); //Osebi b smo spremenili ime
+
+---------------------------------------------
+Q: Kaj je setter? Zakaj jih nočemo uporabljati?
+A: Ker lahko spremenimo tudi nek drug objekt ki kaže na tega (glej eno vprašanje višje).
+
+---------------------------------------------
+Q: Abrstaktni razred (kaj točno se ne spomnim....)
+A: želel je slišati to, da v abstraktnih razredih ne moreš imet konstruktorja
+
+--------------------------------------------
+Q: Kaj je razlika med abstraktnim razredom in vmesnikom?
+A: V abstraktnih razredih mamo lahko tud spremenljivke in konstruktor. Konstruktor v vmesniku nebi imel smisla.
+
+--------------------------------------------
+Q: Kaj mora pisati namesto ***, da se program prevede(/dela nisem siguren kaj od tega je blo tocno)
+	public static <T ***> void metoda(T nizi) {
+	  for (String niz : nizi) {
+	    //neka koda k pac ni relevantna
+	  }
+	}
+A: extends Iterable<String>
+
+------------------------------------------
+Q: Kako se implementira Comparator
+A: Comparator implementiramo z ločenim (statičnim) razredom.
+
+--------------------------------------------
+Q: Povej razliko med Comparable in Comparator.
+A: Comparable ima eno samo abrstraktno metodo compereTo (compere = primerljiv), ki jo implementiramo tako, da vrne:
+		*negativno število, če objekt this po kriteriju naravne urejenosti sodi pred drugi objekt
+		*pozitivno število, 			-||-				za drugi objekt
+		*0, če sta si objekta this in drugi po kriteriju naravne urejenosti enakovredna
+   Comparator ima prav tako samo enosamo eno abstraktno metodo compare, ki jo implementiramo tako, da vrne:
+		*negativno število, če objekt prvi po kriteriju naravne urejenosti sodi pred objekt drugi
+		*pozitivno število, 			-||-				za objekt drugi
+		*0, če sta si objekta prvi in drugi po kriteriju naravne urejenosti enakovredna
+   Medtem ko vmesnik Comparable implementiramo neposredno z razredom, ki mu želimo določiti naravno urejenost, vmesnih Comparator implementramo z ločenim razredom (static).
+   V vmesniku Comparable definiramo eno in edino naravno urejenost, medtem ko v vmesniku Comparator definiramo (eno od več možnih) alternativnih urejenosti
+
+---------------------------------------------
+Q: tista z mnozico k redefiniramo compareTo
+
+---------------------------------------------
+Q: Kaj je naravna urejenost, kako jo implementiras, primer naravne urejenosti?
+A: Naravna urejenost je najbolj običajna urejenost (glede na konkreten primer je to alhko leksigrafksa urejenost, inverzno leksikografska urejenost, urejenost po dolžini...).
+   Implementiramo jo v metodi compareTo (glej eno vprašanje višje).
+   Naravna urejenost: pri nizih = leksikografska urejenost
+		    : cela števila = matematična relacija je-manjši-od
+		    : objekti tipa Cas = kronološko
+		    : objekti tipa Oseba = leksikografsko po priimkih, v primeru enakih priimkov pa po imenih itd.
+
+---------------------------------------------
+Q: <T ***> kaj more bit namesto * da bo naravna urejenost
+A: <T extends Comparable<T>>
+
+---------------------------------------------
+Q: katero metodo je potrebno dopisati, ko implimentiramo Iterable
+A: public abstract Interator <T> interator();
+
+---------------------------------------------
+Q: Kako deluje zgoščeni seznam? Podvprašanje: kako iščemo elemente po takem seznamu?
+A: Odgovor je praktično razlaga iz prosojnic Dedovanje: "Implementacija slovarja z zgoščeno tabelo". Pomemben podatek je, 
+da znamo najti indeks "vrstice", kjer je element, nato pa se sprehodimo po povezanem seznamu in z equals iščemo element.
+
+---------------------------------------------
+Q: Razlika med List in Set
+A: Vmesnika Link in set sta podvmesnika vmesnika Collection. 
+   Vmesih List je skupni vmesnik za sezname, vmesnik Set, pa je skupni vmesnik za množice
+
+---------------------------------------------
+Q: nastej 3 razrede ki implementirajo Collection (pol prasa se za razliko med list in set)
+A: List, Set (,NavigableSet), Queue
+
+---------------------------------------------
+Q: Kateri razredi implementirajo List? (Naštej tri)
+A: ArrayList, LinkedList, Vector
+
+---------------------------------------------
+Q: Kaj je razlika med LinkedList in ArrayList?
+A: ArrayList deluje na osnovi tabele, medtem ko pri LinkedListu vsakemu elementu dodamo kazalec na naslednji element, in tako poiščemo svoj element
+
+---------------------------------------------
+Q: Arraylist in Linkedlist
+A: ArrayList
+	*raztegljiva tabela
+	*učinkovit dostop do elementa na podanem indeksu
+	*dodajanje in odvzemanje elementov je učinkovito samo na koncu
+   LinkedList
+	*veriga elementov, dvosmerno povezanih s kazalci
+	*dostop do elementa na podanem indeksu ni učinkovit
+	*dodajanje in odvzemanje elementov je učinkovito kjerkoli
+
+---------------------------------------------
+Q: Primerjaj TreeMap in HashMap
+A: TreeMap
+	*unikatnost ključev glede na primerjalnik
+	*za noben par ključev ne velja x.compareTo(y)==0 oz. primerjalnik. compare(x,y)==0
+   HashMap
+	*unikatnost ključev glede na equals
+	*za noben par ključev ne velja x.equals(y)
+
+---------------------------------------------
+Q:Naštej in razloži dva vsebovalnika, ki spadata pod set.
+A: HashSet
+	*implementacija množice z zgoščeno tabelo
+	*razred, ki mu pripadajo elemnti, mora implementirati metodi hashCode in equals
+	*veljati mora x.equals(y) => (x.hashCode()==y.hashCode())
+	*element y se obravnava kot dvojnik elementa x, če velja:   x.equals(y);   x.hachCode()==y.hashCode();
+   TreeSet
+	*urejena množica, implementirana z dvojiškim iskalnim drevesom
+	*urejenost temelji na implementaciji vmesnika Comparable ali Comparator
+	*če uporabimo konstruktor TreeSet(), potem mora razred, ki mu pripadajo elementi, implementirati vmesnik Comparable
+	*če uporabimo konstruktor TreeSet(Comparator<T> comp),potem je urejenost določena z metodo compare objekta comp
+	*podvojitve se prav tako preverjajo z metodo compareTo oz.compare
+	*x.compareTo(y) == 0 =⇒ element y je podvojitev elementa x
+	*metoda equals se ne uporablja!
+
+preverjanje podvojitev pri razredu HashSet temelji na metodah equals in hashCode
+preverjanje podvojitev pri razredu TreeSet temelji na implementaciji vmesnika Comparable ali Comparator
+
+-------------------------------------------
+Q:Kaj izpiše mep.size?
+	razred s metodo compare();, vedno vrne 0
+	
+	Potem pa v main TreeSet 
+	map.add (10);
+	map.add (10);
+	map.add (20);
+	map.add (30);
+
+A: 1, ker se zapiše samo en elemnet, ker metoda compare vedno vrne 0 
+
+(podvprašanje)Q:Kaj je značilno za množice na splošno
+A: Znotraj množic ni duplikatov in ineksi niso pomembni.
+
+-------------------------------------------
+Q: Kaj je značilno za vsebovalnik, ki lahko uporablja for-each?
+A: Vmesnik Collection<T> je podvmesnik vmesnika Iterable<T>, zato se lahko po vseh zbirkah sprehodimo z zanko for-each.
+   
+¯\_(ツ)_/¯
+-------------------------------------------
+Q: Kaj morata biti (a, b) v lambda operaciji, če urejamo List<Integer>?
+A: Integer
+   (a, b) je samo krajši zapis za (Integer a, Integer b), večkrat lahko tako skrajšaš zapis, poglej v knjigo natančno kdaj, 
+
+-------------------------------------------
+Q: Nek primer z lambdo, kateri vmesnik se uporablja, kateri tipi so parametre, kaj v lambdi napisemo za nasprotna urejenost(al nasprotna naravna urejenost can’t remember)
+kaj je nasprotna urejenost v lambdi?
+
+verjetno je biu v primeru comparator al pa comparable uporabljen pa si mogu neki s tem povedat
+glede na to da je blo podvprasanje kateri vmesnik se uporablja
+in pol nasprotna urejenost ravno obratno kokr je default comparable
+Ja. Vprašanje je bilo nekaj takega: seznam.sort((a, b) -> …), pa je bilo potrebno reči, da je comparator, a in b sta integer, in za nasprotno urejenost namesto treh pikic mora biti b - a
+za compareTo() metodo namesto (a, b) -> a.compareTo(b); daš (a, b) -> b.compareTo(a);
+če je nasprotna urejenost urejenost, ki je nasprotna naravni
+ampak tisto bi prej imenoval obratna urejenost (nisem ziher)
+
+-------------------------------------------
+
+
+
+______________________________________________________________________________________________________________________________
+FRIENDLY REMINDER_____________________________________________________________________________________________________________
+
+int a = 1
+System.out.println(a++); 	//izpiše 1, ker najprej vrne a in šele nato prišteje 1
+System.out.println(++a); 	//izpiše 3, ker najprej prišteje in šele nato vren (also: ni 2, ker je a++ ali ++a => a = a+1 in ne a+1)
+
+
+TABELA (Array) ni sestavljena iz vrstic stolpcev itd.... gre za kazalce kazalcev na vrednosti!
+tabela je zaporedje spremenljivk istega tipa, ki se imenujejo elementi tabele in do katerih lahko dostopamo preko indeksov (indeksi se vedno začnejo z 0)
+
+
+STATIČNI RAZREDi se obnašajo kot zunanji, lahko pa dostopajo do "private" opredeljenih spremenljivk/metod/..., ki se nahajajo znotraj istega razreda znotraj katerega je tudi sam statični razred
+
+ASCII CODE 
+1 => 49
+a => 65
+A => 97
+
+PRETVORBA TIPA - recimo da je B podrazred A
+	A a1 = new A(...);
+	A a2 = new B(...);
+	B b1 = (B) a1;		//izvajalnik sproži izjemo ClassCastException (prevajalnik ne javlja napake), ker kazalec a1 ne kaže na objekt tipa B ali njegovega podtipa 
+	B b2 = (B) a2;		//ok
+
+STATIČNA/NESTATIČNA METOTA - poleg ostalih spremenljivk/parametrov, se iz klica prebere/vzame še objekt in sicer this (velja za nestatično metodo)
+pri statičnih metodah pred piko ni kazalca
+
+SEZNAM - položaj elementov je določen z indeksom, element se lahko podvaja
+MNOŽICA - položaj elementa ni določen (delna izjema: TreeSet), elementi se ne morejo podajati
+SLOVAR - množica parov ključ - vrednost, ključi se ne morejo podvajati, vrednosti se lahko podvajajo, vrednosti so dostopne preko ključev
+
+SOME MORE TIPS:
+public class Test{
+   public static void main (String[] agrs){
+      char a = '1';
+      int b = 2;
+      System.out.println(a + b);	//51   
+      System.out.println(a < b);	//false
+      System.out.println(++a);		//2
+   }
+}
+
+če prevajalnik lahko dojame kakšen tip parametrov je lah vedno tip spustiš... to je eden izmed highlightov v učbeniku tudi
+
+

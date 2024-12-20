@@ -1,0 +1,66 @@
+Q: Kaj je razlika med LinkedList in ArrayList?
+A: ArrayList deluje na osnovi tabele, medtem ko pri LinkedListu vsakemu elementu dodamo kazalec na naslednji element, in tako poiščemo svoj element
+
+Q: Ali vedno obstaja alternativa uporabi besede break; v zankah?
+A: Da, uporabimo lahko for(int i = 0; i < quantity && boolean_a == true; i++)
+
+Q: Kaj je razlika med objektom in objektno spremenljivko
+A: Spremenljivka hrani kazalec na objekt, medtem ko je objekt dejansko prostor v spominu, kjer so shranjene vse spremenljivk
+---------------------------------------------
+Q: Povej razliko med Comparable in Comparator.
+
+Q: Neka naloga z tabelami in kaj izpisejo.
+---------------------------------------------
+Q: Razlika med List in Set
+
+Q: Kako v zgoščeni tabeli določamo indekse ključev
+A: V hashmapu je npr., to je tista stvar k dopušča da je več stvari hkrati na enmu indeksu. To nardi z vozlišči, tako da eno vozlišče kaže na naslednjega, ta prvo vozlišče pa je dejansko v tabeli. Indekse pa dobiš tako da kličeš hashcode() na ključe in potem rezultat preslikaš v meje tabele z mod...fora je da imajo lahko različni ključi iste indekse (ker preslikuješ v meje tabele) zato rabš zgoščeno tabelo
+
+Q: Kaj je rezultat 1 > 2
+---------------------------------------------
+Q: Kateri razredi implementirajo List? (Naštej tri)
+Q: Zakaj se izogibamo nepotrebnim setterjem?
+A: Ker lahko spremenimo tut nek drug objekt k kaže na tega npr. 
+	Oseba a = new Oseba("ime","pirrimek",80);
+	Oseba b = a;
+	a.spremeniIme("Janko"); //Osebi b smo spremenili ime
+Q: for loop s printf
+---------------------------------------------
+Q: katero metodo je potrebno dopisati, ko implimentiramo Iterable
+
+Q: ali se naslednji program prevede "1".equals(2)
+A:
+"1".equals(2) se prevede u String.valueOf("1").equals(Integer.valueOf(2))
+---------------------------------------------
+Q: Razlike med List in Set
+
+Q: sm meu nek odsek programa napisan in mogu povedat kaksna je spremenljivka v casu prevajanja kaksna pa v casu izvjanja
+Object a = new Student.... ( s tem da student extenda object)
+
+Q: Kaksnega tipa morjo bit spremenljivke da bo mozno a==b==c in kaksne so moznosti da to vrne true
+A: Naceloma sta a in b lahko inta/karkol ampak c mora bit tipa boolean, on je misljen meu da reces da so vsi tipa boolean
+in pravilne moznosti so a,b,c = true; a,b= false c= true; a = true b,c = false
+---------------------------------------------
+Q: kako izračunamo št. elementov v 2D tabeli
+
+Q: dal kodo dveh razredov, eded deduje drugega in sprašal, zakaj se ne bo prevedlo (hoče izpisati atribut subclassa s tipom superclassa)
+
+Q: razlika med 'a' in "a": eden je char in primitiven tip, drugi je referenčni in String
+---------------------------------------------
+Q: nastej 3 razrede ki implementirajo Collection (pol prasa se za razliko med list in set)
+
+Q: kaksnega tipa je lahko b v izrazu double a = b
+
+Q: zakaj metoda ne more bit hkrati privatna in abstraktn
+---------------------------------------------
+Q: Arraylist in Linkedlist
+
+Q: Razlika med objektom in razredom
+
+Q: 1>2
+---------------------------------------------
+Q: jaz sicer nism mu uprasanj ampak sm vidu prvi slide pa je blo.. kdaj je res !a || b && c
+---------------------------------------------
+
+
+
