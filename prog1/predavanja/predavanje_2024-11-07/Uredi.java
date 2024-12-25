@@ -5,7 +5,8 @@ public class Uredi {
 
     public static void main(String[] args) {
         int[] tabela = {80, 50, 75, 30, 45, 60, 95, 20};
-        uredi(tabela);
+        //uredi(tabela);
+        Arrays.sort(tabela);
         System.out.println(Arrays.toString(tabela));
     }
 
