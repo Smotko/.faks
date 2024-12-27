@@ -1,4 +1,4 @@
-
+package prog1.predavanja.lastno.podrazredi;
 public class Student{
     String ip;
     String vpisna;
@@ -8,5 +8,6 @@ public class Student{
         this.vpisna = vpisna;
         this.stroskiBivanja = stroskiBivanja;
     }
+        
 
 }

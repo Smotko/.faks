@@ -1,3 +1,5 @@
+package prog1.predavanja.lastno.podrazredi;
+import prog1.predavanja.lastno.podrazredi.*;
 
 public class IzredniStudent extends Student{
     int izredniStroski;
