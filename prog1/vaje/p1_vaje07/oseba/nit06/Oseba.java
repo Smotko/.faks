@@ -138,9 +138,6 @@ public class Oseba {
         Oseba p = os.oce;
         while(p != this && p != null){
             p = p.oce;
-            if(p.oce == this){
-                return true;
-            }
         }
         return p == this;
     }
@@ -153,12 +150,31 @@ public class Oseba {
     
     
     public boolean jePrednikOd(Oseba os) {
-
-        return false;
+        if(os == null){
+            return false;
+        }
+        
+        Oseba o = os.oce;
+        Oseba m = os.mati;
+        if(o == this || m == this){
+            return true;
+        }
+        return jePrednikOd(os.oce) || jePrednikOd(os.mati);
     }
     
     public boolean staVSorodu(Oseba os) {
-        return false;
+        if(os == null){
+            return false;
+        }
+        
+        Oseba o = os.oce;
+        Oseba m = os.mati;
+        Oseba to = this.oce;
+        Oseba tm = this.mati;
+        if(o == to || m == tm){
+            return true;
+        }
+        return staVSorodu(os.oce) || staVSorodu(os.mati);
     }
     
     public String druzinskaImena() {

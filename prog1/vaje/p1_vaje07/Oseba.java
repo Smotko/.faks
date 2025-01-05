@@ -169,8 +169,8 @@ public class Oseba {
         
         Oseba o = os.oce;
         Oseba m = os.mati;
-        Oseba to = os.oce;
-        Oseba tm = os.mati;
+        Oseba to = this.oce;
+        Oseba tm = this.mati;
         if(o == to || m == tm){
             return true;
         }
