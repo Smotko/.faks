@@ -67,9 +67,6 @@ public class Vektor<T> {
             for (int i = 0;  i < this.stElementov;  i++) {
                 this.elementi[i] = stariElementi[i];
             }
-            for(T el : elementi){
-                System.out.println(el);
-            }
         }
     }
 

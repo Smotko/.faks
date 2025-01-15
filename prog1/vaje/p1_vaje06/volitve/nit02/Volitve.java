@@ -27,7 +27,7 @@ public class Volitve {
         int[][] res = new int[t.length][t[0].length];
         for(int leto = 0; leto <t.length; leto++){
             for(int stranka = 0; stranka < t[leto].length; stranka++)
-            res[leto][stranka] = steviloGlasov(t, leto, stranka);
+                res[leto][stranka] = steviloGlasov(t, leto, stranka);
         }
         return res;
     }

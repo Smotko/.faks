@@ -21,12 +21,6 @@ public abstract class Lik implements Comparable<Lik>{
 	 
 	public abstract String podatki();
 
-
-
-
-	public static void urediPoTipuInObseguObratno(Vektor<Lik> vektor) {
-
-	}
 	
 	
 	// 5 - dodatno za studente, ki koncajo prej...
@@ -106,6 +100,11 @@ public abstract class Lik implements Comparable<Lik>{
 		// Comparator<Lik> nasPrimerjalnik = Skupno.<Lik>kompozitum(poTipu(), poObsegu());
 		Comparator<Lik> nasPrimerjalnik = Skupno.kompozitum(poTipu(), poObsegu());
 		Skupno.uredi(vektor, nasPrimerjalnik);
+	}
+
+	public static void urediPoTipuInObseguObratno(Vektor<Lik> vektor) {
+		Comparator<Lik> nasObrnjenPrimerjalnik = Skupno.obrat(poTipu(), poObsegu());
+		Skupno.uredi(vektor, nasObrnjenPrimerjalnik);
 	}
 	
 

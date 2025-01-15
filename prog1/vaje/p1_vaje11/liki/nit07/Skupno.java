@@ -81,6 +81,10 @@ public class Skupno {
 			return (rezultat1 == 0) ? this.prim2.compare(a, b)*(-1) : rezultat1;
 		}
 	}
+
+	public static <T> Comparator<T> obrat(Comparator<T> prim1, Comparator<T> prim2) {
+		return new Obrat<T>(prim1, prim2);
+	}	
 	
 
 

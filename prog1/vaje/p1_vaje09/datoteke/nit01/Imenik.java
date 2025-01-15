@@ -12,6 +12,7 @@ public class Imenik extends Datoteka {
 		super(ime);
 		this.datoteke = datoteke;
 	}
+	String a = "D";
 	
 	/**
 	 * Sestejemo velikosti posameznih datotek (in podimenikov)
