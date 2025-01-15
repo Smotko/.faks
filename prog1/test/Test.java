@@ -19,10 +19,13 @@ public class Test{
             System.out.printf("%s: %d%n", a, i);
         }
         */
+       /*
         String a = "ABS";
         String b = new String("ABS");
         if(a == b){
             System.out.println(a + b);
         }
+        */
+       System.err.println("!")
     }
 }
