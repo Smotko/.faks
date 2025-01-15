@@ -26,6 +26,20 @@ public class Cetrta {
 
     public static <T extends Comparable<T>> Iterator<T> zlitje(Iterator<T> a, Iterator<T> b) {
         // popravite / dopolnite ...
+        private static class IteratorCezVektor<T> implements Iterator<T> {
+            private Vektor<T> vektor;
+            private int indeks;
+            public IteratorCezVektor(Vektor<T> vektor) {
+            this.vektor = vektor;
+            this.indeks = 0;
+            }
+            @Override
+            public boolean hasNext() {
+            return this.indeks < this.vektor.steviloElementov();
+            }
+            ...
+            }
+
         return Iterator<T>;
     }
 
