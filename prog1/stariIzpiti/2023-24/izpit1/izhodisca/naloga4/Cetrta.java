@@ -25,8 +25,24 @@ public class Cetrta {
     }
 
     public static <T extends Comparable<T>> Iterator<T> zlitje(Iterator<T> a, Iterator<T> b) {
-        // popravite / dopolnite ...
-        return Iterator<T>;
+        return new Nov(a,b);
+    }
+
+    public static class Nov implements Iterator<T>{
+
+        Nov(Iterator<T> a,Iterator<T> b){
+
+        }
+
+        @Override
+        public boolean hasNext(){
+            return false;   
+        }
+
+        @Override
+        public int next(){
+            return -1;
+        }
     }
 
     // pomo"zne metode (po potrebi) ...
