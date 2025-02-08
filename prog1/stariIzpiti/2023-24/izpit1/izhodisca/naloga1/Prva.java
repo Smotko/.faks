@@ -30,7 +30,7 @@ public class Prva {
                         b = true;
                 }
             }
-            System.out.println( b ? "DA" : "NE");
+            System.out.println(b ? "DA" : "NE");
         }
     }
 
