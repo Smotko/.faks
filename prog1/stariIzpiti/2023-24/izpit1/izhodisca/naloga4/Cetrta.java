@@ -21,47 +21,47 @@ import java.util.*;
 public class Cetrta {
 
     public static void main(String[] args) {
-        // dopolnite za potrebe ro"cnega testiranja
+        
     }
+
+    
 
     public static <T extends Comparable<T>> Iterator<T> zlitje(Iterator<T> a, Iterator<T> b) {
-<<<<<<< HEAD
-        // popravite / dopolnite ...
-        private static class IteratorCezVektor<T> implements Iterator<T> {
-            private Vektor<T> vektor;
-            private int indeks;
-            public IteratorCezVektor(Vektor<T> vektor) {
-            this.vektor = vektor;
-            this.indeks = 0;
-            }
+        return new Iterator<T>() {
+            
+            T nextA = a.hasNext() ? a.next() : null;
+            T nextB = b.hasNext() ? b.next() : null;
+            
             @Override
             public boolean hasNext() {
-            return this.indeks < this.vektor.steviloElementov();
-            }
-            ...
+                return nextA != null || nextB != null;
             }
 
-        return Iterator<T>;
-=======
-        return new Nov(a,b);
-    }
-
-    public static class Nov implements Iterator<T>{
-
-        Nov(Iterator<T> a,Iterator<T> b){
-
-        }
-
-        @Override
-        public boolean hasNext(){
-            return false;   
-        }
-
-        @Override
-        public int next(){
-            return -1;
-        }
->>>>>>> 2cb3acd253dc4ef21297a701a4a6c99970d4379f
+            @Override
+            public T next(){
+                T ret = null;
+                try{
+                    if(nextA != null && nextB != null){
+                        if(nextA.compareTo(nextB) < 0){
+                            ret = nextA;
+                            nextA = a.hasNext() ? a.next() : null;
+                        }else{
+                            ret = nextB;
+                            nextB = b.hasNext() ? b.next() : null;
+                        }
+                    }else if(nextA != null){
+                        ret = nextA;
+                        nextA = a.hasNext() ? a.next() : null;
+                    }else if(nextB != null){
+                        ret = nextB;
+                        nextB = b.hasNext() ? b.next() : null;
+                    }
+                }catch (IndexOutOfBoundsException e) {
+                    throw new NoSuchElementException();
+                }
+                return ret;
+            }
+        };
     }
 
     // pomo"zne metode (po potrebi) ...
