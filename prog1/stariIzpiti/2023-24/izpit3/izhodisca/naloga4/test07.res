@@ -1,0 +1,5 @@
+[Ana, Bojan, Cvetka, Denis, Eva]
+[Bojan, Cvetka, Bojan, Cvetka, Bojan, Cvetka]
+[Bojan, Ana, Eva, Ana, Franci, Eva, Ana]
+[]
+[Maja, Maja, Maja, Maja, Maja, Maja]
