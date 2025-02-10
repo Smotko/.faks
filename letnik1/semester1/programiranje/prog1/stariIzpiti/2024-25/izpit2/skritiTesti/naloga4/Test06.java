@@ -1,0 +1,128 @@
+
+import java.util.*;
+
+public class Test06 {
+
+    public static void main(String[] args) {
+        Map<Integer, String> kolo2postaja = new TreeMap<>();
+        kolo2postaja.put(827883255, "UvTgsIi");
+        kolo2postaja.put(407689954, "JivwIbj");
+        kolo2postaja.put(553249153, "ieOMB");
+        kolo2postaja.put(350063340, "JivwIbj");
+        kolo2postaja.put(586932940, "wnzBt");
+        kolo2postaja.put(200967321, "rHSBWnJ");
+        kolo2postaja.put(440509451, "UvTgsIi");
+        kolo2postaja.put(329961759, "PsFVRjk");
+        kolo2postaja.put(818205497, "JivwIbj");
+        kolo2postaja.put(915694865, "iuSYKFl");
+        kolo2postaja.put(508149996, "ljYXfp");
+        kolo2postaja.put(392251598, "iuSYKFl");
+        kolo2postaja.put(421586110, "IwclmWk");
+        kolo2postaja.put(368788399, "MmelQcW");
+        kolo2postaja.put(497143620, "UvTgsIi");
+        kolo2postaja.put(211646225, "lRrMf");
+        kolo2postaja.put(872085547, "JivwIbj");
+        kolo2postaja.put(985207513, "rHSBWnJ");
+        kolo2postaja.put(301514859, "JivwIbj");
+        kolo2postaja.put(930510000, "pktHS");
+        kolo2postaja.put(437949307, "oVNaHX");
+        kolo2postaja.put(76766708, "ieOMB");
+        kolo2postaja.put(619249109, "qWGIeb");
+        kolo2postaja.put(27674853, "mfWgEku");
+        kolo2postaja.put(576690351, "cxxDc");
+        kolo2postaja.put(872614333, "fZwiFm");
+        kolo2postaja.put(303919335, "uANxZg");
+        kolo2postaja.put(940680896, "BlkNz");
+        kolo2postaja.put(490931522, "rvAgl");
+        kolo2postaja.put(539360081, "pktHS");
+        kolo2postaja.put(318237062, "PsFVRjk");
+        kolo2postaja.put(898292138, "mfWgEku");
+        kolo2postaja.put(984243040, "cNKVF");
+        kolo2postaja.put(562957038, "cKuxf");
+        kolo2postaja.put(467998444, "IwclmWk");
+        kolo2postaja.put(296788843, "CCTOP");
+        kolo2postaja.put(995932438, "cxxDc");
+        kolo2postaja.put(307741303, "iuSYKFl");
+        kolo2postaja.put(491553964, "CCTOP");
+        kolo2postaja.put(531117399, "YEMXUKF");
+        kolo2postaja.put(932768435, "YTcQKJu");
+        kolo2postaja.put(4352980, "cxxDc");
+        kolo2postaja.put(656956229, "pktHS");
+        kolo2postaja.put(156691793, "TUqiz");
+        kolo2postaja.put(818599768, "OFNwKs");
+        kolo2postaja.put(403101049, "PAiKih");
+        kolo2postaja.put(721745995, "GVEtZC");
+        kolo2postaja.put(733121528, "ieOMB");
+        kolo2postaja.put(268934136, "mfWgEku");
+        kolo2postaja.put(942807725, "mfWgEku");
+        kolo2postaja.put(219245838, "moqxDw");
+        kolo2postaja.put(732485617, "moqxDw");
+        kolo2postaja.put(572915595, "cNKVF");
+        kolo2postaja.put(238100569, "NGxexm");
+        kolo2postaja.put(818837505, "PAiKih");
+        kolo2postaja.put(270541886, "ljYXfp");
+
+        Cetrta.Sistem sistem = new Cetrta.Sistem(kolo2postaja);
+        sistem.izposoja(238100569);
+        sistem.izposoja(508149996);
+        sistem.izposoja(733121528);
+        sistem.izposoja(995932438);
+        sistem.izposoja(421586110);
+        sistem.izposoja(219245838);
+        sistem.izposoja(303919335);
+        sistem.izposoja(211646225);
+        sistem.izposoja(818837505);
+        sistem.izposoja(200967321);
+        sistem.izposoja(576690351);
+        sistem.izposoja(307741303);
+        sistem.izposoja(490931522);
+        sistem.izposoja(619249109);
+        sistem.izposoja(553249153);
+        sistem.izposoja(827883255);
+        sistem.izposoja(539360081);
+        sistem.izposoja(392251598);
+        sistem.izposoja(270541886);
+        sistem.izposoja(942807725);
+        sistem.izposoja(721745995);
+        sistem.izposoja(732485617);
+        sistem.izposoja(437949307);
+        sistem.izposoja(562957038);
+        sistem.izposoja(985207513);
+        sistem.izposoja(268934136);
+        sistem.izposoja(818599768);
+        sistem.izposoja(27674853);
+        sistem.izposoja(296788843);
+        sistem.izposoja(491553964);
+        sistem.izposoja(872614333);
+        sistem.izposoja(818205497);
+        sistem.izposoja(329961759);
+        sistem.izposoja(915694865);
+        sistem.izposoja(407689954);
+        sistem.izposoja(403101049);
+        sistem.izposoja(898292138);
+        sistem.izposoja(368788399);
+        sistem.izposoja(656956229);
+        sistem.izposoja(156691793);
+        sistem.izposoja(350063340);
+        sistem.izposoja(586932940);
+        sistem.izposoja(930510000);
+        sistem.izposoja(932768435);
+        sistem.izposoja(572915595);
+        sistem.izposoja(531117399);
+        sistem.izposoja(318237062);
+        sistem.izposoja(440509451);
+        sistem.izposoja(497143620);
+        sistem.izposoja(940680896);
+        sistem.izposoja(467998444);
+        sistem.izposoja(4352980);
+        sistem.izposoja(301514859);
+        sistem.izposoja(76766708);
+
+        Map<Integer, Boolean> statusi = sistem.statusiKoles();
+        List<Integer> kolesa = new ArrayList<>(statusi.keySet());
+        kolesa.sort(null);
+        for (int kolo: kolesa) {
+            System.out.printf("%d -> %b%n", kolo, statusi.get(kolo));
+        }
+    }
+}

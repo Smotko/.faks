@@ -1,0 +1,15 @@
+
+import java.util.*;
+
+public class Test48 {
+
+    public static void main(String[] args) {
+        izpisi(Tretja.Poniz.izNiza("qqqqqpppppppppppppppppppppppppppppppppppppnnnnnnnnnnnnnnvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvJJJJJJJJJJJJJJJJJJJJJJJJmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmllllllllllllllttttttttttttttttttttttttttttttttttttttttttttZZZZZZZZZZZZZZZZZZZZZZZZZIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIssssssssssssssssssssssssssssssssssssssssssssuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuVVVVVVVVVVVVVVVVVVVVVVVVVVVNNNNNNNNNNNNNNNNNNNNNNNNNNOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxaaaaaaaaaaaaaaaaaaaammmmmmmmmmmmmmmmmmmmmmmmmmmmmFFFFFFFFFFFFFFFFFFFFFFFFVVPPPPPPPPPPPPPPPPPnnnnnnnnnnnnnnnnn"));
+        izpisi(Tretja.Poniz.izNiza("qPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPppppppppppppppppppppp7777777777777777777777777888888bbbbbbbbbbbbbbbbbbbbbbbbbbyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq5555555555555555555555555555555555555GGG9999999999999999999999999999999999999999999999tttttttttttttttttgggggggggggggggggggggggggggggggggggggggggggiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSS2222222________________________________PPPPPPPPPPPPDDDDDDDDDDDDDDQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"));
+    }
+
+    private static void izpisi(Tretja.Poniz poniz) {
+        System.out.printf("%s / %s%n",
+                Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));
+    }
+}

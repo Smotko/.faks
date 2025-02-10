@@ -1,0 +1,2318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>Prikaz rezultatov testiranja</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style>
+            .tableBase { border-collapse: collapse; }
+            .tableBase > tbody > tr > td { border: 1px solid black; padding: 7px;}
+            .tableResults { table-layout: fixed; border-spacing: 0px; border-collapse: separate; }
+            table#nasredini { margin-left:auto; margin-right:auto; }
+            table tbody td.hoverOk {background-color:#9F9; border: 1px solid #63B563; width: 15px; color: black; text-align: center; }
+            .hoverOk:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #63B563; }
+            .hoverOk:hover td { background: transparent; }
+            .hoverOk > a:link, .hoverOk > a:visited, .hoverOk > a:hover, .hoverOk > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverErr {background-color:#FFBF00; border: 1px solid #CB9800; width: 15px; color: black; text-align: center; }
+            .hoverErr:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #CB9800; }
+            .hoverErr:hover td { background: transparent; }
+            .hoverErr > a:link, .hoverErr > a:visited, .hoverErr > a:hover, .hoverErr > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverRuntime {background-color:#FF9; border: 1px solid #D8D87E; width: 15px; color: black; text-align: center; }
+            .hoverRuntime:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #D8D87E; }
+            .hoverRuntime:hover td { background: transparent; }
+            .hoverRuntime > a:link, .hoverRuntime > a:visited, .hoverRuntime > a:hover, .hoverRuntime > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverCompile {background-color:#C00000; border: 1px solid #710B0B; width: 15px; color: black; text-align: center; }
+            .hoverCompile:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #710B0B; }
+            .hoverCompile:hover td { background: transparent; }
+            .hoverCompile > a:link, .hoverCompile > a:visited, .hoverCompile > a:hover, .hoverCompile > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverMissing {background-color:#F0F0F0; border: 1px solid #ABABAB; width: 15px; color: black; text-align: center; }
+            .hoverMissing:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #ABABAB; }
+            .hoverMissing:hover td { background: transparent; }
+            .hoverMissing > a:link, .hoverMissing > a:visited, .hoverMissing > a:hover, .hoverMissing > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverTimeout {background-color:#B9F; border: 1px solid #9070CE; width: 15px; color: black; text-align: center; }
+            .hoverTimeout:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #9070CE; }
+            .hoverTimeout:hover td { background: transparent; }
+            .hoverTimeout > a:link, .hoverTimeout > a:visited, .hoverTimeout > a:hover, .hoverTimeout > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverImage {background-color:#D0E0F0; border: 1px solid #a6b3c0; width: 15px; color: black; text-align: center; }
+            .hoverImage:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #a6b3c0; }
+            .hoverImage:hover td { background: transparent; }
+            .hoverImage > a:link, .hoverImage > a:visited, .hoverImage > a:hover, .hoverImage > a:active { color: black; font-size: 0.9em; }
+            .tableCommon { border-collapse: collapse; }
+            .tableOK > tbody > tr > td { border: 1px solid #63B563; padding: 7px;}
+            .tableError > tbody > tr > td { border: 1px solid #CB9800; padding: 7px;}
+            .tableRuntime > tbody > tr > td { border: 1px solid #D8D87E; padding: 7px;}
+            .tableCompiler > tbody > tr > td { border: 1px solid #710B0B; padding: 7px;}
+            .tableMissing > tbody > tr > td { border: 1px solid #ABABAB; padding: 7px;}
+            .tableTimeout > tbody > tr > td { border: 1px solid #9070CE; padding: 7px;}
+            .tableImage > tbody > tr > td { border: 1px solid #a6b3c0; padding: 7px;}
+            .tableSummary { table-layout: fixed; }
+            .texttt { font-family: DejaVu Sans Mono, monospace; font-size: 0.8em; }
+            table.diff > tbody > tr > td { border: none; font-family: DejaVu Sans Mono, monospace}
+            .diff_add { color: green; font-family: DejaVu Sans Mono, monospace; }
+            .diff_sub { color: blue; font-family: DejaVu Sans Mono, monospace; }
+            .diff_chg { color: red; font-family: DejaVu Sans Mono, monospace; }
+            a { color: blue; text-decoration: none; height: 100%; width: 100%; vertical-align: middle; }
+            a:link { color: blue; text-decoration: none; }
+            a:link { color: blue; text-decoration: none; }
+            a:hover { color: blue; text-decoration: underline; }
+            body, td { font: normal normal 100%/1.0 DejaVu Sans, sans-serif; }
+            h1 { font-weight: bold; font-size: 150%; }
+            h2 { font-weight: normal; font-size: 125%; border-top: 1px solid black; border-bottom: 1px solid black; background: #DEF; padding: 5px; margin-top: 36px; margin-bottom: 36px}
+            .container{ margin: 0px auto; width: 70%; min-width: 700px; margin-top: 1.8cm; margin-bottom: 1.8cm; }
+            .rwordb{ color: blue; font-weight: bold; }
+            .rwordv{ color:#8000ff; font-weight: bold; }
+            .vcomment{ color: green; }
+            .bcomment{ color: green; }
+            .niz{ color:#a31515; }
+            .stevilo{ color:#ff8000; }
+            tab { padding-left: 4em; }
+            #grad1 {
+                background: -webkit-linear-gradient(left, #E0E0E0 , white);
+                background: -o-linear-gradient(right, #E0E0E0, white);
+                background: -moz-linear-gradient(right, #E0E0E0, white);
+                background: linear-gradient(to right, #E0E0E0 , white);
+            }
+            #grad2 {
+                background: -webkit-linear-gradient(left, #FFBF00 , white);
+                background: -o-linear-gradient(right, #FFBF00, white);
+                background: -moz-linear-gradient(right, #FFBF00, white);
+                background: linear-gradient(to right, #FFBF00 , white);
+            }
+            .capSlika { display:block; height: 25px; margin:0 auto; font-size: 1.0em; text-align: left; }
+            .dborder { padding: 0px; border: 1px solid #CACACA; }
+            .capText { display: block; margin:0 auto; font-size: 0.9em; text-align: left; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <a name="top"></a>
+        <h1 id="grad2" style="padding: 10px; border: 0px solid black; color: #000000;">Rezultati preverjanja metod programa (25/50)</h1>
+        <div style="height: 20px"></div>
+        <a name="summary"></a>
+        <h2>Povzetek rezultatov</h2>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                <td class="hoverOk"><a href="#testcase1">1</a></td>
+                <td class="hoverOk"><a href="#testcase2">2</a></td>
+                <td class="hoverOk"><a href="#testcase3">3</a></td>
+                <td class="hoverOk"><a href="#testcase4">4</a></td>
+                <td class="hoverOk"><a href="#testcase5">5</a></td>
+                <td class="hoverOk"><a href="#testcase6">6</a></td>
+                <td class="hoverOk"><a href="#testcase7">7</a></td>
+                <td class="hoverOk"><a href="#testcase8">8</a></td>
+                <td class="hoverOk"><a href="#testcase9">9</a></td>
+                <td class="hoverOk"><a href="#testcase10">10</a></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                <td class="hoverOk"><a href="#testcase11">11</a></td>
+                <td class="hoverOk"><a href="#testcase12">12</a></td>
+                <td class="hoverOk"><a href="#testcase13">13</a></td>
+                <td class="hoverOk"><a href="#testcase14">14</a></td>
+                <td class="hoverOk"><a href="#testcase15">15</a></td>
+                <td class="hoverOk"><a href="#testcase16">16</a></td>
+                <td class="hoverOk"><a href="#testcase17">17</a></td>
+                <td class="hoverOk"><a href="#testcase18">18</a></td>
+                <td class="hoverOk"><a href="#testcase19">19</a></td>
+                <td class="hoverOk"><a href="#testcase20">20</a></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                <td class="hoverOk"><a href="#testcase21">21</a></td>
+                <td class="hoverOk"><a href="#testcase22">22</a></td>
+                <td class="hoverOk"><a href="#testcase23">23</a></td>
+                <td class="hoverOk"><a href="#testcase24">24</a></td>
+                <td class="hoverOk"><a href="#testcase25">25</a></td>
+                <td class="hoverRuntime"><a href="#testcase26">26</a></td>
+                <td class="hoverRuntime"><a href="#testcase27">27</a></td>
+                <td class="hoverRuntime"><a href="#testcase28">28</a></td>
+                <td class="hoverRuntime"><a href="#testcase29">29</a></td>
+                <td class="hoverRuntime"><a href="#testcase30">30</a></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                <td class="hoverRuntime"><a href="#testcase31">31</a></td>
+                <td class="hoverRuntime"><a href="#testcase32">32</a></td>
+                <td class="hoverRuntime"><a href="#testcase33">33</a></td>
+                <td class="hoverRuntime"><a href="#testcase34">34</a></td>
+                <td class="hoverRuntime"><a href="#testcase35">35</a></td>
+                <td class="hoverRuntime"><a href="#testcase36">36</a></td>
+                <td class="hoverRuntime"><a href="#testcase37">37</a></td>
+                <td class="hoverRuntime"><a href="#testcase38">38</a></td>
+                <td class="hoverRuntime"><a href="#testcase39">39</a></td>
+                <td class="hoverRuntime"><a href="#testcase40">40</a></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                <td class="hoverRuntime"><a href="#testcase41">41</a></td>
+                <td class="hoverRuntime"><a href="#testcase42">42</a></td>
+                <td class="hoverRuntime"><a href="#testcase43">43</a></td>
+                <td class="hoverRuntime"><a href="#testcase44">44</a></td>
+                <td class="hoverRuntime"><a href="#testcase45">45</a></td>
+                <td class="hoverRuntime"><a href="#testcase46">46</a></td>
+                <td class="hoverRuntime"><a href="#testcase47">47</a></td>
+                <td class="hoverRuntime"><a href="#testcase48">48</a></td>
+                <td class="hoverRuntime"><a href="#testcase49">49</a></td>
+                <td class="hoverRuntime"><a href="#testcase50">50</a></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <div style="height: 20px"></div>
+        <h2>Rezultati</h2>
+        <a name="testcase1"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 1</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test01 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'G'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">19</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'H'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">14</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <GGGGGGGGGGGGGGGGGGG><br/><HHHHHHHHHHHHHH><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase2"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test02 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'x', 'n'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">15</span>, <span class="stevilo">10</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'<span class="stevilo">0</span>', 't'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">17</span>, <span class="stevilo">12</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <xxxxxxxxxxxxxxxnnnnnnnnnn><br/><00000000000000000tttttttttttt><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase3"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 3</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test03 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'I', 'D', 'r'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">14</span>, <span class="stevilo">5</span>, <span class="stevilo">14</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'<span class="stevilo">9</span>', '<span class="stevilo">1</span>', 'D'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">1</span>, <span class="stevilo">9</span>, <span class="stevilo">10</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <IIIIIIIIIIIIIIDDDDDrrrrrrrrrrrrrr><br/><9111111111DDDDDDDDDD><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase4"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 4</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test04 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'W', 'E', 'f', 'Z'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">9</span>, <span class="stevilo">9</span>, <span class="stevilo">16</span>, <span class="stevilo">10</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'H', 't', 'b', '<span class="stevilo">8</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">13</span>, <span class="stevilo">3</span>, <span class="stevilo">10</span>, <span class="stevilo">5</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <WWWWWWWWWEEEEEEEEEffffffffffffffffZZZZZZZZZZ><br/><HHHHHHHHHHHHHtttbbbbbbbbbb88888><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase5"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 5</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test05 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'V', '<span class="stevilo">1</span>', 'h', 'a', 'M'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">19</span>, <span class="stevilo">16</span>, <span class="stevilo">9</span>, <span class="stevilo">8</span>, <span class="stevilo">7</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'z', 'X', '<span class="stevilo">1</span>', 'K', 'g'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">1</span>, <span class="stevilo">10</span>, <span class="stevilo">13</span>, <span class="stevilo">16</span>, <span class="stevilo">14</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <VVVVVVVVVVVVVVVVVVV1111111111111111hhhhhhhhhaaaaaaaaMMMMMMM><br/><zXXXXXXXXXX1111111111111KKKKKKKKKKKKKKKKgggggggggggggg><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase6"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 6</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test06 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'p', 'Q', 'H', 'a', 'k', 'n'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">5</span>, <span class="stevilo">10</span>, <span class="stevilo">15</span>, <span class="stevilo">12</span>, <span class="stevilo">3</span>, <span class="stevilo">7</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'I', 'o', 'G', 'u', 'R', '<span class="stevilo">0</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">12</span>, <span class="stevilo">7</span>, <span class="stevilo">3</span>, <span class="stevilo">1</span>, <span class="stevilo">14</span>, <span class="stevilo">12</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <pppppQQQQQQQQQQHHHHHHHHHHHHHHHaaaaaaaaaaaakkknnnnnnn><br/><IIIIIIIIIIIIoooooooGGGuRRRRRRRRRRRRRR000000000000><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase7"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 7</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test07 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'R', 'c', 'e', '<span class="stevilo">7</span>', 'g', 'T', 's'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">6</span>, <span class="stevilo">10</span>, <span class="stevilo">18</span>, <span class="stevilo">8</span>, <span class="stevilo">20</span>, <span class="stevilo">19</span>, <span class="stevilo">10</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'W', '<span class="stevilo">1</span>', 'e', '<span class="stevilo">9</span>', 'j', 'Y', 'h'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">4</span>, <span class="stevilo">4</span>, <span class="stevilo">7</span>, <span class="stevilo">18</span>, <span class="stevilo">10</span>, <span class="stevilo">3</span>, <span class="stevilo">1</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <RRRRRRcccccccccceeeeeeeeeeeeeeeeee77777777ggggggggggggggggggggTTTTTTTTTTTTTTTTTTTssssssssss><br/><WWWW1111eeeeeee999999999999999999jjjjjjjjjjYYYh><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase8"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 8</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test08 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'n', 'T', 'o', 'K', 'z', '<span class="stevilo">8</span>', 'd', 'h'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">13</span>, <span class="stevilo">3</span>, <span class="stevilo">4</span>, <span class="stevilo">13</span>, <span class="stevilo">6</span>, <span class="stevilo">3</span>, <span class="stevilo">18</span>, <span class="stevilo">1</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'d', 'B', 'n', 'e', '<span class="stevilo">9</span>', 'g', 'l', 'P'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">12</span>, <span class="stevilo">16</span>, <span class="stevilo">5</span>, <span class="stevilo">20</span>, <span class="stevilo">8</span>, <span class="stevilo">16</span>, <span class="stevilo">9</span>, <span class="stevilo">1</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <nnnnnnnnnnnnnTTTooooKKKKKKKKKKKKKzzzzzz888ddddddddddddddddddh><br/><ddddddddddddBBBBBBBBBBBBBBBBnnnnneeeeeeeeeeeeeeeeeeee99999999gggggggggggggggglllllllllP><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase9"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 9</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test09 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'<span class="stevilo">8</span>', 'h', 'H', 'n', 't', 'H', 'u', 'U', 'j'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">1</span>, <span class="stevilo">16</span>, <span class="stevilo">15</span>, <span class="stevilo">14</span>, <span class="stevilo">3</span>, <span class="stevilo">13</span>, <span class="stevilo">6</span>, <span class="stevilo">13</span>, <span class="stevilo">20</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'M', '<span class="stevilo">1</span>', 'r', 'L', 'd', '<span class="stevilo">3</span>', 'd', '_', 'f'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">15</span>, <span class="stevilo">20</span>, <span class="stevilo">4</span>, <span class="stevilo">12</span>, <span class="stevilo">19</span>, <span class="stevilo">13</span>, <span class="stevilo">18</span>, <span class="stevilo">1</span>, <span class="stevilo">5</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <8hhhhhhhhhhhhhhhhHHHHHHHHHHHHHHHnnnnnnnnnnnnnntttHHHHHHHHHHHHHuuuuuuUUUUUUUUUUUUUjjjjjjjjjjjjjjjjjjjj><br/><MMMMMMMMMMMMMMM11111111111111111111rrrrLLLLLLLLLLLLddddddddddddddddddd3333333333333dddddddddddddddddd_fffff><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase10"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 10</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test10 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'<span class="stevilo">1</span>', 'P', 'w', 'F', 'G', 'I', 'V', 'X', '<span class="stevilo">5</span>', '<span class="stevilo">9</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">10</span>, <span class="stevilo">12</span>, <span class="stevilo">9</span>, <span class="stevilo">12</span>, <span class="stevilo">2</span>, <span class="stevilo">7</span>, <span class="stevilo">14</span>, <span class="stevilo">18</span>, <span class="stevilo">4</span>, <span class="stevilo">2</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'D', 'z', 'T', 'L', 'a', 'H', 'J', 'A', 'w', '<span class="stevilo">0</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">16</span>, <span class="stevilo">7</span>, <span class="stevilo">6</span>, <span class="stevilo">5</span>, <span class="stevilo">17</span>, <span class="stevilo">7</span>, <span class="stevilo">12</span>, <span class="stevilo">19</span>, <span class="stevilo">6</span>, <span class="stevilo">17</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <1111111111PPPPPPPPPPPPwwwwwwwwwFFFFFFFFFFFFGGIIIIIIIVVVVVVVVVVVVVVXXXXXXXXXXXXXXXXXX555599><br/><DDDDDDDDDDDDDDDDzzzzzzzTTTTTTLLLLLaaaaaaaaaaaaaaaaaHHHHHHHJJJJJJJJJJJJAAAAAAAAAAAAAAAAAAAwwwwww00000000000000000><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase11"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 11</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test11 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'E', '<span class="stevilo">0</span>', 'f', 'x', 'K', 'w', '<span class="stevilo">9</span>', 'c', 'E', '<span class="stevilo">1</span>', 'X'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">1</span>, <span class="stevilo">7</span>, <span class="stevilo">5</span>, <span class="stevilo">20</span>, <span class="stevilo">14</span>, <span class="stevilo">17</span>, <span class="stevilo">4</span>, <span class="stevilo">13</span>, <span class="stevilo">3</span>, <span class="stevilo">17</span>, <span class="stevilo">5</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'<span class="stevilo">0</span>', '<span class="stevilo">1</span>', 'W', 'i', 'r', 'o', 'D', 'a', '<span class="stevilo">9</span>', 'Q', 't'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">7</span>, <span class="stevilo">18</span>, <span class="stevilo">1</span>, <span class="stevilo">11</span>, <span class="stevilo">3</span>, <span class="stevilo">13</span>, <span class="stevilo">18</span>, <span class="stevilo">20</span>, <span class="stevilo">9</span>, <span class="stevilo">6</span>, <span class="stevilo">8</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <E0000000fffffxxxxxxxxxxxxxxxxxxxxKKKKKKKKKKKKKKwwwwwwwwwwwwwwwww9999cccccccccccccEEE11111111111111111XXXXX><br/><0000000111111111111111111WiiiiiiiiiiirrroooooooooooooDDDDDDDDDDDDDDDDDDaaaaaaaaaaaaaaaaaaaa999999999QQQQQQtttttttt><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase12"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 12</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test12 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'M', 'W', 'U', 'N', 'S', '<span class="stevilo">8</span>', 'B', 'r', '<span class="stevilo">1</span>', 'J', 'F', 'c'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">10</span>, <span class="stevilo">3</span>, <span class="stevilo">13</span>, <span class="stevilo">17</span>, <span class="stevilo">13</span>, <span class="stevilo">16</span>, <span class="stevilo">8</span>, <span class="stevilo">12</span>, <span class="stevilo">18</span>, <span class="stevilo">15</span>, <span class="stevilo">2</span>, <span class="stevilo">5</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'c', 'f', 'a', 'q', 'O', 'L', 'q', 'W', 'D', 'Q', 'h', 'A'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">15</span>, <span class="stevilo">14</span>, <span class="stevilo">15</span>, <span class="stevilo">16</span>, <span class="stevilo">6</span>, <span class="stevilo">19</span>, <span class="stevilo">5</span>, <span class="stevilo">6</span>, <span class="stevilo">12</span>, <span class="stevilo">19</span>, <span class="stevilo">4</span>, <span class="stevilo">1</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <MMMMMMMMMMWWWUUUUUUUUUUUUUNNNNNNNNNNNNNNNNNSSSSSSSSSSSSS8888888888888888BBBBBBBBrrrrrrrrrrrr111111111111111111JJJJJJJJJJJJJJJFFccccc><br/><cccccccccccccccffffffffffffffaaaaaaaaaaaaaaaqqqqqqqqqqqqqqqqOOOOOOLLLLLLLLLLLLLLLLLLLqqqqqWWWWWWDDDDDDDDDDDDQQQQQQQQQQQQQQQQQQQhhhhA><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase13"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 13</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test13 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'B', 'c', 'y', '<span class="stevilo">9</span>', 'j', 'G', 'k', 'O', 'l', 'r', 'Z', 'S', 'N'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">4</span>, <span class="stevilo">2</span>, <span class="stevilo">17</span>, <span class="stevilo">18</span>, <span class="stevilo">6</span>, <span class="stevilo">1</span>, <span class="stevilo">4</span>, <span class="stevilo">2</span>, <span class="stevilo">18</span>, <span class="stevilo">10</span>, <span class="stevilo">5</span>, <span class="stevilo">3</span>, <span class="stevilo">16</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'<span class="stevilo">4</span>', 'e', 'j', '<span class="stevilo">9</span>', 'Q', 'P', '_', '<span class="stevilo">5</span>', 'X', 'Q', '<span class="stevilo">2</span>', 'r', 'P'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">14</span>, <span class="stevilo">17</span>, <span class="stevilo">16</span>, <span class="stevilo">2</span>, <span class="stevilo">4</span>, <span class="stevilo">4</span>, <span class="stevilo">5</span>, <span class="stevilo">18</span>, <span class="stevilo">2</span>, <span class="stevilo">1</span>, <span class="stevilo">15</span>, <span class="stevilo">7</span>, <span class="stevilo">3</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <BBBBccyyyyyyyyyyyyyyyyy999999999999999999jjjjjjGkkkkOOllllllllllllllllllrrrrrrrrrrZZZZZSSSNNNNNNNNNNNNNNNN><br/><44444444444444eeeeeeeeeeeeeeeeejjjjjjjjjjjjjjjj99QQQQPPPP_____555555555555555555XXQ222222222222222rrrrrrrPPP><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase14"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 14</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test14 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'M', 'B', 'l', 'g', 'p', 'N', 'G', 'g', 'u', 'r', '<span class="stevilo">3</span>', 'E', 'W', '<span class="stevilo">2</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">19</span>, <span class="stevilo">5</span>, <span class="stevilo">15</span>, <span class="stevilo">1</span>, <span class="stevilo">15</span>, <span class="stevilo">7</span>, <span class="stevilo">10</span>, <span class="stevilo">6</span>, <span class="stevilo">7</span>, <span class="stevilo">12</span>, <span class="stevilo">18</span>, <span class="stevilo">1</span>, <span class="stevilo">16</span>, <span class="stevilo">2</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'A', '<span class="stevilo">8</span>', 'z', 'O', 'n', 'v', 'm', '<span class="stevilo">2</span>', 'E', 'U', 'F', 'R', 'G', 'A'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">1</span>, <span class="stevilo">16</span>, <span class="stevilo">10</span>, <span class="stevilo">20</span>, <span class="stevilo">3</span>, <span class="stevilo">3</span>, <span class="stevilo">19</span>, <span class="stevilo">16</span>, <span class="stevilo">17</span>, <span class="stevilo">18</span>, <span class="stevilo">17</span>, <span class="stevilo">3</span>, <span class="stevilo">15</span>, <span class="stevilo">10</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <MMMMMMMMMMMMMMMMMMMBBBBBlllllllllllllllgpppppppppppppppNNNNNNNGGGGGGGGGGgggggguuuuuuurrrrrrrrrrrr333333333333333333EWWWWWWWWWWWWWWWW22><br/><A8888888888888888zzzzzzzzzzOOOOOOOOOOOOOOOOOOOOnnnvvvmmmmmmmmmmmmmmmmmmm2222222222222222EEEEEEEEEEEEEEEEEUUUUUUUUUUUUUUUUUUFFFFFFFFFFFFFFFFFRRRGGGGGGGGGGGGGGGAAAAAAAAAA><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase15"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 15</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test15 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'a', 'r', 'R', 'X', 'L', 'v', 'c', 'j', 'K', '<span class="stevilo">9</span>', 'J', 'h', 'l', 't', '<span class="stevilo">0</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">14</span>, <span class="stevilo">18</span>, <span class="stevilo">17</span>, <span class="stevilo">15</span>, <span class="stevilo">7</span>, <span class="stevilo">4</span>, <span class="stevilo">12</span>, <span class="stevilo">1</span>, <span class="stevilo">4</span>, <span class="stevilo">1</span>, <span class="stevilo">20</span>, <span class="stevilo">16</span>, <span class="stevilo">2</span>, <span class="stevilo">11</span>, <span class="stevilo">15</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'J', 'q', 'c', 't', 'Q', 'a', 'P', 'T', 'd', 'a', 'y', 'k', 'R', '<span class="stevilo">5</span>', 'G'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">4</span>, <span class="stevilo">2</span>, <span class="stevilo">6</span>, <span class="stevilo">10</span>, <span class="stevilo">20</span>, <span class="stevilo">14</span>, <span class="stevilo">3</span>, <span class="stevilo">4</span>, <span class="stevilo">11</span>, <span class="stevilo">7</span>, <span class="stevilo">16</span>, <span class="stevilo">15</span>, <span class="stevilo">3</span>, <span class="stevilo">14</span>, <span class="stevilo">16</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <aaaaaaaaaaaaaarrrrrrrrrrrrrrrrrrRRRRRRRRRRRRRRRRRXXXXXXXXXXXXXXXLLLLLLLvvvvccccccccccccjKKKK9JJJJJJJJJJJJJJJJJJJJhhhhhhhhhhhhhhhhllttttttttttt000000000000000><br/><JJJJqqccccccttttttttttQQQQQQQQQQQQQQQQQQQQaaaaaaaaaaaaaaPPPTTTTdddddddddddaaaaaaayyyyyyyyyyyyyyyykkkkkkkkkkkkkkkRRR55555555555555GGGGGGGGGGGGGGGG><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase16"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 16</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test16 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'k', 'K', 'G', 'k', '<span class="stevilo">4</span>', 'g', 'H', 'g', 'l', 'm', 'i', 'h', 'b', 'c', 'Y', 'L'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">6</span>, <span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="stevilo">14</span>, <span class="stevilo">16</span>, <span class="stevilo">15</span>, <span class="stevilo">20</span>, <span class="stevilo">17</span>, <span class="stevilo">5</span>, <span class="stevilo">20</span>, <span class="stevilo">6</span>, <span class="stevilo">15</span>, <span class="stevilo">2</span>, <span class="stevilo">8</span>, <span class="stevilo">2</span>, <span class="stevilo">7</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'Z', '_', 'M', 'a', 's', 'm', 'l', 'N', 'G', 'n', 'g', 'H', 'Z', 'Q', '<span class="stevilo">0</span>', 'N'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">16</span>, <span class="stevilo">15</span>, <span class="stevilo">14</span>, <span class="stevilo">5</span>, <span class="stevilo">20</span>, <span class="stevilo">17</span>, <span class="stevilo">7</span>, <span class="stevilo">16</span>, <span class="stevilo">3</span>, <span class="stevilo">11</span>, <span class="stevilo">18</span>, <span class="stevilo">10</span>, <span class="stevilo">11</span>, <span class="stevilo">7</span>, <span class="stevilo">2</span>, <span class="stevilo">10</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <kkkkkkKKKKKKKKGGGGGGGGGkkkkkkkkkkkkkk4444444444444444gggggggggggggggHHHHHHHHHHHHHHHHHHHHggggggggggggggggglllllmmmmmmmmmmmmmmmmmmmmiiiiiihhhhhhhhhhhhhhhbbccccccccYYLLLLLLL><br/><ZZZZZZZZZZZZZZZZ_______________MMMMMMMMMMMMMMaaaaassssssssssssssssssssmmmmmmmmmmmmmmmmmlllllllNNNNNNNNNNNNNNNNGGGnnnnnnnnnnnggggggggggggggggggHHHHHHHHHHZZZZZZZZZZZQQQQQQQ00NNNNNNNNNN><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase17"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 17</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test17 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'G', '<span class="stevilo">0</span>', '<span class="stevilo">4</span>', 'w', 'n', 'g', 'I', 'b', 'K', '<span class="stevilo">6</span>', 'j', 'f', 'q', 'X', 'v', 'M', 'Q'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">16</span>, <span class="stevilo">1</span>, <span class="stevilo">7</span>, <span class="stevilo">2</span>, <span class="stevilo">11</span>, <span class="stevilo">18</span>, <span class="stevilo">14</span>, <span class="stevilo">15</span>, <span class="stevilo">2</span>, <span class="stevilo">14</span>, <span class="stevilo">11</span>, <span class="stevilo">3</span>, <span class="stevilo">6</span>, <span class="stevilo">11</span>, <span class="stevilo">17</span>, <span class="stevilo">18</span>, <span class="stevilo">19</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'F', '<span class="stevilo">6</span>', '<span class="stevilo">9</span>', '<span class="stevilo">0</span>', 'P', 'V', 'Z', 'F', 's', 'S', '<span class="stevilo">4</span>', '_', 'Q', 'W', 'p', 'V', 'i'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">15</span>, <span class="stevilo">2</span>, <span class="stevilo">6</span>, <span class="stevilo">4</span>, <span class="stevilo">13</span>, <span class="stevilo">19</span>, <span class="stevilo">8</span>, <span class="stevilo">10</span>, <span class="stevilo">8</span>, <span class="stevilo">10</span>, <span class="stevilo">10</span>, <span class="stevilo">9</span>, <span class="stevilo">2</span>, <span class="stevilo">4</span>, <span class="stevilo">2</span>, <span class="stevilo">12</span>, <span class="stevilo">19</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <GGGGGGGGGGGGGGGG04444444wwnnnnnnnnnnnggggggggggggggggggIIIIIIIIIIIIIIbbbbbbbbbbbbbbbKK66666666666666jjjjjjjjjjjfffqqqqqqXXXXXXXXXXXvvvvvvvvvvvvvvvvvMMMMMMMMMMMMMMMMMMQQQQQQQQQQQQQQQQQQQ><br/><FFFFFFFFFFFFFFF669999990000PPPPPPPPPPPPPVVVVVVVVVVVVVVVVVVVZZZZZZZZFFFFFFFFFFssssssssSSSSSSSSSS4444444444_________QQWWWWppVVVVVVVVVVVViiiiiiiiiiiiiiiiiii><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase18"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 18</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test18 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'E', 'i', 'm', 'U', 'J', 'R', 'J', '<span class="stevilo">8</span>', '<span class="stevilo">3</span>', 'U', '<span class="stevilo">0</span>', '<span class="stevilo">7</span>', 'p', 'N', '<span class="stevilo">8</span>', 'm', 'S', 'p'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">18</span>, <span class="stevilo">1</span>, <span class="stevilo">5</span>, <span class="stevilo">18</span>, <span class="stevilo">10</span>, <span class="stevilo">1</span>, <span class="stevilo">5</span>, <span class="stevilo">19</span>, <span class="stevilo">16</span>, <span class="stevilo">19</span>, <span class="stevilo">3</span>, <span class="stevilo">15</span>, <span class="stevilo">19</span>, <span class="stevilo">18</span>, <span class="stevilo">4</span>, <span class="stevilo">12</span>, <span class="stevilo">6</span>, <span class="stevilo">20</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'a', 'o', 'O', '<span class="stevilo">6</span>', 'G', '<span class="stevilo">6</span>', 'j', '<span class="stevilo">2</span>', '<span class="stevilo">0</span>', 'I', 'b', 'n', '<span class="stevilo">4</span>', 'N', '<span class="stevilo">7</span>', 'U', 'N', 'k'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">18</span>, <span class="stevilo">5</span>, <span class="stevilo">1</span>, <span class="stevilo">5</span>, <span class="stevilo">12</span>, <span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="stevilo">11</span>, <span class="stevilo">15</span>, <span class="stevilo">17</span>, <span class="stevilo">9</span>, <span class="stevilo">3</span>, <span class="stevilo">20</span>, <span class="stevilo">2</span>, <span class="stevilo">5</span>, <span class="stevilo">17</span>, <span class="stevilo">5</span>, <span class="stevilo">12</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <EEEEEEEEEEEEEEEEEEimmmmmUUUUUUUUUUUUUUUUUUJJJJJJJJJJRJJJJJ88888888888888888883333333333333333UUUUUUUUUUUUUUUUUUU000777777777777777pppppppppppppppppppNNNNNNNNNNNNNNNNNN8888mmmmmmmmmmmmSSSSSSpppppppppppppppppppp><br/><aaaaaaaaaaaaaaaaaaoooooO66666GGGGGGGGGGGG66666666jjjjjjjjj22222222222000000000000000IIIIIIIIIIIIIIIIIbbbbbbbbbnnn44444444444444444444NN77777UUUUUUUUUUUUUUUUUNNNNNkkkkkkkkkkkk><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase19"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 19</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test19 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'G', 'R', 'K', 'i', 'y', 'u', 'l', 'E', 'z', '<span class="stevilo">6</span>', '<span class="stevilo">2</span>', 'W', 'C', 'U', 's', 'i', 'o', 'v', 'Q'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">19</span>, <span class="stevilo">3</span>, <span class="stevilo">18</span>, <span class="stevilo">8</span>, <span class="stevilo">5</span>, <span class="stevilo">18</span>, <span class="stevilo">8</span>, <span class="stevilo">18</span>, <span class="stevilo">1</span>, <span class="stevilo">2</span>, <span class="stevilo">14</span>, <span class="stevilo">3</span>, <span class="stevilo">7</span>, <span class="stevilo">19</span>, <span class="stevilo">16</span>, <span class="stevilo">4</span>, <span class="stevilo">3</span>, <span class="stevilo">12</span>, <span class="stevilo">5</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'<span class="stevilo">2</span>', 's', 'y', 'R', 'a', 'g', 'w', 'P', '_', 'D', 'I', 'g', 'y', 'B', 'm', 'k', '<span class="stevilo">6</span>', '_', 'f'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">7</span>, <span class="stevilo">18</span>, <span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="stevilo">3</span>, <span class="stevilo">11</span>, <span class="stevilo">13</span>, <span class="stevilo">4</span>, <span class="stevilo">15</span>, <span class="stevilo">3</span>, <span class="stevilo">18</span>, <span class="stevilo">13</span>, <span class="stevilo">10</span>, <span class="stevilo">9</span>, <span class="stevilo">19</span>, <span class="stevilo">1</span>, <span class="stevilo">5</span>, <span class="stevilo">13</span>, <span class="stevilo">11</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <GGGGGGGGGGGGGGGGGGGRRRKKKKKKKKKKKKKKKKKKiiiiiiiiyyyyyuuuuuuuuuuuuuuuuuullllllllEEEEEEEEEEEEEEEEEEz6622222222222222WWWCCCCCCCUUUUUUUUUUUUUUUUUUUssssssssssssssssiiiiooovvvvvvvvvvvvQQQQQ><br/><2222222ssssssssssssssssssyyyyyyyyRRRRRRRRRaaagggggggggggwwwwwwwwwwwwwPPPP_______________DDDIIIIIIIIIIIIIIIIIIgggggggggggggyyyyyyyyyyBBBBBBBBBmmmmmmmmmmmmmmmmmmmk66666_____________fffffffffff><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase20"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 20</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test20 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'D', 'Y', 'k', 'H', 'F', 'S', 'V', 'v', 'R', 'J', 'b', 'z', 'W', 'b', 'P', 'I', 'E', 'M', 'd', 'a'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">14</span>, <span class="stevilo">8</span>, <span class="stevilo">12</span>, <span class="stevilo">3</span>, <span class="stevilo">11</span>, <span class="stevilo">16</span>, <span class="stevilo">10</span>, <span class="stevilo">3</span>, <span class="stevilo">5</span>, <span class="stevilo">1</span>, <span class="stevilo">20</span>, <span class="stevilo">2</span>, <span class="stevilo">5</span>, <span class="stevilo">6</span>, <span class="stevilo">3</span>, <span class="stevilo">1</span>, <span class="stevilo">5</span>, <span class="stevilo">19</span>, <span class="stevilo">3</span>, <span class="stevilo">3</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'q', 'J', 'P', 'J', 'p', 'c', 'C', 'y', 'H', 'O', 'd', 'h', 'z', 'n', 's', '<span class="stevilo">6</span>', 'q', '<span class="stevilo">3</span>', 'G', '<span class="stevilo">5</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">14</span>, <span class="stevilo">13</span>, <span class="stevilo">10</span>, <span class="stevilo">15</span>, <span class="stevilo">7</span>, <span class="stevilo">20</span>, <span class="stevilo">8</span>, <span class="stevilo">17</span>, <span class="stevilo">19</span>, <span class="stevilo">15</span>, <span class="stevilo">7</span>, <span class="stevilo">11</span>, <span class="stevilo">10</span>, <span class="stevilo">10</span>, <span class="stevilo">8</span>, <span class="stevilo">7</span>, <span class="stevilo">14</span>, <span class="stevilo">9</span>, <span class="stevilo">13</span>, <span class="stevilo">4</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <DDDDDDDDDDDDDDYYYYYYYYkkkkkkkkkkkkHHHFFFFFFFFFFFSSSSSSSSSSSSSSSSVVVVVVVVVVvvvRRRRRJbbbbbbbbbbbbbbbbbbbbzzWWWWWbbbbbbPPPIEEEEEMMMMMMMMMMMMMMMMMMMdddaaa><br/><qqqqqqqqqqqqqqJJJJJJJJJJJJJPPPPPPPPPPJJJJJJJJJJJJJJJpppppppccccccccccccccccccccCCCCCCCCyyyyyyyyyyyyyyyyyHHHHHHHHHHHHHHHHHHHOOOOOOOOOOOOOOOdddddddhhhhhhhhhhhzzzzzzzzzznnnnnnnnnnssssssss6666666qqqqqqqqqqqqqq333333333GGGGGGGGGGGGG5555><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase21"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 21</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test21 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'w', '<span class="stevilo">1</span>', 'u', 'Q', 'A', 'H', '<span class="stevilo">8</span>', 'E', '<span class="stevilo">5</span>', '<span class="stevilo">7</span>', 'o', 'a', 'S', '_', '<span class="stevilo">7</span>', 'I', 'l', 'T', 'B', '<span class="stevilo">2</span>', '_'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">12</span>, <span class="stevilo">9</span>, <span class="stevilo">4</span>, <span class="stevilo">13</span>, <span class="stevilo">8</span>, <span class="stevilo">13</span>, <span class="stevilo">14</span>, <span class="stevilo">6</span>, <span class="stevilo">15</span>, <span class="stevilo">1</span>, <span class="stevilo">2</span>, <span class="stevilo">19</span>, <span class="stevilo">6</span>, <span class="stevilo">2</span>, <span class="stevilo">18</span>, <span class="stevilo">19</span>, <span class="stevilo">19</span>, <span class="stevilo">12</span>, <span class="stevilo">6</span>, <span class="stevilo">12</span>, <span class="stevilo">10</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'_', 'D', 'm', 'y', 'S', 'D', 'Q', 'w', 'm', '<span class="stevilo">1</span>', 'm', 'S', '<span class="stevilo">1</span>', 'q', 'w', 'd', '<span class="stevilo">3</span>', 'Z', 'u', 'h', '<span class="stevilo">7</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">10</span>, <span class="stevilo">12</span>, <span class="stevilo">7</span>, <span class="stevilo">6</span>, <span class="stevilo">5</span>, <span class="stevilo">14</span>, <span class="stevilo">14</span>, <span class="stevilo">7</span>, <span class="stevilo">11</span>, <span class="stevilo">5</span>, <span class="stevilo">20</span>, <span class="stevilo">7</span>, <span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="stevilo">15</span>, <span class="stevilo">17</span>, <span class="stevilo">1</span>, <span class="stevilo">15</span>, <span class="stevilo">18</span>, <span class="stevilo">8</span>, <span class="stevilo">5</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <wwwwwwwwwwww111111111uuuuQQQQQQQQQQQQQAAAAAAAAHHHHHHHHHHHHH88888888888888EEEEEE5555555555555557ooaaaaaaaaaaaaaaaaaaaSSSSSS__777777777777777777IIIIIIIIIIIIIIIIIIIlllllllllllllllllllTTTTTTTTTTTTBBBBBB222222222222__________><br/><__________DDDDDDDDDDDDmmmmmmmyyyyyySSSSSDDDDDDDDDDDDDDQQQQQQQQQQQQQQwwwwwwwmmmmmmmmmmm11111mmmmmmmmmmmmmmmmmmmmSSSSSSS11111111qqqqqqqqqwwwwwwwwwwwwwwwddddddddddddddddd3ZZZZZZZZZZZZZZZuuuuuuuuuuuuuuuuuuhhhhhhhh77777><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase22"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 22</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test22 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'X', 'c', 'R', 'S', 'j', '<span class="stevilo">1</span>', 'M', 'L', 'g', 'J', 'D', 'N', 'm', '<span class="stevilo">3</span>', 'U', 'd', 'W', 'U', '<span class="stevilo">0</span>', 'B', 's', '<span class="stevilo">9</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">16</span>, <span class="stevilo">19</span>, <span class="stevilo">15</span>, <span class="stevilo">17</span>, <span class="stevilo">15</span>, <span class="stevilo">6</span>, <span class="stevilo">2</span>, <span class="stevilo">17</span>, <span class="stevilo">20</span>, <span class="stevilo">8</span>, <span class="stevilo">17</span>, <span class="stevilo">5</span>, <span class="stevilo">1</span>, <span class="stevilo">17</span>, <span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="stevilo">14</span>, <span class="stevilo">17</span>, <span class="stevilo">17</span>, <span class="stevilo">12</span>, <span class="stevilo">20</span>, <span class="stevilo">12</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'u', 'w', 'R', 't', '<span class="stevilo">3</span>', 'z', 'B', 'e', 'h', 'q', 'F', 'N', 'P', 'b', 's', 'd', 'Q', 'W', 'l', 'z', 'F', '<span class="stevilo">7</span>'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">4</span>, <span class="stevilo">16</span>, <span class="stevilo">8</span>, <span class="stevilo">3</span>, <span class="stevilo">13</span>, <span class="stevilo">7</span>, <span class="stevilo">11</span>, <span class="stevilo">14</span>, <span class="stevilo">13</span>, <span class="stevilo">19</span>, <span class="stevilo">7</span>, <span class="stevilo">11</span>, <span class="stevilo">9</span>, <span class="stevilo">12</span>, <span class="stevilo">18</span>, <span class="stevilo">18</span>, <span class="stevilo">8</span>, <span class="stevilo">1</span>, <span class="stevilo">8</span>, <span class="stevilo">6</span>, <span class="stevilo">17</span>, <span class="stevilo">7</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <XXXXXXXXXXXXXXXXcccccccccccccccccccRRRRRRRRRRRRRRRSSSSSSSSSSSSSSSSSjjjjjjjjjjjjjjj111111MMLLLLLLLLLLLLLLLLLggggggggggggggggggggJJJJJJJJDDDDDDDDDDDDDDDDDNNNNNm33333333333333333UUUUUUUUdddddddddWWWWWWWWWWWWWWUUUUUUUUUUUUUUUUU00000000000000000BBBBBBBBBBBBssssssssssssssssssss999999999999><br/><uuuuwwwwwwwwwwwwwwwwRRRRRRRRttt3333333333333zzzzzzzBBBBBBBBBBBeeeeeeeeeeeeeehhhhhhhhhhhhhqqqqqqqqqqqqqqqqqqqFFFFFFFNNNNNNNNNNNPPPPPPPPPbbbbbbbbbbbbssssssssssssssssssddddddddddddddddddQQQQQQQQWllllllllzzzzzzFFFFFFFFFFFFFFFFF7777777><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase23"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 23</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test23 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'I', 'y', 'k', 'd', 'V', '_', 'D', 'g', 'I', 'z', 'b', 'F', 'I', 't', 'h', 'o', 'q', 'J', '<span class="stevilo">0</span>', 'L', 'R', 'h', 'O'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">14</span>, <span class="stevilo">10</span>, <span class="stevilo">17</span>, <span class="stevilo">5</span>, <span class="stevilo">9</span>, <span class="stevilo">18</span>, <span class="stevilo">9</span>, <span class="stevilo">20</span>, <span class="stevilo">3</span>, <span class="stevilo">17</span>, <span class="stevilo">4</span>, <span class="stevilo">18</span>, <span class="stevilo">11</span>, <span class="stevilo">18</span>, <span class="stevilo">9</span>, <span class="stevilo">11</span>, <span class="stevilo">2</span>, <span class="stevilo">6</span>, <span class="stevilo">5</span>, <span class="stevilo">20</span>, <span class="stevilo">14</span>, <span class="stevilo">20</span>, <span class="stevilo">2</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'i', 'x', 'y', 'c', 'p', 'I', 'S', 'E', 'w', '<span class="stevilo">9</span>', 'R', 'J', 'Q', 'W', '<span class="stevilo">1</span>', 'i', '<span class="stevilo">1</span>', 'G', 's', 'V', 'R', 'b', 'p'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">18</span>, <span class="stevilo">17</span>, <span class="stevilo">3</span>, <span class="stevilo">8</span>, <span class="stevilo">11</span>, <span class="stevilo">11</span>, <span class="stevilo">3</span>, <span class="stevilo">17</span>, <span class="stevilo">2</span>, <span class="stevilo">8</span>, <span class="stevilo">17</span>, <span class="stevilo">14</span>, <span class="stevilo">11</span>, <span class="stevilo">12</span>, <span class="stevilo">16</span>, <span class="stevilo">12</span>, <span class="stevilo">19</span>, <span class="stevilo">12</span>, <span class="stevilo">10</span>, <span class="stevilo">15</span>, <span class="stevilo">10</span>, <span class="stevilo">7</span>, <span class="stevilo">19</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <IIIIIIIIIIIIIIyyyyyyyyyykkkkkkkkkkkkkkkkkdddddVVVVVVVVV__________________DDDDDDDDDggggggggggggggggggggIIIzzzzzzzzzzzzzzzzzbbbbFFFFFFFFFFFFFFFFFFIIIIIIIIIIItttttttttttttttttthhhhhhhhhoooooooooooqqJJJJJJ00000LLLLLLLLLLLLLLLLLLLLRRRRRRRRRRRRRRhhhhhhhhhhhhhhhhhhhhOO><br/><iiiiiiiiiiiiiiiiiixxxxxxxxxxxxxxxxxyyyccccccccpppppppppppIIIIIIIIIIISSSEEEEEEEEEEEEEEEEEww99999999RRRRRRRRRRRRRRRRRJJJJJJJJJJJJJJQQQQQQQQQQQWWWWWWWWWWWW1111111111111111iiiiiiiiiiii1111111111111111111GGGGGGGGGGGGssssssssssVVVVVVVVVVVVVVVRRRRRRRRRRbbbbbbbppppppppppppppppppp><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase24"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 24</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test24 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'B', '<span class="stevilo">1</span>', 'y', '<span class="stevilo">8</span>', 'B', 'L', 'd', 'L', 'D', 'V', 'G', 'q', 'D', 'p', 'W', 'X', 'e', 'o', 'z', '<span class="stevilo">3</span>', 'n', 'd', 'D', 'W'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">2</span>, <span class="stevilo">16</span>, <span class="stevilo">19</span>, <span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="stevilo">20</span>, <span class="stevilo">2</span>, <span class="stevilo">1</span>, <span class="stevilo">12</span>, <span class="stevilo">3</span>, <span class="stevilo">16</span>, <span class="stevilo">11</span>, <span class="stevilo">12</span>, <span class="stevilo">5</span>, <span class="stevilo">5</span>, <span class="stevilo">5</span>, <span class="stevilo">8</span>, <span class="stevilo">11</span>, <span class="stevilo">7</span>, <span class="stevilo">16</span>, <span class="stevilo">11</span>, <span class="stevilo">11</span>, <span class="stevilo">13</span>, <span class="stevilo">4</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'A', 'u', 'v', 'U', 'g', 'K', 'R', '<span class="stevilo">3</span>', '_', 'W', 'A', 'K', 'H', 'A', 'b', '<span class="stevilo">3</span>', 'L', 'D', 'k', 'W', 'G', 'F', '<span class="stevilo">8</span>', 'i'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">2</span>, <span class="stevilo">2</span>, <span class="stevilo">11</span>, <span class="stevilo">4</span>, <span class="stevilo">15</span>, <span class="stevilo">10</span>, <span class="stevilo">18</span>, <span class="stevilo">14</span>, <span class="stevilo">9</span>, <span class="stevilo">19</span>, <span class="stevilo">13</span>, <span class="stevilo">3</span>, <span class="stevilo">4</span>, <span class="stevilo">5</span>, <span class="stevilo">20</span>, <span class="stevilo">14</span>, <span class="stevilo">10</span>, <span class="stevilo">7</span>, <span class="stevilo">5</span>, <span class="stevilo">19</span>, <span class="stevilo">6</span>, <span class="stevilo">6</span>, <span class="stevilo">16</span>, <span class="stevilo">1</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <BB1111111111111111yyyyyyyyyyyyyyyyyyy88888888BBBBBBBBBLLLLLLLLLLLLLLLLLLLLddLDDDDDDDDDDDDVVVGGGGGGGGGGGGGGGGqqqqqqqqqqqDDDDDDDDDDDDpppppWWWWWXXXXXeeeeeeeeooooooooooozzzzzzz3333333333333333nnnnnnnnnnndddddddddddDDDDDDDDDDDDDWWWW><br/><AAuuvvvvvvvvvvvUUUUgggggggggggggggKKKKKKKKKKRRRRRRRRRRRRRRRRRR33333333333333_________WWWWWWWWWWWWWWWWWWWAAAAAAAAAAAAAKKKHHHHAAAAAbbbbbbbbbbbbbbbbbbbb33333333333333LLLLLLLLLLDDDDDDDkkkkkWWWWWWWWWWWWWWWWWWWGGGGGGFFFFFF8888888888888888i><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase25"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 25</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test25 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Poniz poniz1 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'O', '<span class="stevilo">9</span>', '_', 'E', '<span class="stevilo">6</span>', 'r', 'w', 'j', 'w', 'z', 'l', 'a', 'J', 'e', 'G', 'X', 'h', 'M', '<span class="stevilo">7</span>', 'N', 'r', 'e', '<span class="stevilo">1</span>', 't', 'e'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">13</span>, <span class="stevilo">6</span>, <span class="stevilo">17</span>, <span class="stevilo">18</span>, <span class="stevilo">19</span>, <span class="stevilo">9</span>, <span class="stevilo">9</span>, <span class="stevilo">19</span>, <span class="stevilo">10</span>, <span class="stevilo">7</span>, <span class="stevilo">11</span>, <span class="stevilo">2</span>, <span class="stevilo">14</span>, <span class="stevilo">1</span>, <span class="stevilo">12</span>, <span class="stevilo">3</span>, <span class="stevilo">1</span>, <span class="stevilo">13</span>, <span class="stevilo">9</span>, <span class="stevilo">6</span>, <span class="stevilo">11</span>, <span class="stevilo">7</span>, <span class="stevilo">1</span>, <span class="stevilo">6</span>, <span class="stevilo">4</span>});<br/>
+<tab><tab>Tretja.Poniz poniz2 = <span class="rwordb">new</span> Tretja.Poniz(<span class="rwordb">new</span> <span class="rwordv">char</span>[]{<span class="niz">'E', 'H', 'Q', 'i', '<span class="stevilo">7</span>', 'Z', 'V', 'u', 'Q', 'R', 'j', 'p', 'v', '<span class="stevilo">6</span>', '<span class="stevilo">3</span>', 'k', '<span class="stevilo">4</span>', 'a', 'C', '<span class="stevilo">9</span>', 'P', 'Y', '<span class="stevilo">2</span>', 'O', 'P'</span>}, <span class="rwordb">new</span> <span class="rwordv">int</span>[]{<span class="stevilo">3</span>, <span class="stevilo">11</span>, <span class="stevilo">5</span>, <span class="stevilo">5</span>, <span class="stevilo">19</span>, <span class="stevilo">12</span>, <span class="stevilo">9</span>, <span class="stevilo">3</span>, <span class="stevilo">5</span>, <span class="stevilo">14</span>, <span class="stevilo">17</span>, <span class="stevilo">1</span>, <span class="stevilo">8</span>, <span class="stevilo">7</span>, <span class="stevilo">7</span>, <span class="stevilo">18</span>, <span class="stevilo">6</span>, <span class="stevilo">15</span>, <span class="stevilo">4</span>, <span class="stevilo">20</span>, <span class="stevilo">16</span>, <span class="stevilo">3</span>, <span class="stevilo">5</span>, <span class="stevilo">5</span>, <span class="stevilo">20</span>});<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz1.vNiz());<br/>
+<tab><tab>System.out.printf(<span class="niz">"<%s>%n"</span>, poniz2.vNiz());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            <OOOOOOOOOOOOO999999_________________EEEEEEEEEEEEEEEEEE6666666666666666666rrrrrrrrrwwwwwwwwwjjjjjjjjjjjjjjjjjjjwwwwwwwwwwzzzzzzzlllllllllllaaJJJJJJJJJJJJJJeGGGGGGGGGGGGXXXhMMMMMMMMMMMMM777777777NNNNNNrrrrrrrrrrreeeeeee1tttttteeee><br/><EEEHHHHHHHHHHHQQQQQiiiii7777777777777777777ZZZZZZZZZZZZVVVVVVVVVuuuQQQQQRRRRRRRRRRRRRRjjjjjjjjjjjjjjjjjpvvvvvvvv66666663333333kkkkkkkkkkkkkkkkkk444444aaaaaaaaaaaaaaaCCCC99999999999999999999PPPPPPPPPPPPPPPPYYY22222OOOOOPPPPPPPPPPPPPPPPPPPP><br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase26"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 26</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test26 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"VVVVVVVVVV"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test26.izpisi(Test26.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test26.main(Test26.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase27"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 27</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test27 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"4444444444444444444444444444444444444444444444444iiiiiiiiiiiiiiii"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"nnnnnnnnnjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test27.izpisi(Test27.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test27.main(Test27.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase28"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 28</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test28 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkUUUUUUUUUUUUUUUUUUUFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"11111111111111111111111111111111111111111111112222222222dddddddddddddd"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test28.izpisi(Test28.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test28.main(Test28.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase29"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 29</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test29 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"rr5nhh"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"Kc_FF"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test29.izpisi(Test29.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test29.main(Test29.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase30"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 30</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test30 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"uuuuuEEAArrrrrLLLL"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"999PPPO88BBB"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test30.izpisi(Test30.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test30.main(Test30.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase31"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 31</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test31 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"ubbbbbsss444444443cccccccc"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"8888888KKKKKKKKKrrrroooooooooo333333qq"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test31.izpisi(Test31.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test31.main(Test31.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase32"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 32</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test32 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"ffffEEEEEEEECChhhoooooooooo3333FFFFFFFF"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"KKKWWWWWWyyyyyyyyyyii8888888888FFFFFFFNNNNNNNN"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test32.izpisi(Test32.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test32.main(Test32.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase33"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 33</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test33 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"000000000pppppppppppppppppppppppppppppttttttttttttkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzjjjjjjjjjjjjjjjj99999999999"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"PPPPPPPPPPPPPPPPPPPP111111111bbbbbJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJMMMMvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvHHHHHHHHHHHHHHHHHHHHHxxxxxxxxx"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test33.izpisi(Test33.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test33.main(Test33.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase34"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 34</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test34 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHggggggggggggggggggggggggggggggggggggZZZZZZZZZZZZZZZZZaaaaaapppppppppppp666IIIIIIIIIIIIIIIIIIIIuuuuuuuuuuuuuuUU"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk2222222222222222222222222222222222222222222VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVFFFFFFFFFFFFFyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq4444444444444444444444444444444444444444444YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test34.izpisi(Test34.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test34.main(Test34.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase35"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 35</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test35 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"kkkkkkkkkkkXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL777777777ggggggggggggggggggggggggghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhssssssssssssssssssssssssssssssssssooooooooo55555555kkkkkkkkkkkkkkkk"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"YYYYU88888888888mmmmmwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO55555555555555555555555uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuOOOOOOOOOOOOUUUUUUUUUUUU"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test35.izpisi(Test35.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test35.main(Test35.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase36"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 36</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test36 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"0qqREENfKwwKUJ"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"NN3MnEyESSxxbbHH"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test36.izpisi(Test36.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test36.main(Test36.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase37"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 37</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test37 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"CCCCooxxxxxXXA8rrppppfTTTxgggg"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"xxxxx55555XXX777ooo33344444TyyOOYYYYY"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test37.izpisi(Test37.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test37.main(Test37.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase38"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 38</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test38 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"jjjjjDDDDDDiiiiVVViiiiiiaaaaaaaBBBBBBBBBFFFFFFFFFFYttttvvOOOOOOW"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"CCCCCCCqqqqqqqmmmmmmmmmm4444JJJJJJJ_________yyyyyyyyyyjjj5558888rrrrrrrr444444444q"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test38.izpisi(Test38.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test38.main(Test38.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase39"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 39</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test39 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"LLLLLLLLLLoootttttttttjjjjjncccIIIIIIIII444444444444444AAAAAAAAA__________Tnnnn"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"NEEEEEEMAAPPPxxxxxxxAAoooffffffffffMMMMM2CCCCCCCCCCCCCCCm"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test39.izpisi(Test39.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test39.main(Test39.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase40"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 40</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test40 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"VVVVVVVVUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU444444444444LLLLLLLLLLLLLLL1111111111111111111111111111111111111GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKyyyyyyyyyyyyyyyyyyyyyyyyyyy0000000000000000000000000000000000000000000000PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN_____IIIggggggggggggggggggggvv"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"YYYYYYpppppppppppppppppppppppppkkkkkkkkkkkkkkkkkkkkkkkttttttttttttttttttttttttttttttttxxxxxxxxxxxxx000000000000jjjjjjAAAAAAAAAAAAAAAAAqqqqq555555555555555555555zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzMMMMMMMMMMMMMMMMMqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqllllllllllllllllllllllllllllllllllllllllllllllxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test40.izpisi(Test40.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test40.main(Test40.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase41"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 41</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test41 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"4444444444444444444444444444444444BBBBBBBBBBBBBBBBBBB2222222222222222222222222222222wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTpppppppppppppppppppppppppppppppppppppppp55555555555555555555555555555555555555555555555VVVVVVVVVVVVVVVVVJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJkkkkkkkkkkkkkkHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH2222222222222222222222ddddddddddddddddddddddddPPPPPPPMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMuuuu"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxZZZZZZZZZZZZZSSSSSSSSSSSSSSSSSSSSSSSSSSSSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwwwwwwwwwwwwwwwwwwwwwwwwww99999999999999999999999999999999cccccccccccccccccccccccccccVVVVVVVVVGGGUUUDDDDDDiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiidddddddddddXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX444444444444444444444444"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test41.izpisi(Test41.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test41.main(Test41.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase42"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 42</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test42 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKQQQQQQQQQQQQQQQQQQQddddddddddddddddddddddddddddddddddddddddddddddllllTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww222222222222222222222222SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSRRRRRRRRRRVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVpppppppppppppppppppppppppppppppppgggggggggggggggggggggggggggggggggggggbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbooooooooooooooooooooooooooooooooooooooooooooooooPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"DDDDDDDDDDDDDDDDDDDDDDDDDttttttttttttttttttttttttttttttteee44444444444444444444444vvvvvvvvvvvvvvvvFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyssssssssssssssssssssssssssssssssss444444444444444444_________11111111111111111111111111111111110000000000000000BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBHHHHHHHHHHHHHkkkkkkkkkkkkkkkkkkkJJJJ"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test42.izpisi(Test42.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test42.main(Test42.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase43"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 43</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test43 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"nnMIIN0093aGnnGG22lRRffQQoy"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"CCZxfrObbrrSSGv9jtt6rrTN"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test43.izpisi(Test43.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test43.main(Test43.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase44"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 44</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test44 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"ZZZqqqqq333ZZrrrrhhhhQQQQQcc3CCCCCtttNNNNBBByEGVVVeooo"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"B00000UUUUUQQQQQzzzzwZZZOOOWWWWDDDppphh55555XXXXXIIIIddddFFFFJJJJJOOOOO"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test44.izpisi(Test44.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test44.main(Test44.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase45"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 45</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test45 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"uuuuuuuujjjjjjjZZZZZZZZZZ226QwwwwwmmmmmmmUUUUUUUqqqqqqqqqGGsssssssssTTTTT88ppppppppFnnnnnnnnn22CCIIIII"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"hhhhhhhhhzzzzzzzzMMMMBBBBBouuuuuuuuUwwwwf777777_______WWZggggggg8888VVVV4444444nnnnnnnnnnooooooooEE"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test45.izpisi(Test45.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test45.main(Test45.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase46"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 46</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test46 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"UUkkUkkkkkkkKKKKKKKKKKdddxxxxzzzzzzMMMMMMMMMMwaaaaaiiiiiiXXXXXXqqzz111111111__ccccc11ttttd"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"____1111111111BBBBBBbbbbbbTTTTTTTTTTwwwFFFFFFFF1111111iiiiiii33333311111llllllllPqqqLLLVVVVVVVCCCCCCCC333EEEEEEEnnnnnnnneeeee"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test46.izpisi(Test46.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test46.main(Test46.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase47"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 47</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test47 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"OOOOOOOOOOOOOOO3333333888888888888888888ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZuuuuuuuuuuuuuuuuuuuuuuuuuSSSSSSSSSSSSSSSSSSSSSSSxxxxxxxxxxxxxxxxxxTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT7777777777777777777777777777lllllllllllllllllllllllllllllllllllllllllllllllkkkkkkkkkkkkkkkkkkkkkkkCCwwwwwwwwwwwwwwwwwwwwwwwMMMMMMMMMMMMMMMMMMMMMMMMSSSSSSSSSSSSSSSSSSSSSFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFaaaaaaaaaaaaaaaaaaaaa__________pppppppppttttttttttttttttttttttttttttttttttttttttttxxxxxxxxxxxxxxxjjj"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"44444444JJJJJJJJJJJJJJJJdddddddddddd3333333333333333333333333333XXXXXXXXXXXXXXXXXXXXXXXXXXXXXHHHHHHHHHHHHHHHHHHHHHHHHHHHYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY4444444466666666666666666666666666666666666666666MMMMMMMMMMMMMMMMMMMMMMMMEEEEEEEEEEEEEkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkffffffffffffffffffffffffffffff22222222222JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ022222222222222222222222EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCdddddddddddd"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test47.izpisi(Test47.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test47.main(Test47.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase48"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 48</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test48 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"qqqqqpppppppppppppppppppppppppppppppppppppnnnnnnnnnnnnnnvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvJJJJJJJJJJJJJJJJJJJJJJJJmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmllllllllllllllttttttttttttttttttttttttttttttttttttttttttttZZZZZZZZZZZZZZZZZZZZZZZZZIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIssssssssssssssssssssssssssssssssssssssssssssuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuVVVVVVVVVVVVVVVVVVVVVVVVVVVNNNNNNNNNNNNNNNNNNNNNNNNNNOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxaaaaaaaaaaaaaaaaaaaammmmmmmmmmmmmmmmmmmmmmmmmmmmmFFFFFFFFFFFFFFFFFFFFFFFFVVPPPPPPPPPPPPPPPPPnnnnnnnnnnnnnnnnn"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"qPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPppppppppppppppppppppp7777777777777777777777777888888bbbbbbbbbbbbbbbbbbbbbbbbbbyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq5555555555555555555555555555555555555GGG9999999999999999999999999999999999999999999999tttttttttttttttttgggggggggggggggggggggggggggggggggggggggggggiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSS2222222________________________________PPPPPPPPPPPPDDDDDDDDDDDDDDQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test48.izpisi(Test48.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test48.main(Test48.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase49"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 49</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test49 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6666666666666666666HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHuuuuuuuuuuuuuuuuuuuuuu66666666oooooooooAAAAAAAAAAAAAAAAAAAAAAAAAAAnnnnnnnnnnnnnnnnnnnnnnnYYYYYffffffffffffffffffffffffffffffffffffOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJhhhhhhhhxxxxxxxxxxxxxxxxxxxxxxxxxx555555555555555555555555555555555555DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDNNNNNNNNNNNNNNNNNNNNNN9999RRxxxxxxddddddddddddddddddddddd9999999999"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"YYYYYYYYYYYYYYYYYYYYYYYYYYYYeeeeeeeeeeeeeeeeeeeeeeeeeeeeeggggggggggggggggggggggggggggggggggggggggggggg666666666666661111111111111111111111111111666666666666666666666666666666666666666666666666DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYgggggggggggZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPllllllllllllllllllllllllllllllllllllllzzzzzzzzzzzzzzzzzzzzzzzzzzzzzOOOOOOOOOOOiiiiiiiiiiiiiiiiiiHHHHHHHHHHHHHHHHFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFppppppppppppppppppppppppppppppppUUUUUUUUUUUU66666666666666666666666666666666644444444444444444444444444ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZFFFFFFFFFFFFFFFFFFFFFFFFFFFXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test49.izpisi(Test49.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test49.main(Test49.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase50"></a>
+        <div style="border: 1px solid #D8D87E">
+            <table class="tableRuntime tableCommon" style="width: 100%; border: 3px solid #FF9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #FF9; color: black;">Testni primer 50</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test50 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"Wk__mOOHHHHSSYOOrN99UUDD00WWCCOO4EEGGPPiaa"</span>));<br/>
+<tab><tab>izpisi(Tretja.Poniz.izNiza(<span class="niz">"lFFYoFsePQQ55hhX33cRRVO8HHh3QQaJ3"</span>));<br/>
+<tab>}<br/>
+<br/>
+<tab><span class="rwordv">private</span> <span class="rwordv">static</span> <span class="rwordv">void</span> izpisi(Tretja.Poniz poniz) {<br/>
+<tab><tab>System.out.printf(<span class="niz">"%s / %s%n"</span>,<br/>
+<tab><tab><tab><tab>Arrays.toString(poniz.vrniZnake()), Arrays.toString(poniz.vrniPonovitve()));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Exception&nbsp;in&nbsp;thread&nbsp;"main"&nbsp;java.lang.NullPointerException:&nbsp;Cannot&nbsp;invoke&nbsp;"Tretja$Poniz.vrniZnake()"&nbsp;because&nbsp;"<parameter1>"&nbsp;is&nbsp;null<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test50.izpisi(Test50.java:13)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;Test50.main(Test50.java:7)<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+
+        <div style="height: 30px"></div>
+
+        <table id="grad1" class="tableLegend tableSummary"
+          <tbody>
+            <tr>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #9F9; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">ok</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #FFBF00; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">napaka</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #FF9; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">napaka med izvajanjem</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #C00000; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">se ne prevede</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #B9F; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">timeout (1000 ms)</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #D0E0F0; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">rezultat izrisa</td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a name="bottom"></a>
+        </div>
+    </body>
+    <!-- java class tester version "1.5.12" -->
+    <!-- 10.2.2025 15:22.41 -->
+    <!-- DESKTOP-74LLA2A, fe80::e6ad:8a1d:78d3:bcd5%15 -->
+</html>
