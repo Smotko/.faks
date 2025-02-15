@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Poglavje 18 P11 Semantični splet in tehnologija veriženja blokov | Osnove informacijskih sistemov 2023/2024</title>
+  <meta name="description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Poglavje 18 P11 Semantični splet in tehnologija veriženja blokov | Osnove informacijskih sistemov 2023/2024" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Poglavje 18 P11 Semantični splet in tehnologija veriženja blokov | Osnove informacijskih sistemov 2023/2024" />
+  
+  <meta name="twitter:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+<meta name="author" content="izr. prof. dr. Dejan Lavbič" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="P10.html"/>
+<link rel="next" href="P12.html"/>
+<script src="assets/lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/lib/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/lib/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style/stil.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#terminski-plan-izvajanja-predmeta">OIS 2023/2024 terminski plan</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Uvod</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#splošne-informacije"><i class="fa fa-check"></i>Splošne informacije</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavatelj"><i class="fa fa-check"></i>Predavatelj</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#asistent"><i class="fa fa-check"></i>Asistent</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminski-plan-izvajanja-predmeta"><i class="fa fa-check"></i>Terminski plan izvajanja predmeta</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pravila-igre"><i class="fa fa-check"></i>Pravila igre</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavanja"><i class="fa fa-check"></i>Predavanja</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#vaje"><i class="fa fa-check"></i>Vaje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ocenjevanje"><i class="fa fa-check"></i>Ocenjevanje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pisni-izpiti"><i class="fa fa-check"></i>Pisni izpiti</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#priporočena-literatura"><i class="fa fa-check"></i>Priporočena literatura</a></li>
+</ul></li>
+<li class="part"><span><b>I sklop: Poslovni informacijski sistemi in upravljanje informatike</b></span></li>
+<li class="chapter" data-level="1" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>1</b> <span class="sklop1 oznaka">P1</span> Upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="P1.html"><a href="P1.html#ogrodje-digitalne-preobrazbe"><i class="fa fa-check"></i><b>1.1</b> Ogrodje digitalne preobrazbe</a></li>
+<li class="chapter" data-level="1.2" data-path="P1.html"><a href="P1.html#uvod-1"><i class="fa fa-check"></i><b>1.2</b> Uvod</a></li>
+<li class="chapter" data-level="1.3" data-path="P1.html"><a href="P1.html#upravljanje-it-in-vloga-informatike"><i class="fa fa-check"></i><b>1.3</b> Upravljanje IT in vloga informatike</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="P1.html"><a href="P1.html#vloga-vodstva-pri-upravljanju-it"><i class="fa fa-check"></i><b>1.3.1</b> Vloga vodstva pri upravljanju IT</a></li>
+<li class="chapter" data-level="1.3.2" data-path="P1.html"><a href="P1.html#ključna-vprašanja-o-it"><i class="fa fa-check"></i><b>1.3.2</b> Ključna vprašanja o IT</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="P1.html"><a href="P1.html#ogrodje-za-upravljanje-it"><i class="fa fa-check"></i><b>1.4</b> Ogrodje za upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="P1.html"><a href="P1.html#ključne-odločitve"><i class="fa fa-check"></i><b>1.4.1</b> Ključne odločitve</a></li>
+<li class="chapter" data-level="1.4.2" data-path="P1.html"><a href="P1.html#ključni-odločevalci"><i class="fa fa-check"></i><b>1.4.2</b> Ključni odločevalci</a></li>
+<li class="chapter" data-level="1.4.3" data-path="P1.html"><a href="P1.html#strukture-in-procesi-odločanja"><i class="fa fa-check"></i><b>1.4.3</b> Strukture in procesi odločanja</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="P1-V1.html"><a href="P1-V1.html"><i class="fa fa-check"></i><b>2</b> <span class="sklop1 oznaka">P1</span> → <span class="sklop3 oznaka">V1</span> Obvladovanje verzij</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="P1-V1.html"><a href="P1-V1.html#zgodovina-vcs"><i class="fa fa-check"></i><b>2.1</b> Zgodovina VCS</a></li>
+<li class="chapter" data-level="2.2" data-path="P1-V1.html"><a href="P1-V1.html#osnovne-operacije-vcs"><i class="fa fa-check"></i><b>2.2</b> Osnovne operacije VCS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="P1-V1.html"><a href="P1-V1.html#VCS-create"><i class="fa fa-check"></i><b>2.2.1</b> Create</a></li>
+<li class="chapter" data-level="2.2.2" data-path="P1-V1.html"><a href="P1-V1.html#VCS-checkout"><i class="fa fa-check"></i><b>2.2.2</b> Checkout</a></li>
+<li class="chapter" data-level="2.2.3" data-path="P1-V1.html"><a href="P1-V1.html#VCS-commit"><i class="fa fa-check"></i><b>2.2.3</b> Commit</a></li>
+<li class="chapter" data-level="2.2.4" data-path="P1-V1.html"><a href="P1-V1.html#VCS-update"><i class="fa fa-check"></i><b>2.2.4</b> Update</a></li>
+<li class="chapter" data-level="2.2.5" data-path="P1-V1.html"><a href="P1-V1.html#VCS-add"><i class="fa fa-check"></i><b>2.2.5</b> Add</a></li>
+<li class="chapter" data-level="2.2.6" data-path="P1-V1.html"><a href="P1-V1.html#VCS-edit"><i class="fa fa-check"></i><b>2.2.6</b> Edit</a></li>
+<li class="chapter" data-level="2.2.7" data-path="P1-V1.html"><a href="P1-V1.html#VCS-delete"><i class="fa fa-check"></i><b>2.2.7</b> Delete</a></li>
+<li class="chapter" data-level="2.2.8" data-path="P1-V1.html"><a href="P1-V1.html#VCS-rename"><i class="fa fa-check"></i><b>2.2.8</b> Rename</a></li>
+<li class="chapter" data-level="2.2.9" data-path="P1-V1.html"><a href="P1-V1.html#VCS-move"><i class="fa fa-check"></i><b>2.2.9</b> Move</a></li>
+<li class="chapter" data-level="2.2.10" data-path="P1-V1.html"><a href="P1-V1.html#VCS-status"><i class="fa fa-check"></i><b>2.2.10</b> Status</a></li>
+<li class="chapter" data-level="2.2.11" data-path="P1-V1.html"><a href="P1-V1.html#VCS-diff"><i class="fa fa-check"></i><b>2.2.11</b> Diff</a></li>
+<li class="chapter" data-level="2.2.12" data-path="P1-V1.html"><a href="P1-V1.html#VCS-revert"><i class="fa fa-check"></i><b>2.2.12</b> Revert</a></li>
+<li class="chapter" data-level="2.2.13" data-path="P1-V1.html"><a href="P1-V1.html#VCS-log"><i class="fa fa-check"></i><b>2.2.13</b> Log</a></li>
+<li class="chapter" data-level="2.2.14" data-path="P1-V1.html"><a href="P1-V1.html#VCS-tag"><i class="fa fa-check"></i><b>2.2.14</b> Tag</a></li>
+<li class="chapter" data-level="2.2.15" data-path="P1-V1.html"><a href="P1-V1.html#VCS-branch"><i class="fa fa-check"></i><b>2.2.15</b> Branch</a></li>
+<li class="chapter" data-level="2.2.16" data-path="P1-V1.html"><a href="P1-V1.html#VCS-merge"><i class="fa fa-check"></i><b>2.2.16</b> Merge</a></li>
+<li class="chapter" data-level="2.2.17" data-path="P1-V1.html"><a href="P1-V1.html#VCS-resolve"><i class="fa fa-check"></i><b>2.2.17</b> Resolve</a></li>
+<li class="chapter" data-level="2.2.18" data-path="P1-V1.html"><a href="P1-V1.html#VCS-lock"><i class="fa fa-check"></i><b>2.2.18</b> Lock</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="P1-V1.html"><a href="P1-V1.html#posebnosti-dvcs"><i class="fa fa-check"></i><b>2.3</b> Posebnosti DVCS</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="P1-V1.html"><a href="P1-V1.html#clone"><i class="fa fa-check"></i><b>2.3.1</b> Clone</a></li>
+<li class="chapter" data-level="2.3.2" data-path="P1-V1.html"><a href="P1-V1.html#primerjava-cvcs-in-dvcs"><i class="fa fa-check"></i><b>2.3.2</b> Primerjava CVCS in DVCS</a></li>
+<li class="chapter" data-level="2.3.3" data-path="P1-V1.html"><a href="P1-V1.html#push"><i class="fa fa-check"></i><b>2.3.3</b> Push</a></li>
+<li class="chapter" data-level="2.3.4" data-path="P1-V1.html"><a href="P1-V1.html#pull"><i class="fa fa-check"></i><b>2.3.4</b> Pull</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="P1-V1.html"><a href="P1-V1.html#dobre-prakse-uporabe-git"><i class="fa fa-check"></i><b>2.4</b> Dobre prakse uporabe Git</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="P1-V1.html"><a href="P1-V1.html#osrednji-repozitorij-in-sodelovanje-med-skupinami"><i class="fa fa-check"></i><b>2.4.1</b> Osrednji repozitorij in sodelovanje med skupinami</a></li>
+<li class="chapter" data-level="2.4.2" data-path="P1-V1.html"><a href="P1-V1.html#razdelitev-po-vejah-razvoja"><i class="fa fa-check"></i><b>2.4.2</b> Razdelitev po vejah razvoja</a></li>
+<li class="chapter" data-level="2.4.3" data-path="P1-V1.html"><a href="P1-V1.html#sporočila-uveljavitev"><i class="fa fa-check"></i><b>2.4.3</b> Sporočila uveljavitev</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="P1-V1.html"><a href="P1-V1.html#dodatno-gradivo"><i class="fa fa-check"></i><b>2.5</b> Dodatno gradivo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="P2.html"><a href="P2.html"><i class="fa fa-check"></i><b>3</b> <span class="sklop1 oznaka">P2</span> Delovni model, arhitektura podjetja in vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="P2.html"><a href="P2.html#delovni-model-in-zrelost-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1</b> Delovni model in zrelost arhitekture podjetja</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="P2.html"><a href="P2.html#delovni-model"><i class="fa fa-check"></i><b>3.1.1</b> Delovni model</a></li>
+<li class="chapter" data-level="3.1.2" data-path="P2.html"><a href="P2.html#arhitektura-podjetja"><i class="fa fa-check"></i><b>3.1.2</b> Arhitektura podjetja</a></li>
+<li class="chapter" data-level="3.1.3" data-path="P2.html"><a href="P2.html#posledice-zrelosti-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1.3</b> Posledice zrelosti arhitekture podjetja</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="P2.html"><a href="P2.html#vrednotenje-naložb"><i class="fa fa-check"></i><b>3.2</b> Vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="P2.html"><a href="P2.html#parametrični-pristop-od-zgoraj-navzdol"><i class="fa fa-check"></i><b>3.2.1</b> Parametrični pristop od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.2" data-path="P2.html"><a href="P2.html#pristop-od-spodaj-navzgor"><i class="fa fa-check"></i><b>3.2.2</b> Pristop od spodaj navzgor</a></li>
+<li class="chapter" data-level="3.2.3" data-path="P2.html"><a href="P2.html#ocena-proračuna"><i class="fa fa-check"></i><b>3.2.3</b> Ocena proračuna</a></li>
+<li class="chapter" data-level="3.2.4" data-path="P2.html"><a href="P2.html#ocena-proracuna-s-pristopm-navzdol"><i class="fa fa-check"></i><b>3.2.4</b> Primer ocene proračuna s pristopom od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.5" data-path="P2.html"><a href="P2.html#UCP"><i class="fa fa-check"></i><b>3.2.5</b> Formalna metoda za ocenjevanje stroškov programske opreme</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="P2.html"><a href="P2.html#nematerialne-koristi"><i class="fa fa-check"></i><b>3.3</b> Nematerialne koristi</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="P2.html"><a href="P2.html#zmogljivost-informacijske-tehnologije"><i class="fa fa-check"></i><b>3.3.1</b> Zmogljivost informacijske tehnologije</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="P2-V3.html"><a href="P2-V3.html"><i class="fa fa-check"></i><b>4</b> <span class="sklop1 oznaka">P2</span> → <span class="sklop3 oznaka">V3</span> Uvod v HTML in CSS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="P2-V3.html"><a href="P2-V3.html#html"><i class="fa fa-check"></i><b>4.1</b> HTML</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki"><i class="fa fa-check"></i><b>4.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.1.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek"><i class="fa fa-check"></i><b>4.1.2</b> Zaključek</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="P2-V3.html"><a href="P2-V3.html#CSS"><i class="fa fa-check"></i><b>4.2</b> CSS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki-1"><i class="fa fa-check"></i><b>4.2.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.2.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek-1"><i class="fa fa-check"></i><b>4.2.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="P3.html"><a href="P3.html"><i class="fa fa-check"></i><b>5</b> <span class="sklop1 oznaka">P3</span> Tveganja, IT naložbeni portfelj in povračilo sredstev</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="P3.html"><a href="P3.html#tveganja-pri-projektih-it"><i class="fa fa-check"></i><b>5.1</b> Tveganja pri projektih IT</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="P3.html"><a href="P3.html#upoštevanje-tveganja-pri-vrednotenju-naložb-v-it"><i class="fa fa-check"></i><b>5.1.1</b> Upoštevanje tveganja pri vrednotenju naložb v IT</a></li>
+<li class="chapter" data-level="5.1.2" data-path="P3.html"><a href="P3.html#kako-podjetja-upoštevajo-tveganja"><i class="fa fa-check"></i><b>5.1.2</b> Kako podjetja upoštevajo tveganja?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="P3.html"><a href="P3.html#pristop-z-opcijami-pri-naložbah-v-it"><i class="fa fa-check"></i><b>5.2</b> Pristop z opcijami pri naložbah v IT</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="P3.html"><a href="P3.html#primer-starbuck"><i class="fa fa-check"></i><b>5.2.1</b> Primer Starbuck</a></li>
+<li class="chapter" data-level="5.2.2" data-path="P3.html"><a href="P3.html#primer-opcije"><i class="fa fa-check"></i><b>5.2.2</b> Primer implementacije sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="P3.html"><a href="P3.html#ogrodje-za-vrednotenje-naložb-v-it"><i class="fa fa-check"></i><b>5.3</b> Ogrodje za vrednotenje naložb v IT</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="P3.html"><a href="P3.html#pasti-prekinitve"><i class="fa fa-check"></i><b>5.3.1</b> Pasti prekinitve</a></li>
+<li class="chapter" data-level="5.3.2" data-path="P3.html"><a href="P3.html#pasti-odložitve"><i class="fa fa-check"></i><b>5.3.2</b> Pasti odložitve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="P3.html"><a href="P3.html#it-naložbeni-portfelj"><i class="fa fa-check"></i><b>5.4</b> IT naložbeni portfelj</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="P3.html"><a href="P3.html#upravljanje-portfelja-it"><i class="fa fa-check"></i><b>5.4.1</b> Upravljanje portfelja IT</a></li>
+<li class="chapter" data-level="5.4.2" data-path="P3.html"><a href="P3.html#lastnosti-različnih-skupin-sredstev-it"><i class="fa fa-check"></i><b>5.4.2</b> Lastnosti različnih skupin sredstev IT</a></li>
+<li class="chapter" data-level="5.4.3" data-path="P3.html"><a href="P3.html#strateška-usmeritev-in-upravljanje-portfelja"><i class="fa fa-check"></i><b>5.4.3</b> Strateška usmeritev in upravljanje portfelja</a></li>
+<li class="chapter" data-level="5.4.4" data-path="P3.html"><a href="P3.html#proces-upravljanja-portfelja-it"><i class="fa fa-check"></i><b>5.4.4</b> Proces upravljanja portfelja IT</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="P3.html"><a href="P3.html#povračilo-sredstev-za-it"><i class="fa fa-check"></i><b>5.5</b> Povračilo sredstev za IT</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="P3.html"><a href="P3.html#razumevanje-izziva-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.1</b> Razumevanje izziva povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.2" data-path="P3.html"><a href="P3.html#različni-pristopi-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.2</b> Različni pristopi povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.3" data-path="P3.html"><a href="P3.html#posledice-povračil-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.3</b> Posledice povračil sredstev za IT</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="P3-V3.html"><a href="P3-V3.html"><i class="fa fa-check"></i><b>6</b> <span class="sklop1 oznaka">P3</span> → <span class="sklop3 oznaka">V3</span> JavaScript na strani odjemalca</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="P3-V3.html"><a href="P3-V3.html#JavaScript"><i class="fa fa-check"></i><b>6.1</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="P3-V3.html"><a href="P3-V3.html#gradniki-2"><i class="fa fa-check"></i><b>6.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="6.1.2" data-path="P3-V3.html"><a href="P3-V3.html#zaključek-2"><i class="fa fa-check"></i><b>6.1.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="P4.html"><a href="P4.html"><i class="fa fa-check"></i><b>7</b> <span class="sklop1 oznaka">P4</span> Upravljanje sprememb, IS, podatek, informacija, znanje</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="P4.html"><a href="P4.html#upravljanje-sprememb"><i class="fa fa-check"></i><b>7.1</b> Upravljanje sprememb</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="P4.html"><a href="P4.html#razumevanje-odpora-uporabnikov"><i class="fa fa-check"></i><b>7.1.1</b> Razumevanje odpora uporabnikov</a></li>
+<li class="chapter" data-level="7.1.2" data-path="P4.html"><a href="P4.html#odpor-uporabnikov-do-sprememb-perspektiva-pristranskosti"><i class="fa fa-check"></i><b>7.1.2</b> Odpor uporabnikov do sprememb: perspektiva pristranskosti</a></li>
+<li class="chapter" data-level="7.1.3" data-path="P4.html"><a href="P4.html#model-prilagajanja-uporabniku"><i class="fa fa-check"></i><b>7.1.3</b> Model prilagajanja uporabniku</a></li>
+<li class="chapter" data-level="7.1.4" data-path="P4.html"><a href="P4.html#različni-modeli-sprejetosti-uporabnikov"><i class="fa fa-check"></i><b>7.1.4</b> Različni modeli sprejetosti uporabnikov</a></li>
+<li class="chapter" data-level="7.1.5" data-path="P4.html"><a href="P4.html#ključni-vzvodi-pri-uvajanju-informacijskega-sistema"><i class="fa fa-check"></i><b>7.1.5</b> Ključni vzvodi pri uvajanju informacijskega sistema</a></li>
+<li class="chapter" data-level="7.1.6" data-path="P4.html"><a href="P4.html#kako-učinkovito-uvesti-spremembe-kritični-dejavniki-uspeha"><i class="fa fa-check"></i><b>7.1.6</b> Kako učinkovito uvesti spremembe: kritični dejavniki uspeha</a></li>
+<li class="chapter" data-level="7.1.7" data-path="P4.html"><a href="P4.html#primerjava-evolucijske-in-revolucionarne-spremembe"><i class="fa fa-check"></i><b>7.1.7</b> Primerjava evolucijske in revolucionarne spremembe</a></li>
+<li class="chapter" data-level="7.1.8" data-path="P4.html"><a href="P4.html#projektno-vodenje-v-primerjavi-z-učnim-pristopom"><i class="fa fa-check"></i><b>7.1.8</b> Projektno vodenje v primerjavi z učnim pristopom</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="P4.html"><a href="P4.html#sistem"><i class="fa fa-check"></i><b>7.2</b> Sistem</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="P4.html"><a href="P4.html#opredelitve-osnovnih-pojmov"><i class="fa fa-check"></i><b>7.2.1</b> Opredelitve osnovnih pojmov</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="P4.html"><a href="P4.html#podatek-informacija-in-znanje"><i class="fa fa-check"></i><b>7.3</b> Podatek, informacija in znanje</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="P4.html"><a href="P4.html#podatek-in-informacija"><i class="fa fa-check"></i><b>7.3.1</b> Podatek in informacija</a></li>
+<li class="chapter" data-level="7.3.2" data-path="P4.html"><a href="P4.html#značilnosti-informacij"><i class="fa fa-check"></i><b>7.3.2</b> Značilnosti informacij</a></li>
+<li class="chapter" data-level="7.3.3" data-path="P4.html"><a href="P4.html#raziskava-o-kakovosti-informacij"><i class="fa fa-check"></i><b>7.3.3</b> Raziskava o kakovosti informacij</a></li>
+<li class="chapter" data-level="7.3.4" data-path="P4.html"><a href="P4.html#znanje"><i class="fa fa-check"></i><b>7.3.4</b> Znanje</a></li>
+<li class="chapter" data-level="7.3.5" data-path="P4.html"><a href="P4.html#povezanost-podatka-informacije-in-znanja"><i class="fa fa-check"></i><b>7.3.5</b> Povezanost podatka, informacije in znanja</a></li>
+<li class="chapter" data-level="7.3.6" data-path="P4.html"><a href="P4.html#primeri-interpretacij-informacij"><i class="fa fa-check"></i><b>7.3.6</b> Primeri interpretacij informacij</a></li>
+<li class="chapter" data-level="7.3.7" data-path="P4.html"><a href="P4.html#znanje-vs.-védenje"><i class="fa fa-check"></i><b>7.3.7</b> Znanje vs. védenje</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="P4-V4.html"><a href="P4-V4.html"><i class="fa fa-check"></i><b>8</b> <span class="sklop1 oznaka">P4</span> → <span class="sklop3 oznaka">V4</span> Odjemalec/strežnik in Node.js</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="P4-V4.html"><a href="P4-V4.html#razvoj-enostavnega-spletnega-strežnika"><i class="fa fa-check"></i><b>8.1</b> Razvoj enostavnega spletnega strežnika</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="P4-V4.html"><a href="P4-V4.html#hello-world"><i class="fa fa-check"></i><b>8.1.1</b> Hello World</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="P4-V4.html"><a href="P4-V4.html#spremenljivke-na-strežniku"><i class="fa fa-check"></i><b>8.2</b> Spremenljivke na strežniku</a></li>
+<li class="chapter" data-level="8.3" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-statičnih-spletnih-strani"><i class="fa fa-check"></i><b>8.3</b> Strežnik statičnih spletnih strani</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="P4-V4.html"><a href="P4-V4.html#knjižnice-ki-jih-bo-naš-projekt-uporabljal"><i class="fa fa-check"></i><b>8.3.1</b> Knjižnice, ki jih bo naš projekt uporabljal</a></li>
+<li class="chapter" data-level="8.3.2" data-path="P4-V4.html"><a href="P4-V4.html#uvoz-statičnih-datotek"><i class="fa fa-check"></i><b>8.3.2</b> Uvoz statičnih datotek</a></li>
+<li class="chapter" data-level="8.3.3" data-path="P4-V4.html"><a href="P4-V4.html#začnemo-s-pisanjem-kode-na-strežniku"><i class="fa fa-check"></i><b>8.3.3</b> Začnemo s pisanjem kode na strežniku</a></li>
+<li class="chapter" data-level="8.3.4" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-objekt-strežnika-in-ga-osnovno-nastavimo"><i class="fa fa-check"></i><b>8.3.4</b> Pripravimo objekt strežnika in ga osnovno nastavimo</a></li>
+<li class="chapter" data-level="8.3.5" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-poženemo"><i class="fa fa-check"></i><b>8.3.5</b> Strežnik poženemo</a></li>
+<li class="chapter" data-level="8.3.6" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-še-manjkajočo-metodo-za-strežbo-statične-vsebine"><i class="fa fa-check"></i><b>8.3.6</b> Pripravimo še manjkajočo metodo za strežbo statične vsebine</a></li>
+<li class="chapter" data-level="8.3.7" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-metodo-za-obvladovanje-napak"><i class="fa fa-check"></i><b>8.3.7</b> Pripravimo metodo za obvladovanje napak</a></li>
+<li class="chapter" data-level="8.3.8" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-tudi-metodo-ki-vrne-datoteko-odjemalcu"><i class="fa fa-check"></i><b>8.3.8</b> Pripravimo tudi metodo, ki vrne datoteko odjemalcu</a></li>
+<li class="chapter" data-level="8.3.9" data-path="P4-V4.html"><a href="P4-V4.html#preverimo-delovanje-strežbe-statičnih-strani"><i class="fa fa-check"></i><b>8.3.9</b> Preverimo delovanje strežbe statičnih strani</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-statičnih-strani-dodamo-predpomnjenje"><i class="fa fa-check"></i><b>8.4</b> Strežniku statičnih strani dodamo predpomnjenje</a></li>
+<li class="chapter" data-level="8.5" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-dodamo-dinamične-strani"><i class="fa fa-check"></i><b>8.5</b> Strežniku dodamo dinamične strani</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="P4-V4.html"><a href="P4-V4.html#popravimo-nastavitev-strežnika"><i class="fa fa-check"></i><b>8.5.1</b> Popravimo nastavitev strežnika</a></li>
+<li class="chapter" data-level="8.5.2" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-metodo-za-obdelavo-sporočila"><i class="fa fa-check"></i><b>8.5.2</b> Implementiramo metodo za obdelavo sporočila</a></li>
+<li class="chapter" data-level="8.5.3" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-zahvalo-uporabniku"><i class="fa fa-check"></i><b>8.5.3</b> Implementiramo zahvalo uporabniku</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="P4-V4.html"><a href="P4-V4.html#testiranje-in-dodatno-gradivo"><i class="fa fa-check"></i><b>8.6</b> Testiranje in dodatno gradivo</a></li>
+</ul></li>
+<li class="part"><span><b>II sklop: Arhitektura poslovnega informacijskega sistema</b></span></li>
+<li class="chapter" data-level="9" data-path="DN.html"><a href="DN.html"><i class="fa fa-check"></i><b>9</b> <span class="sklop3 oznaka">DN</span> Spletna aplikacija FRI izletnik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DN.html"><a href="DN.html#DN1"><i class="fa fa-check"></i><b>9.1</b> Spletna aplikacija <small>(1. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="DN.html"><a href="DN.html#opis-naloge-in-navodila"><i class="fa fa-check"></i><b>9.1.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.2" data-path="DN.html"><a href="DN.html#vzpostavitev-repozitorija"><i class="fa fa-check"></i><b>9.1.2</b> Vzpostavitev repozitorija <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.3" data-path="DN.html"><a href="DN.html#DN11"><i class="fa fa-check"></i><b>9.1.3</b> Skladnja strani in stilska preobrazba <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.4" data-path="DN.html"><a href="DN.html#DN12"><i class="fa fa-check"></i><b>9.1.4</b> Podpora funkcionalnosti na odjemalcu in strežniku <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.5" data-path="DN.html"><a href="DN.html#združevanje-sprememb-v-repozitoriju"><i class="fa fa-check"></i><b>9.1.5</b> Združevanje sprememb v repozitoriju <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="DN.html"><a href="DN.html#DN2"><i class="fa fa-check"></i><b>9.2</b> Dopolnitev načrta in implementacija nove funkcionalnosti <small class="skupaj">(2. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="DN.html"><a href="DN.html#DN-navodila"><i class="fa fa-check"></i><b>9.2.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.2" data-path="DN.html"><a href="DN.html#DN-ideja"><i class="fa fa-check"></i><b>9.2.2</b> Opis osnovne ideje predloga <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.3" data-path="DN.html"><a href="DN.html#DN-Generiranje-podatkov"><i class="fa fa-check"></i><b>9.2.3</b> Generiranje podatkov <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.4" data-path="DN.html"><a href="DN.html#DN-nacrt"><i class="fa fa-check"></i><b>9.2.4</b> Načrt informacijske rešitve <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.5" data-path="DN.html"><a href="DN.html#DN-implementacija"><i class="fa fa-check"></i><b>9.2.5</b> Implementacija funkcionalnosti <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="P5.html"><a href="P5.html"><i class="fa fa-check"></i><b>10</b> <span class="sklop2 oznaka">P5</span> Metamodel delovnega sistema in arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="P5.html"><a href="P5.html#metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1</b> Metamodel delovnega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="P5.html"><a href="P5.html#razmerje-med-informacijskim-sistemom-in-delovnim-sistemom"><i class="fa fa-check"></i><b>10.1.1</b> Razmerje med informacijskim sistemom in delovnim sistemom</a></li>
+<li class="chapter" data-level="10.1.2" data-path="P5.html"><a href="P5.html#različni-pogledi-na-metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.2</b> Različni pogledi na metamodel delovnega sistema</a></li>
+<li class="chapter" data-level="10.1.3" data-path="P5.html"><a href="P5.html#primeri-metamodelov-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.3</b> Primeri metamodelov delovnega sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="P5.html"><a href="P5.html#arhitektura-poslovnega-informacijskega-sistema"><i class="fa fa-check"></i><b>10.2</b> Arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="P5.html"><a href="P5.html#uvod-v-poslovne-informacijske-sisteme"><i class="fa fa-check"></i><b>10.2.1</b> Uvod v poslovne informacijske sisteme</a></li>
+<li class="chapter" data-level="10.2.2" data-path="P5.html"><a href="P5.html#poklici-povezani-s-poslovnimi-informacijskimi-sistemi"><i class="fa fa-check"></i><b>10.2.2</b> Poklici, povezani s poslovnimi informacijskimi sistemi</a></li>
+<li class="chapter" data-level="10.2.3" data-path="P5.html"><a href="P5.html#razumevanje-poslovnih-procesov"><i class="fa fa-check"></i><b>10.2.3</b> Razumevanje poslovnih procesov</a></li>
+<li class="chapter" data-level="10.2.4" data-path="P5.html"><a href="P5.html#poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.4</b> Poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.5" data-path="P5.html"><a href="P5.html#primeri-poslovnih-sistemov"><i class="fa fa-check"></i><b>10.2.5</b> Primeri poslovnih sistemov</a></li>
+<li class="chapter" data-level="10.2.6" data-path="P5.html"><a href="P5.html#poslovni-sistemi-in-poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.6</b> Poslovni sistemi in poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.7" data-path="P5.html"><a href="P5.html#podjetja-in-poslovni-procesi"><i class="fa fa-check"></i><b>10.2.7</b> Podjetja in poslovni procesi</a></li>
+<li class="chapter" data-level="10.2.8" data-path="P5.html"><a href="P5.html#primerjava-največjih-ponudnikov"><i class="fa fa-check"></i><b>10.2.8</b> Primerjava največjih ponudnikov</a></li>
+<li class="chapter" data-level="10.2.9" data-path="P5.html"><a href="P5.html#zgodovina-sistema-sap"><i class="fa fa-check"></i><b>10.2.9</b> Zgodovina sistema SAP</a></li>
+<li class="chapter" data-level="10.2.10" data-path="P5.html"><a href="P5.html#komponente-poslovnih-informacijskih-sistemov"><i class="fa fa-check"></i><b>10.2.10</b> Komponente poslovnih informacijskih sistemov</a></li>
+<li class="chapter" data-level="10.2.11" data-path="P5.html"><a href="P5.html#integracija-poslovnih-aplikacij"><i class="fa fa-check"></i><b>10.2.11</b> Integracija poslovnih aplikacij</a></li>
+<li class="chapter" data-level="10.2.12" data-path="P5.html"><a href="P5.html#elektronska-izmenjava-podatkov"><i class="fa fa-check"></i><b>10.2.12</b> Elektronska izmenjava podatkov</a></li>
+<li class="chapter" data-level="10.2.13" data-path="P5.html"><a href="P5.html#ERP-podrobnosti"><i class="fa fa-check"></i><b>10.2.13</b> ERP</a></li>
+<li class="chapter" data-level="10.2.14" data-path="P5.html"><a href="P5.html#CRM-podrobnosti"><i class="fa fa-check"></i><b>10.2.14</b> CRM</a></li>
+<li class="chapter" data-level="10.2.15" data-path="P5.html"><a href="P5.html#SCM-podrobnosti"><i class="fa fa-check"></i><b>10.2.15</b> SCM</a></li>
+<li class="chapter" data-level="10.2.16" data-path="P5.html"><a href="P5.html#KM-podrobnosti"><i class="fa fa-check"></i><b>10.2.16</b> KM</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="P5-V5.html"><a href="P5-V5.html"><i class="fa fa-check"></i><b>11</b> <span class="sklop2 oznaka">P5</span> → <span class="sklop3 oznaka">V5</span> Povezovanje na podatkovno bazo</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="P5-V5.html"><a href="P5-V5.html#priprava-okolja"><i class="fa fa-check"></i><b>11.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="11.2" data-path="P5-V5.html"><a href="P5-V5.html#razširitev-arhitekture-odjemalecstrežnik-s-podatkovno-bazo"><i class="fa fa-check"></i><b>11.2</b> Razširitev arhitekture odjemalec/strežnik s podatkovno bazo</a></li>
+<li class="chapter" data-level="11.3" data-path="P5-V5.html"><a href="P5-V5.html#chinook-podatkovna-baza"><i class="fa fa-check"></i><b>11.3</b> Chinook podatkovna baza</a></li>
+<li class="chapter" data-level="11.4" data-path="P5-V5.html"><a href="P5-V5.html#poizvedovalni-jezik-sql"><i class="fa fa-check"></i><b>11.4</b> Poizvedovalni jezik SQL</a></li>
+<li class="chapter" data-level="11.5" data-path="P5-V5.html"><a href="P5-V5.html#podatkovna-baza-sqlite"><i class="fa fa-check"></i><b>11.5</b> Podatkovna baza SQLite</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="P5-V5.html"><a href="P5-V5.html#vsebina-podatkovne-baze"><i class="fa fa-check"></i><b>11.5.1</b> Vsebina podatkovne baze</a></li>
+<li class="chapter" data-level="11.5.2" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic"><i class="fa fa-check"></i><b>11.5.2</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.5.3" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-vseh-vrednosti-v-tabeli"><i class="fa fa-check"></i><b>11.5.3</b> Prikaz vseh vrednosti v tabeli</a></li>
+<li class="chapter" data-level="11.5.4" data-path="P5-V5.html"><a href="P5-V5.html#filtriranje-zapisov"><i class="fa fa-check"></i><b>11.5.4</b> Filtriranje zapisov</a></li>
+<li class="chapter" data-level="11.5.5" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-podatkov-iz-več-tabel"><i class="fa fa-check"></i><b>11.5.5</b> Prikaz podatkov iz več tabel</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="P5-V5.html"><a href="P5-V5.html#uporaba-ogrodja-express.js-za-poenostavitev-razvoja-aplikacij"><i class="fa fa-check"></i><b>11.6</b> Uporaba ogrodja Express.js za poenostavitev razvoja aplikacij</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic-1"><i class="fa fa-check"></i><b>11.6.1</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.6.2" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-brez-uporabe-express"><i class="fa fa-check"></i><b>11.6.2</b> Hello World brez uporabe Express</a></li>
+<li class="chapter" data-level="11.6.3" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-z-express"><i class="fa fa-check"></i><b>11.6.3</b> Hello World z Express</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="P5-V5.html"><a href="P5-V5.html#master-detail-načrtovalski-vzorec"><i class="fa fa-check"></i><b>11.7</b> Master-detail načrtovalski vzorec</a></li>
+<li class="chapter" data-level="11.8" data-path="P5-V5.html"><a href="P5-V5.html#primer-pesmi-po-žanrih"><i class="fa fa-check"></i><b>11.8</b> Primer: Pesmi po žanrih</a>
+<ul>
+<li class="chapter" data-level="11.8.1" data-path="P5-V5.html"><a href="P5-V5.html#potrebne-knjižnice"><i class="fa fa-check"></i><b>11.8.1</b> Potrebne knjižnice</a></li>
+<li class="chapter" data-level="11.8.2" data-path="P5-V5.html"><a href="P5-V5.html#funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov"><i class="fa fa-check"></i><b>11.8.2</b> Funkcija, ki v povratnem klicu vrača seznam žanrov</a></li>
+<li class="chapter" data-level="11.8.3" data-path="P5-V5.html"><a href="P5-V5.html#zaključek-osnovne-funkcionalnosti-strežnika"><i class="fa fa-check"></i><b>11.8.3</b> Zaključek osnovne funkcionalnosti strežnika</a></li>
+<li class="chapter" data-level="11.8.4" data-path="P5-V5.html"><a href="P5-V5.html#testiranje-osnovne-funkcionalnosti-master"><i class="fa fa-check"></i><b>11.8.4</b> Testiranje osnovne funkcionalnosti (master)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="P5-V5.html"><a href="P5-V5.html#dodajanje-seznama-pesmi-detail"><i class="fa fa-check"></i><b>11.8.5</b> Dodajanje seznama pesmi (detail)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="P6.html"><a href="P6.html"><i class="fa fa-check"></i><b>12</b> <span class="sklop2 oznaka">P6</span> Zgodovina, ključne vloge in vrste IS</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="P6.html"><a href="P6.html#e-poslovanje"><i class="fa fa-check"></i><b>12.1</b> E-poslovanje</a></li>
+<li class="chapter" data-level="12.2" data-path="P6.html"><a href="P6.html#e-trgovanje"><i class="fa fa-check"></i><b>12.2</b> E-trgovanje</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="P6.html"><a href="P6.html#zgodovina-e-trgovanja"><i class="fa fa-check"></i><b>12.2.1</b> Zgodovina e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.2" data-path="P6.html"><a href="P6.html#tehnologije-e-trgovanja"><i class="fa fa-check"></i><b>12.2.2</b> Tehnologije e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.3" data-path="P6.html"><a href="P6.html#osnovne-komponente-e-trgovanja"><i class="fa fa-check"></i><b>12.2.3</b> Osnovne komponente e-trgovanja</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="P6.html"><a href="P6.html#zgodovina-in-ključne-vloge-is"><i class="fa fa-check"></i><b>12.3</b> Zgodovina in ključne vloge IS</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="P6.html"><a href="P6.html#zgodovinski-pregled-pomembnih-dogodkov-v-računalništvu"><i class="fa fa-check"></i><b>12.3.1</b> Zgodovinski pregled pomembnih dogodkov v računalništvu</a></li>
+<li class="chapter" data-level="12.3.2" data-path="P6.html"><a href="P6.html#razvoj-tehnologij"><i class="fa fa-check"></i><b>12.3.2</b> Razvoj tehnologij</a></li>
+<li class="chapter" data-level="12.3.3" data-path="P6.html"><a href="P6.html#razvoj-it-za-podporo-is"><i class="fa fa-check"></i><b>12.3.3</b> Razvoj IT za podporo IS</a></li>
+<li class="chapter" data-level="12.3.4" data-path="P6.html"><a href="P6.html#razvoj-informacijske-podpore-po-ravneh-odločanja"><i class="fa fa-check"></i><b>12.3.4</b> Razvoj informacijske podpore po ravneh odločanja</a></li>
+<li class="chapter" data-level="12.3.5" data-path="P6.html"><a href="P6.html#zgodovina-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.3.5</b> Zgodovina informacijskih sistemov</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="P6.html"><a href="P6.html#vrste-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.4</b> Vrste informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-poslovanju"><i class="fa fa-check"></i><b>12.4.1</b> Sistemi za podporo poslovanju</a></li>
+<li class="chapter" data-level="12.4.2" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-odločanju"><i class="fa fa-check"></i><b>12.4.2</b> Sistemi za podporo odločanju</a></li>
+<li class="chapter" data-level="12.4.3" data-path="P6.html"><a href="P6.html#specializirani-sistemi"><i class="fa fa-check"></i><b>12.4.3</b> Specializirani sistemi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="P6-V6.html"><a href="P6-V6.html"><i class="fa fa-check"></i><b>13</b> <span class="sklop2 oznaka">P6</span> → <span class="sklop3 oznaka">V6</span> Seja, košarica, XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="P6-V6.html"><a href="P6-V6.html#priprava-okolja-1"><i class="fa fa-check"></i><b>13.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="13.2" data-path="P6-V6.html"><a href="P6-V6.html#namestitev-knjižnic-in-vključitev-podatkovne-baze"><i class="fa fa-check"></i><b>13.2</b> Namestitev knjižnic in vključitev podatkovne baze</a></li>
+<li class="chapter" data-level="13.3" data-path="P6-V6.html"><a href="P6-V6.html#seja"><i class="fa fa-check"></i><b>13.3</b> Seja</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="P6-V6.html"><a href="P6-V6.html#globalne-spremenljivke-vs.-seja"><i class="fa fa-check"></i><b>13.3.1</b> Globalne spremenljivke vs. seja</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="P6-V6.html"><a href="P6-V6.html#nakupovalna-košarica"><i class="fa fa-check"></i><b>13.4</b> Nakupovalna košarica</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="P6-V6.html"><a href="P6-V6.html#primer-nakupovanja-pesmi-iz-seznama-100-najbolje-prodajanih"><i class="fa fa-check"></i><b>13.4.1</b> Primer nakupovanja pesmi iz seznama 100 najbolje prodajanih</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="P6-V6.html"><a href="P6-V6.html#xml-in-e-slog"><i class="fa fa-check"></i><b>13.5</b> XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="P6-V6.html"><a href="P6-V6.html#dokumentacija"><i class="fa fa-check"></i><b>13.5.1</b> Dokumentacija</a></li>
+<li class="chapter" data-level="13.5.2" data-path="P6-V6.html"><a href="P6-V6.html#dopolnitve-primera-nakupovanja-pesmi"><i class="fa fa-check"></i><b>13.5.2</b> Dopolnitve primera nakupovanja pesmi</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III sklop: Analiza, načrtovanje in razvoj poslovnih informacijskih sistemov</b></span></li>
+<li class="chapter" data-level="14" data-path="P7.html"><a href="P7.html"><i class="fa fa-check"></i><b>14</b> <span class="sklop3 oznaka">P7</span> Razvojni modeli informacijskih sistemov in metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="P7.html"><a href="P7.html#zgodovina-razvoja-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.1</b> Zgodovina razvoja informacijskih sistemov</a></li>
+<li class="chapter" data-level="14.2" data-path="P7.html"><a href="P7.html#razvojni-model-informacijskega-sistema"><i class="fa fa-check"></i><b>14.2</b> Razvojni model informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="P7.html"><a href="P7.html#SDLC-studija-izvedljivosti"><i class="fa fa-check"></i><b>14.2.1</b> Študija izvedljivosti</a></li>
+<li class="chapter" data-level="14.2.2" data-path="P7.html"><a href="P7.html#SDLC-zbiranje-zahtev"><i class="fa fa-check"></i><b>14.2.2</b> Zbiranje zahtev</a></li>
+<li class="chapter" data-level="14.2.3" data-path="P7.html"><a href="P7.html#SDLC-analiza"><i class="fa fa-check"></i><b>14.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="14.2.4" data-path="P7.html"><a href="P7.html#SDLC-nacrt"><i class="fa fa-check"></i><b>14.2.4</b> Načrtovanje</a></li>
+<li class="chapter" data-level="14.2.5" data-path="P7.html"><a href="P7.html#SDLC-implementacija"><i class="fa fa-check"></i><b>14.2.5</b> Implementacija</a></li>
+<li class="chapter" data-level="14.2.6" data-path="P7.html"><a href="P7.html#SDLC-pregled-in-vzdrzevanje"><i class="fa fa-check"></i><b>14.2.6</b> Pregled in vzdrževanje</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="P7.html"><a href="P7.html#metodologija"><i class="fa fa-check"></i><b>14.3</b> Metodologija</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="P7.html"><a href="P7.html#tehnike"><i class="fa fa-check"></i><b>14.3.1</b> Tehnike</a></li>
+<li class="chapter" data-level="14.3.2" data-path="P7.html"><a href="P7.html#orodja"><i class="fa fa-check"></i><b>14.3.2</b> Orodja</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="P7.html"><a href="P7.html#variante-razvojnih-modelov-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.4</b> Variante razvojnih modelov informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="P7.html"><a href="P7.html#Zaporedni-razvojni-model"><i class="fa fa-check"></i><b>14.4.1</b> Zaporedni oz. slapovni razvojni model</a></li>
+<li class="chapter" data-level="14.4.2" data-path="P7.html"><a href="P7.html#Iterativni-razvojni-model"><i class="fa fa-check"></i><b>14.4.2</b> Iterativni razvojni model</a></li>
+<li class="chapter" data-level="14.4.3" data-path="P7.html"><a href="P7.html#Prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.3</b> Prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.4" data-path="P7.html"><a href="P7.html#Iterativni-prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.4</b> Iterativni/prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.5" data-path="P7.html"><a href="P7.html#Inkrementalni-razvojni-model"><i class="fa fa-check"></i><b>14.4.5</b> Inkrementalni razvojni model</a></li>
+<li class="chapter" data-level="14.4.6" data-path="P7.html"><a href="P7.html#iterativnost-vs.-inkrementalnost"><i class="fa fa-check"></i><b>14.4.6</b> Iterativnost vs. inkrementalnost</a></li>
+<li class="chapter" data-level="14.4.7" data-path="P7.html"><a href="P7.html#Kombinirani-razvojni-model"><i class="fa fa-check"></i><b>14.4.7</b> Kombinirani razvojni model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="P7.html"><a href="P7.html#metodologije-razvoja"><i class="fa fa-check"></i><b>14.5</b> Metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="P7.html"><a href="P7.html#različne-opredelitve-v-literaturi"><i class="fa fa-check"></i><b>14.5.1</b> Različne opredelitve v literaturi</a></li>
+<li class="chapter" data-level="14.5.2" data-path="P7.html"><a href="P7.html#metodologija-v-terminološkem-slovarju"><i class="fa fa-check"></i><b>14.5.2</b> Metodologija v terminološkem slovarju</a></li>
+<li class="chapter" data-level="14.5.3" data-path="P7.html"><a href="P7.html#naša-opredelitev"><i class="fa fa-check"></i><b>14.5.3</b> Naša opredelitev</a></li>
+<li class="chapter" data-level="14.5.4" data-path="P7.html"><a href="P7.html#elementi-metodologije"><i class="fa fa-check"></i><b>14.5.4</b> Elementi metodologije</a></li>
+<li class="chapter" data-level="14.5.5" data-path="P7.html"><a href="P7.html#upravljanje-z-znanjem"><i class="fa fa-check"></i><b>14.5.5</b> Upravljanje z znanjem</a></li>
+<li class="chapter" data-level="14.5.6" data-path="P7.html"><a href="P7.html#formalna-vs.-neformalna-metodologija"><i class="fa fa-check"></i><b>14.5.6</b> Formalna vs. neformalna metodologija</a></li>
+<li class="chapter" data-level="14.5.7" data-path="P7.html"><a href="P7.html#agilni-koncepti-in-metodologije"><i class="fa fa-check"></i><b>14.5.7</b> Agilni koncepti in metodologije</a></li>
+<li class="chapter" data-level="14.5.8" data-path="P7.html"><a href="P7.html#metamodel-metodologije-razvoja-informacijskega-sistema"><i class="fa fa-check"></i><b>14.5.8</b> Metamodel metodologije razvoja informacijskega sistema</a></li>
+<li class="chapter" data-level="14.5.9" data-path="P7.html"><a href="P7.html#ogrodja-za-primerjavo-metodologij"><i class="fa fa-check"></i><b>14.5.9</b> Ogrodja za primerjavo metodologij</a></li>
+<li class="chapter" data-level="14.5.10" data-path="P7.html"><a href="P7.html#učinkovitost-različnih-oblik-komunikacije"><i class="fa fa-check"></i><b>14.5.10</b> Učinkovitost različnih oblik komunikacije</a></li>
+<li class="chapter" data-level="14.5.11" data-path="P7.html"><a href="P7.html#vpliv-velikosti-na-posebnosti-razvojne-skupine"><i class="fa fa-check"></i><b>14.5.11</b> Vpliv velikosti na posebnosti razvojne skupine</a></li>
+<li class="chapter" data-level="14.5.12" data-path="P7.html"><a href="P7.html#Kriticni-projekti"><i class="fa fa-check"></i><b>14.5.12</b> Kritični projekti</a></li>
+<li class="chapter" data-level="14.5.13" data-path="P7.html"><a href="P7.html#Komunikacija-in-povratne-informacije"><i class="fa fa-check"></i><b>14.5.13</b> Komunikacija in povratne informacije</a></li>
+<li class="chapter" data-level="14.5.14" data-path="P7.html"><a href="P7.html#primer-google-inženirji-vs.-managerji"><i class="fa fa-check"></i><b>14.5.14</b> Primer: Google: Inženirji vs. managerji</a></li>
+<li class="chapter" data-level="14.5.15" data-path="P7.html"><a href="P7.html#Discipliniranost-izkusnje-in-znanje"><i class="fa fa-check"></i><b>14.5.15</b> Discipliniranost, izkušnje in znanje</a></li>
+<li class="chapter" data-level="14.5.16" data-path="P7.html"><a href="P7.html#Odkloni-od-nacrtovane-resitve"><i class="fa fa-check"></i><b>14.5.16</b> Odkloni od načrtovane rešitve</a></li>
+<li class="chapter" data-level="14.5.17" data-path="P7.html"><a href="P7.html#evolucija-razvoja-programske-opreme"><i class="fa fa-check"></i><b>14.5.17</b> Evolucija razvoja programske opreme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="P8.html"><a href="P8.html"><i class="fa fa-check"></i><b>15</b> <span class="sklop3 oznaka">P8</span> Strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="P8.html"><a href="P8.html#uvod-v-strukturni-razvoj"><i class="fa fa-check"></i><b>15.1</b> Uvod v strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="P8.html"><a href="P8.html#Strukturni-zajem-in-specifikaija-zahtev"><i class="fa fa-check"></i><b>15.1.1</b> Zajem in specifikacija zahtev</a></li>
+<li class="chapter" data-level="15.1.2" data-path="P8.html"><a href="P8.html#Strukturni-analiza"><i class="fa fa-check"></i><b>15.1.2</b> Analiza</a></li>
+<li class="chapter" data-level="15.1.3" data-path="P8.html"><a href="P8.html#Strukturni-nacrtovanje"><i class="fa fa-check"></i><b>15.1.3</b> Načrtovanje</a></li>
+<li class="chapter" data-level="15.1.4" data-path="P8.html"><a href="P8.html#Strukturni-testiranje"><i class="fa fa-check"></i><b>15.1.4</b> Testiranje</a></li>
+<li class="chapter" data-level="15.1.5" data-path="P8.html"><a href="P8.html#Strukturni-namestitev-in-uvedba"><i class="fa fa-check"></i><b>15.1.5</b> Namestitev in uvedba</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="P8.html"><a href="P8.html#podatkovno-načrtovanje"><i class="fa fa-check"></i><b>15.2</b> Podatkovno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="P8.html"><a href="P8.html#relacijski-model"><i class="fa fa-check"></i><b>15.2.1</b> Relacijski model</a></li>
+<li class="chapter" data-level="15.2.2" data-path="P8.html"><a href="P8.html#matematična-opredelitev"><i class="fa fa-check"></i><b>15.2.2</b> Matematična opredelitev</a></li>
+<li class="chapter" data-level="15.2.3" data-path="P8.html"><a href="P8.html#entitetni-diagram"><i class="fa fa-check"></i><b>15.2.3</b> Entitetni diagram</a></li>
+<li class="chapter" data-level="15.2.4" data-path="P8.html"><a href="P8.html#različne-ravni-podatkovnega-modeliranja"><i class="fa fa-check"></i><b>15.2.4</b> Različne ravni podatkovnega modeliranja</a></li>
+<li class="chapter" data-level="15.2.5" data-path="P8.html"><a href="P8.html#Postopek-konceptualno-nacrtovanje"><i class="fa fa-check"></i><b>15.2.5</b> Konceptualno načrtovanje</a></li>
+<li class="chapter" data-level="15.2.6" data-path="P8.html"><a href="P8.html#prehod-iz-konceptualnega-v-logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.6</b> Prehod iz konceptualnega v logično načrtovanje</a></li>
+<li class="chapter" data-level="15.2.7" data-path="P8.html"><a href="P8.html#logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.7</b> Logično načrtovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="P8.html"><a href="P8.html#Postopek-normalizacija"><i class="fa fa-check"></i><b>15.3</b> Normalizacija</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="P8.html"><a href="P8.html#normalna-oblika-1.-no"><i class="fa fa-check"></i><b>15.3.1</b> 1. normalna oblika (1. NO)</a></li>
+<li class="chapter" data-level="15.3.2" data-path="P8.html"><a href="P8.html#normalna-oblika-2.-no"><i class="fa fa-check"></i><b>15.3.2</b> 2. normalna oblika (2. NO)</a></li>
+<li class="chapter" data-level="15.3.3" data-path="P8.html"><a href="P8.html#normalna-oblika-3.-no"><i class="fa fa-check"></i><b>15.3.3</b> 3. normalna oblika (3. NO)</a></li>
+<li class="chapter" data-level="15.3.4" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-4.-pno"><i class="fa fa-check"></i><b>15.3.4</b> 4. poslovna normalna oblika (4. PNO)</a></li>
+<li class="chapter" data-level="15.3.5" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-5.-pno"><i class="fa fa-check"></i><b>15.3.5</b> 5. poslovna normalna oblika (5. PNO)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="P8.html"><a href="P8.html#denormalizacija"><i class="fa fa-check"></i><b>15.4</b> Denormalizacija</a></li>
+<li class="chapter" data-level="15.5" data-path="P8.html"><a href="P8.html#primeri-normalizacije"><i class="fa fa-check"></i><b>15.5</b> Primeri normalizacije</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="P8.html"><a href="P8.html#normalizacija-računa"><i class="fa fa-check"></i><b>15.5.1</b> Normalizacija računa</a></li>
+<li class="chapter" data-level="15.5.2" data-path="P8.html"><a href="P8.html#normalizacija-reverza"><i class="fa fa-check"></i><b>15.5.2</b> Normalizacija reverza</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="P8.html"><a href="P8.html#procesni-vidik"><i class="fa fa-check"></i><b>15.6</b> Procesni vidik</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="P8.html"><a href="P8.html#dekompozicijski-diagrami"><i class="fa fa-check"></i><b>15.6.1</b> Dekompozicijski diagrami</a></li>
+<li class="chapter" data-level="15.6.2" data-path="P8.html"><a href="P8.html#procesna-logika"><i class="fa fa-check"></i><b>15.6.2</b> Procesna logika</a></li>
+<li class="chapter" data-level="15.6.3" data-path="P8.html"><a href="P8.html#BPMN-tehnika"><i class="fa fa-check"></i><b>15.6.3</b> BPMN</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="P9.html"><a href="P9.html"><i class="fa fa-check"></i><b>16</b> <span class="sklop3 oznaka">P9</span> Objektno usmerjena analiza, načrtovanje in modeliranje</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="P9.html"><a href="P9.html#objektno-usmerjena-analiza-in-načrtovanje"><i class="fa fa-check"></i><b>16.1</b> Objektno usmerjena analiza in načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="P9.html"><a href="P9.html#OO-thinking"><i class="fa fa-check"></i><b>16.1.1</b> Objektno usmerjeno razmišljanje</a></li>
+<li class="chapter" data-level="16.1.2" data-path="P9.html"><a href="P9.html#načrtovanje-v-procesu-razvoja-programske-opreme"><i class="fa fa-check"></i><b>16.1.2</b> Načrtovanje v procesu razvoja programske opreme</a></li>
+<li class="chapter" data-level="16.1.3" data-path="P9.html"><a href="P9.html#načrtovanje-z-upoštevanjem-kakovosti"><i class="fa fa-check"></i><b>16.1.3</b> Načrtovanje z upoštevanjem kakovosti</a></li>
+<li class="chapter" data-level="16.1.4" data-path="P9.html"><a href="P9.html#razred-odgovornost-sodelovanje"><i class="fa fa-check"></i><b>16.1.4</b> Razred, odgovornost, sodelovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="P9.html"><a href="P9.html#objektno-usmerjeno-načrtovanje"><i class="fa fa-check"></i><b>16.2</b> Objektno usmerjeno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="P9.html"><a href="P9.html#izdelava-modelov-načrta"><i class="fa fa-check"></i><b>16.2.1</b> Izdelava modelov načrta</a></li>
+<li class="chapter" data-level="16.2.2" data-path="P9.html"><a href="P9.html#razvoj-programskih-jezikov"><i class="fa fa-check"></i><b>16.2.2</b> Razvoj programskih jezikov</a></li>
+<li class="chapter" data-level="16.2.3" data-path="P9.html"><a href="P9.html#stiri-nacrtovalska-nacela"><i class="fa fa-check"></i><b>16.2.3</b> Štiri načrtovalska načela</a></li>
+<li class="chapter" data-level="16.2.4" data-path="P9.html"><a href="P9.html#načrtovalska-struktura-v-programskem-jeziku-java-in-uml-razrednih-diagramih"><i class="fa fa-check"></i><b>16.2.4</b> Načrtovalska struktura v programskem jeziku Java in UML razrednih diagramih</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="P9.html"><a href="P9.html#načrtovalska-načela"><i class="fa fa-check"></i><b>16.3</b> Načrtovalska načela</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="P9.html"><a href="P9.html#vrednotenje-kompleksnosti-načrta"><i class="fa fa-check"></i><b>16.3.1</b> Vrednotenje kompleksnosti načrta</a></li>
+<li class="chapter" data-level="16.3.2" data-path="P9.html"><a href="P9.html#načelo-ločevanja-pomislekov"><i class="fa fa-check"></i><b>16.3.2</b> Načelo ločevanja pomislekov</a></li>
+<li class="chapter" data-level="16.3.3" data-path="P9.html"><a href="P9.html#skrivanje-informacij"><i class="fa fa-check"></i><b>16.3.3</b> Skrivanje informacij</a></li>
+<li class="chapter" data-level="16.3.4" data-path="P9.html"><a href="P9.html#konceptualna-celovitost"><i class="fa fa-check"></i><b>16.3.4</b> Konceptualna celovitost</a></li>
+<li class="chapter" data-level="16.3.5" data-path="P9.html"><a href="P9.html#načela-posploševanja"><i class="fa fa-check"></i><b>16.3.5</b> Načela posploševanja</a></li>
+<li class="chapter" data-level="16.3.6" data-path="P9.html"><a href="P9.html#preverjanje-modela"><i class="fa fa-check"></i><b>16.3.6</b> Preverjanje modela</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="P10.html"><a href="P10.html"><i class="fa fa-check"></i><b>17</b> <span class="sklop3 oznaka">P10</span> Objektni razvoj, simulacija razvoja informacijskega sistema za bankomat in simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="P10.html"><a href="P10.html#objektni-razvoj"><i class="fa fa-check"></i><b>17.1</b> Objektni razvoj</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="P10.html"><a href="P10.html#rup-proces-razvoja"><i class="fa fa-check"></i><b>17.1.1</b> RUP proces razvoja</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="P10.html"><a href="P10.html#simulacija-razvoja-informacijskega-sistema-za-bankomat"><i class="fa fa-check"></i><b>17.2</b> Simulacija razvoja informacijskega sistema za bankomat</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="P10.html"><a href="P10.html#predstavitev-problema"><i class="fa fa-check"></i><b>17.2.1</b> Predstavitev problema</a></li>
+<li class="chapter" data-level="17.2.2" data-path="P10.html"><a href="P10.html#Bankomat-Zbiranje-zahtev"><i class="fa fa-check"></i><b>17.2.2</b> Zajem zahtev</a></li>
+<li class="chapter" data-level="17.2.3" data-path="P10.html"><a href="P10.html#Bankomat-Analiza"><i class="fa fa-check"></i><b>17.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="17.2.4" data-path="P10.html"><a href="P10.html#Bankomat-Pregledni-nacrt"><i class="fa fa-check"></i><b>17.2.4</b> Pregledni načrt</a></li>
+<li class="chapter" data-level="17.2.5" data-path="P10.html"><a href="P10.html#Bankomat-Podroben-nacrt"><i class="fa fa-check"></i><b>17.2.5</b> Podroben načrt</a></li>
+<li class="chapter" data-level="17.2.6" data-path="P10.html"><a href="P10.html#Bankomat-Implementacija"><i class="fa fa-check"></i><b>17.2.6</b> Implementacija</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="P10.html"><a href="P10.html#Simulacija-projekta"><i class="fa fa-check"></i><b>17.3</b> Simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="P10.html"><a href="P10.html#pravila"><i class="fa fa-check"></i><b>17.3.1</b> Pravila</a></li>
+<li class="chapter" data-level="17.3.2" data-path="P10.html"><a href="P10.html#izračun-točk-simulacije"><i class="fa fa-check"></i><b>17.3.2</b> Izračun točk simulacije</a></li>
+<li class="chapter" data-level="17.3.3" data-path="P10.html"><a href="P10.html#potek-simulacije"><i class="fa fa-check"></i><b>17.3.3</b> Potek simulacije</a></li>
+<li class="chapter" data-level="17.3.4" data-path="P10.html"><a href="P10.html#gradivo"><i class="fa fa-check"></i><b>17.3.4</b> Gradivo</a></li>
+<li class="chapter" data-level="17.3.5" data-path="P10.html"><a href="P10.html#nakljucni-dogodki-simulacije"><i class="fa fa-check"></i><b>17.3.5</b> Naključni dogodki pri simulaciji</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV sklop: Infrastruktura in trendi</b></span></li>
+<li class="chapter" data-level="18" data-path="P11.html"><a href="P11.html"><i class="fa fa-check"></i><b>18</b> <span class="sklop4 oznaka">P11</span> Semantični splet in tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="P11.html"><a href="P11.html#semantični-splet"><i class="fa fa-check"></i><b>18.1</b> Semantični splet</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="P11.html"><a href="P11.html#splet-v-številkah"><i class="fa fa-check"></i><b>18.1.1</b> Splet v številkah</a></li>
+<li class="chapter" data-level="18.1.2" data-path="P11.html"><a href="P11.html#iskalniki-najdejo-le-del-spleta"><i class="fa fa-check"></i><b>18.1.2</b> Iskalniki “najdejo” le del spleta</a></li>
+<li class="chapter" data-level="18.1.3" data-path="P11.html"><a href="P11.html#vloga-svetovnega-spleta"><i class="fa fa-check"></i><b>18.1.3</b> Vloga svetovnega spleta</a></li>
+<li class="chapter" data-level="18.1.4" data-path="P11.html"><a href="P11.html#semantična-integracija-podatkov"><i class="fa fa-check"></i><b>18.1.4</b> Semantična integracija podatkov</a></li>
+<li class="chapter" data-level="18.1.5" data-path="P11.html"><a href="P11.html#primer-organizacije-potovanj"><i class="fa fa-check"></i><b>18.1.5</b> Primer organizacije potovanj</a></li>
+<li class="chapter" data-level="18.1.6" data-path="P11.html"><a href="P11.html#osnova-so-podatki"><i class="fa fa-check"></i><b>18.1.6</b> Osnova so podatki</a></li>
+<li class="chapter" data-level="18.1.7" data-path="P11.html"><a href="P11.html#semantični-splet-1"><i class="fa fa-check"></i><b>18.1.7</b> Semantični splet</a></li>
+<li class="chapter" data-level="18.1.8" data-path="P11.html"><a href="P11.html#web-x"><i class="fa fa-check"></i><b>18.1.8</b> Web X</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="P11.html"><a href="P11.html#tehnologija-veriženja-blokov"><i class="fa fa-check"></i><b>18.2</b> Tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="P11.html"><a href="P11.html#uvod-v-osnovne-pojme"><i class="fa fa-check"></i><b>18.2.1</b> Uvod v osnovne pojme</a></li>
+<li class="chapter" data-level="18.2.2" data-path="P11.html"><a href="P11.html#osnovni-princip-delovanja"><i class="fa fa-check"></i><b>18.2.2</b> Osnovni princip delovanja</a></li>
+<li class="chapter" data-level="18.2.3" data-path="P11.html"><a href="P11.html#zgodovinski-pregled-razvoja-in-trendov-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.3</b> Zgodovinski pregled razvoja in trendov tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.4" data-path="P11.html"><a href="P11.html#mehanizmi-soglasja"><i class="fa fa-check"></i><b>18.2.4</b> Mehanizmi soglasja</a></li>
+<li class="chapter" data-level="18.2.5" data-path="P11.html"><a href="P11.html#področja-uporabe-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.5</b> Področja uporabe tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.6" data-path="P11.html"><a href="P11.html#pametne-pogodbe"><i class="fa fa-check"></i><b>18.2.6</b> Pametne pogodbe</a></li>
+<li class="chapter" data-level="18.2.7" data-path="P11.html"><a href="P11.html#kdaj-uporabiti-tehnologijo-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.7</b> Kdaj uporabiti tehnologijo veriženja blokov?</a></li>
+<li class="chapter" data-level="18.2.8" data-path="P11.html"><a href="P11.html#projekti-na-fakulteti"><i class="fa fa-check"></i><b>18.2.8</b> Projekti na fakulteti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="P12.html"><a href="P12.html"><i class="fa fa-check"></i><b>19</b> <span class="sklop5 oznaka">P12</span> Računalništvo v oblaku, IT varnost in Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="P12.html"><a href="P12.html#računalništvo-v-oblaku"><i class="fa fa-check"></i><b>19.1</b> Računalništvo v oblaku</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="P12.html"><a href="P12.html#izbira-oblačne-storitve"><i class="fa fa-check"></i><b>19.1.1</b> Izbira oblačne storitve</a></li>
+<li class="chapter" data-level="19.1.2" data-path="P12.html"><a href="P12.html#realizacija-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.2</b> Realizacija računalništva v oblaku</a></li>
+<li class="chapter" data-level="19.1.3" data-path="P12.html"><a href="P12.html#virtualizacija"><i class="fa fa-check"></i><b>19.1.3</b> Virtualizacija</a></li>
+<li class="chapter" data-level="19.1.4" data-path="P12.html"><a href="P12.html#modeli-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.4</b> Modeli računalništva v oblaku</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="P12.html"><a href="P12.html#it-varnost"><i class="fa fa-check"></i><b>19.2</b> IT varnost</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="P12.html"><a href="P12.html#napadi"><i class="fa fa-check"></i><b>19.2.1</b> Napadi</a></li>
+<li class="chapter" data-level="19.2.2" data-path="P12.html"><a href="P12.html#najboljše-prakse-protiukrepov"><i class="fa fa-check"></i><b>19.2.2</b> Najboljše prakse protiukrepov</a></li>
+<li class="chapter" data-level="19.2.3" data-path="P12.html"><a href="P12.html#postopek-razkrivanja-ranljivosti"><i class="fa fa-check"></i><b>19.2.3</b> Postopek razkrivanja ranljivosti</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="P12.html"><a href="P12.html#marshmallow-challenge"><i class="fa fa-check"></i><b>19.3</b> Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="P12.html"><a href="P12.html#izziv"><i class="fa fa-check"></i><b>19.3.1</b> Izziv</a></li>
+<li class="chapter" data-level="19.3.2" data-path="P12.html"><a href="P12.html#zaključki"><i class="fa fa-check"></i><b>19.3.2</b> Zaključki</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i>Literatura</a></li>
+<li class="divider"></li>
+<li><a href="https://ucilnica.fri.uni-lj.si/course/view.php?id=54">eUčilnica</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Osnove informacijskih sistemov 2023/2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="P11" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Poglavje 18</span> <span class="sklop4 oznaka">P11</span> Semantični splet in tehnologija veriženja blokov<a href="P11.html#P11" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="vrstica">
+<img src="assets/img/ninja/ninja_03_go_right.png">
+<h3>
+<span class="sklop4 oznaka">P12</span>
+</h3>
+</div>
+<div id="semantični-splet" class="section level2 hasAnchor" number="18.1">
+<h2><span class="header-section-number">18.1</span> Semantični splet<a href="P11.html#semantični-splet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="splet-v-številkah" class="section level3 hasAnchor" number="18.1.1">
+<h3><span class="header-section-number">18.1.1</span> Splet v številkah<a href="P11.html#splet-v-številkah" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Glede na trenutne statistične podatke velja:</p>
+<blockquote>
+<p><a href="https://www.internetworldstats.com/stats.htm"><i class="fa-solid fa-earth-europe"></i><strong>5,3 milijarde</strong></a> spletnih uporabnikov,</p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.statista.com/statistics/245501/multiple-mobile-device-ownership-worldwide/"><i class="fa-solid fa-earth-europe"></i><strong>18,2 milijard</strong></a> mobilnih telefonov,</p>
+</blockquote>
+<blockquote>
+<p><strong>5x20</strong> povečanje internetnega prometa (v zadnjih 20 letih se je količina internetnega prometa 5x povečala),</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.netcraft.com/archives/category/web-server-survey/"><i class="fa-solid fa-earth-europe"></i><strong>1.116 milijard</strong></a> spletnih strani.</p>
+</blockquote>
+</div>
+<div id="iskalniki-najdejo-le-del-spleta" class="section level3 hasAnchor" number="18.1.2">
+<h3><span class="header-section-number">18.1.2</span> Iskalniki “najdejo” le del spleta<a href="P11.html#iskalniki-najdejo-le-del-spleta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Na sliki <a href="P11.html#fig:slika-Iskalniki-najdejo-le-del-spleta#fig:slika-Iskalniki-najdejo-le-del-spleta">18.1</a> so navedeni različni deli spleta, do katerih lahko iskalniki dostopajo:</p>
+<ul>
+<li><strong>statični</strong> vs. <strong>dinamični</strong> – HTML stran in stran, ki ne obstaja, dokler ne pride do interakcije (npr. spletni koledar, kjer lahko generiramo veliko strani, npr. za vsak mesec),</li>
+<li><strong>javni</strong> vs. <strong>skriti</strong> – včasih enostavno, zdaj pa več stopenj (npr. Facebook, za nekoga je vsebina skrita, za drugega ne (npr. iskalnik nima dostopa)), odvisno tudi od spletnega brskalnika,</li>
+<li><strong>indeksiran</strong> – spletni iskalniki se večinoma osredotočajo na statični del in nekaj malega na dinamični,</li>
+<li><strong>rep</strong> – javni, dinamični in skriti del spleta so dejansko neomejeni,</li>
+<li><strong>semantični</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Semantic_Web"><i class="fa-brands fa-wikipedia-w"></i>Semantic Web</a>)</em> – nekje 15 % podatkov na spletu naj bi bilo opisanih tudi z metapodatki, težava pa je, ali so resnični, tj. zaupanje.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Iskalniki-najdejo-le-del-spleta"></span>
+<img src="assets/img/Deli_spleta.png" alt="Deli spleta" width="300" />
+<p class="caption">
+Slika 18.1: Deli spleta
+</p>
+</div>
+</div>
+<div id="vloga-svetovnega-spleta" class="section level3 hasAnchor" number="18.1.3">
+<h3><span class="header-section-number">18.1.3</span> Vloga svetovnega spleta<a href="P11.html#vloga-svetovnega-spleta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<center>
+<video width="720" height="546" controls>
+<source src="assets/other/Social_media_is_living.mp4" type="video/mp4">
+Brskalnik ne podpira predvajanja video posnetkov.
+</video>
+</center>
+</div>
+<div id="semantična-integracija-podatkov" class="section level3 hasAnchor" number="18.1.4">
+<h3><span class="header-section-number">18.1.4</span> Semantična integracija podatkov<a href="P11.html#semantična-integracija-podatkov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Na spletu se pojavlja vedno več prosto dostopnih podatkov, ki pa so v <strong>različnih formatih</strong> in pogosto <strong>med seboj nepovezani</strong>.</p>
+<p>Predstavljajte si svetovni splet, kjer:</p>
+<ul>
+<li>imamo na voljo <strong>številne dokumente</strong> na spletu,</li>
+<li>vendar <strong>nobenih povezav</strong> med njimi.</li>
+</ul>
+</div>
+<div id="primer-organizacije-potovanj" class="section level3 hasAnchor" number="18.1.5">
+<h3><span class="header-section-number">18.1.5</span> Primer organizacije potovanj<a href="P11.html#primer-organizacije-potovanj" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Organizirajmo potovanje</strong> iz <a href="https://sl.wikipedia.org/wiki/Ljubljana"><i class="fa-brands fa-wikipedia-w"></i><strong>Ljubljane</strong></a> v <a href="https://en.wikipedia.org/wiki/Singapore"><i class="fa-brands fa-wikipedia-w"></i><strong>Singapur</strong></a> s pomočjo uporabe svetovnega spleta!</p>
+<p>Najprej moramo poiskati ustrezen <strong>letalski let</strong>. To lahko naredimo s pomočjo iskalnika ene od letalskih družb, ki letijo iz Ljubljane (glej sliko <a href="P11.html#fig:slika-Adria#fig:slika-Adria">18.2</a>).</p>
+<blockquote>
+<p><strong>Opomba</strong>: Z Adrio nič več, tako da je na tem mestu zgolj za spomin.</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Adria"></span>
+<img src="assets/img/Adria.png" alt="[&lt;i class='fa-brands fa-wikipedia-w'&gt;&lt;/i&gt;Adria Airways](https://en.wikipedia.org/wiki/Adria_Airways)" width="400" />
+<p class="caption">
+Slika 18.2: <a href="https://en.wikipedia.org/wiki/Adria_Airways"><i class='fa-brands fa-wikipedia-w'></i>Adria Airways</a>
+</p>
+</div>
+<p>Ali poiščemo letalsko družbo države, v katero potujemo (glej sliko <a href="P11.html#fig:slika-Singapore-airlines#fig:slika-Singapore-airlines">18.3</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Singapore-airlines"></span>
+<img src="assets/img/Singapore_airlines.png" alt="[&lt;i class='fa-brands fa-wikipedia-w'&gt;&lt;/i&gt;Singapore Airlines](https://en.wikipedia.org/wiki/Singapore_Airlines)" width="400" />
+<p class="caption">
+Slika 18.3: <a href="https://en.wikipedia.org/wiki/Singapore_Airlines"><i class='fa-brands fa-wikipedia-w'></i>Singapore Airlines</a>
+</p>
+</div>
+<p>Poskusimo lahko tudi z nizkocenovnim ponudnikom (glej sliko <a href="P11.html#fig:slika-AirAsia#fig:slika-AirAsia">18.4</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-AirAsia"></span>
+<img src="assets/img/AirAsia.png" alt="[&lt;i class='fa-brands fa-wikipedia-w'&gt;&lt;/i&gt;AirAsia](https://en.wikipedia.org/wiki/AirAsia)" width="400" />
+<p class="caption">
+Slika 18.4: <a href="https://en.wikipedia.org/wiki/AirAsia"><i class='fa-brands fa-wikipedia-w'></i>AirAsia</a>
+</p>
+</div>
+<p>Potrebujemo tudi <strong>prenočišče</strong>, zato lahko najprej preverimo najcenejšo možnost (glej sliko <a href="P11.html#fig:slika-Hostels-com#fig:slika-Hostels-com">18.5</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Hostels-com"></span>
+<img src="assets/img/Hostels.com.png" alt="Hostel.com" width="400" />
+<p class="caption">
+Slika 18.5: Hostel.com
+</p>
+</div>
+<p>Lahko izberemo tudi eno izmed luksuznih možnosti (glej sliko <a href="P11.html#fig:slika-Hilton#fig:slika-Hilton">18.6</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Hilton"></span>
+<img src="assets/img/Hilton.png" alt="[&lt;i class='fa-brands fa-wikipedia-w'&gt;&lt;/i&gt;Hilton](https://en.wikipedia.org/wiki/Hilton_Hotels_%26_Resorts)" width="400" />
+<p class="caption">
+Slika 18.6: <a href="https://en.wikipedia.org/wiki/Hilton_Hotels_%26_Resorts"><i class='fa-brands fa-wikipedia-w'></i>Hilton</a>
+</p>
+</div>
+<p>Poiščemo lahko nekaj v “zlati sredini”, vendar je na žalost stran <strong>v kitajskem jeziku</strong>, ki ga ne razumemo (glej sliko <a href="P11.html#fig:slika-Singapore-hotels#fig:slika-Singapore-hotels">18.7</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Singapore-hotels"></span>
+<img src="assets/img/Singapore-hotels.png" alt="Singapore hotels" width="400" />
+<p class="caption">
+Slika 18.7: Singapore hotels
+</p>
+</div>
+<p>Še vedno si lahko pomagamo z drugimi spletnimi portali (glej sliko <a href="P11.html#fig:slika-Booking-com#fig:slika-Booking-com">18.8</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Booking-com"></span>
+<img src="assets/img/Booking.com.png" alt="[&lt;i class='fa-brands fa-wikipedia-w'&gt;&lt;/i&gt;Booking.com](https://en.wikipedia.org/wiki/Booking.com)" width="400" />
+<p class="caption">
+Slika 18.8: <a href="https://en.wikipedia.org/wiki/Booking.com"><i class='fa-brands fa-wikipedia-w'></i>Booking.com</a>
+</p>
+</div>
+<p>Iskanje prenočišč lahko zaupamo tudi <strong>specializiranemu portalu</strong>, kot je prikazano na slikah <a href="P11.html#fig:slika-TripAdvisor#fig:slika-TripAdvisor">18.9</a> in <a href="P11.html#fig:slika-Expedia#fig:slika-Expedia">18.10</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-TripAdvisor"></span>
+<img src="assets/img/TripAdvisor.png" alt="[&lt;i class='fa-brands fa-wikipedia-w'&gt;&lt;/i&gt;TripAdvisor](https://en.wikipedia.org/wiki/Tripadvisor)" width="400" />
+<p class="caption">
+Slika 18.9: <a href="https://en.wikipedia.org/wiki/Tripadvisor"><i class='fa-brands fa-wikipedia-w'></i>TripAdvisor</a>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Expedia"></span>
+<img src="assets/img/Expedia.png" alt="[&lt;i class='fa-brands fa-wikipedia-w'&gt;&lt;/i&gt;Expedia](https://en.wikipedia.org/wiki/Expedia)" width="400" />
+<p class="caption">
+Slika 18.10: <a href="https://en.wikipedia.org/wiki/Expedia"><i class='fa-brands fa-wikipedia-w'></i>Expedia</a>
+</p>
+</div>
+<p>Pred odhodom se želimo še dodatno informirati o Singapurju, zato <strong>pregledamo še fotografije</strong> na različnih straneh (glej sliki <a href="P11.html#fig:slika-Flickr#fig:slika-Flickr">18.11</a> in <a href="P11.html#fig:slika-Google-Singapore#fig:slika-Google-Singapore">18.12</a>), lahko pa si ogledate tudi moje (glej sliko <a href="P11.html#fig:slika-Singapore-moje-fotke#fig:slika-Singapore-moje-fotke">18.13</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Flickr"></span>
+<img src="assets/img/Flickr.png" alt="Flickr" width="400" />
+<p class="caption">
+Slika 18.11: Flickr
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Google-Singapore"></span>
+<img src="assets/img/Google-Singapore.png" alt="Google" width="400" />
+<p class="caption">
+Slika 18.12: Google
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Singapore-moje-fotke"></span>
+<img src="assets/img/Singapore-moje-fotke.png" alt="Slike izvajalca predmeta" width="400" />
+<p class="caption">
+Slika 18.13: Slike izvajalca predmeta
+</p>
+</div>
+<p>Mnenja o naši destinaciji lahko poiščemo tudi na (družabnem) potovalnem portalu (glej sliko <a href="P11.html#fig:slika-Real-travel#fig:slika-Real-travel">18.14</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Real-travel"></span>
+<img src="assets/img/Real-travel.png" alt="Real travel" width="400" />
+<p class="caption">
+Slika 18.14: Real travel
+</p>
+</div>
+<div id="kaj-smo-naredili" class="section level4 hasAnchor" number="18.1.5.1">
+<h4><span class="header-section-number">18.1.5.1</span> Kaj smo naredili?<a href="P11.html#kaj-smo-naredili" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Prebrali smo <strong>veliko število spletnih strani</strong>, ki so različnih oblik, za različne namene, v različnih jezikih itd. Za dosego prvotnega cilja (organizirati potovanje) je bilo potrebno <strong>vsebinsko integrirati</strong> vse najdene informacije. To je pogosto zelo <strong>dolgotrajen proces</strong>.</p>
+</div>
+</div>
+<div id="osnova-so-podatki" class="section level3 hasAnchor" number="18.1.6">
+<h3><span class="header-section-number">18.1.6</span> Osnova so podatki<a href="P11.html#osnova-so-podatki" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vse pregledane spletne strani so le “vrh ledene gore”, tj. <strong>vizualizacija podatkov</strong>. Dejanski podatki so skriti v podatkovnih bazah, XML datotekah ipd. Uporabnik lahko dostopa zgolj do spletnih strani, tj. uporabniškega vmesnika.</p>
+<p>Specializirane spletne strani (npr. <a href="https://en.wikipedia.org/wiki/Tripadvisor"><i class="fa-brands fa-wikipedia-w"></i>TripAdvisor</a>, <a href="https://en.wikipedia.org/wiki/Expedia"><i class="fa-brands fa-wikipedia-w"></i>Expedia</a> idr.) se problema lotijo drugače:</p>
+<ul>
+<li>zbirajo in združujejo podatke še iz drugih virov (ponavadi z dovoljenjem lastnika le-teh),</li>
+<li>ampak še vedno nadzorujejo način prikaza podatkov uporabniku.</li>
+</ul>
+<p>Pogosto želimo ta <strong>proces personalizirati</strong> in dostopati do izvirnih podatkov ter sami poskrbeti za združevanje.</p>
+<div id="kaj-želijo-uporabniki" class="section level4 hasAnchor" number="18.1.6.1">
+<h4><span class="header-section-number">18.1.6.1</span> Kaj želijo uporabniki?<a href="P11.html#kaj-želijo-uporabniki" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uporabniki želijo objavljene podatke na spletu, v neobdelani obliki, kjer lahko <strong>uporabnik sam določi</strong>:</p>
+<ul>
+<li>primere uporabe in</li>
+<li><strong>aplikacije</strong> na podlagi omenjenih podatkov.</li>
+</ul>
+</div>
+<div id="mashup-aplikacije" class="section level4 hasAnchor" number="18.1.6.2">
+<h4><span class="header-section-number">18.1.6.2</span> “Mashup” aplikacije<a href="P11.html#mashup-aplikacije" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Podobno funkcionalnost, ki jo želijo uporabniki, imajo obstoječe, t. i. <strong>“mashup” aplikacije</strong>, kot prikazuje primer na sliki <a href="P11.html#fig:slika-TripIt#fig:slika-TripIt">18.15</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-TripIt"></span>
+<img src="assets/img/TripIt.png" alt="[&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;TripIt](https://www.tripit.com)" width="400" />
+<p class="caption">
+Slika 18.15: <a href="https://www.tripit.com"><i class='fa-solid fa-earth-europe'></i>TripIt</a>
+</p>
+</div>
+<p>Takšne aplikacije zelo dobro demonstrirajo uporabo neposrednega dostopa do podatkov in prikazujejo dodano vrednost, ki jo pridobimo z integracijo. Kljub temu pa se pri takšni integraciji soočamo s številnimi težavami:</p>
+<ul>
+<li>različni viri podatkov izpostavljajo podatke s pomočjo <strong>API</strong>-jev oz. spletnih storitev,</li>
+<li>vsak vir ima <strong>različen vmesnik</strong>, različno logiko in <strong>različno strukturo podatkov</strong>,</li>
+<li>potrebno je veliko dodatnega dela, ker ni standardiziranega načina za pridobivanje teh podatkov.</li>
+</ul>
+</div>
+<div id="kaj-je-naš-cilj" class="section level4 hasAnchor" number="18.1.6.3">
+<h4><span class="header-section-number">18.1.6.3</span> Kaj je naš cilj?<a href="P11.html#kaj-je-naš-cilj" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Želimo podatke, ki so objavljeni na spletu, in sicer <strong>na standardiziran način</strong>. To pomeni, da je možno dostopati preko URI in dereferenciranje <em>(angl. <a href="https://www.w3.org/DesignIssues/LinkedData.html"><i class="fa-brands fa-wikipedia-w"></i>dereferencing</a>)</em> teh podatkov bi moralo omogočiti pregled dodatnih podatkov.</p>
+<p>Pomembno je izpostaviti, da je zmagovalna <strong>ideja trenutnega</strong> (dokumentno usmerjenega) <strong>svetovnega spleta</strong> v tem, da:</p>
+<ul>
+<li>uporabniki samostojno kreirajo številne dokumente,</li>
+<li><strong>dokumente</strong> opremijo s spletnim naslovom (npr. URI) in jih <strong>objavijo na svetovnem spletu, da so dostopni tudi drugim</strong>.</li>
+</ul>
+</div>
+<div id="mrežni-efekt-na-podatkih" class="section level4 hasAnchor" number="18.1.6.4">
+<h4><span class="header-section-number">18.1.6.4</span> Mrežni efekt na podatkih<a href="P11.html#mrežni-efekt-na-podatkih" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Isti <strong>mrežni efekt</strong> iz prejšnjega primera deluje tudi <strong>na podatkih</strong>:</p>
+<ul>
+<li>številni uporabniki, ki dodajajo povezave na podatke, jih uporabijo,</li>
+<li>nastanejo lahko številne aplikacije, ki si jih avtorji izvirnih podatkov prvotno sploh niso zamislili.</li>
+</ul>
+<p>Vendar zgolj objava podatkov na spletu ni dovolj, da pridemo do <strong>semantičnega spleta</strong>, saj na takšen način pridelamo <strong>izolirane “silose” podatkov</strong>. Zagotovo ne želimo spleta, kjer so dokumenti na voljo na internetu, vendar med njimi ni nobenih povezav.</p>
+<p>Naš cilj so tako podatki, objavljeni na spletu na standardiziran način, kar posledično pomeni, da morajo <strong>med podatkovnimi zbirkami obstajati povezave</strong>. V številnih primerih takšne povezave že obstajajo. Na področju organizacije potovanj lahko npr. v članku na Wikipediji najdemo povezavo na bolj podrobne podatke o želeni destinaciji (npr. Singapur) na specializiranem spletnem mestu Wikitravel (glej sliko <a href="P11.html#fig:slika-Wikipedia-Wikitravel#fig:slika-Wikipedia-Wikitravel">18.16</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Wikipedia-Wikitravel"></span>
+<img src="assets/img/Wikipedia_Wikitravel.png" alt="Primer povezave na Wikitravel iz Wikipedije" width="600" />
+<p class="caption">
+Slika 18.16: Primer povezave na Wikitravel iz Wikipedije
+</p>
+</div>
+<p>Objava povezav nam namreč omogoča povezovanje podatkovnih “silosov” med seboj.</p>
+</div>
+<div id="strojno-berljiva-vsebina" class="section level4 hasAnchor" number="18.1.6.5">
+<h4><span class="header-section-number">18.1.6.5</span> Strojno berljiva vsebina<a href="P11.html#strojno-berljiva-vsebina" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Na trenutnem svetovnem spletu implicitno predpostavljamo, da <strong>vsebino uporabljajo človeški uporabniki</strong> in ne računalniški sistemi, algoritmi ipd.</p>
+<p><strong>Spletna povezava</strong> ima <strong>opredeljen kontekst</strong>, v okviru katerega jo uporabnik <strong>interpretira</strong>. Če želimo doseči strojno berljivo vsebino na svetovnem spletu, potem pri povezavah potrebujemo še <a href="https://sl.wikipedia.org/wiki/Metapodatek"><i class="fa-brands fa-wikipedia-w"></i><strong>metapodatke</strong></a>. Metapodatki morajo biti strojno razpoznavni, saj predstavljajo klasifikacijo takšnih povezav, v določenih primerih takšna klasifikacija <strong>omogoča</strong> “omejeno” <strong>sklepanje</strong> (glej primer na slikah <a href="P11.html#fig:slika-Sklepanje-1#fig:slika-Sklepanje-1">18.17</a> in <a href="P11.html#fig:slika-Sklepanje-2#fig:slika-Sklepanje-2">18.18</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Sklepanje-1"></span>
+<img src="assets/img/Sklepanje-1.png" alt="Primer medsebojnih odvisnosti med koncepti, zapisan v naravnem jeziku." width="300" />
+<p class="caption">
+Slika 18.17: Primer medsebojnih odvisnosti med koncepti, zapisan v naravnem jeziku.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Sklepanje-2"></span>
+<img src="assets/img/Sklepanje-2.png" alt="Na podlagi eksplicitnih podatkov iz prejšnjega primera (relaciji oče in sin), lahko na podlagi klasifikacije družinskih razmerij sklepamo o novih relacijah (npr. oče in vnuk)." width="300" />
+<p class="caption">
+Slika 18.18: Na podlagi eksplicitnih podatkov iz prejšnjega primera (relaciji oče in sin), lahko na podlagi klasifikacije družinskih razmerij sklepamo o novih relacijah (npr. oče in vnuk).
+</p>
+</div>
+<p>Cilj je <strong>splet podatkov</strong>, kjer si želimo predvsem naslednje:</p>
+<ul>
+<li>podatke, <strong>objavljene</strong> na spletu <strong>na standardiziran način</strong>,</li>
+<li>med podatkovnimi zbirkami morajo <strong>obstajati povezave</strong>,</li>
+<li>povezave, podatki in strani morajo biti <strong>klasificirane</strong>.</li>
+</ul>
+</div>
+</div>
+<div id="semantični-splet-1" class="section level3 hasAnchor" number="18.1.7">
+<h3><span class="header-section-number">18.1.7</span> Semantični splet<a href="P11.html#semantični-splet-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p><strong>Semantični splet</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Semantic_Web"><i class="fa-brands fa-wikipedia-w"></i>Semantic Web</a>)</em> je <strong>zbirka standardiziranih tehnologij</strong>, s pomočjo katerih lahko <strong>realiziramo splet podatkov</strong>.</p>
+</blockquote>
+<p>Opredelitev je relativno enostavna, pomembni pa so predvsem naslednji vidiki:</p>
+<ul>
+<li>potreben je <strong>skupen podatkovni model</strong> in</li>
+<li><strong>klasifikacija</strong> konceptov in povezav <strong>je</strong> zelo <strong>kompleksno opravilo</strong>.</li>
+</ul>
+<p>S temi vidiki pa se ukvarjajo številni strokovnjaki v okviru reševanja raziskovalnih problemov.</p>
+<div id="primeri-odprtih-podatkov" class="section level4 hasAnchor" number="18.1.7.1">
+<h4><span class="header-section-number">18.1.7.1</span> Primeri odprtih podatkov<a href="P11.html#primeri-odprtih-podatkov" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Moč je opaziti trend odpiranja <strong>državnih podatkov</strong>:</p>
+<ul>
+<li><a href="https://data.europa.eu"><i class='fa-solid fa-earth-europe'></i>European data</a>,</li>
+<li><a href="https://podatki.gov.si"><i class='fa-solid fa-earth-europe'></i>Odprti podatki Slovenije (<strong>OPSI</strong>)</a>.</li>
+</ul>
+<p>Semantična integracija podatkov se uporablja tudi na področju spletnega iskanja (glej primer iskalnika Google na sliki <a href="P11.html#fig:slika-Google-search-knowledge-graphs#fig:slika-Google-search-knowledge-graphs">18.19</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Google-search-knowledge-graphs"></span>
+<img src="assets/img/Google-search-knowledge-graph.png" alt="Ob iskanju splošnih entitet (npr. [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;države Slovenije](https://www.google.si/search?q=Slovenija)) nam iskalnik Google na desni strani prikaže rezultate iskanja povezanih podatkov iz različnih virov." width="400" />
+<p class="caption">
+Slika 18.19: Ob iskanju splošnih entitet (npr. <a href="https://www.google.si/search?q=Slovenija"><i class='fa-solid fa-earth-europe'></i>države Slovenije</a>) nam iskalnik Google na desni strani prikaže rezultate iskanja povezanih podatkov iz različnih virov.
+</p>
+</div>
+</div>
+<div id="bbc-glasbene-strani" class="section level4 hasAnchor" number="18.1.7.2">
+<h4><span class="header-section-number">18.1.7.2</span> BBC glasbene strani<a href="P11.html#bbc-glasbene-strani" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Eden izmed boljših primerov uspešne semantične integracije različnih podatkovnih virov v končno storitev so <a href="http://www.bbc.co.uk/music"><i class='fa-solid fa-earth-europe'></i>BBC glasbene strani</a>, kjer je na voljo register izvajalcev, njihovih albumov s pesmimi itd. (glej primer na sliki <a href="P11.html#fig:slika-BBC-Music-Eric-Clapton#fig:slika-BBC-Music-Eric-Clapton">18.20</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BBC-Music-Eric-Clapton"></span>
+<img src="assets/img/BBC_Music_Eric_Clapton.png" alt="Primer podrobnih podatkov o izvajalcu [&lt;i class='fa-brands fa-wikipedia-w'&gt;&lt;/i&gt;**Eric Clapton**](https://en.wikipedia.org/wiki/Eric_Clapton) (v trenutni verziji ti podatki sicer niso več dostopni)" width="400" />
+<p class="caption">
+Slika 18.20: Primer podrobnih podatkov o izvajalcu <a href="https://en.wikipedia.org/wiki/Eric_Clapton"><i class='fa-brands fa-wikipedia-w'></i><strong>Eric Clapton</strong></a> (v trenutni verziji ti podatki sicer niso več dostopni)
+</p>
+</div>
+<p>Podatki na omenjenih spletnih straneh so agregat podatkov iz številnih zunanjih virov, kar je jasno navedeno tudi na njihovi spletni strani in prikazuje slika <a href="P11.html#fig:slika-BBC-Music-links#fig:slika-BBC-Music-links">18.21</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BBC-Music-links"></span>
+<img src="assets/img/BBC_Music_links.png" alt="Viri, na podlagi katerih je zgrajena vsebina BBC glasbenih strani" width="400" />
+<p class="caption">
+Slika 18.21: Viri, na podlagi katerih je zgrajena vsebina BBC glasbenih strani
+</p>
+</div>
+<div id="kako-zgradimo-takšno-stran" class="section level5 hasAnchor" number="18.1.7.2.1">
+<h5><span class="header-section-number">18.1.7.2.1</span> Kako zgradimo takšno stran?<a href="P11.html#kako-zgradimo-takšno-stran" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Pri izgradnji takšne strani imamo na voljo več možnosti:</p>
+<ol style="list-style-type: decimal">
+<li>možnost:
+<ul>
+<li><strong>uredniki</strong> spletne strani BBC na spletu <strong>ročno nenehno iščejo</strong> nove informacije, dejstva, ki so povezana z glasbo,
+<ul>
+<li>med preiskovanjem lahko naletijo na nove povezave,</li>
+</ul></li>
+<li>vsebina se <strong>posodablja ročno</strong>,</li>
+<li><strong>spletno mesto</strong> BBC postane kmalu <strong>neažurno</strong>,</li>
+</ul></li>
+<li>možnost:
+<ul>
+<li><strong>uredniki</strong> spletne strani BBC na spletu <strong>avtomatizirano nenehno iščejo</strong> nove informacije, dejstva, ki so povezana z glasbo,
+<ul>
+<li>pri tem jim pomaga program, ki tudi skrbi za vključevanje novih podatkov,</li>
+</ul></li>
+<li>vendar <strong>spletno mesto</strong> BBC zopet čez čas postane <strong>neažurno</strong>,</li>
+</ul></li>
+<li>možnost:
+<ul>
+<li><strong>uredniki</strong> spletne strani BBC na spletu <strong>avtomatizirano nenehno iščejo</strong> nove informacije, dejstva, ki so povezana z glasbo, s pomočjo <strong>API</strong>-jev drugih virov,
+<ul>
+<li>pri tem je potrebno poznati vhodne in izhodne parametre, podatkovne tipe ipd.,</li>
+<li>vsi viri nimajo na voljo dostopa preko API-ja,</li>
+</ul></li>
+<li><strong>spletno mesto</strong> BBC zopet čez čas postane neažurno.</li>
+</ul></li>
+</ol>
+<p>Pri BBC-ju niso uporabili nobenega izmed zgoraj omenjenih načinov, ampak so uporabili <strong>javno dostopne podatkovne zbirke</strong> <a href="https://en.wikipedia.org"><i class="fa-brands fa-wikipedia-w"></i>Wikipedia</a>, <a href="https://musicbrainz.org"><i class='fa-solid fa-earth-europe'></i>MusicBrainz</a>, <a href="https://www.last.fm"><i class='fa-solid fa-earth-europe'></i>Last.fm</a> idr., ki so na voljo <strong>v obliki odprtih podatkov</strong>. Na takšen način lahko do podatkov dostopamo brez uporabe API-jev ali z luščenjem zakodiranih podatkov s spletnih strani. Podatke lahko enostavno pridobimo npr. s pomočjo HTTP zahtev ali standardiziranih poizvedb v REST arhitekturnem slogu.</p>
+<p>Pri BBC-ju so tako uporabili (glej sliko <a href="P11.html#fig:slika-BBC-Music-links#fig:slika-BBC-Music-links">18.21</a>):</p>
+<ul>
+<li><strong>splet podatkov</strong> v vlogi sistema za upravljanje z vsebino in</li>
+<li><strong>spletno skupnost</strong> v vlogi vsebinskih urednikov.</li>
+</ul>
+</div>
+</div>
+<div id="modrost-množic" class="section level4 hasAnchor" number="18.1.7.3">
+<h4><span class="header-section-number">18.1.7.3</span> Modrost množic<a href="P11.html#modrost-množic" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Uporaba spletne skupnosti v vlogi vsebinskih urednikov na primeru BBC Music ni nova, ampak jo najdemo tudi na številnih drugih področjih.</p>
+<blockquote>
+<p>“Large groups of people are smarter than an elite few, no matter how brilliant - they are better at solving problems, fostering innovation, coming to wise decisions, even predicting the future.”<br />
+– James Surowiecki</p>
+</blockquote>
+<p>Gre za uporabo <strong>modrosti množic</strong>, kar je s poslovnega vidika opisoval tudi <a href="https://en.wikipedia.org/wiki/James_Surowiecki"><i class="fa-brands fa-wikipedia-w"></i>James Surowiecki</a> v knjigi <a href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds"><i class="fa-brands fa-wikipedia-w"></i><strong>The Wisdom of Crowds</strong></a>. Ideja se je porodila že leta 1906 antropologu <a href="https://en.wikipedia.org/wiki/Francis_Galton"><i class="fa-brands fa-wikipedia-w"></i><strong>Francisu Galtonu</strong></a>, ki je na kmečkem sejmu vprašal 800 ljudi, koliko tehta bik, ki se je na sejmu prodajal. Izkazalo se je, da je bilo povprečje ocen zelo natančno, z napako, manjšo od 1 %. To dejstvo je bilo kasneje v okviru kognitivne znanosti tudi dokazano, da lahko mnenje množic modeliramo z verjetnostno distribucijo, kjer je povprečna vrednost zelo blizu dejanske vrednosti, ki se meri.</p>
+<blockquote>
+<p>“Under the <strong>right</strong> circumstances, groups are remarkably intelligent – smarter even sometimes than the smartest people in them.”<br />
+– James Surowiecki</p>
+</blockquote>
+<p>Z modrostjo množic lahko pridemo do zaključka, ki je ključnega pomena za iskanje po spletu:</p>
+<ul>
+<li><strong>besedilo</strong> (npr. pisci in uredniki),</li>
+<li><strong>povezave</strong> (npr. spletne strani),</li>
+<li><strong>oznake</strong>,</li>
+<li><strong>poizvedbe</strong> (npr. vsi uporabniki).</li>
+</ul>
+<p>Uspešen primer uporabe modrosti množic so izvedli tudi raziskovalci v podjetju Yahoo, ki so glede na objave uporabnikov na storitvi Flickr izračunali optimalno turistično pot za ogled vseh večjih znamenitosti Barcelone (glej sliko <a href="P11.html#fig:slika-Barcelona#fig:slika-Barcelona">18.22</a>). Iz uporabnikovih slik so poleg vizualnega gradiva pridobili še lokacijo in čas. Na podlagi teh podatkov so lahko nato pripravili priporočila, koliko časa se naj preživi pri določeni znamenitosti in koliko časa potrebuješ, da prideš iz ene lokacije do druge.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Barcelona"></span>
+<img src="assets/img/Barcelona.jpg" alt="Uporaba modrosti množic za potrebe turizma" width="600" />
+<p class="caption">
+Slika 18.22: Uporaba modrosti množic za potrebe turizma
+</p>
+</div>
+</div>
+<div id="primer-integracije-podatkov" class="section level4 hasAnchor" number="18.1.7.4">
+<h4><span class="header-section-number">18.1.7.4</span> Primer integracije podatkov<a href="P11.html#primer-integracije-podatkov" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Za lažjo predstavitev primera integracije podatkov bomo uporabili primer iz problemske domene književnosti, in sicer bomo poskušali integrirati podatke iz različnih virov o svetovno znani uspešnici <a href="https://sl.wikipedia.org/wiki/Alamut_(Bartol)"><i class="fa-brands fa-wikipedia-w"></i><strong>Alamut</strong></a> slovenskega pisatelja <a href="https://sl.wikipedia.org/wiki/Vladimir_Bartol"><i class="fa-brands fa-wikipedia-w"></i><strong>Vladimirja Bartola</strong></a> (glej sliko <a href="P11.html#fig:slika-Alamut#fig:slika-Alamut">18.23</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Alamut"></span>
+<img src="assets/img/Alamut.jpg" alt="Vladimir Bartol: Alamut (1938)" width="200" />
+<p class="caption">
+Slika 18.23: Vladimir Bartol: Alamut (1938)
+</p>
+</div>
+<div id="izvorni-podatki" class="section level5 hasAnchor" number="18.1.7.4.1">
+<h5><span class="header-section-number">18.1.7.4.1</span> Izvorni podatki<a href="P11.html#izvorni-podatki" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Predpostavimo, da imamo naslednje poenostavljene knjižnične podatke (vir je mySQL podatkovna baza sistema COBISS):</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-2">Tabela 18.1: </span>Knjige
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Avtor
+</th>
+<th style="text-align:left;">
+Naslov
+</th>
+<th style="text-align:left;">
+Založnik
+</th>
+<th style="text-align:left;">
+Leto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>ISBN 978-961-274-005-4</strong>
+</td>
+<td style="text-align:left;">
+id_xyz
+</td>
+<td style="text-align:left;">
+Alamut
+</td>
+<td style="text-align:left;">
+id_ptr
+</td>
+<td style="text-align:left;">
+1938
+</td>
+</tr>
+</tbody>
+</table>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-3">Tabela 18.2: </span>Avtorji
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Naziv
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>id_xyz</strong>
+</td>
+<td style="text-align:left;">
+Bartol, Vladimir
+</td>
+</tr>
+</tbody>
+</table>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-4">Tabela 18.3: </span>Založniki
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+Založnik
+</th>
+<th style="text-align:left;">
+Kraj
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>id_ptr</strong>
+</td>
+<td style="text-align:left;">
+Modra ptica
+</td>
+<td style="text-align:left;">
+Ljubljana
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="korak" class="section level5 hasAnchor" number="18.1.7.4.2">
+<h5><span class="header-section-number">18.1.7.4.2</span> 1. korak<a href="P11.html#korak" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Podatke najprej izvozimo v obliko <strong>množice relacij</strong> (glej sliko <a href="P11.html#fig:slika-Alamut-1-korak#fig:slika-Alamut-1-korak">18.24</a>), kjer <strong>graf</strong> sestavljajo relacije, <strong>točke</strong> pa so reference na <strong>dejanske podatke</strong> oz. vsebujejo <strong>vrednosti</strong> (npr. niz, število ipd.).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Alamut-1-korak"></span>
+<img src="assets/img/Alamut_1_korak.png" alt="Podatki v obliki **množice relacij**" width="400" />
+<p class="caption">
+Slika 18.24: Podatki v obliki <strong>množice relacij</strong>
+</p>
+</div>
+</div>
+<div id="dodatni-vir-podatkov" class="section level5 hasAnchor" number="18.1.7.4.3">
+<h5><span class="header-section-number">18.1.7.4.3</span> Dodatni vir podatkov<a href="P11.html#dodatni-vir-podatkov" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Na voljo imamo isto knjigo, prevedeno v angleški jezik (glej sliko <a href="P11.html#fig:slika-Alamut-ENG#fig:slika-Alamut-ENG">18.25</a>), podatki pa so na voljo v obliki Excel datoteke.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Alamut-ENG"></span>
+<img src="assets/img/Alamut_ENG.jpg" alt="Angleški prevod knjige" width="200" />
+<p class="caption">
+Slika 18.25: Angleški prevod knjige
+</p>
+</div>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-5">Tabela 18.4: </span>Podatki v obliki Excel tabele
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+ 
+</th>
+<th style="text-align:left;">
+A
+</th>
+<th style="text-align:left;">
+B
+</th>
+<th style="text-align:left;">
+C
+</th>
+<th style="text-align:left;">
+D
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>1</strong>
+</td>
+<td style="text-align:left;">
+<strong>ID</strong>
+</td>
+<td style="text-align:left;">
+<strong>Title</strong>
+</td>
+<td style="text-align:left;">
+<strong>Author</strong>
+</td>
+<td style="text-align:left;">
+<strong>Original</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>2</strong>
+</td>
+<td style="text-align:left;">
+<strong>ISBN 978-1-55643-681-9</strong>
+</td>
+<td style="text-align:left;">
+Alamut
+</td>
+<td style="text-align:left;">
+$A9$
+</td>
+<td style="text-align:left;">
+ISBN 978-961-274-005-4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>3</strong>
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>4</strong>
+</td>
+<td style="text-align:left;">
+<strong>ID</strong>
+</td>
+<td style="text-align:left;">
+<strong>Author</strong>
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>5</strong>
+</td>
+<td style="text-align:left;">
+<strong>ISBN 978-961-274-005-4</strong>
+</td>
+<td style="text-align:left;">
+$A8$
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>6</strong>
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>7</strong>
+</td>
+<td style="text-align:left;">
+<strong>Name</strong>
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>8</strong>
+</td>
+<td style="text-align:left;">
+Bartol, Vladimir
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>9</strong>
+</td>
+<td style="text-align:left;">
+Biggins, Michael
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+<td style="text-align:left;">
+ 
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="korak-1" class="section level5 hasAnchor" number="18.1.7.4.4">
+<h5><span class="header-section-number">18.1.7.4.4</span> 2. korak<a href="P11.html#korak-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Tudi dodatni vir podatkov izvozimo v <strong>množico relacij</strong> (glej sliko <a href="P11.html#fig:slika-Alamut-2-korak#fig:slika-Alamut-2-korak">18.26</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Alamut-2-korak"></span>
+<img src="assets/img/Alamut_2_korak.png" alt="Dodatni podatki v obliki **množice relacij**" width="400" />
+<p class="caption">
+Slika 18.26: Dodatni podatki v obliki <strong>množice relacij</strong>
+</p>
+</div>
+</div>
+<div id="korak-2" class="section level5 hasAnchor" number="18.1.7.4.5">
+<h5><span class="header-section-number">18.1.7.4.5</span> 3. korak<a href="P11.html#korak-2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Zdaj lahko začnemo z integracijo podatkov tako, da najprej prikažemo skupaj obe množici relacij, kot to prikazuje slika <a href="P11.html#fig:slika-Alamut-3-korak-1#fig:slika-Alamut-3-korak-1">18.27</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Alamut-3-korak-1"></span>
+<img src="assets/img/Alamut_3_korak_1.png" alt="Prikaz obeh množic relacij skupaj" width="600" />
+<p class="caption">
+Slika 18.27: Prikaz obeh množic relacij skupaj
+</p>
+</div>
+<p>Nato ugotovimo, da imata 2 točki v grafu isti URI naslov, zato jih lahko združimo, kot to prikazuje slika <a href="P11.html#fig:slika-Alamut-3-korak-2#fig:slika-Alamut-3-korak-2">18.28</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Alamut-3-korak-2"></span>
+<img src="assets/img/Alamut_3_korak_2.png" alt="Združevanje podvojenih točk grafa" width="600" />
+<p class="caption">
+Slika 18.28: Združevanje podvojenih točk grafa
+</p>
+</div>
+<p>Uporabnik <span style="color:purple; font-weight:bold">Excelove datoteke</span> lahko sedaj izvede poizvedbo <strong>vrni leto izdaje originalne knjige</strong>, kjer je odgovor <strong>1938</strong>. Teh podatkov v <span style="color:purple; font-weight:bold">Excelovi datoteki</span> ni, ampak lahko do njih pridemo z integracijo s <span style="color:#990000; font-weight:bold">COBISS virom</span>.</p>
+</div>
+<div id="korak-3" class="section level5 hasAnchor" number="18.1.7.4.6">
+<h5><span class="header-section-number">18.1.7.4.6</span> 4. korak<a href="P11.html#korak-3" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Zdi se nam, da gre pri <span style="color:#990000; font-weight:bold">c:avtor</span> in <span style="color:purple; font-weight:bold">e:author</span> za pomensko isto povezavo, a samodejna integracija tega ni upoštevala, zato dodajmo še nekaj informacij (glej sliko <a href="P11.html#fig:slika-Alamut-4-korak#fig:slika-Alamut-4-korak">18.29</a>):</p>
+<ul>
+<li><span style="color:#990000; font-weight:bold">c:avtor</span> je isto kot <span style="color:purple; font-weight:bold">e:author</span>, kjer obe lastnosti opisujeta <strong>osebo</strong>,</li>
+<li><strong>termin</strong> “oseba” je <strong>skupnost že opredelila</strong>:
+<ul>
+<li>“oseba” je določena z imenom, priimkom itd.,</li>
+<li>uporabimo jo kot “kategorijo” za določene tipe.</li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Alamut-4-korak"></span>
+<img src="assets/img/Alamut_4_korak.png" alt="Dodajanje informacij" width="600" />
+<p class="caption">
+Slika 18.29: Dodajanje informacij
+</p>
+</div>
+<p>Uporabnik <span style="color:purple; font-weight:bold">Excelove datoteke</span> lahko sedaj izvede poizvedbo <strong>vrni <span style="color:purple; font-weight:bold">name</span> avtorja originalne knjige</strong>, kjer je odgovor <strong>Vladimir Bartol</strong>. Teh podatkov ni ne v <span style="color:purple; font-weight:bold">Excelovi datoteki</span> ne v <span style="color:#990000; font-weight:bold">Cobiss viru</span>, ampak jih pridobimo z integracijo in dodajanjem dodatnih trditev.</p>
+</div>
+<div id="korak-4" class="section level5 hasAnchor" number="18.1.7.4.7">
+<h5><span class="header-section-number">18.1.7.4.7</span> 5. korak<a href="P11.html#korak-4" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Izvedli bi lahko tudi integracijo z dodatnimi viri (glej sliko <a href="P11.html#fig:slika-LOD#fig:slika-LOD">18.30</a>):</p>
+<ul>
+<li>zanimiv koncept za povezavo je <strong>foaf:Person</strong>:
+<ul>
+<li><strong>uporabimo</strong> lahko npr. <strong>podatke iz Wikipedije</strong>,
+<ul>
+<li>projekt <a href="https://en.wikipedia.org/wiki/DBpedia"><i class="fa-brands fa-wikipedia-w"></i><strong>DBpedia</strong></a> se že ukvarja s procesom pretvorbe nestrukturiranih podatkov v strukturirano RDF obliko.</li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-LOD"></span>
+<img src="assets/img/LOD.png" alt="Vloga DBpedije pri povezovanju podatkov" width="800" />
+<p class="caption">
+Slika 18.30: Vloga DBpedije pri povezovanju podatkov
+</p>
+</div>
+<p>Po integraciji našega primera z DBpedijo je rezultat z obogatenimi podatki prikazan na sliki <a href="P11.html#fig:slika-Alamut-5-korak#fig:slika-Alamut-5-korak">18.31</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Alamut-5-korak"></span>
+<img src="assets/img/Alamut_5_korak.png" alt="Integracija z DBpedijo" width="700" />
+<p class="caption">
+Slika 18.31: Integracija z DBpedijo
+</p>
+</div>
+<p>Takšna opravila izvajajo spletni uporabniki vsak dan! Razlika je le v <strong>višji ravni rigoroznosti</strong>, da lahko <strong>avtomatizirano iskanje v celoti izvedejo računalniki</strong>. V tem primeru smo združili podatke iz različnih virov, ki:</p>
+<ul>
+<li>se nahajajo na spletu,</li>
+<li>so v različnih oblikah (mySQL, Excel ipd.),</li>
+<li>uporabljajo različne nazive relacij.</li>
+</ul>
+<p>Takšna <strong>integracija</strong> je bila izvedljiva zaradi <strong>identičnih URI naslovov</strong> (v tem primeru <a href="https://en.wikipedia.org/wiki/ISBN"><i class="fa-brands fa-wikipedia-w"></i>ISBN</a> številke publikacije).</p>
+<p>Dodali bi lahko še druge enostavne informacije z uporabo terminologij, sprejetih s strani skupnosti in kot rezultat bi lahko odkrili nove relacije. Vključili bi tudi lahko dodatno znanje v integriran vir podatkov:</p>
+<ul>
+<li>npr. popolna klasifikacija posameznih tipov knjižničnih podatkov (poleg osebe),</li>
+<li>geografski podatki,</li>
+<li><strong>uporaba ontologij</strong>, <strong>dodatnih pravil</strong> ipd.</li>
+</ul>
+<p>Posledično bi lahko izvajali <strong>še naprednejše poizvedbe</strong>.</p>
+</div>
+</div>
+</div>
+<div id="web-x" class="section level3 hasAnchor" number="18.1.8">
+<h3><span class="header-section-number">18.1.8</span> Web X<a href="P11.html#web-x" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dilema <a href="https://en.wikipedia.org/wiki/Web_2.0#Web_1.0#Web_1.0"><i class="fa-brands fa-wikipedia-w"></i><strong>Web 1.0</strong></a>, <a href="https://en.wikipedia.org/wiki/Web_2.0"><i class="fa-brands fa-wikipedia-w"></i><strong>Web 2.0</strong></a>, <strong>Web 3.0</strong> oz. <a href="https://en.wikipedia.org/wiki/Web3"><i class="fa-brands fa-wikipedia-w"></i><strong>Web3</strong></a> in <strong>Semantični splet</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Semantic_Web"><i class="fa-brands fa-wikipedia-w"></i>Semantic Web</a>)</em> (glej trend na sliki <a href="P11.html#fig:slika-Web-X-trend#fig:slika-Web-X-trend">18.32</a>):</p>
+<ul>
+<li>Je splet <strong>eden</strong> ali jih je <strong>več</strong>?</li>
+<li>Ali je <strong>številčenje različic spleta</strong> zgolj marketinška poteza?</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Web-X-trend"></span>
+<img src="assets/img/Web_X_trend.png" alt="Trend iskalnih zahtev v [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;iskalniku Google](https://trends.google.com/trends/explore?date=all&amp;q=%22Web%201.0%22,%22Web%202.0%22,%22Web%203.0%22,%22Semantic%20Web%22)" width="800" />
+<p class="caption">
+Slika 18.32: Trend iskalnih zahtev v <a href="https://trends.google.com/trends/explore?date=all&amp;q=%22Web%201.0%22,%22Web%202.0%22,%22Web%203.0%22,%22Semantic%20Web%22"><i class='fa-solid fa-earth-europe'></i>iskalniku Google</a>
+</p>
+</div>
+<div id="enostavna-opredelitev-spleta" class="section level4 hasAnchor" number="18.1.8.1">
+<h4><span class="header-section-number">18.1.8.1</span> Enostavna opredelitev spleta<a href="P11.html#enostavna-opredelitev-spleta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Web 1.0</strong> → <strong>branje</strong>,</li>
+<li><strong>Web 2.0</strong> → branje, <strong>pisanje</strong>,</li>
+<li><strong>Web 3.0</strong> → branje, pisanje, <strong>izvajanje</strong>.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Primerjava-verzij-spleta"></span>
+<img src="assets/img/Primerjava_verzij_spleta.png" alt="Primerjava različnih verzij spleta na enostavnem primeru" width="400" />
+<p class="caption">
+Slika 18.33: Primerjava različnih verzij spleta na enostavnem primeru
+</p>
+</div>
+<p>Različne verzije spleta si lahko pogledamo tudi na naslednjem enostavnem primeru izvedbe večerje:</p>
+<ul>
+<li><strong>Web 1.0</strong> → kupimo juho <a href="https://en.wikipedia.org/wiki/Cao_l%E1%BA%A7u"><i class="fa-brands fa-wikipedia-w"></i>Cao lầu</a>,</li>
+<li><strong>Web 2.0</strong> → juho skuhamo sami doma in na večerjo povabimo prijatelje,</li>
+<li><strong>Semantični splet</strong> → planiramo večerjo, kjer upoštevamo, da je Pia alergična na gluten, Vasilij je nedosegljiv do četrtka in Andrej je vegetarijanec.</li>
+</ul>
+</div>
+<div id="vpliv-informacijskih-povezav" class="section level4 hasAnchor" number="18.1.8.2">
+<h4><span class="header-section-number">18.1.8.2</span> Vpliv informacijskih povezav<a href="P11.html#vpliv-informacijskih-povezav" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Vpliv-informacijskih-povezav"></span>
+<img src="assets/img/Vpliv_informacijskih_povezav.png" alt="Vpliv informacijskih in socialnih povezav" width="800" />
+<p class="caption">
+Slika 18.34: Vpliv informacijskih in socialnih povezav
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tehnologija-veriženja-blokov" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Tehnologija veriženja blokov<a href="P11.html#tehnologija-veriženja-blokov" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="uvod-v-osnovne-pojme" class="section level3 hasAnchor" number="18.2.1">
+<h3><span class="header-section-number">18.2.1</span> Uvod v osnovne pojme<a href="P11.html#uvod-v-osnovne-pojme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Tehnologija veriženja blokov</strong> <em>(ang. <a href="https://en.wikipedia.org/wiki/Blockchain"><i class="fa-brands fa-wikipedia-w"></i>Blockchain</a>)</em> je učinkovit pristop za varno digitalno shranjevanje <strong>podatkov</strong> določene oblike (npr. numerični podatki, niz, metapodatki). Podatki so zapisani v obliki zaporedja <strong>transakcij</strong>, shranjenega v verigi zaporednih <strong>blokov</strong>, kjer za pravilnost zaporedja ter konsistentnost podatkov skrbijo <em>matematični algoritmi</em>. Hitrost transakcij v posameznih tehnologijah generiranja blokov je sorazmerna z maksimalnim številom transakcij, vsebovanim v enem bloku ali <strong>kapaciteto bloka</strong> in časom generiranja blokov, ki je običajno opredeljen kot (mehka) <strong>perioda</strong>.</p>
+<p>Tehnologije veriženja blokov se <a href="https://en.wikipedia.org/wiki/List_of_blockchains"><i class="fa-brands fa-wikipedia-w"></i>delijo</a> na <strong>javne</strong> in <strong>zasebne</strong>. Javne so dostopne ter vidne na celotnem svetovnem omrežju in imajo praviloma vrednost opredeljeno s konvencionalno monetarno valuto <a href="https://en.wikipedia.org/wiki/Fiat_money"><i class="fa-brands fa-wikipedia-w"></i>FIAT</a> (npr. USD, EUR), zato jih imenujemo <strong>kriptovalute</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Cryptocurrency"><i class="fa-brands fa-wikipedia-w"></i>Cryptocurrency</a>)</em>. Zasebne verige so namenjene uporabi ožji interesni skupini uporabnikov, kjer ni potrebe, da so podatki verige dostopni vsem uporabnikom na svetovnem omrežju (npr. velika podjetja jih uporabljajo za izboljšanje poslovnega procesa v vseh organizacijskih enotah, četudi so lahko te enote geografsko razpršene).</p>
+<p>Primer najstarejše javne verige tehnologije veriženja blokov <a href="https://en.wikipedia.org/wiki/Bitcoin"><i class="fa-brands fa-wikipedia-w"></i><strong>Bitcoin</strong></a> ima delovanje opredeljeno kot prikazuje slika <a href="P11.html#fig:slika-bitcoin-delovanje#fig:slika-bitcoin-delovanje">18.35</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-bitcoin-delovanje"></span>
+<img src="assets/img/bitcoin_delovanje.png" alt="Koncept dodajanja blokov (podatkov) v verigo skozi čas" width="500" />
+<p class="caption">
+Slika 18.35: Koncept dodajanja blokov (podatkov) v verigo skozi čas
+</p>
+</div>
+<p>Za razliko od <strong>centraliziranih</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Centralisation"><i class="fa-brands fa-wikipedia-w"></i>centralized</a>)</em> <strong>sistemov</strong>, kjer se odjemalci povezujejo na en centralni strežnik, so <strong>decentralizirani</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Decentralization"><i class="fa-brands fa-wikipedia-w"></i>decentralized</a>)</em> <strong>sistemi</strong> v omrežju razporejeni tako, da obstaja več instanc glavnih strežnikov, ki so med seboj delno povezani. Programi so pri tehnologiji veriženja blokov v omrežju razporejeni po principu <strong>distribuiranih</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Distributed_computing"><i class="fa-brands fa-wikipedia-w"></i>distributed</a>)</em> <strong>sistemov</strong>, kjer je vsak strežnik povezan z vsaj dvema sosednjima strežnikoma. Takšne strežnike v tehnologiji veriženja blokov imenujemo <strong>vozlišča</strong> (angl. <a href="https://en.wikipedia.org/wiki/Node_(networking)"><i class="fa-brands fa-wikipedia-w"></i>nodes</a>) in skrbijo za transparentno generiranje blokov ter imajo vlogo potrjevalcev transakcij. Ko določeno število vozlišč potrdi blok, le-ta postane veljaven in ga <strong>ni mogoče več spreminjati</strong>. Vsi omenjeni sistemi so predstavljeni na sliki <a href="P11.html#fig:slika-distribucija-sistemov#fig:slika-distribucija-sistemov">18.36</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-distribucija-sistemov"></span>
+<img src="assets/img/distribucija_sistemov.png" alt="Topologija centraliziranih, decentraliziranih in porazdeljenih omrežij" width="400" />
+<p class="caption">
+Slika 18.36: Topologija centraliziranih, decentraliziranih in porazdeljenih omrežij
+</p>
+</div>
+<p>Princip transakcij je po analogiji enak kot v realnem življenju uporaba denarnice, in sicer:</p>
+<ul>
+<li>Transakcija opisuje prenos vrednosti kriptovalute iz denarnice <code>A</code> v denarnico <code>B</code>. Poleg vrednosti se lahko pošiljajo tudi drugi metapodatki ali se prožijo programske funkcije.</li>
+<li>Vsaka denarnica ima svoj naslov, kjer za izvedbo akcij dostopamo do denarnice z <strong>geslom</strong>, ki je lahko enolični identifikator v obliki niza, imenovan <strong>privatni ključ</strong> <em>(angl. <a href="https://en.bitcoin.it/wiki/Private_key"><i class="fa-brands fa-wikipedia-w"></i><em>private key</em></a>)</em> ali enolični skupek nizov, imenovan <strong>mnemonski</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Mnemonic"><i class="fa-brands fa-wikipedia-w"></i>mnemonic</a>)</em> <strong>stavek</strong>. Na podlagi mnemonskega stavka je ustvarjena (generirana) posamezna denarnica.</li>
+<li>V primeru izgube gesla do denarnice ni več mogoče dostopati, zato je smiselno da imamo geslo porazdeljeno shranjeno na več različnih mestih.</li>
+<li>Poznamo različne denarnice: programska skripta (npr. v programskem jeziku JavaScript), mobilna aplikacija, spletno mesto, strojna oprema in spletna aplikacija. Pri uporabi denarnic se moramo prepričati, da so zaupanja vredne, saj se zlonamerneži najpogosteje poslužujejo t.i. ribarskih pristopov <em>(angl. <a href="https://en.wikipedia.org/wiki/Phishing"><i class="fa-brands fa-wikipedia-w"></i>phishing</a>)</em>, kjer se pretvarjajo, da so zaupanja vredni vmesnik za uporabo denarnice, v resnici pa vam želijo ukrasti geslo za dostop do denarnice.</li>
+</ul>
+<p>Pomemben vidik tehnologije veriženja blokov je <strong>notacija kriptovalute</strong>, ki se bolj natančno deli v naslednji obliki:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Kriptokovanec</strong> je osnovno sredstvo vsake transakcije v izbrani tehnologiji veriženja blokov bodisi v vlogi <strong>denarnega sredstva</strong> ali v vlogi <strong>goriva za izvedbo transakcije</strong>. Praviloma imajo vsi kriptokovanci tudi tečajne vrednosti merljive s FIAT denarjem. Primeri kriptokovancev so: <a href="https://en.wikipedia.org/wiki/Bitcoin"><i class="fa-brands fa-wikipedia-w"></i><em>Bitcoin</em></a>, <a href="https://en.wikipedia.org/wiki/Ethereum"><i class="fa-brands fa-wikipedia-w"></i><em>Ethereum</em></a>, <a href="https://en.wikipedia.org/wiki/Litecoin"><i class="fa-brands fa-wikipedia-w"></i><em>Litecoin</em></a>, <a href="https://en.wikipedia.org/wiki/Binance"><i class="fa-brands fa-wikipedia-w"></i><em>Binance coin</em></a>, <a href="https://en.wikipedia.org/wiki/Dogecoin"><i class="fa-brands fa-wikipedia-w"></i><em>Dogecoin</em></a> in mnogi drugi.</li>
+<li><strong>Kriptožeton</strong> je sredstvo, ki nastopa kot derivat na izbrani tehnologiji veriženja blokov <strong>z lastnimi lastnostmi</strong> (npr. količina, deljivost na decimalna mesta, standard po kateremu je generiran, itd.). Kriptožetoni imajo za razliko od kriptovalut <strong>širšo uporabno vrednost</strong> pri katerih je prednost ta, da ne potrebujejo lastne infrastrukture, saj za to skrbi infrastruktura kriptokovanca. Primer kriptožetona je <em><a href="https://en.wikipedia.org/wiki/Chainlink_(blockchain)"><i class="fa-brands fa-wikipedia-w"></i>ChainLink</a></em>, ki se izvaja na omrežju <em>Ethereum</em>.</li>
+</ol>
+<p>Povzetek ključnih principov tehnologije veriženja blokov, ki temelji na varnosti in zaupanju, lahko povzamemo kot:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Validacija podatkov</strong>; Tok podatkov (npr. kriptožetonov, metapodatkov itd.), ki se v omrežju izmenjuje, je časovno preverljiv.</li>
+<li><strong>Preverljivost</strong>; Vozlišča v tehnologiji veriženja blokov preverjajo podatke, ki se izmenjujejo. V vsakem trenutku je mogoče preveriti vsa stanja v denarnici, od začetnega, vmesnih in končnega.</li>
+<li><strong>Konsenzus</strong>; Vozlišča imajo možnost glasovalne pravice, in sicer implicitno pri potrjevanju blokov ter eksplicitno pri glasovanju za nadgradnje rešitve veriženja blokov.</li>
+<li><strong>Ireverzibilnost</strong>; Ko je blok potrjen, vsebine ni mogoče spreminjati. Vsi podatki so nespremenljivi, kar občutno poveča stopnjo varnosti, po drugi strani pa takšna tehnologija že zaradi tega koncepta ne omogoča popravka napak v blokih (npr. v primeru pošiljanja kriptovalute v napačno denarnico).</li>
+</ol>
+<p>Povzetek primera izvedbe transakcije z vidika omrežja je prikazan na sliki <a href="P11.html#fig:slika-transakcija-omrezje#fig:slika-transakcija-omrezje">18.37</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-transakcija-omrezje"></span>
+<img src="assets/img/transakcija_omrezje.png" alt="Primer transakcije z glavnimi akcijami: (1) proženje transakcije v omrežju, (2) oddaja transakcije vozliščem v omrežju, (3) potrjevanje transakcije s strani posameznih vozlišč, (4) ob potrditvi dovolj velikega števila vozlišč je transakcija vključena v blok in (5) blok je dodan v verigo" width="800" />
+<p class="caption">
+Slika 18.37: Primer transakcije z glavnimi akcijami: (1) proženje transakcije v omrežju, (2) oddaja transakcije vozliščem v omrežju, (3) potrjevanje transakcije s strani posameznih vozlišč, (4) ob potrditvi dovolj velikega števila vozlišč je transakcija vključena v blok in (5) blok je dodan v verigo
+</p>
+</div>
+</div>
+<div id="osnovni-princip-delovanja" class="section level3 hasAnchor" number="18.2.2">
+<h3><span class="header-section-number">18.2.2</span> Osnovni princip delovanja<a href="P11.html#osnovni-princip-delovanja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Delovanje tehnologije veriženja blokov bomo predstavili na realnem primeru uporabe najstarejše javne kriptovalute <em>Bitcoin</em>. Pri tem bomo odgovorili na vprašanje: <em>“Kaj se dejansko zgodi, ko nekomu pošljemo Bitcoin kriptovaluto?”</em></p>
+<p>Na mrzel zimski dan 12. decembra leta 2013 si je g. <em>Raj Shetagar</em> zaželel kavo v kavarni <em>Waves Coffee</em> v <em>Vankuvru, Kanadi</em>, kjer se je z lastniki dogovoril, da bo plačilo kave poravnal s kriptovaluto Bitcoin v vrednosti <code>0,0199</code> Bitcoinov (<code>BTC</code>). Celotna izvedba transakcije je opisana s koraki:</p>
+<ol style="list-style-type: decimal">
+<li><p>G. <em>Raj Shetagar</em> najprej dostopa do svoje denarnice z enoličnim naslovom <a href="https://www.blockchain.com/btc/address/1Q9H4NUcUkjt2mwdgweAQq91DNBvN3roCd"><span style="white-space:nowrap"><i class="fa-brands fa-bitcoin"></i><code>1Q9H4NUcUkjt2mwdgweAQq91DNBvN3roCd</code></span></a> s pomočjo gesla. Kot naslovnika navede kavarno, natančneje enolični naslov denarnice <a href="https://www.blockchain.com/btc/address/1MMbWoV1gFSKw5TRCt3NrhpNH6a1etU64Z"><i class="fa-brands fa-bitcoin"></i><code>1MMbWoV1gFSKw5TRCt3NrhpNH6a1etU64Z</code></a>.</p></li>
+<li><p>V denarnici opredeli vrednost transakcije v višini <code>0,0199 BTC</code> ter maksimalnim stroškom transakcije, ki ga je pošiljatelj pripravljen plačati, v višini <code>0,0005 BTC</code>.</p></li>
+<li><p>Praviloma vsaka transakcija zahteva določen delež kriptovalute kot strošek transakcije, ki jih preko omrežja prejmejo vozlišča za potrjevanje transakcije. Transakcija se pošlje v omrežje, kjer vozlišča transakcijo sestavijo, pri čemer določijo <strong>dejanski strošek transakcije</strong> _(angl. <a href="https://en.wikipedia.org/wiki/Unspent_transaction_output"><i class="fa-brands fa-wikipedia-w"></i>Unspent Transaction Output (<strong>UTXO</strong>)</a>) v višini <code>0,0004644 BTC</code>, kjer vsako vozlišče ustvari svojo kopijo stroška izhodne transakcije (UTXO), kjer Bitcoin vozlišča v omrežju začnejo potrjevat transakcijo <a href="https://www.blockchain.com/btc/tx/ccc1534f7d8c56403652f13f565484b60a69e8abc710e8cfe3e56769690f8d23"><i class="fa-brands fa-bitcoin"></i><code>ccc1534f7d8c56403652f13f565484b60a69e8abc710e8cfe3e56769690f8d23</code></a>.</p></li>
+<li><p>Ko je transakcijo potrdilo zadostno število vozlišč, se konkretna transakcija shrani v zaporedni blok št. <code>274395</code>, kot prikazuje primer bloka na sliki <a href="P11.html#fig:slika-btc-blok#fig:slika-btc-blok">18.38</a>, kjer so vozlišča nagrajena za uspešno dodan nov blok s prejemom določene količine BTC kriptovalute.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-btc-blok"></span>
+<img src="assets/img/btc_blok.png" alt="Primer Bitcoin bloka, ki vsebuje velikost, vsebino glave in podatke transakcij" width="600" />
+<p class="caption">
+Slika 18.38: Primer Bitcoin bloka, ki vsebuje velikost, vsebino glave in podatke transakcij
+</p>
+</div>
+<p>Vsi podatki transakcije so v bloku shranjeni v šestnajstiški (HEX) obliki, kot prikazuje primer na sliki <a href="P11.html#fig:slika-btc-transakcija-v-omrezju#fig:slika-btc-transakcija-v-omrezju">18.39</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-btc-transakcija-v-omrezju"></span>
+<img src="assets/img/btc_transakcija_v_omrezju.png" alt="Zapis Bitcoin transakcijskih podatkov na vozliščih v šestnajstiškem številskem sistemu" width="500" />
+<p class="caption">
+Slika 18.39: Zapis Bitcoin transakcijskih podatkov na vozliščih v šestnajstiškem številskem sistemu
+</p>
+</div>
+<p>Kot primer sta v nadaljevanju opredeljena pionirja tehnologije veriženja blokov, ki imata velikost blokov ter hitrost transakcij opredeljeno kot:</p>
+<ul>
+<li><p><a href="https://bitcoin.org/"><i class='fa-solid fa-earth-europe'></i><strong>Bitcoin</strong></a> ima periodo generiranja bloka okvirno <code>10 min</code> s kapaciteto bloka <code>1 MB</code> in</p></li>
+<li><p><a href="https://ethereum.org/"><i class='fa-solid fa-earth-europe'></i><strong>Ethereum</strong></a> ima periodo generiranja bloka okvirno <code>15 s</code> in brez omejitve kapacitete bloka.</p></li>
+</ul>
+</div>
+<div id="zgodovinski-pregled-razvoja-in-trendov-tehnologije-veriženja-blokov" class="section level3 hasAnchor" number="18.2.3">
+<h3><span class="header-section-number">18.2.3</span> Zgodovinski pregled razvoja in trendov tehnologije veriženja blokov<a href="P11.html#zgodovinski-pregled-razvoja-in-trendov-tehnologije-veriženja-blokov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<!--VIR podpoglavja: https://medium.com/@rajshetgar/blockchain-decoding-bitcoin-transaction-5da619ca9721 -->
+<p>Teoretične ideje tehnologije veriženja blokov segajo že v začetke devetdesetih let prejšnjega stoletja, in sicer z znanstveno publikacijo, objavljeno leta 1991 v znanstveni reviji za kriptografijo z naslovom <a href="https://link.springer.com/article/10.1007/BF00196791"><i class="fa-regular fa-file-lines"></i><em>How to time-stamp a digital document</em></a>. V njej avtorji predstavijo teoretično zasnovo tehnologije veriženja blokov, in sicer so avtorji predlagali storitev, ki omogoča konsistentnost podatkov skozi čas. Zaradi strojnih ter tehnoloških omejitev je ideja prišla v praktično izvedbo po članku z naslovom <a href="https://bitcoin.org/bitcoin.pdf"><i class="fa-regular fa-file-lines"></i><em>Bitcoin: A Peer-to-Peer Electronic Cash System</em></a> neznanega avtorja s psevdonimom <a href="https://en.wikipedia.org/wiki/Satoshi_Nakamoto"><i class="fa-brands fa-wikipedia-w"></i><em>Satoshi Nakamoto</em></a> leta 2008 in zagonom prve javne kriptovalute <a href="https://en.wikipedia.org/wiki/Bitcoin"><i class="fa-brands fa-wikipedia-w"></i><strong>Bitcoin</strong></a> 9. januarja 2009. V prihajajočih letih je sledil razvoj tehnologije veriženja blokov s fokusom na osnovnih primerih uporabe <strong>transakcij</strong> do leta 2015. Po letu 2015 je izšla prva javna tehnologija veriženja blokov, ki je omogočala zagon in izvedbo decentraliziranih programskih skript, imenovanimi <strong>pametne pogodbe</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Smart_contract"><i class="fa-brands fa-wikipedia-w"></i>Smart Contract</a>)</em>. Leta 2018 se je začel aplikativni razvoj novih pristopov, primerov in uporabe, ki so dosegle vzpon javne uporabe od sredine leta 2020. V letu 2021 prednjačijo primeri uporabe <strong>decentraliziranih financ</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Decentralized_finance"><i class="fa-brands fa-wikipedia-w"></i>Decentralized Finance (<strong>DeFi</strong>)</a>)</em> in <strong>nezamenljivi kriptožetoni</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Non-fungible_token"><i class="fa-brands fa-wikipedia-w"></i>Non-Fungible Tokens (<strong>NFT</strong>)</a>)</em> kot kriptografski kovanci, ki predstavljajo enolična digitalna sredstva in imetja, kjer ne hranijo vrednosti, ampak so zamenljivi za kriptožetone. Posamezne države in skupnosti držav (npr. Evropska unija) so v tekočem letu začele z aplikativno uporabo tehnologije veriženja blokov na različnih področjih. V letu 2023 so številne centralne banke začele s testiranjem koncepta digitalne values <em>(angl. <a href="https://en.wikipedia.org/wiki/Central_bank_digital_currency"><i class="fa-brands fa-wikipedia-w"></i>Central bank digital currency (<strong>CBDC</strong>)</a>)</em>. Razvoj tehnologije veriženja blokov skozi čas z glavnimi mejniki je povzet na sliki <a href="P11.html#fig:slika-blockchain-zgodovinski-pregled#fig:slika-blockchain-zgodovinski-pregled">18.40</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-blockchain-zgodovinski-pregled"></span>
+<img src="assets/img/blockchain_zgodovinski_pregled.png" alt="Primer razvoja tehnologije veriženja blokov z glavnimi mejniki. Od leta 2020 so izrazite smernice razvoja na področju decentraliziranih financ, od leta 2021 pa poteka porast aplikativne rabe v obliki aplikacij nezamenljivih žetonov ter računalniških iger" width="800" />
+<p class="caption">
+Slika 18.40: Primer razvoja tehnologije veriženja blokov z glavnimi mejniki. Od leta 2020 so izrazite smernice razvoja na področju decentraliziranih financ, od leta 2021 pa poteka porast aplikativne rabe v obliki aplikacij nezamenljivih žetonov ter računalniških iger
+</p>
+</div>
+</div>
+<div id="mehanizmi-soglasja" class="section level3 hasAnchor" number="18.2.4">
+<h3><span class="header-section-number">18.2.4</span> Mehanizmi soglasja<a href="P11.html#mehanizmi-soglasja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Mehanizmi konsenza</strong> oz. <strong>soglasja</strong> <em>(angl. <a href="https://www.investopedia.com/terms/c/consensus-mechanism-cryptocurrency.asp"><i class="fa-brands fa-wikipedia-w"></i>Consensus Mechanism</a>)</em> so pristopi, ki zagotavljajo odpornost proti napakam <em>(angl. <a href="https://en.wikipedia.org/wiki/Fault_tolerance"><i class="fa-brands fa-wikipedia-w"></i>fault-tolerance</a>)</em>. So poglavitni del sistemov tehnologije veriženja blokov za doseganje dogovora o posameznih podatkovnih vrednostih ali stanju omrežja in v osnovi opredeljujejo <strong>način potrjevanja blokov</strong> s strani posameznih vozlišč. V običajnih tradicionalnih centraliziranih in decentraliziranih sistemih so za potrjevanje podatkov in <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete"><i class="fa-brands fa-wikipedia-w"></i>CRUD operacije</a> (npr. podatkovna baza in sorodne storitve) zadolženi specifični sistemi. Podoben pristop se uporablja v večjih sistemih, kjer so za podatke zadolžene zaupanja vredne entitete (npr. centralna banka).</p>
+<p>Javne verige tehnologije veriženja blokov so praviloma decentralizirani sistemi, kjer imajo vsi udeleženci enako stopnjo zaupanja in takšni sistemi delujejo samoregulativno brez entitet s centralizirano oblastjo. V takšnih sistemih si je potrebno postaviti vprašanje: <em>“Na kakšen način na tisoče in več sistemov doseže dogovor, da bo transakcija ali kakšna druga interakcija v bloku potrjena?”</em></p>
+<p>V takšnem dinamično spreminjajočem se stanju blokovnih verig je potrebno zagotoviti učinkovit, pošten, časovno odvisen, funkcionalen, zanesljiv in varen mehanizem ter tako zagotoviti, da so vse transakcije v omrežju resnične. To nalogo izvaja mehanizem soglasja kot sklop pravil, ki odloča o prispevkih različnih udeležencev (vozliščih) verige blokov. Najbolj znani in razširjeni mehanizmi soglasja so:</p>
+<ul>
+<li><p><strong>Dokaz dela</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Proof_of_work"><i class="fa-brands fa-wikipedia-w"></i>Proof of Work (<strong>PoF</strong>)</a>)</em> je algoritem soglasja, kjer je pravica dodajanja novih transakcij posameznemu vozlišču dodeljena na podlagi opravljenega dela v smislu reševanja računskih problemov, kar imenujemo <strong>rudarjenje</strong> <em>(angl. <a href="https://en.bitcoin.it/wiki/Mining"><i class="fa-brands fa-wikipedia-w"></i>mining</a>)</em>. Glede na uspešnost reševanja računskih problemov je premo sorazmerna <strong>nagrada</strong> v obliki kriptovalut in <strong>pravica</strong> pri potrjevanju novega bloka v vozlišče. Celoten mehanizem rudarjenja kriptovalut zahteva veliko porabo električne energije in daljši čas potrjevanja blokov ter posledično transakcij. Kot primer, takšen mehanizem uporablja kriptovaluta <a href="https://bitcoin.org/"><i class='fa-solid fa-earth-europe'></i><em>Bitcoin</em></a> in pred časom tudi kriptovaluta <em>Ethereum</em>.</p></li>
+<li><p><strong>Dokaz deleža</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Proof_of_stake"><i class='fa-solid fa-earth-europe'></i>Proof of Stake (<strong>PoS</strong>)</a>)</em> je algoritem soglasja, ki se je razvil na podlagi slabih lastnosti algoritma <em>dokaza dela</em>. V osnovi je nizkoenergijski, saj ne zahteva reševanja računskih problemov, ampak je odgovornost pri vzdrževanju omrežja oz. posameznih vozlišč, vključno od nagrade bloka, <strong>sorazmerna s številom žetonov kot deleža, ki jo vozlišče poseduje</strong>. Primeri kriptovalut, ki uporabljajo takšen algoritem soglasja, so <a href="https://tezos.com/"><span style="white-space:nowrap"><i class='fa-solid fa-earth-europe'></i><em>Tezos</em></span></a>, <a href="https://cardano.org/"><i class='fa-solid fa-earth-europe'></i><em>Cardano</em></a> in tudi <a href="https://ethereum.org/"><i class='fa-solid fa-earth-europe'></i><em>Ethereum</em></a>.</p></li>
+<li><p><strong>Dokaz kapacitete</strong> <em>(angl. <a href="https://www.investopedia.com/terms/p/proof-capacity-cryptocurrency.asp"><i class='fa-solid fa-earth-europe'></i>Proof of Capacity (<strong>PoC</strong>)</a>)</em> oz. <strong>dokaz hrambe</strong> <em>(angl. <a href="https://golden.com/wiki/Proof-of-storage_(PoS)-MN4DJY3"><i class='fa-solid fa-earth-europe'></i>Proof of Storage (<strong>PoS</strong>)</a>)</em> je algoritem soglasja, ki je podoben sistemu soglasja deleža. Delež in s tem moč vozlišča ne predstavlja količina kriptožetonov, ampak količina strojne opreme, ki jo vozlišče ponuja. Kot primer je pogost primer uporabe ponujanje <strong>pomnilnika</strong> ali <strong>prostora na trdem disku</strong>, kjer je nagrada sorazmerna z velikostjo ponujenega pomnilnika. Primera takšnih kriptovalut sta <a href="https://www.storj.io/"><i class='fa-solid fa-earth-europe'></i><em>StorJ</em></a> in <a href="https://filecoin.io/"><i class='fa-solid fa-earth-europe'></i><em>Filecoin</em></a>.</p></li>
+</ul>
+</div>
+<div id="področja-uporabe-tehnologije-veriženja-blokov" class="section level3 hasAnchor" number="18.2.5">
+<h3><span class="header-section-number">18.2.5</span> Področja uporabe tehnologije veriženja blokov<a href="P11.html#področja-uporabe-tehnologije-veriženja-blokov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Trenutno najbolj zastopana področja uporabe tehnologije veriženja blokov so sledeča:</p>
+<ul>
+<li>Varna izmenjava zdravstvenih podatkov.</li>
+<li>Tržnice NFT, kjer so zastopane domene glasbe, digitalna umetnost in druga področja lastništva digitalnih vsebin.</li>
+<li>Čezmejna plačila, ki imajo za razliko od konvencionalnih pristopov praviloma nižje stroške konverzije ter transakcij, obenem pa so izvršljive ob vsakem trenutku.</li>
+<li>Operativni sistemi interneta stvari v realnem času s funkcionalnimi zahtevami po hitrih transakcijah ter izmenjavah podatkov.</li>
+<li>Varnost osebne identitete z uporabo sistemov transparentne digitalne avtentikacije.</li>
+<li>Iskanje vzorcev v omrežju, na primer sistemi za identifikacijo pranja denarja.</li>
+<li>Sledljivost akcij in blaga v poslovnih procesih, na primer spremljanje dobavne verige in področje logistike.</li>
+<li>Mehanizmi glasovanja, na primer volitve glasovanja skupnosti kot smernice razvoja kriptovalut ali vpeljava novih funkcionalnosti.</li>
+<li>Področje oglaševanja z nagrajevanjem uporabnikov pri ogledu targetiranih oglasov.</li>
+<li>Izmenjava kriptovalut, kjer je v porastu interoperabilnost kot možnost prepleta različnih tehnologij veriženja blokov.</li>
+<li>Platforma za obdelavo podatkov nepremičnin in drugih nacionalnih baz podatkov.</li>
+</ul>
+<p>Poleg omenjenih področij lahko splošne veje zastopanja tehnologije veriženja blokov povzamemo v ekosistemu, kot prikazuje slika <a href="P11.html#fig:slika-bc-ekosistem#fig:slika-bc-ekosistem">18.41</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-bc-ekosistem"></span>
+<img src="assets/img/bc_ekosistem.png" alt="Primer pogostih področij uporabe tehnologije veriženja blokov" width="500" />
+<p class="caption">
+Slika 18.41: Primer pogostih področij uporabe tehnologije veriženja blokov
+</p>
+</div>
+<div id="praktični-primeri-uporabe" class="section level4 hasAnchor" number="18.2.5.1">
+<h4><span class="header-section-number">18.2.5.1</span> Praktični primeri uporabe<a href="P11.html#praktični-primeri-uporabe" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Primeri aktualnih rešitev, ki uporabljajo tehnologijo veriženja blokov, so prikazane na sliki <a href="P11.html#fig:slika-bc-primeri-uporabe#fig:slika-bc-primeri-uporabe">18.42</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-bc-primeri-uporabe"></span>
+<img src="assets/img/bc_primeri_uporabe_2018.png" alt="Programske rešitve s podporo tehnologije veriženja blokov" width="1000" />
+<p class="caption">
+Slika 18.42: Programske rešitve s podporo tehnologije veriženja blokov
+</p>
+</div>
+<p>V porastu je trend storitev decentraliziranih financ, ki postavljajo nove smernice globalnega finančnega sistema (glej sliko <a href="P11.html#fig:slika-defi-ekosistem#fig:slika-defi-ekosistem">18.43</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-defi-ekosistem"></span>
+<img src="assets/img/defi_ekosistem.png" alt="Ekosistem decentraliziranih financ in poddomen" width="800" />
+<p class="caption">
+Slika 18.43: Ekosistem decentraliziranih financ in poddomen
+</p>
+</div>
+</div>
+</div>
+<div id="pametne-pogodbe" class="section level3 hasAnchor" number="18.2.6">
+<h3><span class="header-section-number">18.2.6</span> Pametne pogodbe<a href="P11.html#pametne-pogodbe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Koncept <strong>pametnih pogodb</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Smart_contract"><i class="fa-brands fa-wikipedia-w"></i>Smart Contract</a>)</em> sega v leto 1994, ko ga je predstavil raziskovalec <a href="https://en.wikipedia.org/wiki/Nick_Szabo"><i class="fa-brands fa-wikipedia-w"></i>Nick Szabo</a> v obliki <a href="https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html"><i class="fa-regular fa-file-lines"></i>znanstvene publikacije</a>. V teoretičnem konceptu je pametno pogodbo predstavil kot računalniški program v omrežju, ki se aktivira, ko so izpolnjeni vsi zahtevani pogoji. V primerjavi s praktičnimi primeri v realnem življenju bi pametna pogodba prevzela vlogo banke, pravnikov, notarja ali druge zaupanja vredne entitete. Akcije pametnih pogodb so predstavljene v programskih funkcijah z vhodnimi podatki, kjer jih izvršujejo uporabniki, pogoji pa se preverjajo v celoti po pravilih programskih funkcij. Pametne pogodbe se izvajajo na zaupanja vrednem omrežju, kjer njihovo izvajanje nadzorujejo računalniki.</p>
+<p>Ideja je ostala v obliki koncepta do izdaje kriptovalute Ethereum leta 2015, s strani računalniškega programerja <a href="https://en.wikipedia.org/wiki/Vitalik_Buterin"><span style="white-space:nowrap"><i class="fa-brands fa-wikipedia-w"></i>Vitalik Burelina</span></a>, ko je bila na voljo tudi vsa potrebna infrastruktura za udejanjenje pametnih pogodb (npr. omrežje, distribuirani sistemi ter vozlišča itd.). Glavne značilnosti produkcijskih pametnih pogodb v tehnologiji veriženja blokov so:</p>
+<ol style="list-style-type: decimal">
+<li>Pametna pogodba je sporazum med dvema osebama v obliki računalniškega programa.</li>
+<li>Transakcije, izvedene v pametnih pogodbah, so obdelane v vozliščih veriženja blokov.</li>
+<li>Transakcija se izvrši, ko so izpolnjeni vsi pogoji v sporazumu. Transakcija pametne pogodbe je funkcija v računalniškem programu, pogoji so opredeljeni v jedru funkcije.</li>
+</ol>
+<p>Primer pametne pogodbe je nakup hiše, kjer pametna pogodba opredeljuje predmet nakupa in ceno. Kupec prodajalcu preko pametne pogodbe izvede plačilo v obliki kriptovalute določene vsote. Ko je plačilo zahtevane vsote izvršeno, se plačilo shrani v verigo blokov ter postane nov lastnik hiše kupec, kot prikazuje primer na sliki <a href="P11.html#fig:slika-pametna-pogodba-primer#fig:slika-pametna-pogodba-primer">18.44</a>. V določenih državah je takšen način nakupa nepremičnin mogoč, kjer je seveda potrebno pripraviti konvencionalno kupoprodajno pogodbo zaradi zakonodaje.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-pametna-pogodba-primer"></span>
+<img src="assets/img/pametne_pogodbe_primer.png" alt="Primer pametne pogodbe pri nakupu hiše" width="300" />
+<p class="caption">
+Slika 18.44: Primer pametne pogodbe pri nakupu hiše
+</p>
+</div>
+<p>Pametne pogodbe omogočajo le interakcijo s podatki na verigi, bolj natančno s podatki znotraj pametne pogodbe. Uporabniki lahko preko vhodnih podatkov funkcij zapisujejo podatke izven verige, ni pa mogoča interakcija pametnih pogodb s podatki izven verige. Za te namene je bil leta 2017 predlagan mehanizem, ki omogoča dostop do podatkov izven verige znotraj funkcij pametnih pogodb preko t.i. <strong>pametnih prerokov</strong> <em>(angl. Smart Oracle oz. <a href="https://en.wikipedia.org/wiki/Blockchain_oracle"><i class='fa-solid fa-earth-europe'></i>Blockchain Oracle</a>)</em>. To so vozlišča, ki izvajajo pametno pogodbo na vozlišču, imajo pa tudi možnost dostopa do ostalih podatkov na omrežju, npr. preko API-ja, kot prikazuje primer koncepta na sliki <a href="P11.html#fig:slika-pametni-preroki#fig:slika-pametni-preroki">18.45</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-pametni-preroki"></span>
+<img src="assets/img/pametni_preroki.png" alt="Koncept mehanizma pametnih prerokov, ki omogoča pametni pogodbi dostop do podatkov iz internetnega omrežja." width="350" />
+<p class="caption">
+Slika 18.45: Koncept mehanizma pametnih prerokov, ki omogoča pametni pogodbi dostop do podatkov iz internetnega omrežja.
+</p>
+</div>
+<p>V praksi se pametne pogodbe uporabljajo kot nadgradnja običajnim transakcijam z možnostjo priprave kompleksnejših primerov uporabe.</p>
+</div>
+<div id="kdaj-uporabiti-tehnologijo-veriženja-blokov" class="section level3 hasAnchor" number="18.2.7">
+<h3><span class="header-section-number">18.2.7</span> Kdaj uporabiti tehnologijo veriženja blokov?<a href="P11.html#kdaj-uporabiti-tehnologijo-veriženja-blokov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Uporaba tehnologije veriženja blokov se lahko izkaže za zelo koristno v številnih primerih, vendar moramo pri tej odločitvi kljub temu premisliti o ustreznosti te tehnologije. Z vpeljavo verige blokov namreč povečamo kompleksnost sistema, zato je na mestu razmislek ali lahko določen problem rešimo na bolj enostaven način z že obstoječimi tehnologijami. Na sliki <a href="P11.html#fig:BC-kdaj-1#fig:BC-kdaj-1">18.46</a> je prikazana enostavna množica vprašanj, ki si jih moramo postaviti, ko se odločamo ali v informacijsko rešitev vpeljemo tehnologijo veriženja blokov in katera vrsta (javna oz. zasebna) je najbolj primerna.</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:BC-kdaj-1"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/dPFDRjH03CVl-nGZSG16IDpXWBOV5oGg9E2s5oVZRfoTsD5aajAyGn-YByAfVI-SZsQJxR8KBjdrZEt_p_QusX6N4A0m2QIxRP2QNIfUWea1kD8hvBYg9gzpOKUHX2_PVOkt7eqZAFHmvkFm6ceVl-FFkFQqvK9Jc5G_65QlzsuQ9MaMf43Lgd6MO1s2t9pt58bNhFbL6gcXU7icmM4uxNCnaFsBwzI3mVqcewXW4K9SqRLvis4joEHehDrvgEZXZi7Q3LjRYeEuauP16zdsXsMW0WF3fms_DJ53xkBDnTgelJAcYbAkq5VO7rjxTMdjUBMGEiZSYL5RYa8rFaSzPIZ1IT594hy7ZR9MkztMWNI4UMtjak3gSfGP6OoPA3JoOZrXF85yaG2vc4JdlY-LJC3IKzffKAUj90q-t9b6Ma-FzmztbFrHTrAUQHz8pyNrhazTbseaJDgDfwvN2fFu72ADZS8JvIw4JqdFHr3rHTSEFJx-Gavfa2xGLPX8pZBOBTIbTkbG_KZgHNBfOli9ZdaR33d6hgKdopWevM_bwAtkxVNgYE_itItvpiI96Glp8rqC67CoegK_8vnUzai8ZwWU42wiWUWpcXQoY0qm33rN3jPLMExW2sRmalg_YbQRr3gDRjy3j8_t57nEpIX8NJI3QoLe1lsZvlH2jJllDgnRuY7RTMtSFzMyVp4wPzhgKdbHuaFU8qp6lD8nu3OWyeSVlKotw3aq_3pVnqMWmmXfzhylPM7D6QhOG20pZU44nO9Wd_7ft_3RVty3" alt="Kdaj uporabiti tehnologijo veriženja blokov? PlantUML." width="350" />
+<p class="caption">
+Slika 18.46: Kdaj uporabiti tehnologijo veriženja blokov? <a href="https://teaching.lavbic.net/plantuml/uml/dPFDRjH03CVl-nGZSG16IDpXWBOV5oGg9E2s5oVZRfoTsD5aajAyGn-YByAfVI-SZsQJxR8KBjdrZEt_p_QusX6N4A0m2QIxRP2QNIfUWea1kD8hvBYg9gzpOKUHX2_PVOkt7eqZAFHmvkFm6ceVl-FFkFQqvK9Jc5G_65QlzsuQ9MaMf43Lgd6MO1s2t9pt58bNhFbL6gcXU7icmM4uxNCnaFsBwzI3mVqcewXW4K9SqRLvis4joEHehDrvgEZXZi7Q3LjRYeEuauP16zdsXsMW0WF3fms_DJ53xkBDnTgelJAcYbAkq5VO7rjxTMdjUBMGEiZSYL5RYa8rFaSzPIZ1IT594hy7ZR9MkztMWNI4UMtjak3gSfGP6OoPA3JoOZrXF85yaG2vc4JdlY-LJC3IKzffKAUj90q-t9b6Ma-FzmztbFrHTrAUQHz8pyNrhazTbseaJDgDfwvN2fFu72ADZS8JvIw4JqdFHr3rHTSEFJx-Gavfa2xGLPX8pZBOBTIbTkbG_KZgHNBfOli9ZdaR33d6hgKdopWevM_bwAtkxVNgYE_itItvpiI96Glp8rqC67CoegK_8vnUzai8ZwWU42wiWUWpcXQoY0qm33rN3jPLMExW2sRmalg_YbQRr3gDRjy3j8_t57nEpIX8NJI3QoLe1lsZvlH2jJllDgnRuY7RTMtSFzMyVp4wPzhgKdbHuaFU8qp6lD8nu3OWyeSVlKotw3aq_3pVnqMWmmXfzhylPM7D6QhOG20pZU44nO9Wd_7ft_3RVty3"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="projekti-na-fakulteti" class="section level3 hasAnchor" number="18.2.8">
+<h3><span class="header-section-number">18.2.8</span> Projekti na fakulteti<a href="P11.html#projekti-na-fakulteti" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Na fakulteti se v okviru laboratorija izvajajo različni projekti:</p>
+<ul>
+<li>Evropski projekt <a href="https://www.fri.uni-lj.si/sl/projekti/1754"><i class='fa-solid fa-earth-europe'></i><strong>TrustChain</strong></a> – Spodbujanje na človeka osredotočenega, zaupanja vrednega in trajnostnega interneta,</li>
+<li>Evropski projekt <a href="https://fri.uni-lj.si/sl/projekti/1664"><i class='fa-solid fa-earth-europe'></i><strong>OntoChain</strong></a> – Zanesljivo, transparentno in sledljivo znanje na verigah blokov,</li>
+<li>Evropsko-Korejski projekt <a href="https://www.fri.uni-lj.si/sl/projekti/1631"><i class='fa-solid fa-earth-europe'></i><strong>DECENTER</strong></a> – Decentralizirane tehnologije za orkestrirano inteligenco od oblaka do roba.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    $("a").click(function(e) {
+      if (
+        $(this).has(".fa-solid").length == 1 || 
+        $(this).has(".fa-brands").length == 1 || 
+        $(this).has(".fa-regular").length == 1 || 
+        $(this).has("img.git").length == 1
+      ) {
+        e.preventDefault();
+        window.open($(this).attr("href"), '_blank');
+      }
+    });
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6109Y2092"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6109Y2092');
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="P10.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="P12.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/lib/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

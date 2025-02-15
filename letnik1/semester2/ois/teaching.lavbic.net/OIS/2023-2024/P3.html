@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Poglavje 5 P3 Tveganja, IT naložbeni portfelj in povračilo sredstev | Osnove informacijskih sistemov 2023/2024</title>
+  <meta name="description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Poglavje 5 P3 Tveganja, IT naložbeni portfelj in povračilo sredstev | Osnove informacijskih sistemov 2023/2024" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Poglavje 5 P3 Tveganja, IT naložbeni portfelj in povračilo sredstev | Osnove informacijskih sistemov 2023/2024" />
+  
+  <meta name="twitter:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+<meta name="author" content="izr. prof. dr. Dejan Lavbič" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="P2-V3.html"/>
+<link rel="next" href="P3-V3.html"/>
+<script src="assets/lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/lib/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/lib/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style/stil.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#terminski-plan-izvajanja-predmeta">OIS 2023/2024 terminski plan</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Uvod</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#splošne-informacije"><i class="fa fa-check"></i>Splošne informacije</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavatelj"><i class="fa fa-check"></i>Predavatelj</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#asistent"><i class="fa fa-check"></i>Asistent</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminski-plan-izvajanja-predmeta"><i class="fa fa-check"></i>Terminski plan izvajanja predmeta</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pravila-igre"><i class="fa fa-check"></i>Pravila igre</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavanja"><i class="fa fa-check"></i>Predavanja</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#vaje"><i class="fa fa-check"></i>Vaje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ocenjevanje"><i class="fa fa-check"></i>Ocenjevanje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pisni-izpiti"><i class="fa fa-check"></i>Pisni izpiti</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#priporočena-literatura"><i class="fa fa-check"></i>Priporočena literatura</a></li>
+</ul></li>
+<li class="part"><span><b>I sklop: Poslovni informacijski sistemi in upravljanje informatike</b></span></li>
+<li class="chapter" data-level="1" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>1</b> <span class="sklop1 oznaka">P1</span> Upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="P1.html"><a href="P1.html#ogrodje-digitalne-preobrazbe"><i class="fa fa-check"></i><b>1.1</b> Ogrodje digitalne preobrazbe</a></li>
+<li class="chapter" data-level="1.2" data-path="P1.html"><a href="P1.html#uvod-1"><i class="fa fa-check"></i><b>1.2</b> Uvod</a></li>
+<li class="chapter" data-level="1.3" data-path="P1.html"><a href="P1.html#upravljanje-it-in-vloga-informatike"><i class="fa fa-check"></i><b>1.3</b> Upravljanje IT in vloga informatike</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="P1.html"><a href="P1.html#vloga-vodstva-pri-upravljanju-it"><i class="fa fa-check"></i><b>1.3.1</b> Vloga vodstva pri upravljanju IT</a></li>
+<li class="chapter" data-level="1.3.2" data-path="P1.html"><a href="P1.html#ključna-vprašanja-o-it"><i class="fa fa-check"></i><b>1.3.2</b> Ključna vprašanja o IT</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="P1.html"><a href="P1.html#ogrodje-za-upravljanje-it"><i class="fa fa-check"></i><b>1.4</b> Ogrodje za upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="P1.html"><a href="P1.html#ključne-odločitve"><i class="fa fa-check"></i><b>1.4.1</b> Ključne odločitve</a></li>
+<li class="chapter" data-level="1.4.2" data-path="P1.html"><a href="P1.html#ključni-odločevalci"><i class="fa fa-check"></i><b>1.4.2</b> Ključni odločevalci</a></li>
+<li class="chapter" data-level="1.4.3" data-path="P1.html"><a href="P1.html#strukture-in-procesi-odločanja"><i class="fa fa-check"></i><b>1.4.3</b> Strukture in procesi odločanja</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="P1-V1.html"><a href="P1-V1.html"><i class="fa fa-check"></i><b>2</b> <span class="sklop1 oznaka">P1</span> → <span class="sklop3 oznaka">V1</span> Obvladovanje verzij</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="P1-V1.html"><a href="P1-V1.html#zgodovina-vcs"><i class="fa fa-check"></i><b>2.1</b> Zgodovina VCS</a></li>
+<li class="chapter" data-level="2.2" data-path="P1-V1.html"><a href="P1-V1.html#osnovne-operacije-vcs"><i class="fa fa-check"></i><b>2.2</b> Osnovne operacije VCS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="P1-V1.html"><a href="P1-V1.html#VCS-create"><i class="fa fa-check"></i><b>2.2.1</b> Create</a></li>
+<li class="chapter" data-level="2.2.2" data-path="P1-V1.html"><a href="P1-V1.html#VCS-checkout"><i class="fa fa-check"></i><b>2.2.2</b> Checkout</a></li>
+<li class="chapter" data-level="2.2.3" data-path="P1-V1.html"><a href="P1-V1.html#VCS-commit"><i class="fa fa-check"></i><b>2.2.3</b> Commit</a></li>
+<li class="chapter" data-level="2.2.4" data-path="P1-V1.html"><a href="P1-V1.html#VCS-update"><i class="fa fa-check"></i><b>2.2.4</b> Update</a></li>
+<li class="chapter" data-level="2.2.5" data-path="P1-V1.html"><a href="P1-V1.html#VCS-add"><i class="fa fa-check"></i><b>2.2.5</b> Add</a></li>
+<li class="chapter" data-level="2.2.6" data-path="P1-V1.html"><a href="P1-V1.html#VCS-edit"><i class="fa fa-check"></i><b>2.2.6</b> Edit</a></li>
+<li class="chapter" data-level="2.2.7" data-path="P1-V1.html"><a href="P1-V1.html#VCS-delete"><i class="fa fa-check"></i><b>2.2.7</b> Delete</a></li>
+<li class="chapter" data-level="2.2.8" data-path="P1-V1.html"><a href="P1-V1.html#VCS-rename"><i class="fa fa-check"></i><b>2.2.8</b> Rename</a></li>
+<li class="chapter" data-level="2.2.9" data-path="P1-V1.html"><a href="P1-V1.html#VCS-move"><i class="fa fa-check"></i><b>2.2.9</b> Move</a></li>
+<li class="chapter" data-level="2.2.10" data-path="P1-V1.html"><a href="P1-V1.html#VCS-status"><i class="fa fa-check"></i><b>2.2.10</b> Status</a></li>
+<li class="chapter" data-level="2.2.11" data-path="P1-V1.html"><a href="P1-V1.html#VCS-diff"><i class="fa fa-check"></i><b>2.2.11</b> Diff</a></li>
+<li class="chapter" data-level="2.2.12" data-path="P1-V1.html"><a href="P1-V1.html#VCS-revert"><i class="fa fa-check"></i><b>2.2.12</b> Revert</a></li>
+<li class="chapter" data-level="2.2.13" data-path="P1-V1.html"><a href="P1-V1.html#VCS-log"><i class="fa fa-check"></i><b>2.2.13</b> Log</a></li>
+<li class="chapter" data-level="2.2.14" data-path="P1-V1.html"><a href="P1-V1.html#VCS-tag"><i class="fa fa-check"></i><b>2.2.14</b> Tag</a></li>
+<li class="chapter" data-level="2.2.15" data-path="P1-V1.html"><a href="P1-V1.html#VCS-branch"><i class="fa fa-check"></i><b>2.2.15</b> Branch</a></li>
+<li class="chapter" data-level="2.2.16" data-path="P1-V1.html"><a href="P1-V1.html#VCS-merge"><i class="fa fa-check"></i><b>2.2.16</b> Merge</a></li>
+<li class="chapter" data-level="2.2.17" data-path="P1-V1.html"><a href="P1-V1.html#VCS-resolve"><i class="fa fa-check"></i><b>2.2.17</b> Resolve</a></li>
+<li class="chapter" data-level="2.2.18" data-path="P1-V1.html"><a href="P1-V1.html#VCS-lock"><i class="fa fa-check"></i><b>2.2.18</b> Lock</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="P1-V1.html"><a href="P1-V1.html#posebnosti-dvcs"><i class="fa fa-check"></i><b>2.3</b> Posebnosti DVCS</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="P1-V1.html"><a href="P1-V1.html#clone"><i class="fa fa-check"></i><b>2.3.1</b> Clone</a></li>
+<li class="chapter" data-level="2.3.2" data-path="P1-V1.html"><a href="P1-V1.html#primerjava-cvcs-in-dvcs"><i class="fa fa-check"></i><b>2.3.2</b> Primerjava CVCS in DVCS</a></li>
+<li class="chapter" data-level="2.3.3" data-path="P1-V1.html"><a href="P1-V1.html#push"><i class="fa fa-check"></i><b>2.3.3</b> Push</a></li>
+<li class="chapter" data-level="2.3.4" data-path="P1-V1.html"><a href="P1-V1.html#pull"><i class="fa fa-check"></i><b>2.3.4</b> Pull</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="P1-V1.html"><a href="P1-V1.html#dobre-prakse-uporabe-git"><i class="fa fa-check"></i><b>2.4</b> Dobre prakse uporabe Git</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="P1-V1.html"><a href="P1-V1.html#osrednji-repozitorij-in-sodelovanje-med-skupinami"><i class="fa fa-check"></i><b>2.4.1</b> Osrednji repozitorij in sodelovanje med skupinami</a></li>
+<li class="chapter" data-level="2.4.2" data-path="P1-V1.html"><a href="P1-V1.html#razdelitev-po-vejah-razvoja"><i class="fa fa-check"></i><b>2.4.2</b> Razdelitev po vejah razvoja</a></li>
+<li class="chapter" data-level="2.4.3" data-path="P1-V1.html"><a href="P1-V1.html#sporočila-uveljavitev"><i class="fa fa-check"></i><b>2.4.3</b> Sporočila uveljavitev</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="P1-V1.html"><a href="P1-V1.html#dodatno-gradivo"><i class="fa fa-check"></i><b>2.5</b> Dodatno gradivo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="P2.html"><a href="P2.html"><i class="fa fa-check"></i><b>3</b> <span class="sklop1 oznaka">P2</span> Delovni model, arhitektura podjetja in vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="P2.html"><a href="P2.html#delovni-model-in-zrelost-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1</b> Delovni model in zrelost arhitekture podjetja</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="P2.html"><a href="P2.html#delovni-model"><i class="fa fa-check"></i><b>3.1.1</b> Delovni model</a></li>
+<li class="chapter" data-level="3.1.2" data-path="P2.html"><a href="P2.html#arhitektura-podjetja"><i class="fa fa-check"></i><b>3.1.2</b> Arhitektura podjetja</a></li>
+<li class="chapter" data-level="3.1.3" data-path="P2.html"><a href="P2.html#posledice-zrelosti-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1.3</b> Posledice zrelosti arhitekture podjetja</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="P2.html"><a href="P2.html#vrednotenje-naložb"><i class="fa fa-check"></i><b>3.2</b> Vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="P2.html"><a href="P2.html#parametrični-pristop-od-zgoraj-navzdol"><i class="fa fa-check"></i><b>3.2.1</b> Parametrični pristop od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.2" data-path="P2.html"><a href="P2.html#pristop-od-spodaj-navzgor"><i class="fa fa-check"></i><b>3.2.2</b> Pristop od spodaj navzgor</a></li>
+<li class="chapter" data-level="3.2.3" data-path="P2.html"><a href="P2.html#ocena-proračuna"><i class="fa fa-check"></i><b>3.2.3</b> Ocena proračuna</a></li>
+<li class="chapter" data-level="3.2.4" data-path="P2.html"><a href="P2.html#ocena-proracuna-s-pristopm-navzdol"><i class="fa fa-check"></i><b>3.2.4</b> Primer ocene proračuna s pristopom od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.5" data-path="P2.html"><a href="P2.html#UCP"><i class="fa fa-check"></i><b>3.2.5</b> Formalna metoda za ocenjevanje stroškov programske opreme</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="P2.html"><a href="P2.html#nematerialne-koristi"><i class="fa fa-check"></i><b>3.3</b> Nematerialne koristi</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="P2.html"><a href="P2.html#zmogljivost-informacijske-tehnologije"><i class="fa fa-check"></i><b>3.3.1</b> Zmogljivost informacijske tehnologije</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="P2-V3.html"><a href="P2-V3.html"><i class="fa fa-check"></i><b>4</b> <span class="sklop1 oznaka">P2</span> → <span class="sklop3 oznaka">V3</span> Uvod v HTML in CSS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="P2-V3.html"><a href="P2-V3.html#html"><i class="fa fa-check"></i><b>4.1</b> HTML</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki"><i class="fa fa-check"></i><b>4.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.1.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek"><i class="fa fa-check"></i><b>4.1.2</b> Zaključek</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="P2-V3.html"><a href="P2-V3.html#CSS"><i class="fa fa-check"></i><b>4.2</b> CSS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki-1"><i class="fa fa-check"></i><b>4.2.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.2.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek-1"><i class="fa fa-check"></i><b>4.2.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="P3.html"><a href="P3.html"><i class="fa fa-check"></i><b>5</b> <span class="sklop1 oznaka">P3</span> Tveganja, IT naložbeni portfelj in povračilo sredstev</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="P3.html"><a href="P3.html#tveganja-pri-projektih-it"><i class="fa fa-check"></i><b>5.1</b> Tveganja pri projektih IT</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="P3.html"><a href="P3.html#upoštevanje-tveganja-pri-vrednotenju-naložb-v-it"><i class="fa fa-check"></i><b>5.1.1</b> Upoštevanje tveganja pri vrednotenju naložb v IT</a></li>
+<li class="chapter" data-level="5.1.2" data-path="P3.html"><a href="P3.html#kako-podjetja-upoštevajo-tveganja"><i class="fa fa-check"></i><b>5.1.2</b> Kako podjetja upoštevajo tveganja?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="P3.html"><a href="P3.html#pristop-z-opcijami-pri-naložbah-v-it"><i class="fa fa-check"></i><b>5.2</b> Pristop z opcijami pri naložbah v IT</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="P3.html"><a href="P3.html#primer-starbuck"><i class="fa fa-check"></i><b>5.2.1</b> Primer Starbuck</a></li>
+<li class="chapter" data-level="5.2.2" data-path="P3.html"><a href="P3.html#primer-opcije"><i class="fa fa-check"></i><b>5.2.2</b> Primer implementacije sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="P3.html"><a href="P3.html#ogrodje-za-vrednotenje-naložb-v-it"><i class="fa fa-check"></i><b>5.3</b> Ogrodje za vrednotenje naložb v IT</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="P3.html"><a href="P3.html#pasti-prekinitve"><i class="fa fa-check"></i><b>5.3.1</b> Pasti prekinitve</a></li>
+<li class="chapter" data-level="5.3.2" data-path="P3.html"><a href="P3.html#pasti-odložitve"><i class="fa fa-check"></i><b>5.3.2</b> Pasti odložitve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="P3.html"><a href="P3.html#it-naložbeni-portfelj"><i class="fa fa-check"></i><b>5.4</b> IT naložbeni portfelj</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="P3.html"><a href="P3.html#upravljanje-portfelja-it"><i class="fa fa-check"></i><b>5.4.1</b> Upravljanje portfelja IT</a></li>
+<li class="chapter" data-level="5.4.2" data-path="P3.html"><a href="P3.html#lastnosti-različnih-skupin-sredstev-it"><i class="fa fa-check"></i><b>5.4.2</b> Lastnosti različnih skupin sredstev IT</a></li>
+<li class="chapter" data-level="5.4.3" data-path="P3.html"><a href="P3.html#strateška-usmeritev-in-upravljanje-portfelja"><i class="fa fa-check"></i><b>5.4.3</b> Strateška usmeritev in upravljanje portfelja</a></li>
+<li class="chapter" data-level="5.4.4" data-path="P3.html"><a href="P3.html#proces-upravljanja-portfelja-it"><i class="fa fa-check"></i><b>5.4.4</b> Proces upravljanja portfelja IT</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="P3.html"><a href="P3.html#povračilo-sredstev-za-it"><i class="fa fa-check"></i><b>5.5</b> Povračilo sredstev za IT</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="P3.html"><a href="P3.html#razumevanje-izziva-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.1</b> Razumevanje izziva povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.2" data-path="P3.html"><a href="P3.html#različni-pristopi-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.2</b> Različni pristopi povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.3" data-path="P3.html"><a href="P3.html#posledice-povračil-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.3</b> Posledice povračil sredstev za IT</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="P3-V3.html"><a href="P3-V3.html"><i class="fa fa-check"></i><b>6</b> <span class="sklop1 oznaka">P3</span> → <span class="sklop3 oznaka">V3</span> JavaScript na strani odjemalca</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="P3-V3.html"><a href="P3-V3.html#JavaScript"><i class="fa fa-check"></i><b>6.1</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="P3-V3.html"><a href="P3-V3.html#gradniki-2"><i class="fa fa-check"></i><b>6.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="6.1.2" data-path="P3-V3.html"><a href="P3-V3.html#zaključek-2"><i class="fa fa-check"></i><b>6.1.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="P4.html"><a href="P4.html"><i class="fa fa-check"></i><b>7</b> <span class="sklop1 oznaka">P4</span> Upravljanje sprememb, IS, podatek, informacija, znanje</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="P4.html"><a href="P4.html#upravljanje-sprememb"><i class="fa fa-check"></i><b>7.1</b> Upravljanje sprememb</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="P4.html"><a href="P4.html#razumevanje-odpora-uporabnikov"><i class="fa fa-check"></i><b>7.1.1</b> Razumevanje odpora uporabnikov</a></li>
+<li class="chapter" data-level="7.1.2" data-path="P4.html"><a href="P4.html#odpor-uporabnikov-do-sprememb-perspektiva-pristranskosti"><i class="fa fa-check"></i><b>7.1.2</b> Odpor uporabnikov do sprememb: perspektiva pristranskosti</a></li>
+<li class="chapter" data-level="7.1.3" data-path="P4.html"><a href="P4.html#model-prilagajanja-uporabniku"><i class="fa fa-check"></i><b>7.1.3</b> Model prilagajanja uporabniku</a></li>
+<li class="chapter" data-level="7.1.4" data-path="P4.html"><a href="P4.html#različni-modeli-sprejetosti-uporabnikov"><i class="fa fa-check"></i><b>7.1.4</b> Različni modeli sprejetosti uporabnikov</a></li>
+<li class="chapter" data-level="7.1.5" data-path="P4.html"><a href="P4.html#ključni-vzvodi-pri-uvajanju-informacijskega-sistema"><i class="fa fa-check"></i><b>7.1.5</b> Ključni vzvodi pri uvajanju informacijskega sistema</a></li>
+<li class="chapter" data-level="7.1.6" data-path="P4.html"><a href="P4.html#kako-učinkovito-uvesti-spremembe-kritični-dejavniki-uspeha"><i class="fa fa-check"></i><b>7.1.6</b> Kako učinkovito uvesti spremembe: kritični dejavniki uspeha</a></li>
+<li class="chapter" data-level="7.1.7" data-path="P4.html"><a href="P4.html#primerjava-evolucijske-in-revolucionarne-spremembe"><i class="fa fa-check"></i><b>7.1.7</b> Primerjava evolucijske in revolucionarne spremembe</a></li>
+<li class="chapter" data-level="7.1.8" data-path="P4.html"><a href="P4.html#projektno-vodenje-v-primerjavi-z-učnim-pristopom"><i class="fa fa-check"></i><b>7.1.8</b> Projektno vodenje v primerjavi z učnim pristopom</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="P4.html"><a href="P4.html#sistem"><i class="fa fa-check"></i><b>7.2</b> Sistem</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="P4.html"><a href="P4.html#opredelitve-osnovnih-pojmov"><i class="fa fa-check"></i><b>7.2.1</b> Opredelitve osnovnih pojmov</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="P4.html"><a href="P4.html#podatek-informacija-in-znanje"><i class="fa fa-check"></i><b>7.3</b> Podatek, informacija in znanje</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="P4.html"><a href="P4.html#podatek-in-informacija"><i class="fa fa-check"></i><b>7.3.1</b> Podatek in informacija</a></li>
+<li class="chapter" data-level="7.3.2" data-path="P4.html"><a href="P4.html#značilnosti-informacij"><i class="fa fa-check"></i><b>7.3.2</b> Značilnosti informacij</a></li>
+<li class="chapter" data-level="7.3.3" data-path="P4.html"><a href="P4.html#raziskava-o-kakovosti-informacij"><i class="fa fa-check"></i><b>7.3.3</b> Raziskava o kakovosti informacij</a></li>
+<li class="chapter" data-level="7.3.4" data-path="P4.html"><a href="P4.html#znanje"><i class="fa fa-check"></i><b>7.3.4</b> Znanje</a></li>
+<li class="chapter" data-level="7.3.5" data-path="P4.html"><a href="P4.html#povezanost-podatka-informacije-in-znanja"><i class="fa fa-check"></i><b>7.3.5</b> Povezanost podatka, informacije in znanja</a></li>
+<li class="chapter" data-level="7.3.6" data-path="P4.html"><a href="P4.html#primeri-interpretacij-informacij"><i class="fa fa-check"></i><b>7.3.6</b> Primeri interpretacij informacij</a></li>
+<li class="chapter" data-level="7.3.7" data-path="P4.html"><a href="P4.html#znanje-vs.-védenje"><i class="fa fa-check"></i><b>7.3.7</b> Znanje vs. védenje</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="P4-V4.html"><a href="P4-V4.html"><i class="fa fa-check"></i><b>8</b> <span class="sklop1 oznaka">P4</span> → <span class="sklop3 oznaka">V4</span> Odjemalec/strežnik in Node.js</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="P4-V4.html"><a href="P4-V4.html#razvoj-enostavnega-spletnega-strežnika"><i class="fa fa-check"></i><b>8.1</b> Razvoj enostavnega spletnega strežnika</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="P4-V4.html"><a href="P4-V4.html#hello-world"><i class="fa fa-check"></i><b>8.1.1</b> Hello World</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="P4-V4.html"><a href="P4-V4.html#spremenljivke-na-strežniku"><i class="fa fa-check"></i><b>8.2</b> Spremenljivke na strežniku</a></li>
+<li class="chapter" data-level="8.3" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-statičnih-spletnih-strani"><i class="fa fa-check"></i><b>8.3</b> Strežnik statičnih spletnih strani</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="P4-V4.html"><a href="P4-V4.html#knjižnice-ki-jih-bo-naš-projekt-uporabljal"><i class="fa fa-check"></i><b>8.3.1</b> Knjižnice, ki jih bo naš projekt uporabljal</a></li>
+<li class="chapter" data-level="8.3.2" data-path="P4-V4.html"><a href="P4-V4.html#uvoz-statičnih-datotek"><i class="fa fa-check"></i><b>8.3.2</b> Uvoz statičnih datotek</a></li>
+<li class="chapter" data-level="8.3.3" data-path="P4-V4.html"><a href="P4-V4.html#začnemo-s-pisanjem-kode-na-strežniku"><i class="fa fa-check"></i><b>8.3.3</b> Začnemo s pisanjem kode na strežniku</a></li>
+<li class="chapter" data-level="8.3.4" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-objekt-strežnika-in-ga-osnovno-nastavimo"><i class="fa fa-check"></i><b>8.3.4</b> Pripravimo objekt strežnika in ga osnovno nastavimo</a></li>
+<li class="chapter" data-level="8.3.5" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-poženemo"><i class="fa fa-check"></i><b>8.3.5</b> Strežnik poženemo</a></li>
+<li class="chapter" data-level="8.3.6" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-še-manjkajočo-metodo-za-strežbo-statične-vsebine"><i class="fa fa-check"></i><b>8.3.6</b> Pripravimo še manjkajočo metodo za strežbo statične vsebine</a></li>
+<li class="chapter" data-level="8.3.7" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-metodo-za-obvladovanje-napak"><i class="fa fa-check"></i><b>8.3.7</b> Pripravimo metodo za obvladovanje napak</a></li>
+<li class="chapter" data-level="8.3.8" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-tudi-metodo-ki-vrne-datoteko-odjemalcu"><i class="fa fa-check"></i><b>8.3.8</b> Pripravimo tudi metodo, ki vrne datoteko odjemalcu</a></li>
+<li class="chapter" data-level="8.3.9" data-path="P4-V4.html"><a href="P4-V4.html#preverimo-delovanje-strežbe-statičnih-strani"><i class="fa fa-check"></i><b>8.3.9</b> Preverimo delovanje strežbe statičnih strani</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-statičnih-strani-dodamo-predpomnjenje"><i class="fa fa-check"></i><b>8.4</b> Strežniku statičnih strani dodamo predpomnjenje</a></li>
+<li class="chapter" data-level="8.5" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-dodamo-dinamične-strani"><i class="fa fa-check"></i><b>8.5</b> Strežniku dodamo dinamične strani</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="P4-V4.html"><a href="P4-V4.html#popravimo-nastavitev-strežnika"><i class="fa fa-check"></i><b>8.5.1</b> Popravimo nastavitev strežnika</a></li>
+<li class="chapter" data-level="8.5.2" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-metodo-za-obdelavo-sporočila"><i class="fa fa-check"></i><b>8.5.2</b> Implementiramo metodo za obdelavo sporočila</a></li>
+<li class="chapter" data-level="8.5.3" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-zahvalo-uporabniku"><i class="fa fa-check"></i><b>8.5.3</b> Implementiramo zahvalo uporabniku</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="P4-V4.html"><a href="P4-V4.html#testiranje-in-dodatno-gradivo"><i class="fa fa-check"></i><b>8.6</b> Testiranje in dodatno gradivo</a></li>
+</ul></li>
+<li class="part"><span><b>II sklop: Arhitektura poslovnega informacijskega sistema</b></span></li>
+<li class="chapter" data-level="9" data-path="DN.html"><a href="DN.html"><i class="fa fa-check"></i><b>9</b> <span class="sklop3 oznaka">DN</span> Spletna aplikacija FRI izletnik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DN.html"><a href="DN.html#DN1"><i class="fa fa-check"></i><b>9.1</b> Spletna aplikacija <small>(1. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="DN.html"><a href="DN.html#opis-naloge-in-navodila"><i class="fa fa-check"></i><b>9.1.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.2" data-path="DN.html"><a href="DN.html#vzpostavitev-repozitorija"><i class="fa fa-check"></i><b>9.1.2</b> Vzpostavitev repozitorija <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.3" data-path="DN.html"><a href="DN.html#DN11"><i class="fa fa-check"></i><b>9.1.3</b> Skladnja strani in stilska preobrazba <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.4" data-path="DN.html"><a href="DN.html#DN12"><i class="fa fa-check"></i><b>9.1.4</b> Podpora funkcionalnosti na odjemalcu in strežniku <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.5" data-path="DN.html"><a href="DN.html#združevanje-sprememb-v-repozitoriju"><i class="fa fa-check"></i><b>9.1.5</b> Združevanje sprememb v repozitoriju <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="DN.html"><a href="DN.html#DN2"><i class="fa fa-check"></i><b>9.2</b> Dopolnitev načrta in implementacija nove funkcionalnosti <small class="skupaj">(2. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="DN.html"><a href="DN.html#DN-navodila"><i class="fa fa-check"></i><b>9.2.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.2" data-path="DN.html"><a href="DN.html#DN-ideja"><i class="fa fa-check"></i><b>9.2.2</b> Opis osnovne ideje predloga <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.3" data-path="DN.html"><a href="DN.html#DN-Generiranje-podatkov"><i class="fa fa-check"></i><b>9.2.3</b> Generiranje podatkov <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.4" data-path="DN.html"><a href="DN.html#DN-nacrt"><i class="fa fa-check"></i><b>9.2.4</b> Načrt informacijske rešitve <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.5" data-path="DN.html"><a href="DN.html#DN-implementacija"><i class="fa fa-check"></i><b>9.2.5</b> Implementacija funkcionalnosti <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="P5.html"><a href="P5.html"><i class="fa fa-check"></i><b>10</b> <span class="sklop2 oznaka">P5</span> Metamodel delovnega sistema in arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="P5.html"><a href="P5.html#metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1</b> Metamodel delovnega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="P5.html"><a href="P5.html#razmerje-med-informacijskim-sistemom-in-delovnim-sistemom"><i class="fa fa-check"></i><b>10.1.1</b> Razmerje med informacijskim sistemom in delovnim sistemom</a></li>
+<li class="chapter" data-level="10.1.2" data-path="P5.html"><a href="P5.html#različni-pogledi-na-metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.2</b> Različni pogledi na metamodel delovnega sistema</a></li>
+<li class="chapter" data-level="10.1.3" data-path="P5.html"><a href="P5.html#primeri-metamodelov-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.3</b> Primeri metamodelov delovnega sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="P5.html"><a href="P5.html#arhitektura-poslovnega-informacijskega-sistema"><i class="fa fa-check"></i><b>10.2</b> Arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="P5.html"><a href="P5.html#uvod-v-poslovne-informacijske-sisteme"><i class="fa fa-check"></i><b>10.2.1</b> Uvod v poslovne informacijske sisteme</a></li>
+<li class="chapter" data-level="10.2.2" data-path="P5.html"><a href="P5.html#poklici-povezani-s-poslovnimi-informacijskimi-sistemi"><i class="fa fa-check"></i><b>10.2.2</b> Poklici, povezani s poslovnimi informacijskimi sistemi</a></li>
+<li class="chapter" data-level="10.2.3" data-path="P5.html"><a href="P5.html#razumevanje-poslovnih-procesov"><i class="fa fa-check"></i><b>10.2.3</b> Razumevanje poslovnih procesov</a></li>
+<li class="chapter" data-level="10.2.4" data-path="P5.html"><a href="P5.html#poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.4</b> Poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.5" data-path="P5.html"><a href="P5.html#primeri-poslovnih-sistemov"><i class="fa fa-check"></i><b>10.2.5</b> Primeri poslovnih sistemov</a></li>
+<li class="chapter" data-level="10.2.6" data-path="P5.html"><a href="P5.html#poslovni-sistemi-in-poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.6</b> Poslovni sistemi in poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.7" data-path="P5.html"><a href="P5.html#podjetja-in-poslovni-procesi"><i class="fa fa-check"></i><b>10.2.7</b> Podjetja in poslovni procesi</a></li>
+<li class="chapter" data-level="10.2.8" data-path="P5.html"><a href="P5.html#primerjava-največjih-ponudnikov"><i class="fa fa-check"></i><b>10.2.8</b> Primerjava največjih ponudnikov</a></li>
+<li class="chapter" data-level="10.2.9" data-path="P5.html"><a href="P5.html#zgodovina-sistema-sap"><i class="fa fa-check"></i><b>10.2.9</b> Zgodovina sistema SAP</a></li>
+<li class="chapter" data-level="10.2.10" data-path="P5.html"><a href="P5.html#komponente-poslovnih-informacijskih-sistemov"><i class="fa fa-check"></i><b>10.2.10</b> Komponente poslovnih informacijskih sistemov</a></li>
+<li class="chapter" data-level="10.2.11" data-path="P5.html"><a href="P5.html#integracija-poslovnih-aplikacij"><i class="fa fa-check"></i><b>10.2.11</b> Integracija poslovnih aplikacij</a></li>
+<li class="chapter" data-level="10.2.12" data-path="P5.html"><a href="P5.html#elektronska-izmenjava-podatkov"><i class="fa fa-check"></i><b>10.2.12</b> Elektronska izmenjava podatkov</a></li>
+<li class="chapter" data-level="10.2.13" data-path="P5.html"><a href="P5.html#ERP-podrobnosti"><i class="fa fa-check"></i><b>10.2.13</b> ERP</a></li>
+<li class="chapter" data-level="10.2.14" data-path="P5.html"><a href="P5.html#CRM-podrobnosti"><i class="fa fa-check"></i><b>10.2.14</b> CRM</a></li>
+<li class="chapter" data-level="10.2.15" data-path="P5.html"><a href="P5.html#SCM-podrobnosti"><i class="fa fa-check"></i><b>10.2.15</b> SCM</a></li>
+<li class="chapter" data-level="10.2.16" data-path="P5.html"><a href="P5.html#KM-podrobnosti"><i class="fa fa-check"></i><b>10.2.16</b> KM</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="P5-V5.html"><a href="P5-V5.html"><i class="fa fa-check"></i><b>11</b> <span class="sklop2 oznaka">P5</span> → <span class="sklop3 oznaka">V5</span> Povezovanje na podatkovno bazo</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="P5-V5.html"><a href="P5-V5.html#priprava-okolja"><i class="fa fa-check"></i><b>11.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="11.2" data-path="P5-V5.html"><a href="P5-V5.html#razširitev-arhitekture-odjemalecstrežnik-s-podatkovno-bazo"><i class="fa fa-check"></i><b>11.2</b> Razširitev arhitekture odjemalec/strežnik s podatkovno bazo</a></li>
+<li class="chapter" data-level="11.3" data-path="P5-V5.html"><a href="P5-V5.html#chinook-podatkovna-baza"><i class="fa fa-check"></i><b>11.3</b> Chinook podatkovna baza</a></li>
+<li class="chapter" data-level="11.4" data-path="P5-V5.html"><a href="P5-V5.html#poizvedovalni-jezik-sql"><i class="fa fa-check"></i><b>11.4</b> Poizvedovalni jezik SQL</a></li>
+<li class="chapter" data-level="11.5" data-path="P5-V5.html"><a href="P5-V5.html#podatkovna-baza-sqlite"><i class="fa fa-check"></i><b>11.5</b> Podatkovna baza SQLite</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="P5-V5.html"><a href="P5-V5.html#vsebina-podatkovne-baze"><i class="fa fa-check"></i><b>11.5.1</b> Vsebina podatkovne baze</a></li>
+<li class="chapter" data-level="11.5.2" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic"><i class="fa fa-check"></i><b>11.5.2</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.5.3" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-vseh-vrednosti-v-tabeli"><i class="fa fa-check"></i><b>11.5.3</b> Prikaz vseh vrednosti v tabeli</a></li>
+<li class="chapter" data-level="11.5.4" data-path="P5-V5.html"><a href="P5-V5.html#filtriranje-zapisov"><i class="fa fa-check"></i><b>11.5.4</b> Filtriranje zapisov</a></li>
+<li class="chapter" data-level="11.5.5" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-podatkov-iz-več-tabel"><i class="fa fa-check"></i><b>11.5.5</b> Prikaz podatkov iz več tabel</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="P5-V5.html"><a href="P5-V5.html#uporaba-ogrodja-express.js-za-poenostavitev-razvoja-aplikacij"><i class="fa fa-check"></i><b>11.6</b> Uporaba ogrodja Express.js za poenostavitev razvoja aplikacij</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic-1"><i class="fa fa-check"></i><b>11.6.1</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.6.2" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-brez-uporabe-express"><i class="fa fa-check"></i><b>11.6.2</b> Hello World brez uporabe Express</a></li>
+<li class="chapter" data-level="11.6.3" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-z-express"><i class="fa fa-check"></i><b>11.6.3</b> Hello World z Express</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="P5-V5.html"><a href="P5-V5.html#master-detail-načrtovalski-vzorec"><i class="fa fa-check"></i><b>11.7</b> Master-detail načrtovalski vzorec</a></li>
+<li class="chapter" data-level="11.8" data-path="P5-V5.html"><a href="P5-V5.html#primer-pesmi-po-žanrih"><i class="fa fa-check"></i><b>11.8</b> Primer: Pesmi po žanrih</a>
+<ul>
+<li class="chapter" data-level="11.8.1" data-path="P5-V5.html"><a href="P5-V5.html#potrebne-knjižnice"><i class="fa fa-check"></i><b>11.8.1</b> Potrebne knjižnice</a></li>
+<li class="chapter" data-level="11.8.2" data-path="P5-V5.html"><a href="P5-V5.html#funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov"><i class="fa fa-check"></i><b>11.8.2</b> Funkcija, ki v povratnem klicu vrača seznam žanrov</a></li>
+<li class="chapter" data-level="11.8.3" data-path="P5-V5.html"><a href="P5-V5.html#zaključek-osnovne-funkcionalnosti-strežnika"><i class="fa fa-check"></i><b>11.8.3</b> Zaključek osnovne funkcionalnosti strežnika</a></li>
+<li class="chapter" data-level="11.8.4" data-path="P5-V5.html"><a href="P5-V5.html#testiranje-osnovne-funkcionalnosti-master"><i class="fa fa-check"></i><b>11.8.4</b> Testiranje osnovne funkcionalnosti (master)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="P5-V5.html"><a href="P5-V5.html#dodajanje-seznama-pesmi-detail"><i class="fa fa-check"></i><b>11.8.5</b> Dodajanje seznama pesmi (detail)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="P6.html"><a href="P6.html"><i class="fa fa-check"></i><b>12</b> <span class="sklop2 oznaka">P6</span> Zgodovina, ključne vloge in vrste IS</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="P6.html"><a href="P6.html#e-poslovanje"><i class="fa fa-check"></i><b>12.1</b> E-poslovanje</a></li>
+<li class="chapter" data-level="12.2" data-path="P6.html"><a href="P6.html#e-trgovanje"><i class="fa fa-check"></i><b>12.2</b> E-trgovanje</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="P6.html"><a href="P6.html#zgodovina-e-trgovanja"><i class="fa fa-check"></i><b>12.2.1</b> Zgodovina e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.2" data-path="P6.html"><a href="P6.html#tehnologije-e-trgovanja"><i class="fa fa-check"></i><b>12.2.2</b> Tehnologije e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.3" data-path="P6.html"><a href="P6.html#osnovne-komponente-e-trgovanja"><i class="fa fa-check"></i><b>12.2.3</b> Osnovne komponente e-trgovanja</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="P6.html"><a href="P6.html#zgodovina-in-ključne-vloge-is"><i class="fa fa-check"></i><b>12.3</b> Zgodovina in ključne vloge IS</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="P6.html"><a href="P6.html#zgodovinski-pregled-pomembnih-dogodkov-v-računalništvu"><i class="fa fa-check"></i><b>12.3.1</b> Zgodovinski pregled pomembnih dogodkov v računalništvu</a></li>
+<li class="chapter" data-level="12.3.2" data-path="P6.html"><a href="P6.html#razvoj-tehnologij"><i class="fa fa-check"></i><b>12.3.2</b> Razvoj tehnologij</a></li>
+<li class="chapter" data-level="12.3.3" data-path="P6.html"><a href="P6.html#razvoj-it-za-podporo-is"><i class="fa fa-check"></i><b>12.3.3</b> Razvoj IT za podporo IS</a></li>
+<li class="chapter" data-level="12.3.4" data-path="P6.html"><a href="P6.html#razvoj-informacijske-podpore-po-ravneh-odločanja"><i class="fa fa-check"></i><b>12.3.4</b> Razvoj informacijske podpore po ravneh odločanja</a></li>
+<li class="chapter" data-level="12.3.5" data-path="P6.html"><a href="P6.html#zgodovina-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.3.5</b> Zgodovina informacijskih sistemov</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="P6.html"><a href="P6.html#vrste-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.4</b> Vrste informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-poslovanju"><i class="fa fa-check"></i><b>12.4.1</b> Sistemi za podporo poslovanju</a></li>
+<li class="chapter" data-level="12.4.2" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-odločanju"><i class="fa fa-check"></i><b>12.4.2</b> Sistemi za podporo odločanju</a></li>
+<li class="chapter" data-level="12.4.3" data-path="P6.html"><a href="P6.html#specializirani-sistemi"><i class="fa fa-check"></i><b>12.4.3</b> Specializirani sistemi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="P6-V6.html"><a href="P6-V6.html"><i class="fa fa-check"></i><b>13</b> <span class="sklop2 oznaka">P6</span> → <span class="sklop3 oznaka">V6</span> Seja, košarica, XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="P6-V6.html"><a href="P6-V6.html#priprava-okolja-1"><i class="fa fa-check"></i><b>13.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="13.2" data-path="P6-V6.html"><a href="P6-V6.html#namestitev-knjižnic-in-vključitev-podatkovne-baze"><i class="fa fa-check"></i><b>13.2</b> Namestitev knjižnic in vključitev podatkovne baze</a></li>
+<li class="chapter" data-level="13.3" data-path="P6-V6.html"><a href="P6-V6.html#seja"><i class="fa fa-check"></i><b>13.3</b> Seja</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="P6-V6.html"><a href="P6-V6.html#globalne-spremenljivke-vs.-seja"><i class="fa fa-check"></i><b>13.3.1</b> Globalne spremenljivke vs. seja</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="P6-V6.html"><a href="P6-V6.html#nakupovalna-košarica"><i class="fa fa-check"></i><b>13.4</b> Nakupovalna košarica</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="P6-V6.html"><a href="P6-V6.html#primer-nakupovanja-pesmi-iz-seznama-100-najbolje-prodajanih"><i class="fa fa-check"></i><b>13.4.1</b> Primer nakupovanja pesmi iz seznama 100 najbolje prodajanih</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="P6-V6.html"><a href="P6-V6.html#xml-in-e-slog"><i class="fa fa-check"></i><b>13.5</b> XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="P6-V6.html"><a href="P6-V6.html#dokumentacija"><i class="fa fa-check"></i><b>13.5.1</b> Dokumentacija</a></li>
+<li class="chapter" data-level="13.5.2" data-path="P6-V6.html"><a href="P6-V6.html#dopolnitve-primera-nakupovanja-pesmi"><i class="fa fa-check"></i><b>13.5.2</b> Dopolnitve primera nakupovanja pesmi</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III sklop: Analiza, načrtovanje in razvoj poslovnih informacijskih sistemov</b></span></li>
+<li class="chapter" data-level="14" data-path="P7.html"><a href="P7.html"><i class="fa fa-check"></i><b>14</b> <span class="sklop3 oznaka">P7</span> Razvojni modeli informacijskih sistemov in metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="P7.html"><a href="P7.html#zgodovina-razvoja-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.1</b> Zgodovina razvoja informacijskih sistemov</a></li>
+<li class="chapter" data-level="14.2" data-path="P7.html"><a href="P7.html#razvojni-model-informacijskega-sistema"><i class="fa fa-check"></i><b>14.2</b> Razvojni model informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="P7.html"><a href="P7.html#SDLC-studija-izvedljivosti"><i class="fa fa-check"></i><b>14.2.1</b> Študija izvedljivosti</a></li>
+<li class="chapter" data-level="14.2.2" data-path="P7.html"><a href="P7.html#SDLC-zbiranje-zahtev"><i class="fa fa-check"></i><b>14.2.2</b> Zbiranje zahtev</a></li>
+<li class="chapter" data-level="14.2.3" data-path="P7.html"><a href="P7.html#SDLC-analiza"><i class="fa fa-check"></i><b>14.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="14.2.4" data-path="P7.html"><a href="P7.html#SDLC-nacrt"><i class="fa fa-check"></i><b>14.2.4</b> Načrtovanje</a></li>
+<li class="chapter" data-level="14.2.5" data-path="P7.html"><a href="P7.html#SDLC-implementacija"><i class="fa fa-check"></i><b>14.2.5</b> Implementacija</a></li>
+<li class="chapter" data-level="14.2.6" data-path="P7.html"><a href="P7.html#SDLC-pregled-in-vzdrzevanje"><i class="fa fa-check"></i><b>14.2.6</b> Pregled in vzdrževanje</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="P7.html"><a href="P7.html#metodologija"><i class="fa fa-check"></i><b>14.3</b> Metodologija</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="P7.html"><a href="P7.html#tehnike"><i class="fa fa-check"></i><b>14.3.1</b> Tehnike</a></li>
+<li class="chapter" data-level="14.3.2" data-path="P7.html"><a href="P7.html#orodja"><i class="fa fa-check"></i><b>14.3.2</b> Orodja</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="P7.html"><a href="P7.html#variante-razvojnih-modelov-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.4</b> Variante razvojnih modelov informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="P7.html"><a href="P7.html#Zaporedni-razvojni-model"><i class="fa fa-check"></i><b>14.4.1</b> Zaporedni oz. slapovni razvojni model</a></li>
+<li class="chapter" data-level="14.4.2" data-path="P7.html"><a href="P7.html#Iterativni-razvojni-model"><i class="fa fa-check"></i><b>14.4.2</b> Iterativni razvojni model</a></li>
+<li class="chapter" data-level="14.4.3" data-path="P7.html"><a href="P7.html#Prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.3</b> Prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.4" data-path="P7.html"><a href="P7.html#Iterativni-prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.4</b> Iterativni/prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.5" data-path="P7.html"><a href="P7.html#Inkrementalni-razvojni-model"><i class="fa fa-check"></i><b>14.4.5</b> Inkrementalni razvojni model</a></li>
+<li class="chapter" data-level="14.4.6" data-path="P7.html"><a href="P7.html#iterativnost-vs.-inkrementalnost"><i class="fa fa-check"></i><b>14.4.6</b> Iterativnost vs. inkrementalnost</a></li>
+<li class="chapter" data-level="14.4.7" data-path="P7.html"><a href="P7.html#Kombinirani-razvojni-model"><i class="fa fa-check"></i><b>14.4.7</b> Kombinirani razvojni model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="P7.html"><a href="P7.html#metodologije-razvoja"><i class="fa fa-check"></i><b>14.5</b> Metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="P7.html"><a href="P7.html#različne-opredelitve-v-literaturi"><i class="fa fa-check"></i><b>14.5.1</b> Različne opredelitve v literaturi</a></li>
+<li class="chapter" data-level="14.5.2" data-path="P7.html"><a href="P7.html#metodologija-v-terminološkem-slovarju"><i class="fa fa-check"></i><b>14.5.2</b> Metodologija v terminološkem slovarju</a></li>
+<li class="chapter" data-level="14.5.3" data-path="P7.html"><a href="P7.html#naša-opredelitev"><i class="fa fa-check"></i><b>14.5.3</b> Naša opredelitev</a></li>
+<li class="chapter" data-level="14.5.4" data-path="P7.html"><a href="P7.html#elementi-metodologije"><i class="fa fa-check"></i><b>14.5.4</b> Elementi metodologije</a></li>
+<li class="chapter" data-level="14.5.5" data-path="P7.html"><a href="P7.html#upravljanje-z-znanjem"><i class="fa fa-check"></i><b>14.5.5</b> Upravljanje z znanjem</a></li>
+<li class="chapter" data-level="14.5.6" data-path="P7.html"><a href="P7.html#formalna-vs.-neformalna-metodologija"><i class="fa fa-check"></i><b>14.5.6</b> Formalna vs. neformalna metodologija</a></li>
+<li class="chapter" data-level="14.5.7" data-path="P7.html"><a href="P7.html#agilni-koncepti-in-metodologije"><i class="fa fa-check"></i><b>14.5.7</b> Agilni koncepti in metodologije</a></li>
+<li class="chapter" data-level="14.5.8" data-path="P7.html"><a href="P7.html#metamodel-metodologije-razvoja-informacijskega-sistema"><i class="fa fa-check"></i><b>14.5.8</b> Metamodel metodologije razvoja informacijskega sistema</a></li>
+<li class="chapter" data-level="14.5.9" data-path="P7.html"><a href="P7.html#ogrodja-za-primerjavo-metodologij"><i class="fa fa-check"></i><b>14.5.9</b> Ogrodja za primerjavo metodologij</a></li>
+<li class="chapter" data-level="14.5.10" data-path="P7.html"><a href="P7.html#učinkovitost-različnih-oblik-komunikacije"><i class="fa fa-check"></i><b>14.5.10</b> Učinkovitost različnih oblik komunikacije</a></li>
+<li class="chapter" data-level="14.5.11" data-path="P7.html"><a href="P7.html#vpliv-velikosti-na-posebnosti-razvojne-skupine"><i class="fa fa-check"></i><b>14.5.11</b> Vpliv velikosti na posebnosti razvojne skupine</a></li>
+<li class="chapter" data-level="14.5.12" data-path="P7.html"><a href="P7.html#Kriticni-projekti"><i class="fa fa-check"></i><b>14.5.12</b> Kritični projekti</a></li>
+<li class="chapter" data-level="14.5.13" data-path="P7.html"><a href="P7.html#Komunikacija-in-povratne-informacije"><i class="fa fa-check"></i><b>14.5.13</b> Komunikacija in povratne informacije</a></li>
+<li class="chapter" data-level="14.5.14" data-path="P7.html"><a href="P7.html#primer-google-inženirji-vs.-managerji"><i class="fa fa-check"></i><b>14.5.14</b> Primer: Google: Inženirji vs. managerji</a></li>
+<li class="chapter" data-level="14.5.15" data-path="P7.html"><a href="P7.html#Discipliniranost-izkusnje-in-znanje"><i class="fa fa-check"></i><b>14.5.15</b> Discipliniranost, izkušnje in znanje</a></li>
+<li class="chapter" data-level="14.5.16" data-path="P7.html"><a href="P7.html#Odkloni-od-nacrtovane-resitve"><i class="fa fa-check"></i><b>14.5.16</b> Odkloni od načrtovane rešitve</a></li>
+<li class="chapter" data-level="14.5.17" data-path="P7.html"><a href="P7.html#evolucija-razvoja-programske-opreme"><i class="fa fa-check"></i><b>14.5.17</b> Evolucija razvoja programske opreme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="P8.html"><a href="P8.html"><i class="fa fa-check"></i><b>15</b> <span class="sklop3 oznaka">P8</span> Strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="P8.html"><a href="P8.html#uvod-v-strukturni-razvoj"><i class="fa fa-check"></i><b>15.1</b> Uvod v strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="P8.html"><a href="P8.html#Strukturni-zajem-in-specifikaija-zahtev"><i class="fa fa-check"></i><b>15.1.1</b> Zajem in specifikacija zahtev</a></li>
+<li class="chapter" data-level="15.1.2" data-path="P8.html"><a href="P8.html#Strukturni-analiza"><i class="fa fa-check"></i><b>15.1.2</b> Analiza</a></li>
+<li class="chapter" data-level="15.1.3" data-path="P8.html"><a href="P8.html#Strukturni-nacrtovanje"><i class="fa fa-check"></i><b>15.1.3</b> Načrtovanje</a></li>
+<li class="chapter" data-level="15.1.4" data-path="P8.html"><a href="P8.html#Strukturni-testiranje"><i class="fa fa-check"></i><b>15.1.4</b> Testiranje</a></li>
+<li class="chapter" data-level="15.1.5" data-path="P8.html"><a href="P8.html#Strukturni-namestitev-in-uvedba"><i class="fa fa-check"></i><b>15.1.5</b> Namestitev in uvedba</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="P8.html"><a href="P8.html#podatkovno-načrtovanje"><i class="fa fa-check"></i><b>15.2</b> Podatkovno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="P8.html"><a href="P8.html#relacijski-model"><i class="fa fa-check"></i><b>15.2.1</b> Relacijski model</a></li>
+<li class="chapter" data-level="15.2.2" data-path="P8.html"><a href="P8.html#matematična-opredelitev"><i class="fa fa-check"></i><b>15.2.2</b> Matematična opredelitev</a></li>
+<li class="chapter" data-level="15.2.3" data-path="P8.html"><a href="P8.html#entitetni-diagram"><i class="fa fa-check"></i><b>15.2.3</b> Entitetni diagram</a></li>
+<li class="chapter" data-level="15.2.4" data-path="P8.html"><a href="P8.html#različne-ravni-podatkovnega-modeliranja"><i class="fa fa-check"></i><b>15.2.4</b> Različne ravni podatkovnega modeliranja</a></li>
+<li class="chapter" data-level="15.2.5" data-path="P8.html"><a href="P8.html#Postopek-konceptualno-nacrtovanje"><i class="fa fa-check"></i><b>15.2.5</b> Konceptualno načrtovanje</a></li>
+<li class="chapter" data-level="15.2.6" data-path="P8.html"><a href="P8.html#prehod-iz-konceptualnega-v-logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.6</b> Prehod iz konceptualnega v logično načrtovanje</a></li>
+<li class="chapter" data-level="15.2.7" data-path="P8.html"><a href="P8.html#logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.7</b> Logično načrtovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="P8.html"><a href="P8.html#Postopek-normalizacija"><i class="fa fa-check"></i><b>15.3</b> Normalizacija</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="P8.html"><a href="P8.html#normalna-oblika-1.-no"><i class="fa fa-check"></i><b>15.3.1</b> 1. normalna oblika (1. NO)</a></li>
+<li class="chapter" data-level="15.3.2" data-path="P8.html"><a href="P8.html#normalna-oblika-2.-no"><i class="fa fa-check"></i><b>15.3.2</b> 2. normalna oblika (2. NO)</a></li>
+<li class="chapter" data-level="15.3.3" data-path="P8.html"><a href="P8.html#normalna-oblika-3.-no"><i class="fa fa-check"></i><b>15.3.3</b> 3. normalna oblika (3. NO)</a></li>
+<li class="chapter" data-level="15.3.4" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-4.-pno"><i class="fa fa-check"></i><b>15.3.4</b> 4. poslovna normalna oblika (4. PNO)</a></li>
+<li class="chapter" data-level="15.3.5" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-5.-pno"><i class="fa fa-check"></i><b>15.3.5</b> 5. poslovna normalna oblika (5. PNO)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="P8.html"><a href="P8.html#denormalizacija"><i class="fa fa-check"></i><b>15.4</b> Denormalizacija</a></li>
+<li class="chapter" data-level="15.5" data-path="P8.html"><a href="P8.html#primeri-normalizacije"><i class="fa fa-check"></i><b>15.5</b> Primeri normalizacije</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="P8.html"><a href="P8.html#normalizacija-računa"><i class="fa fa-check"></i><b>15.5.1</b> Normalizacija računa</a></li>
+<li class="chapter" data-level="15.5.2" data-path="P8.html"><a href="P8.html#normalizacija-reverza"><i class="fa fa-check"></i><b>15.5.2</b> Normalizacija reverza</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="P8.html"><a href="P8.html#procesni-vidik"><i class="fa fa-check"></i><b>15.6</b> Procesni vidik</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="P8.html"><a href="P8.html#dekompozicijski-diagrami"><i class="fa fa-check"></i><b>15.6.1</b> Dekompozicijski diagrami</a></li>
+<li class="chapter" data-level="15.6.2" data-path="P8.html"><a href="P8.html#procesna-logika"><i class="fa fa-check"></i><b>15.6.2</b> Procesna logika</a></li>
+<li class="chapter" data-level="15.6.3" data-path="P8.html"><a href="P8.html#BPMN-tehnika"><i class="fa fa-check"></i><b>15.6.3</b> BPMN</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="P9.html"><a href="P9.html"><i class="fa fa-check"></i><b>16</b> <span class="sklop3 oznaka">P9</span> Objektno usmerjena analiza, načrtovanje in modeliranje</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="P9.html"><a href="P9.html#objektno-usmerjena-analiza-in-načrtovanje"><i class="fa fa-check"></i><b>16.1</b> Objektno usmerjena analiza in načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="P9.html"><a href="P9.html#OO-thinking"><i class="fa fa-check"></i><b>16.1.1</b> Objektno usmerjeno razmišljanje</a></li>
+<li class="chapter" data-level="16.1.2" data-path="P9.html"><a href="P9.html#načrtovanje-v-procesu-razvoja-programske-opreme"><i class="fa fa-check"></i><b>16.1.2</b> Načrtovanje v procesu razvoja programske opreme</a></li>
+<li class="chapter" data-level="16.1.3" data-path="P9.html"><a href="P9.html#načrtovanje-z-upoštevanjem-kakovosti"><i class="fa fa-check"></i><b>16.1.3</b> Načrtovanje z upoštevanjem kakovosti</a></li>
+<li class="chapter" data-level="16.1.4" data-path="P9.html"><a href="P9.html#razred-odgovornost-sodelovanje"><i class="fa fa-check"></i><b>16.1.4</b> Razred, odgovornost, sodelovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="P9.html"><a href="P9.html#objektno-usmerjeno-načrtovanje"><i class="fa fa-check"></i><b>16.2</b> Objektno usmerjeno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="P9.html"><a href="P9.html#izdelava-modelov-načrta"><i class="fa fa-check"></i><b>16.2.1</b> Izdelava modelov načrta</a></li>
+<li class="chapter" data-level="16.2.2" data-path="P9.html"><a href="P9.html#razvoj-programskih-jezikov"><i class="fa fa-check"></i><b>16.2.2</b> Razvoj programskih jezikov</a></li>
+<li class="chapter" data-level="16.2.3" data-path="P9.html"><a href="P9.html#stiri-nacrtovalska-nacela"><i class="fa fa-check"></i><b>16.2.3</b> Štiri načrtovalska načela</a></li>
+<li class="chapter" data-level="16.2.4" data-path="P9.html"><a href="P9.html#načrtovalska-struktura-v-programskem-jeziku-java-in-uml-razrednih-diagramih"><i class="fa fa-check"></i><b>16.2.4</b> Načrtovalska struktura v programskem jeziku Java in UML razrednih diagramih</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="P9.html"><a href="P9.html#načrtovalska-načela"><i class="fa fa-check"></i><b>16.3</b> Načrtovalska načela</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="P9.html"><a href="P9.html#vrednotenje-kompleksnosti-načrta"><i class="fa fa-check"></i><b>16.3.1</b> Vrednotenje kompleksnosti načrta</a></li>
+<li class="chapter" data-level="16.3.2" data-path="P9.html"><a href="P9.html#načelo-ločevanja-pomislekov"><i class="fa fa-check"></i><b>16.3.2</b> Načelo ločevanja pomislekov</a></li>
+<li class="chapter" data-level="16.3.3" data-path="P9.html"><a href="P9.html#skrivanje-informacij"><i class="fa fa-check"></i><b>16.3.3</b> Skrivanje informacij</a></li>
+<li class="chapter" data-level="16.3.4" data-path="P9.html"><a href="P9.html#konceptualna-celovitost"><i class="fa fa-check"></i><b>16.3.4</b> Konceptualna celovitost</a></li>
+<li class="chapter" data-level="16.3.5" data-path="P9.html"><a href="P9.html#načela-posploševanja"><i class="fa fa-check"></i><b>16.3.5</b> Načela posploševanja</a></li>
+<li class="chapter" data-level="16.3.6" data-path="P9.html"><a href="P9.html#preverjanje-modela"><i class="fa fa-check"></i><b>16.3.6</b> Preverjanje modela</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="P10.html"><a href="P10.html"><i class="fa fa-check"></i><b>17</b> <span class="sklop3 oznaka">P10</span> Objektni razvoj, simulacija razvoja informacijskega sistema za bankomat in simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="P10.html"><a href="P10.html#objektni-razvoj"><i class="fa fa-check"></i><b>17.1</b> Objektni razvoj</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="P10.html"><a href="P10.html#rup-proces-razvoja"><i class="fa fa-check"></i><b>17.1.1</b> RUP proces razvoja</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="P10.html"><a href="P10.html#simulacija-razvoja-informacijskega-sistema-za-bankomat"><i class="fa fa-check"></i><b>17.2</b> Simulacija razvoja informacijskega sistema za bankomat</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="P10.html"><a href="P10.html#predstavitev-problema"><i class="fa fa-check"></i><b>17.2.1</b> Predstavitev problema</a></li>
+<li class="chapter" data-level="17.2.2" data-path="P10.html"><a href="P10.html#Bankomat-Zbiranje-zahtev"><i class="fa fa-check"></i><b>17.2.2</b> Zajem zahtev</a></li>
+<li class="chapter" data-level="17.2.3" data-path="P10.html"><a href="P10.html#Bankomat-Analiza"><i class="fa fa-check"></i><b>17.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="17.2.4" data-path="P10.html"><a href="P10.html#Bankomat-Pregledni-nacrt"><i class="fa fa-check"></i><b>17.2.4</b> Pregledni načrt</a></li>
+<li class="chapter" data-level="17.2.5" data-path="P10.html"><a href="P10.html#Bankomat-Podroben-nacrt"><i class="fa fa-check"></i><b>17.2.5</b> Podroben načrt</a></li>
+<li class="chapter" data-level="17.2.6" data-path="P10.html"><a href="P10.html#Bankomat-Implementacija"><i class="fa fa-check"></i><b>17.2.6</b> Implementacija</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="P10.html"><a href="P10.html#Simulacija-projekta"><i class="fa fa-check"></i><b>17.3</b> Simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="P10.html"><a href="P10.html#pravila"><i class="fa fa-check"></i><b>17.3.1</b> Pravila</a></li>
+<li class="chapter" data-level="17.3.2" data-path="P10.html"><a href="P10.html#izračun-točk-simulacije"><i class="fa fa-check"></i><b>17.3.2</b> Izračun točk simulacije</a></li>
+<li class="chapter" data-level="17.3.3" data-path="P10.html"><a href="P10.html#potek-simulacije"><i class="fa fa-check"></i><b>17.3.3</b> Potek simulacije</a></li>
+<li class="chapter" data-level="17.3.4" data-path="P10.html"><a href="P10.html#gradivo"><i class="fa fa-check"></i><b>17.3.4</b> Gradivo</a></li>
+<li class="chapter" data-level="17.3.5" data-path="P10.html"><a href="P10.html#nakljucni-dogodki-simulacije"><i class="fa fa-check"></i><b>17.3.5</b> Naključni dogodki pri simulaciji</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV sklop: Infrastruktura in trendi</b></span></li>
+<li class="chapter" data-level="18" data-path="P11.html"><a href="P11.html"><i class="fa fa-check"></i><b>18</b> <span class="sklop4 oznaka">P11</span> Semantični splet in tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="P11.html"><a href="P11.html#semantični-splet"><i class="fa fa-check"></i><b>18.1</b> Semantični splet</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="P11.html"><a href="P11.html#splet-v-številkah"><i class="fa fa-check"></i><b>18.1.1</b> Splet v številkah</a></li>
+<li class="chapter" data-level="18.1.2" data-path="P11.html"><a href="P11.html#iskalniki-najdejo-le-del-spleta"><i class="fa fa-check"></i><b>18.1.2</b> Iskalniki “najdejo” le del spleta</a></li>
+<li class="chapter" data-level="18.1.3" data-path="P11.html"><a href="P11.html#vloga-svetovnega-spleta"><i class="fa fa-check"></i><b>18.1.3</b> Vloga svetovnega spleta</a></li>
+<li class="chapter" data-level="18.1.4" data-path="P11.html"><a href="P11.html#semantična-integracija-podatkov"><i class="fa fa-check"></i><b>18.1.4</b> Semantična integracija podatkov</a></li>
+<li class="chapter" data-level="18.1.5" data-path="P11.html"><a href="P11.html#primer-organizacije-potovanj"><i class="fa fa-check"></i><b>18.1.5</b> Primer organizacije potovanj</a></li>
+<li class="chapter" data-level="18.1.6" data-path="P11.html"><a href="P11.html#osnova-so-podatki"><i class="fa fa-check"></i><b>18.1.6</b> Osnova so podatki</a></li>
+<li class="chapter" data-level="18.1.7" data-path="P11.html"><a href="P11.html#semantični-splet-1"><i class="fa fa-check"></i><b>18.1.7</b> Semantični splet</a></li>
+<li class="chapter" data-level="18.1.8" data-path="P11.html"><a href="P11.html#web-x"><i class="fa fa-check"></i><b>18.1.8</b> Web X</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="P11.html"><a href="P11.html#tehnologija-veriženja-blokov"><i class="fa fa-check"></i><b>18.2</b> Tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="P11.html"><a href="P11.html#uvod-v-osnovne-pojme"><i class="fa fa-check"></i><b>18.2.1</b> Uvod v osnovne pojme</a></li>
+<li class="chapter" data-level="18.2.2" data-path="P11.html"><a href="P11.html#osnovni-princip-delovanja"><i class="fa fa-check"></i><b>18.2.2</b> Osnovni princip delovanja</a></li>
+<li class="chapter" data-level="18.2.3" data-path="P11.html"><a href="P11.html#zgodovinski-pregled-razvoja-in-trendov-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.3</b> Zgodovinski pregled razvoja in trendov tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.4" data-path="P11.html"><a href="P11.html#mehanizmi-soglasja"><i class="fa fa-check"></i><b>18.2.4</b> Mehanizmi soglasja</a></li>
+<li class="chapter" data-level="18.2.5" data-path="P11.html"><a href="P11.html#področja-uporabe-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.5</b> Področja uporabe tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.6" data-path="P11.html"><a href="P11.html#pametne-pogodbe"><i class="fa fa-check"></i><b>18.2.6</b> Pametne pogodbe</a></li>
+<li class="chapter" data-level="18.2.7" data-path="P11.html"><a href="P11.html#kdaj-uporabiti-tehnologijo-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.7</b> Kdaj uporabiti tehnologijo veriženja blokov?</a></li>
+<li class="chapter" data-level="18.2.8" data-path="P11.html"><a href="P11.html#projekti-na-fakulteti"><i class="fa fa-check"></i><b>18.2.8</b> Projekti na fakulteti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="P12.html"><a href="P12.html"><i class="fa fa-check"></i><b>19</b> <span class="sklop5 oznaka">P12</span> Računalništvo v oblaku, IT varnost in Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="P12.html"><a href="P12.html#računalništvo-v-oblaku"><i class="fa fa-check"></i><b>19.1</b> Računalništvo v oblaku</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="P12.html"><a href="P12.html#izbira-oblačne-storitve"><i class="fa fa-check"></i><b>19.1.1</b> Izbira oblačne storitve</a></li>
+<li class="chapter" data-level="19.1.2" data-path="P12.html"><a href="P12.html#realizacija-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.2</b> Realizacija računalništva v oblaku</a></li>
+<li class="chapter" data-level="19.1.3" data-path="P12.html"><a href="P12.html#virtualizacija"><i class="fa fa-check"></i><b>19.1.3</b> Virtualizacija</a></li>
+<li class="chapter" data-level="19.1.4" data-path="P12.html"><a href="P12.html#modeli-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.4</b> Modeli računalništva v oblaku</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="P12.html"><a href="P12.html#it-varnost"><i class="fa fa-check"></i><b>19.2</b> IT varnost</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="P12.html"><a href="P12.html#napadi"><i class="fa fa-check"></i><b>19.2.1</b> Napadi</a></li>
+<li class="chapter" data-level="19.2.2" data-path="P12.html"><a href="P12.html#najboljše-prakse-protiukrepov"><i class="fa fa-check"></i><b>19.2.2</b> Najboljše prakse protiukrepov</a></li>
+<li class="chapter" data-level="19.2.3" data-path="P12.html"><a href="P12.html#postopek-razkrivanja-ranljivosti"><i class="fa fa-check"></i><b>19.2.3</b> Postopek razkrivanja ranljivosti</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="P12.html"><a href="P12.html#marshmallow-challenge"><i class="fa fa-check"></i><b>19.3</b> Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="P12.html"><a href="P12.html#izziv"><i class="fa fa-check"></i><b>19.3.1</b> Izziv</a></li>
+<li class="chapter" data-level="19.3.2" data-path="P12.html"><a href="P12.html#zaključki"><i class="fa fa-check"></i><b>19.3.2</b> Zaključki</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i>Literatura</a></li>
+<li class="divider"></li>
+<li><a href="https://ucilnica.fri.uni-lj.si/course/view.php?id=54">eUčilnica</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Osnove informacijskih sistemov 2023/2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="P3" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Poglavje 5</span> <span class="sklop1 oznaka">P3</span> Tveganja, IT naložbeni portfelj in povračilo sredstev<a href="P3.html#P3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="vrstica">
+<img src="assets/img/ninja/ninja_03_go_right.png">
+<h3>
+<span class="sklop1 oznaka">P3</span>
+</h3>
+</div>
+<div id="tveganja-pri-projektih-it" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Tveganja pri projektih IT<a href="P3.html#tveganja-pri-projektih-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="upoštevanje-tveganja-pri-vrednotenju-naložb-v-it" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Upoštevanje tveganja pri vrednotenju naložb v IT<a href="P3.html#upoštevanje-tveganja-pri-vrednotenju-naložb-v-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Negotovost <em>(angl. <a href="https://en.wikipedia.org/wiki/Uncertainty"><i class="fa-brands fa-wikipedia-w"></i>uncertainty</a>)</em> je vedno prisotna pri večini finančnih naložb v IT. Od poslovnih aplikacij in infrastrukturnih tehnologij do strateških pobud, ki temeljijo na IT, je pogost skupni imenovalec dvom ali bo projekt dosegel željene cilje.</p>
+<p><strong>Tveganja</strong> pri projektih IT izhajajo iz naslednjih 3 virov:</p>
+<ul>
+<li><strong>Razvojno tveganje</strong>: Ali lahko ekipa razvije predlagani sistem?
+<ul>
+<li>Poznavanje problemske domene, zrelost tehnološke platforme, sposobnost implementacije zajetih zahtev na razpoložljivo tehnološko platformo.</li>
+</ul></li>
+<li><strong>Organizacijsko tveganje</strong>: Se lahko organizacija prilagodi spremembam, ki jih predlagani sistem predvideva?
+<ul>
+<li>Sposobnost opredelitev zahtev, obseg in pripravljenost na uvedbo sprememb, podpora najvišjega vodstva.</li>
+</ul></li>
+<li><strong>Tržno tveganje</strong>: Kako okoljske spremembe vplivajo na prednosti organizacije zaradi novega sistema?
+<ul>
+<li>Prednost ali posnemanje konkurence, sprejemanje kupca oz. dobavitelja, pojav boljših tehnoloških alternativ (npr. ChatGPT vs. Google).</li>
+</ul></li>
+</ul>
+</div>
+<div id="kako-podjetja-upoštevajo-tveganja" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Kako podjetja upoštevajo tveganja?<a href="P3.html#kako-podjetja-upoštevajo-tveganja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Zmanjšanje ravni tveganja.</li>
+<li>Kaznovanje projektov IT z visoko stopnjo ovir.</li>
+<li>Obravnavanje neuspehov pri projektih IT kot pomanjkljivosti projektne skupine.</li>
+</ul>
+<p>V nadaljevanju se bomo osredotočili na drugo točko, kaznovanje projektov IT z visoko stopnjo ovir. Za velike projekte IT stranka pogosto izračuna <strong>čisto sedanjo vrednost</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Net_present_value"><i class="fa-brands fa-wikipedia-w"></i>Net Present Value (<strong>NPV</strong>)</a>)</em> in pri izračunu uporabijo višjo diskontno stopnjo <em>(angl. <a href="https://en.wikipedia.org/wiki/Rate_of_return"><i class="fa-brands fa-wikipedia-w"></i>discount rate/rate of return</a>)</em>.</p>
+<p>Metoda NPV ima namreč nekaj spornih predpostavk, še posebej, ko jo uporabimo za ocenjevanje tveganih projektov:</p>
+<ul>
+<li>Naložba je povratna, saj jo je v primeru spremembe pogojev (npr. denarni tokovi) mogoče razveljaviti.</li>
+<li>Gre za odločitev zdaj ali nikoli.
+<ul>
+<li>Če je NPV pozitiven, naložbo izvedemo, če je negativen je ne izvedemo.</li>
+</ul></li>
+</ul>
+<p>Obe zgornji predpostavki ne veljata, saj je večina naložb v IT nepovratnih, vendar jih lahko odložimo. To pomeni, da v primeru naložbe v IT (npr. nakup strojne in programske opreme), po opravljeni investiciji ne dosežemo pričakovanih denarnih tokov, naložbe ne moremo razveljaviti, saj ne moremo prodati strojne in programske opreme ter pokriti prvotne naložbe.</p>
+<p>Negativen NPV pomeni zgolj, da to trenutno ni dober projekt, lahko pa se izkaže, da bo v prihodnje drugače. To pomeni, da so naložbene priložnosti <strong>opcije</strong>, in sicer pravice, ne pa tudi obveznosti ukrepanja v prihodnje. Za tvegane naložbe lahko tako uporabimo pristop opcij.</p>
+</div>
+</div>
+<div id="pristop-z-opcijami-pri-naložbah-v-it" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Pristop z opcijami pri naložbah v IT<a href="P3.html#pristop-z-opcijami-pri-naložbah-v-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><a href="https://www.finance.si/310015/Kaj-je-to-opcija"><i class="fa-solid fa-earth-europe"></i><strong>Opcija</strong></a> <em>(angl. <a href="https://en.wikipedia.org/wiki/Option_(finance)"><i class="fa-brands fa-wikipedia-w"></i>option</a>)</em> je pogodba, ki kupcu omogoča nakup ali prodajo določenega finančnega instrumenta ali valute po določeni ceni v prihodnosti, vendar pa kupec ni obvezan, da to izpolni. Kupec ima namreč pravico, da kupi ali proda določen finančni instrument po vnaprej določeni ceni.</p>
+</blockquote>
+<p>Poglejmo si primer iz finančne industrije in recimo, da imamo na voljo delnico podjetja, ki se prodaja po 20 €/delnico. Zaradi dviga povpraševanja po inovativnih izdelkih podjetja, se pričakuje, da se bo cena v bližnji prihodnosti močno dvignila. Obstaja pa tudi tržna negotovost, ki nakazuje na možen večji padec tečaja delnice.</p>
+<p>Kot investitor lahko:</p>
+<ul>
+<li>takoj kupite delnico po ceni 20 €/delnico,</li>
+<li>kupite nakupno opcijo <em>(angl. call (buy) option)</em> za 2 €, ki vam daje pravico do nakupa delnice čez 1 leto po ceni 25 €/delnico,
+<ul>
+<li>če bo cena delnice zelo visoka, npr. 30 €/delnico, lahko opcijo izkoristimo,</li>
+<li>če pa cena delnice strmoglavi na npr. 10 €/delnico, opcije ne izkoristimo in izgubimo zgolj 2 €.</li>
+</ul></li>
+</ul>
+<p>Podoben pristop lahko uporabimo tudi za ocenjevanje naložb v IT. Dejstvo je, da negotovost vedno obstaja, ki pa jo lahko rešimo na enega izmed naslednjih načinov:</p>
+<ul>
+<li>s <strong>čakanjem</strong>, da je negotovost odpravljena ali</li>
+<li>z <strong>eksperimentom</strong> v manjšem obsegu.</li>
+</ul>
+<p>Imetnik opcije lahko sodeluje na poti navzgor (uspeh) in lahko hkrati omeji izgube na račun stroškov pridobitve opcije.</p>
+<ul>
+<li>Večja negotovost pomeni večji dobiček.</li>
+<li>Kljub vsemu je pot navzdol (neuspeh) omejen na 0 (oz. v prejšnjem primeru delnice na strošek opcije 2 €).</li>
+</ul>
+<p>Na naložbe v IT lahko tudi gledamo na podoben način, kar povzema tabela <a href="P3.html#tab:moznosti-pristopa-k-nalozbam-v-IT#tab:moznosti-pristopa-k-nalozbam-v-IT">5.1</a>. Če razmišljate o tveganih naložbah v IT, lahko razmišljate na takšen način.</p>
+<table class="tabela-manjsa">
+<caption>
+<span id="tab:moznosti-pristopa-k-nalozbam-v-IT">Tabela 5.1: </span>Možnosti pristopa k naložbam v IT
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Vrsta opcije
+</th>
+<th style="text-align:left;">
+Opredelitev
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>odložitev</strong> <span style="white-space:nowrap"><em>(angl. defer)</em></span>
+</td>
+<td style="text-align:left;">
+Odločitev o naložbi lahko odložimo za nekaj časa, brez da se zmanjšajo koristi.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>stopnje</strong> <span style="white-space:nowrap"><em>(angl. stage)</em></span>
+</td>
+<td style="text-align:left;">
+Projekt je mogoče razdeliti na ločene faze, kjer je napredovanje posamezne stopnje odvisno od ponovne ocene stroškov in koristi, ko je predhodna stopnja zaključena.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>rast</strong> <span style="white-space:nowrap"><em>(angl. frowth)</em></span>
+</td>
+<td style="text-align:left;">
+Začetna osnovna naložba omogoči izvajanje različnih nadaljnjih projektov.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>opustitev</strong> <span style="white-space:nowrap"><em>(angl. abandon)</em></span>
+</td>
+<td style="text-align:left;">
+Projekt je mogoče prekiniti tudi med izvajanjem in prerazporediti preostale projektne vire.
+</td>
+</tr>
+</tbody>
+</table>
+<p>Prva možnost je <strong>odložitev</strong>, kjer odločitev o investiciji odložimo, dokler negotovost ni odpravljena.</p>
+<p>Druga možnost predstavlja <strong>pristop s stopnjami</strong>, kjer imamo naložbo, vendar nismo prepričani o stroških in koristih naložbe. V tem primeru izvedemo prvo stopnjo in rezultat te stopnje uporabimo pri odločanju ali nadaljujemo z naložbo. To lahko predstavimo na primeru podjetja <a href="https://en.wikipedia.org/wiki/Walmart"><i class="fa-brands fa-wikipedia-w"></i>Walmart</a>, kjer so želeli vpeljati čip na osnovi tehnologije <a href="https://en.wikipedia.org/wiki/Radio-frequency_identification"><i class="fa-brands fa-wikipedia-w"></i>RFID</a>. Pri tem niso bili prepričano ali so stroški in koristi vredni te investicije, prav tako niso bili prepričani ali bodo dobavitelji sposobni izpeljati tako zahteven projekt. Njihov pristop je zato bila uporaba stopenj, kjer so najprej začeli s podjetjem <a href="https://en.wikipedia.org/wiki/Procter_%26_Gamble"><i class="fa-brands fa-wikipedia-w"></i>Procter &amp; Gamble</a>. Za to so se odločili, ker je Proctor &amp; Gamble njihov največji dobavitelj in če so stroški in koristi ustrezni pri njih, potem bo to ustrezen projekt tudi za druge dobavitelje. Takšno je razmišljanje pri pristopu s stopnjami, kjer v primeru tveganja izvedemo eno stopnjo in na podlagi rezultata te stopnje se odločimo, ali bomo nadaljevali z naložbo.</p>
+<p>Naložbo lahko obravnavamo tudi kot možnost <strong>rasti</strong>, kjer naložbo ne izvedemo le zaradi naložbe same, ampak predvsem o nadaljnjih naložbah, ki jih prvotna omogoči. Kot primer lahko navedemo <a href="https://en.wikipedia.org/wiki/Amazon_(company)"><i class="fa-brands fa-wikipedia-w"></i>Amazon</a>, kjer so izvedli veliko naložb v infrastrukturo za elektronsko trgovanje <em>(angl. <a href="https://en.wikipedia.org/wiki/E-commerce"><i class="fa-brands fa-wikipedia-w"></i>e-commerce</a>)</em>, ki zagotovo ni upravičena, če bi Amazon prodajal zgolj knjige (kar je bila prvotna usmeritev). Naložba je bila kljub temu upravičena, saj je omogočila številne druge projekte, kjer lahko to isto infrastrukturo elektronskega trgovanja uporabi za prodajo široke palete izdelkov. Naložba v infrastrukturo je tako naložba v rast.</p>
+<p>Zadnja možnost je <strong>opustitev</strong>, kjer naložbo v IT začnemo s pričakovanji glede stroškov in koristi, vendar se določeni pogoji spremenijo in pričakovane koristi niso več ustrezne. V tem primeru nima več smisla nadaljevati z investicijo. Naložbo se prekine in viri se prerazporedijo k drugim bolj donosnim projektom.</p>
+<div style="display: flex">
+<div style="width:33%">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Wallmart-logo"></span>
+<img src="assets/img/Wallmart_logo.svg" alt="Wallamrt" height="40" />
+<p class="caption">
+Slika 5.1: Wallamrt
+</p>
+</div>
+</div>
+<div style="width:33%">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Amazon-logo"></span>
+<img src="assets/img/Amazon_logo.svg" alt="Amazon" height="40" />
+<p class="caption">
+Slika 5.2: Amazon
+</p>
+</div>
+</div>
+<div style="width:33%">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Starbucks-logo"></span>
+<img src="assets/img/Starbucks_logo.svg" alt="Starbucks" height="40" />
+<p class="caption">
+Slika 5.3: Starbucks
+</p>
+</div>
+</div>
+</div>
+<div id="primer-starbuck" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Primer Starbuck<a href="P3.html#primer-starbuck" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pristop z opcijami pri naložba v IT lahko celovito prikažemo na praktičnem primeru podjetja <a href="https://en.wikipedia.org/wiki/Starbucks"><i class="fa-brands fa-wikipedia-w"></i>Starbucks</a>. V začetku leta 2000 so pri Starbucks želeli vpeljati predplačniško kartico za pohitritev plačila na blagajni. Ker niso bili prepričani o zanimivosti takšne ponudbe za stranke, so najprej ponudili zgolj osnovno funkcionalnost. Ko je bila kartica vpeljana, se je izkazala za zelo uspešno, zato so dodali še spletno registracijo, kjer je uporabnikom omogočena zamenjava izgubljenih kartic, ponovno nalaganje kartice z dodatnim denarjem in ogled zgodovine transakcij. Če pomislimo na oba projekta (predplačniška kartica in spletni sistem registracije), bi jih lahko pri Starbucks izvedli hkrati. Ker pa niso bili prepričano o koristih takšne kartice, so spletno registracijo zadržali. Implementacija spletne registracije je bila izvedena šele, ko je povpraševanje po predplačniški kartici potrdilo koristnost strankam.</p>
+<p>Ko je vpeljava predplačniške kartice bila uspešna, je Starbuck nadaljeval s programom zvestobe, kjer stranke lahko vnovčijo točke zvestobe glede na količino nakupa. Predplačniška kartica je bila uvedena za pohitritev plačila na blagajni in je kasneje napredovala v program zvestobe, kjer podjetje nagradi potrošnike za določen obseg nakupa.</p>
+<p>Če pogledamo vse funkcionalnosti (predplačniška kartica, spletna registracija in program zvestobe) kot enoten projekt, gre za zelo visoko stopnjo tveganja. Pri Starbucks niso bili prepričani o vseh treh elementih, zato so z namenom obvladovanja tveganja, to razbili na več manjših projektov. Ko se je izkazala predplačniška kartica, so nadaljevali s spletno registracijo in šele nato program zvestobe.</p>
+</div>
+<div id="primer-opcije" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Primer implementacije sistema<a href="P3.html#primer-opcije" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vodja informatike podjetja se mora odločiti ali bo vpeljal nov sistem ERP. V upoštev pride sistem ERP, ki je sestavljen iz 5 modulov. Stroški implementacije za vsak modul so 10 milijonov €. Vendar pri tem obstaja negotovost ali bodo zaposleni nov sistem sprejeli in uporabljali. Če bo sistem dobro sprejet, se pričakuj, da bo povečal učinkovitost v obsegu 200 milijonov €. V primeru odpora zaposlenih pa bo ustvaril le minimalno korist v višini 10 milijonov €. V podjetju ocenjujejo, da je verjetnost uspeha 50 %.</p>
+<p>Vodja informatike ima 2 možnosti. Najprej lahko implementira celoten sistem (5 modulov) naenkrat. Drug način je implementacija zgolj 1 modula, kjer lahko oceni ali so ga zaposleni dobro sprejeli. Stroški implementacije 1 modula še vedno znašajo 10 milijonov € in sama po sebi ne prinaša nobenih dodatnih prihrankov. Predpostavlja se, da implementacija enega modula popolnoma odraža sprejetje celotnega sistema s strani zaposlenih.</p>
+<p>Na sliki <a href="P3.html#fig:pricakovan-izkupicek#fig:pricakovan-izkupicek">5.4</a> sta prikazana oba scenarija, glede na zgornji opis.</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pricakovan-izkupicek"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/hPBFIWCn4CRFxbCCY603QhVKsrAghGT1KBH7B-dkT9lT9BCasLQHNdmUdyedCTbTH5ljHGa9uPllDvC_CxQE6wU4pXIl8biANN735MIuuBLqCtno5rBaMg5saFe5JPHOzonn57NKLF0y82yHWAOCcmt0ZT0u8Ka6vfAdvQSsMugqr6Wjn5uxkFInt52jizQyNWg7Fh3nanj3wowTt4aN7ASEbQREiftgS348ex5kekIiEpO3ngxkxnY396dmaTU2E4593ZLOORtEsAC-FZdlWn9I5AHf1U-lRxrlKA2cD3S4jZ9OeAE6yj1HBuGP3FfR2NRu1yddl_FnFjpJrwgI63w7fwBWWMOi1aLPBNbxW_YFD_YvXZUJRnqfbZ1ioz6ghJVSN-yVtkIsggqJK1agi7HVu37wXcoRyWC0" alt="Pričakovan izkupiček PlantUML." width="700" />
+<p class="caption">
+Slika 5.4: Pričakovan izkupiček <a href="https://teaching.lavbic.net/plantuml/uml/hPBFIWCn4CRFxbCCY603QhVKsrAghGT1KBH7B-dkT9lT9BCasLQHNdmUdyedCTbTH5ljHGa9uPllDvC_CxQE6wU4pXIl8biANN735MIuuBLqCtno5rBaMg5saFe5JPHOzonn57NKLF0y82yHWAOCcmt0ZT0u8Ka6vfAdvQSsMugqr6Wjn5uxkFInt52jizQyNWg7Fh3nanj3wowTt4aN7ASEbQREiftgS348ex5kekIiEpO3ngxkxnY396dmaTU2E4593ZLOORtEsAC-FZdlWn9I5AHf1U-lRxrlKA2cD3S4jZ9OeAE6yj1HBuGP3FfR2NRu1yddl_FnFjpJrwgI63w7fwBWWMOi1aLPBNbxW_YFD_YvXZUJRnqfbZ1ioz6ghJVSN-yVtkIsggqJK1agi7HVu37wXcoRyWC0"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+<p>Najprej ovrednotimo pričakovan izkupiček pri implementaciji celotnega sistema</p>
+<p><span class="math display">\[
+\text{pričakovan izkupiček celotne implementacije} = -50 + 0,5 \cdot 200 + 0,5 \cdot 10 = \boldsymbol{55} \textbf{ milijonov €}
+\]</span></p>
+<p>in nato še v primeru postopne implementacije</p>
+<p><span class="math display">\[
+\text{pričakovan izkupiček implementacije po delih} = -10 + 0,5 \cdot ( 200 -40 ) + 0,5 \cdot 0 = \boldsymbol{70} \textbf{ milijonov €}
+\]</span>
+Tveganje pri prvem scenariju celotne implementacije je možnost velikega uspeha in tudi velikega neuspeha. Pri drugem scenariju postopne implementacije je cena neuspeha veliko manjša, saj se bo to zgodili zgolj pri 1 modulu, uspeh pa bo vedno pri 5 modulih. Torej, pristop obvladovanja tveganja z drugim scenarijem je zmanjšanje neuspehov z majhno ceno, ki jo za to plačamo.</p>
+</div>
+</div>
+<div id="ogrodje-za-vrednotenje-naložb-v-it" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Ogrodje za vrednotenje naložb v IT<a href="P3.html#ogrodje-za-vrednotenje-naložb-v-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Naložbe v IT lahko ovrednotimo po dveh dimenzijah (glej tabelo <a href="P3.html#tab:vrednost-opcij#tab:vrednost-opcij">5.2</a>). Prva dimenzija je negotovost naložbe, kjer se vprašamo ali je projekt jasno določen ali se sooča z visoko stopnjo negotovosti? Podobno se vprašamo tudi pri drugi dimenziji, in sicer prilagodljivost vodstva, povezanega s projektom. Če gre za projekt tipa zdaj ali nikoli in ga je mogoče izvesti le v celoti in naenkrat, potem nimamo nobene fleksibilnosti. Če lahko projekt odložimo oz. ga je moč narediti po fazah, potem je s projektom povezana določena stopnja prilagodljivosti vodstva.</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:vrednost-opcij">Tabela 5.2: </span>Vrednost opcij
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Negotovost naložbe
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+nizka
+</th>
+<th style="text-align:center;">
+visoka
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="2">
+<td colspan="3" style="border-bottom: 1px solid;">
+<strong>Prilagodljivost vodstva</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>visoka</strong>
+</td>
+<td style="text-align:center;">
+<strong>srednja vrednost</strong> opcije
+</td>
+<td style="text-align:center;">
+<strong>visoka vrednost</strong> opcije
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>nizka</strong>
+</td>
+<td style="text-align:center;">
+opcija <strong>brez vrednosti</strong>
+</td>
+<td style="text-align:center;">
+<strong>majhna vrednost</strong> opcije
+</td>
+</tr>
+</tbody>
+</table>
+<p>Če nimamo negotovosti in ni prilagodljivosti vodstva, potem pristop z opcijami ni primeren. V tem primeru gre za projekt tipa zdaj ali nikoli oz. za projekt brez negotovosti. V tem primeru je za oceno naložbe primeren izračun navadnega NPV.</p>
+<p>Če pa je naložba povezana z visoko negotovostjo in visoko prilagodljivostjo vodstva, to pomeni, da lahko projekt odložim ali izvedemo v fazah in v tem primeru je pristop opcij primernejši za vrednotenje takšne naložbe.</p>
+<p>Pri vrednotenju naložb v IT si lahko pomagamo z ogrodjem, ki je prikazano v tabeli <a href="P3.html#tab:ogrodje-vrednotenje-nalozb#tab:ogrodje-vrednotenje-nalozb">5.3</a>. Prva dimenzija ogrodja je opredelitev strateškega cilja (kratkoroča donosnost oz. dolgoročna rast), druga dimenzija pa je tehnološki obseg (poslovna rešitev oz. skupna infrastruktura).</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ogrodje-vrednotenje-nalozb">Tabela 5.3: </span>Ogrodje za vrednotenje naložb v IT
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Strateški cilj
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Kratkoročna donosnost
+</th>
+<th style="text-align:center;">
+Dolgoročna rast
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="2">
+<td colspan="3" style="border-bottom: 1px solid;">
+<strong>Tehnološki obseg</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Poslovna rešitev</strong>
+</td>
+<td style="text-align:center;">
+izboljšanje procesa
+</td>
+<td style="text-align:center;">
+eksperiment
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Skupna infrastruktura</strong>
+</td>
+<td style="text-align:center;">
+obnova
+</td>
+<td style="text-align:center;">
+preoblikovanje
+</td>
+</tr>
+</tbody>
+</table>
+<p>V ogrodju predstavljenem v tabeli <a href="P3.html#tab:ogrodje-vrednotenje-nalozb#tab:ogrodje-vrednotenje-nalozb">5.3</a> obstajajo 4 vrste naložb, in sicer:</p>
+<ul>
+<li><strong>Obnova</strong> <em>(angl. renewal)</em> predstavlja nadgradnjo infrastrukture, da se izboljša zanesljivost, povečajo se funkcionalnosti in zmanjšajo stroški vzdrževanja. Cilj te naložbe je izboljšati donosnost v tem trenutniku in poslovni primer temelji na NPV.</li>
+<li><strong>Izboljšanje procesa</strong> <em>(angl. process improvement)</em> predstavlja npr. novo aplikacijo, ki bo zadostila specifične poslovne potrebe. Cilj te naložbe je izboljšati donosnost v tem trenutniku in poslovni primer temelji na NPV.</li>
+<li><strong>Preoblikovanje</strong> <em>(angl. transformation)</em> je lahko povezano z infrastrukturo naslednje generacije, ki bo oblikovalo konkurenco v prihodnje. Naložba je dolgoročno naravnana, zato poslovni primer temelji na analizi realnih opcij.</li>
+<li><strong>Eksperiment</strong> <em>(angl. experiment)</em> je lahko povezan s tehnologijami naslednje generacije, ki bodo oblikovale konkurenco v prihodnje. Tudi takšni projekti so dolgoročni, zato poslovni model temelji na analizi realnih opcij.</li>
+</ul>
+<p>V nadaljevanju si bomo pogledali pasti oz. izzive, ki so povezani s pristopom realnih opcij, in sicer pasti prekinitve ter pasti odložitve.</p>
+<div id="pasti-prekinitve" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Pasti prekinitve<a href="P3.html#pasti-prekinitve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kakšne so torej pasti prekinitve oz. <strong>kaj se zgodi, če na sredini prekinemo projekt</strong>?</p>
+<ul>
+<li>Stopnjevanje predanosti: projekti imajo svoje življenje, ko se začnejo, jih ni mogoče ustaviti.</li>
+<li>Prekinitev projekta lahko škoduje morali zaposlenih.</li>
+<li>Izguba verodostojnosti zaradi dvoumnosti glede prekinitve - neuspeh projektne skupine ali dejavniki zunanjega nadzora.</li>
+</ul>
+</div>
+<div id="pasti-odložitve" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Pasti odložitve<a href="P3.html#pasti-odložitve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ko odložite projekt, se pojavijo nekatera dodatna tveganja:</p>
+<ul>
+<li>Koristi lahko sčasoma izginejo, npr. zaradi konkurenčne prednosti.</li>
+<li>Podjetja včasih potrebujejo neposredne izkušnje z inovacijami, da se lahko uspešno spopadejo z negotovostjo. Odložitev lahko povzroči izgubo sposobnosti inovirati.</li>
+</ul>
+</div>
+</div>
+<div id="it-naložbeni-portfelj" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> IT naložbeni portfelj<a href="P3.html#it-naložbeni-portfelj" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="upravljanje-portfelja-it" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Upravljanje portfelja IT<a href="P3.html#upravljanje-portfelja-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Podjetja v določenem obdobju izvedejo več projektov IT in ne zgolj enega. Pri upravljanju portfelja IT gre torej za izbiro pravega sklopa projektov IT. Pri tem si moramo postaviti naslednje vprašanje:</p>
+<blockquote>
+<p>Kako izbrati pravo množico projektov IT, ki so usklajeni s strategijo organizacije in izboljšajo donosnost investicije v IT?</p>
+</blockquote>
+<p>Pomembno je <strong>ne samo</strong>, da <strong>pravilno izvajamo projekte</strong>, ampak da tudi <strong>izberemo</strong> in <strong>izvajamo prave projekte</strong>. Prav tako je pomembno razlikovati med vodenjem projektov in upravljanjem portfelja IT.</p>
+<p>Vodenje projektov <em>(angl. <a href="https://en.wikipedia.org/wiki/Project_management"><i class="fa-brands fa-wikipedia-w"></i>Project Management (<strong>PM</strong>)</a>)</em> zagotavlja, da so projekti izvedeni pravilno, medtem ko <strong>upravljanje portfelja informacijske tehnologije</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/IT_portfolio_management">Information Technology Portfolio Management (<strong>ITPM</strong>)</a>)</em> zagotavlja, da so <strong>izvedeni pravi projekti</strong>. Osredotočiti se moramo na vse projekte IT v organizaciji, saj na ta način pridobimo enoten in celovit pogled na porabo IT (vrednosti in tveganja).</p>
+<p>Portfelj naložb v IT sestavljajo štirje elementi, ki so prikazani na sliki <a href="P3.html#fig:portfelj-nalozb-v-IT#fig:portfelj-nalozb-v-IT">5.5</a>:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:portfelj-nalozb-v-IT"></span>
+<img src="assets/img/Portfelj_nalozb_v_IT.png" alt="Portfelj naložb v IT" width="250" />
+<p class="caption">
+Slika 5.5: Portfelj naložb v IT
+</p>
+</div>
+<p><strong>Infrastruktura celotnega podjetja</strong> <em>(angl. Firm Wide Infrastructure)</em> predstavlja osnovo omrežnih storitev, računalniških storitev in storitev podatkovnih baz, na katerih delujejo aplikacije IT (navedene v nadaljevanju). Cilji v okviru infrastrukture celotnega podjetja so: integracija, fleksibilnost, znižani stroški IT s pomočje standardizacije.</p>
+<p><strong>Transakcijski sistemi</strong> <em>(angl. Transactional Systems)</em> se ukvarjajo s stroškovno učinkovito obdelavo osnovnih poslovnih transakcij. Primeri takšnih sistemov s področja potovanja z letali so: rezervacije, izdaja vozovnic, prijava na let, načrtovanje leta in posadke, vzdrževanje letala. To so transakcije, ki se ves čas izvajajo. Cilj transakcijskih sistemov je predvsem zmanjšanje stroškov s povečanjem pretoka <em>(angl. throughput)</em>.</p>
+<p><strong>Informacijski sistemi</strong> <em>(angl. Informational Systems)</em> zagotavljajo agregirane informacije (zbrane iz transakcijskih sistemov) za spremljanje in nadzor uspešnosti delovanja organizacije. Primer s področja potovanja z letali je ugotavljanje letalskih povezav, ki imajo veliko (ali majhno) zasedenost in potrebujejo več (ali manj) letov. Cilji informacijskih sistemov so: zagotavljanje boljših informacij, večji nadzor in izboljšana kakovost.</p>
+<p><strong>Strateški sistemi</strong> <em>(angl. Strategic Systems)</em> so aplikacije, ki zagotavljajo konkurenčno prednost. Primer je lahko aplikacija za identifikacijo pomembnih strank, tako da se jim lahko zagotovijo različne storitve za dodatno povečanje njihove zvestobe. Cilji strateških sistemov so: povečanje prodaje, konkurenčna prednost in pozicioniranje na trgu.</p>
+</div>
+<div id="lastnosti-različnih-skupin-sredstev-it" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Lastnosti različnih skupin sredstev IT<a href="P3.html#lastnosti-različnih-skupin-sredstev-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Če bi se vprašali zakaj dve podjetji z enakim zneskom sredstev IT delujete različno in sta predvsem različno uspešni, bi odgovor našli v investiranju v različne vrste tehnologij z različnimi cilji.</p>
+<p><span class="citation">Aral and Weill (<a href="literatura.html#ref-Aral_2007">2007</a>)</span> so v raziskavi preučili razmerje med intenzivnostjo posameznega razreda sredstev IT in naslednjimi merili uspešnosti:</p>
+<ul>
+<li><strong>dobičkonosnost</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Return_on_assets"><i class="fa-brands fa-wikipedia-w"></i>Profitability (<strong>ROA</strong>)</a>)</em>,</li>
+<li><strong>tržna vrednost</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Market_value"><i class="fa-brands fa-wikipedia-w"></i>Market Valuation</a>, <a href="https://en.wikipedia.org/wiki/Tobin%27s_q"><i class="fa-brands fa-wikipedia-w"></i>Tobin’s Q</a>)</em>,
+<ul>
+<li>Tobin’s Q je tržna vrednost podjetja, normalizirana s celotnim premožnjem podjetja,</li>
+</ul></li>
+<li><strong>operativna uspešnost</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Operational_efficiency"><i class="fa-brands fa-wikipedia-w"></i>Operational Performance</a>)</em> (neto marža <em>(angl. <a href="https://en.wikipedia.org/wiki/Profit_margin"><i class="fa-brands fa-wikipedia-w"></i>net margin</a>)</em>, stroški prodanega blaga <em>(angl. cost of goods sold)</em>) in</li>
+<li><strong>invoativnost</strong> <em>(angl. inovation)</em> (prodaja novih in spremenjenih izdelkov).</li>
+</ul>
+<p>Ugotovitve po posameznih naložbenih razredih porfelja naložb v IT so naslednje:</p>
+<ul>
+<li><strong>Infrastruktura celotnega podjetja</strong>:
+<ul>
+<li>Naložbe so izvedene v pričakovanju prihodnjih poslovnih potreb.</li>
+<li>Pričakovanja so povezana s kratkoročnimi stroški, nižjo kratkoročno donosnostjo in višjo donosnostjo ter uspešnostjo na dolgi rok.
+<ul>
+<li>Infrastruktura celotnega podjetja naj bi predstavljala kratkoročne stroške, vendar se dolgoročno izplača.</li>
+</ul></li>
+<li>Naložbe v letu 2001 so negativno korelirale z ROA v letu 2001 in neto maržo v letih 2021 in 2002.
+<ul>
+<li>Infrastruktura celotnega podjetja je kratkoročno zmanjšala donosnost.</li>
+</ul></li>
+<li>Infrastruktura je v letu 2001 tudi negativno (kratkoročno) vplivala na inovacijo izdelkov, merjeno v prihodkih od spremenjenih izdelkov.</li>
+<li>Korelacija s Tobinovim Q je v letu 2001 pozitivna.
+<ul>
+<li>Investicija v infrastrukturo je naložba, ki jo trg poplača, se pravi da se dolgoročno splača.</li>
+</ul></li>
+</ul></li>
+<li><strong>Transakcijski sistemi</strong>:
+<ul>
+<li>Avtomatizirani procesi, ki zmanjšujejo stroške standardiziranih in ponavljajočih procesov.</li>
+<li>Transakciji sistemi so povezani z nižjimi stroški prodanega blaga, ne pa tudi z več inovacijami.
+<ul>
+<li>Zmanjšajo stroške, vendar ne izboljšajo inovacij.</li>
+</ul></li>
+</ul></li>
+<li><strong>Informacijski sistemi</strong>:
+<ul>
+<li>Poostreno poročanje in nadzor z namenom zmanjšanja stroškov, prepoznavanje novih priložnosti za ustvarjanje prihodkov in izboljšana donosnost.</li>
+<li>Informacijski sistemi so bili v letih 2001 in 2002 pozitivno korelirani z ROA in net maržo.
+<ul>
+<li>Informacijski sistemi dejansko izboljšajo donosnost.</li>
+</ul></li>
+</ul></li>
+<li><strong>Strateški sistemi</strong>:
+<ul>
+<li>Gre za naložbe za vzpodbujanje inovacij.</li>
+<li>Strateški sistemi so povezani s prihodki od spremenjenih izdelkov, ne pa z nižjimi stroški.</li>
+<li>Strateški sistemi imajo podobno vlogo kot naložba v raziskave in razvoj <em>(angl. <a href="https://en.wikipedia.org/wiki/Research_and_development">research &amp; development (<strong>R&amp;D</strong>)</a>)</em>.</li>
+</ul></li>
+</ul>
+<p>Povzetek študije <span class="citation">(<a href="literatura.html#ref-Aral_2007">Aral and Weill 2007</a>)</span> je, da podjetja izvajajo različne vrste naložb v IT, vendar z različnimi izkupički.</p>
+</div>
+<div id="strateška-usmeritev-in-upravljanje-portfelja" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Strateška usmeritev in upravljanje portfelja<a href="P3.html#strateška-usmeritev-in-upravljanje-portfelja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Različne študije so preučevale podjetja v različnih panogah in njihove povprečne naložbene portfelje v IT. Rezultati so pokazali, da podjetja v povprečju (glej sliko <a href="P3.html#fig:portfelj-nalozb-v-IT-povprecno-podjetje#fig:portfelj-nalozb-v-IT-povprecno-podjetje">5.6</a>) porabijo približno <span class="math inline">\(58\ \%\)</span> sredstev za infrastrukturo, <span class="math inline">\(12\ \%\)</span> za transakcijske sistema, <span class="math inline">\(16\ \%\)</span> za informacijske sisteme in <span class="math inline">\(14\ \%\)</span> za strateške sisteme.</p>
+<div style="display: flex">
+<div style="width:50%">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:portfelj-nalozb-v-IT-povprecno-podjetje"></span>
+<img src="assets/img/Portfelj_nalozb_v_IT_povprecno_podjetje.png" alt="Portfelj naložb v IT **povprečnega podjetja**" width="250" />
+<p class="caption">
+Slika 5.6: Portfelj naložb v IT <strong>povprečnega podjetja</strong>
+</p>
+</div>
+</div>
+<div style="width:50%">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:portfelj-nalozb-v-IT-podjetja-osredotocenega-na-ravnovesje-stroskov-in-agilnosti"></span>
+<img src="assets/img/Portfelj_nalozb_v_IT_podjetja_osredotocenega_na_ravnovesje_stroskov_in_agilnosti.png" alt="Portfelj naložb v IT **podjetja, osredotočenega na ravnovesje stroškov in agilnosti**" width="250" />
+<p class="caption">
+Slika 5.7: Portfelj naložb v IT <strong>podjetja, osredotočenega na ravnovesje stroškov in agilnosti</strong>
+</p>
+</div>
+</div>
+</div>
+<div style="display: flex">
+<div style="width:50%">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:portfelj-nalozb-v-IT-stroskovno-usmerjeno-podjetje"></span>
+<img src="assets/img/Portfelj_nalozb_v_IT_stroskovno_usmerjeno_podjetje.png" alt="Portfelj naložb v IT **stroškovno usmerjenega podjetja**" width="250" />
+<p class="caption">
+Slika 5.8: Portfelj naložb v IT <strong>stroškovno usmerjenega podjetja</strong>
+</p>
+</div>
+</div>
+<div style="width:50%">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:portfelj-nalozb-v-IT-agilno-usmerjeno-podjetje"></span>
+<img src="assets/img/Portfelj_nalozb_v_IT_agilno_usmerjeno_podjetje.png" alt="Portfelj naložb v IT **agilno usmerjenega podjetja**" width="250" />
+<p class="caption">
+Slika 5.9: Portfelj naložb v IT <strong>agilno usmerjenega podjetja</strong>
+</p>
+</div>
+</div>
+</div>
+<p>Če pogledamo portfelj naložb v IT za <strong>stroškovno usmerjena podjetja</strong> (glej sliko <a href="P3.html#fig:portfelj-nalozb-v-IT-stroskovno-usmerjeno-podjetje#fig:portfelj-nalozb-v-IT-stroskovno-usmerjeno-podjetje">5.8</a>) in jo primerjamo s povprečnim podjetjem (glej sliko <a href="P3.html#fig:portfelj-nalozb-v-IT-povprecno-podjetje#fig:portfelj-nalozb-v-IT-povprecno-podjetje">5.6</a>) lahko opazimo, da so pri stroškovno usmerjenem podjetju <span class="math inline">\(\boldsymbol{10\ -\ 20\ \%}\)</span> <strong>nižje naložbe v IT</strong> v primerjavi s povprečnim podjetjem. Bolj podrobno, namesto <span class="math inline">\(58\ \%\)</span> pri povprečnem podjetju, stroškovno usmerjeno podjetje porabi <span class="math inline">\(42\ \%\)</span> za infrastrukturo. Povprečno podjetje nameni <span class="math inline">\(12\ \%\)</span> za transakcijske sisteme, medtem ko stroškovno usmerjeno podjetje kar <span class="math inline">\(40\ \%\)</span>. Namesto <span class="math inline">\(14\ \%\)</span> pri povprečnem podjetju, stroškovno usmerjeno podjetje porabi le <span class="math inline">\(5\ \%\)</span> za strateške sisteme. Opazimo lahko, da stroškovno usmerjeno podjetje porabi več za transakcijske sisteme in manj za infrastrukturo in strateške sisteme, v primerjavi s povprečnim podjetjem.</p>
+<p><strong>Podjetje, osredotočeno na ravnovesje stroškov in agilnosti</strong> (glej sliko <a href="P3.html#fig:portfelj-nalozb-v-IT-podjetja-osredotocenega-na-ravnovesje-stroskov-in-agilnosti#fig:portfelj-nalozb-v-IT-podjetja-osredotocenega-na-ravnovesje-stroskov-in-agilnosti">5.7</a>) ima <strong>približno enake naložbe v IT</strong> kot povprečno podjetje (glej sliko <a href="P3.html#fig:portfelj-nalozb-v-IT-povprecno-podjetje#fig:portfelj-nalozb-v-IT-povprecno-podjetje">5.6</a>).</p>
+<p><strong>Agilno usmerjeno podjetje</strong> (glej sliko <a href="P3.html#fig:portfelj-nalozb-v-IT-agilno-usmerjeno-podjetje#fig:portfelj-nalozb-v-IT-agilno-usmerjeno-podjetje">5.9</a>) ima <span class="math inline">\(\boldsymbol{10\ -\ 20\ \%}\)</span> <strong>višje naložbe v IT</strong> v primerjavi s povprečnim podjetjem (glej sliko <a href="P3.html#fig:portfelj-nalozb-v-IT-povprecno-podjetje#fig:portfelj-nalozb-v-IT-povprecno-podjetje">5.6</a>). Bolj podrobno, namesto <span class="math inline">\(14\ \%\)</span> pri povprečnem podjetju, agilno usmerjeno podjetje porabi <span class="math inline">\(17\ \%\)</span> za strateške sisteme. Razlika je sicer videti majhna, vendar ob upoštevanju, da agilno usmerjeno podjetje izvaja višje naložbe v IT, je investicija v strateške sisteme res bistveno večja od povprečnega podjetja.</p>
+</div>
+<div id="proces-upravljanja-portfelja-it" class="section level3 hasAnchor" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> Proces upravljanja portfelja IT<a href="P3.html#proces-upravljanja-portfelja-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>V okviru tega poglavja bomo pogledali, kakšen proces upravljanja portfelja IT podjetja uporabljajo, ki ga lahko opredelimo v naslednjih treh korakih:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Popis vseh projektov IT</strong></p>
+<ul>
+<li>Vključiti je treba vse pomembne naložbe v IT, tako trenutne kot načrtovane.</li>
+<li>Opis projekta, torej s čim se projekt ukvarja.</li>
+<li>Strateški cilj oz. poslovni cilj na višji ravni, s katerim je projekt usklajen.</li>
+<li>Pričakovane zahteve po virih.</li>
+<li>Stroški projekta, mejniki in časovnica.</li>
+<li>Finančna analiza.</li>
+</ul></li>
+<li><p><strong>Razvrstitev in izbor projektov</strong> na podlagi naslednjih 4 kriterijev:</p>
+<ul>
+<li><strong>Uskladitev z organizacijsko strategijo</strong>: usklajenost projekta s poslovnimi cilji organizacije oz. kateri cilj uresničuje.</li>
+<li><strong>Tehnična arhitektura</strong>: kako se bo projekt integriral, razširil in povečal zanesljivost obstoječih sistemskih komponent (podatkovne baze, operacijski sistemi, aplikacije, omrežja). Tehnična arhitektura se v bistvu ukvarja z vprašanjem, kako se bo ta projekt integriral z drugimi IT sredstvi?</li>
+<li><strong>Tehnološko tveganje</strong>: identifikacija izpostavljenosti neuspehu predlaganega projekta.</li>
+<li><strong>Skladnost s predpisi</strong>: potreba po spremembi zaradi zakonov, pravil ali predpisov.</li>
+</ul></li>
+<li><p><strong>Upravljanje projektnega portfelja</strong></p>
+<ul>
+<li>Svet se nenehno spreminja, zato je pomembno upravljanje sprememb, ko se spremenijo poslovne prioritete.</li>
+<li>Nenehni pregledi celotnega portfelja za zagotovitev usklajenosti projektov z organizacijo.</li>
+<li>To pomeni tudi pripravljenost na prestrukturiranje, zakasnitev ali celo prekinitev projektov s pomanjkljivostmi v delovanju ali zaradi spreminjajočih poslovnih zahtev.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="povračilo-sredstev-za-it" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Povračilo sredstev za IT<a href="P3.html#povračilo-sredstev-za-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="razumevanje-izziva-povračila-sredstev-za-it" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Razumevanje izziva povračila sredstev za IT<a href="P3.html#razumevanje-izziva-povračila-sredstev-za-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p><strong>Primer</strong>: Organizacija uporablja sistem <a href="https://en.wikipedia.org/wiki/SAP"><i class="fa-brands fa-wikipedia-w"></i>SAP</a> na ravni celotnega podjetja. Vsi vidiki podpore takšnemu sistemu stanejo podjetje 3,5 milijona € na leto. Kako naj se strošek obračuna 7 oddelkom podjetja ob upoštevanju potencialnega dobička in izgub?</p>
+</blockquote>
+<p>Osnovna ideja <strong>povračila sredstev za IT</strong> <em>(angl. IT <a href="https://en.wikipedia.org/wiki/Chargeback"><i class="fa-brands fa-wikipedia-w"></i>chargeback</a>)</em> je predstavljena v naslednjem sosledju dogodkov. Izvedli smo naložbo v IT. Zdaj pa imamo obratno težavo, in sicer kako naj te stroške povežemo z različnimi skupinami uporabnikov v podjetju. Če problem posplošimo, ga lahko prikažemo na sliki <a href="P3.html#fig:povracilo-sredstev-za-IT#fig:povracilo-sredstev-za-IT">5.10</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:povracilo-sredstev-za-IT"></span>
+<img src="assets/img/Povracilo_sredstev_za_IT.png" alt="Povračilo sredstev za IT" width="400" />
+<p class="caption">
+Slika 5.10: Povračilo sredstev za IT
+</p>
+</div>
+<p>Oddelek IT izvaja različne projekte, kjer med drugim razvijajo tudi aplikacije. Pri razvoju aplikacije se npr. pojavijo <strong>stroški projekta</strong>, kasneje pa morajo poskrbeti tudi za podporo, kar se odraža v <strong>operativnih stroških</strong>. Problem, s katerim se ukvarja povračilo sredstev za IT je, kako naj skupne stroške zaračunajo različnim uporabnikom oz. poslovnim enotam (PE).</p>
+</div>
+<div id="različni-pristopi-povračila-sredstev-za-it" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Različni pristopi povračila sredstev za IT<a href="P3.html#različni-pristopi-povračila-sredstev-za-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri načinu obračuna posameznim poslovnim enotam (<strong>PE</strong>) <em>(angl. business unit (<strong>BU</strong>))</em> poznamo več različnih načinov:</p>
+<ul>
+<li><strong>Stroškovno mesto</strong> <em>(angl. Cost Center)</em>
+<ul>
+<li>IT kot režijski stroški podjetja.</li>
+<li>Stroški IT se zaračunajo oddelkom na <a href="https://en.wikipedia.org/wiki/Ad_hoc"><i class="fa-brands fa-wikipedia-w"></i>ad-hoc</a> osnovi (npr. število zaposlenih v oddelku, višina prihodkov oddelka ipd.).</li>
+<li>Pri tem načinu je IT torej stroškovno mesto in stroški so bodisi režijski, bodisi se zračunajo oddelkom na ad-hoc način.</li>
+</ul></li>
+<li><strong>Storitveni center</strong> <em>(angl. Service Center)</em>
+<ul>
+<li>Oddelek IT ponuja storitve po določeni ceni.</li>
+<li>Poslovne enote plačujejo po porabi.</li>
+<li>Cena je nastavljena tako, da se oddelku IT povrnejo stroški.</li>
+</ul></li>
+<li><strong>Profitni center</strong> <em>(angl. Profit Center)</em>
+<ul>
+<li>Podobno kot pri storitvenemu centru:
+<ul>
+<li>Oddelek IT ponuja storitve po določeni ceni.</li>
+<li>Poslovne enote plačujejo po porabi.</li>
+</ul></li>
+<li>Cena je določena na podlagi tržne cene (npr. če bi implementacijo določene aplikacije izvedlo zunanjo podjetje).</li>
+</ul></li>
+</ul>
+<p>V nadaljevanju si bomo pogledali prednosti in slabosti posameznih pristopov.</p>
+<div id="povračilo-sredstev-za-it-na-osnovi-stroškovnega-mesta" class="section level4 hasAnchor" number="5.5.2.1">
+<h4><span class="header-section-number">5.5.2.1</span> Povračilo sredstev za IT na osnovi stroškovnega mesta<a href="P3.html#povračilo-sredstev-za-it-na-osnovi-stroškovnega-mesta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>Prednosti</strong>:
+<ul>
+<li>Zelo preprosta izvedba.
+<ul>
+<li>Stroški se bodisi ne zaračunajo in se obravnavajo kot režijski stroški oz. se obračunajo na enostavni osnovni (npr. število zaposlenih).</li>
+</ul></li>
+<li>Uporabnikom je način povračila enostaven za razumevanje.</li>
+</ul></li>
+<li><strong>Slabosti</strong>:
+<ul>
+<li>Majhna spodbuda za učinkovitost oddelka informatike (ni motivacije po največji možni meri učinkovitosti).</li>
+<li>Brez spodbud uporabnikom k preudarni potrošnji.</li>
+<li>Takšen način je zelo podoben obisku trgovine na drobne, kjer ni nobenih cen. Vsaka stranka si izbere stvari, ki jih potrebuje in na koncu meseca prejmejo račun, ki je odvisen od števila članov gospodinjstva oz. prihodkov gospodinjstva. Podoben primer je tudi uporaba osnovnih zdravstvenih storitev ob pogoju, da imamo urejeno zdravstveno zavarovanje.</li>
+<li>Finaciranje predstavlja politizacijo prioritet. To pomeni, da so izbrani projekti rezultat političnega procesa.</li>
+</ul></li>
+</ul>
+<p>Primer povračila sredstev za IT na osnovi stroškovnega mesta je prikazan v tabeli <a href="P3.html#tab:primer-povracila-sredstev-stroskovnega-mesta#tab:primer-povracila-sredstev-stroskovnega-mesta">5.4</a>. Gre za primer avtomatiziranega finančnega poročanja, ki v tem primeru znaša <span class="math inline">\(782,61\ €\)</span> na uporabnika za določeni mesec.</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:primer-povracila-sredstev-stroskovnega-mesta">Tabela 5.4: </span>Primer povračila sredstev za IT na osnovi stroškovnega mesta
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Postavka
+</th>
+<th style="text-align:right;">
+Strošek/enoto
+</th>
+<th style="text-align:right;">
+Število enot
+</th>
+<th style="text-align:right;">
+Strošek
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="4">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Material</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<ol style="list-style-type: decimal">
+<li>CPU cikli
+</td>
+<td style="text-align:right;">
+€ 1.000,00
+</td>
+<td style="text-align:right;">
+0,5
+</td>
+<td style="text-align:right;">
+€ 500,00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<ol start="2" style="list-style-type: decimal">
+<li>Shranjevanje
+</td>
+<td style="text-align:right;">
+€ 10,00
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+€ 100,00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<ol start="3" style="list-style-type: decimal">
+<li>Pasovna širina
+</td>
+<td style="text-align:right;">
+€ 250,00
+</td>
+<td style="text-align:right;">
+0,5
+</td>
+<td style="text-align:right;">
+€ 125,00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<ol start="4" style="list-style-type: decimal">
+<li>Tiskanje
+</td>
+<td style="text-align:right;">
+€ 1,00
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+€ 50,00
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Delo</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<ol start="5" style="list-style-type: decimal">
+<li>Aplikacijska podpora
+</td>
+<td style="text-align:right;">
+€ 50,00
+</td>
+<td style="text-align:right;">
+0,1
+</td>
+<td style="text-align:right;">
+€ 5,00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<ol start="6" style="list-style-type: decimal">
+<li>Podatkovno središče
+</td>
+<td style="text-align:right;">
+€ 52,00
+</td>
+<td style="text-align:right;">
+0,04
+</td>
+<td style="text-align:right;">
+€ 2,08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<ol start="7" style="list-style-type: decimal">
+<li>Spremljanje omrežja
+</td>
+<td style="text-align:right;">
+€ 45,00
+</td>
+<td style="text-align:right;">
+0,007
+</td>
+<td style="text-align:right;">
+€ 0,32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<ol start="8" style="list-style-type: decimal">
+<li>Vodstveni nadzor
+</td>
+<td style="text-align:right;">
+€ 70,00
+</td>
+<td style="text-align:right;">
+0,003
+</td>
+<td style="text-align:right;">
+€ 0,21
+</td>
+</tr>
+<tr grouplength="1">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Skupaj</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+€ 782,61
+</td>
+</tr>
+</tbody>
+</table></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol>
+</div>
+<div id="povračilo-sredstev-na-osnovi-storitvenega-centra" class="section level4 hasAnchor" number="5.5.2.2">
+<h4><span class="header-section-number">5.5.2.2</span> Povračilo sredstev na osnovi storitvenega centra<a href="P3.html#povračilo-sredstev-na-osnovi-storitvenega-centra" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Če avtomatizirano finančno poročanje ponudimo kot storitev, nas to stane <span class="math inline">\(782,61\ €\)</span> na uporabnika na mesec, prednost pa je, da lahko uporabniki trošijo bolj preudarno.</p>
+<ul>
+<li><strong>Prednosti</strong>:
+<ul>
+<li>Spodbuda uporabnikom k preudarni potrošnji. Cena storitve je znana, zato se lahko uporabniki sami odločajo za preudardno potrošnjo (mogoče je sploh ne potrebujejo ali pa jo potrebujejo določeno število enot).</li>
+</ul></li>
+<li><strong>Slabosti</strong>:
+<ul>
+<li>Majhna spodbuda za učinkovitost oddelka informatike.
+<ul>
+<li>Cena storitve je znana (<span class="math inline">\(782,61\ €\)</span>), saj so takšni tudi povezani stroški.</li>
+<li>Nimajo motivacije za znižanje cene, saj bodo potem lahko tudi manj zaračunali.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Pri storitvenem centru je na voljo cena storitve, ki uporabnika vodi k preudarni porabi. Slabost pa je ta, da se uporabniku zaračuna takšna cena, kot so bili stroški oddelka informatike za zagotavljanje storitve.</p>
+</div>
+<div id="povračilo-sredstev-na-osnovi-profitnega-centra" class="section level4 hasAnchor" number="5.5.2.3">
+<h4><span class="header-section-number">5.5.2.3</span> Povračilo sredstev na osnovi profitnega centra<a href="P3.html#povračilo-sredstev-na-osnovi-profitnega-centra" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Cena storitve je v tem primeru nastavljena glede na tržne razmere, npr. stroški morajo biti nižji od <span class="math inline">\(782,61\ €\)</span>.</p>
+<ul>
+<li><strong>Prednosti</strong>
+<ul>
+<li>Spodbuda oddelka IT k učinkovitosti.</li>
+<li>Podobno kot pri storitvenem centru imajo tudi tukaj uporabniki spodbudo, da trošijo preudarno.</li>
+</ul></li>
+<li><strong>Slabosti</strong>
+<ul>
+<li>Zapletena izvedba.
+<ul>
+<li>Podjetje mora najprej ugotoviti stroške ponujanja storitve ter nato še ugotoviti tržno ceno in vse skupaj združiti v lastno ponudbo.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Povzetek delovanja povračila sredstev za IT je prikazan na sliki <a href="P3.html#fig:postopek-povracila-sredstev-za-IT#fig:postopek-povracila-sredstev-za-IT">5.11</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:postopek-povracila-sredstev-za-IT"></span>
+<img src="assets/img/Postopek_povracila_sredstev_IT.png" alt="Postopek povračila sredstev za IT" width="600" />
+<p class="caption">
+Slika 5.11: Postopek povračila sredstev za IT
+</p>
+</div>
+<p>Uporabnikom se cena bodisi ne zaračuna ali pa se jim zaračuna ad-hoc. Če pa povračilo sredstev za IT deluje v obliki storitvenega ali profitnega centra, potem ti centri ponujajo storitve, ki so povezani z določeno ceno. Cena je objavljena in uporabniki storitve uporabljajo, nato pa prejmejo račun.</p>
+</div>
+</div>
+<div id="posledice-povračil-sredstev-za-it" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> Posledice povračil sredstev za IT<a href="P3.html#posledice-povračil-sredstev-za-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="politike-povračil-sredstev-za-it" class="section level4 hasAnchor" number="5.5.3.1">
+<h4><span class="header-section-number">5.5.3.1</span> Politike povračil sredstev za IT<a href="P3.html#politike-povračil-sredstev-za-it" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Za povračilo stroškov za IT mora podjetje določiti dve vrsti politik:</p>
+<ul>
+<li><strong>Politika nabave</strong> <em>(angl. Sourcing Policy)</em>, ki mora dati odgovore na naslednji vprašanji:
+<ul>
+<li>Ali lahko poslovne enote kupujejo storitve od zunanjih ponudnikov?
+<ul>
+<li>Pri povračilu sredstev na osnovni storitvenega centra in profitnega centra, se uporabniku za storitev zaračuna. Poslovne enote mogoče želijo tudi možnost naročanja storitev IT pri zunanjih ponudnikih.</li>
+</ul></li>
+<li>Ali ima lahko oddelek informatike tudi zunanje stranke?
+<ul>
+<li>To je pomembno predvsem pri povračilu sredstev na osnovi profitnega centra, kjer naj bi informatika ponujala storitve po tržni ceni. Oddelek IT bi si tako z dodatnimi zunanjimi strankami v primeru presežnih zmogljivosti zmanjšal lastne stroške.</li>
+<li>V praksi se pogosto zgodi, da se presežne zmogljivosti oddelka IT ponujajo tudi drugim podjetjem, ki niso neposredni konkurenti.</li>
+</ul></li>
+</ul></li>
+<li><strong>Politika povračila stroškov</strong> <em>(angl. Cost Recovery Policy)</em>, kjer se določi cena po kateri oddelek IT ponuja svoje storitve uporabnikom.
+<ul>
+<li>Ali se povrnejo spremenljivi stroški, polni stroški/povprečni stroški ali tržna cena?</li>
+<li>Če se lahko storitev IT ponudi po nižji ceni od tržne, kolikšen dobiček je dovoljen ali se naj se še naprej znižuje ceno?</li>
+<li>Če je prisoten dobiček, kaj naredimo z njim?
+<ul>
+<li>Ena možnost je ponovna naložba dobička v tehnologije, ki so koristne celotnemu podjetju.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Če želimo v podjetju vzpostaviti sistem povračila sredstev za IT, je treba opredeliti politiko nabavo in politiko povračila stroškov.</p>
+</div>
+<div id="vpliv-povračila-sredstev-za-it" class="section level4 hasAnchor" number="5.5.3.2">
+<h4><span class="header-section-number">5.5.3.2</span> Vpliv povračila sredstev za IT<a href="P3.html#vpliv-povračila-sredstev-za-it" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Poglejmo si vplive povračila sredstev za IT v primeru storitvenega centra ali profitnega centra:</p>
+<ul>
+<li><strong>Ekonomski</strong> <em>(angl. Economic)</em>
+<ul>
+<li>Povpraševanje (uporaba) in ponudba (investicija) storitev IT.
+<ul>
+<li>Če se uporabnikom zaračuna cena za storitev, se na ta način uporabnike discplinira, kar vpliva na povpraševanje po storitvi.</li>
+<li>Podobno je pri ponudbi storitev IT, glede na tržne cene. Podjetje bo v tem primeru ponujalo ceno storitve, ki je nižja od tržne cene.</li>
+<li>Če uporabljamo pristop profitnega centra k povračilu sredstev za IT, bo to vplivalo na ponudbo in povpraševanje po IT storitvah.</li>
+</ul></li>
+<li>Zmanjšanje porabe virov (v primeru pristopa storitvenega centra oz. profitnega centra).
+<ul>
+<li>Ko se od uporabnikov pričakuje plačilo za storitev, jih to disciplinira do te mere, da storitev zahtevajo samo takrat, ko je vredna cene, ki jo morajo plačati.</li>
+</ul></li>
+<li>Sprejemanje boljših naložbenih odločitev: ocena stroškov alternativnih naložb (v primeru profitnega centra).</li>
+</ul></li>
+<li><strong>Ocena</strong> <em>(angl. Evaluations)</em>
+<ul>
+<li>Uspešnost poslovne enote, če je IT pomemben sestavni del stroškov.
+<ul>
+<li>Storitveni center oz. profitni center vpliva na uspešnost poslovne enote, ker se stroški IT zaračunavajo poslovni enoti.</li>
+</ul></li>
+<li>Sklepi vodij poslovnih enot o usposobljenosti oddelka informatike.
+<ul>
+<li>Če oddelek IT ponuja storitve in vodja podjetja lahko primerja ceno s tržno ceno, to vpliva na mnenje nadrejenih o usposobljenosti oddelka IT.</li>
+<li>V primeru, ko je cena nižja od tržne, je to indikator, da je oddelek IT zelo učinkovit.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="kdaj-povračilo-sredstev-za-it-deluje-dobro" class="section level4 hasAnchor" number="5.5.3.3">
+<h4><span class="header-section-number">5.5.3.3</span> Kdaj povračilo sredstev za IT deluje dobro?<a href="P3.html#kdaj-povračilo-sredstev-za-it-deluje-dobro" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Dobro <strong>razumevanje stroškov IT</strong> in kako dejavnosti poslovne enote povzročajo stroške IT.</li>
+<li><strong>Stroškovna merila uspešnosti</strong> se lahko uporabijo za ocenjevanje aktivnosti IT. Kako se stroški IT spreminjajo s časom, kako se primerjajo s tržnimi cenami?</li>
+<li>Povračilo sredstev za IT pomaga pri razvoju partnerstva med IT in poslovanjem. Poslovanje pomaga IT-ju pri razumevanju prioritet. IT pomaga poslovanju pri razumevanju stroškov. Skupaj tako sprejemajo boljše investicijske odločitve.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    $("a").click(function(e) {
+      if (
+        $(this).has(".fa-solid").length == 1 || 
+        $(this).has(".fa-brands").length == 1 || 
+        $(this).has(".fa-regular").length == 1 || 
+        $(this).has("img.git").length == 1
+      ) {
+        e.preventDefault();
+        window.open($(this).attr("href"), '_blank');
+      }
+    });
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6109Y2092"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6109Y2092');
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="P2-V3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="P3-V3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/lib/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
