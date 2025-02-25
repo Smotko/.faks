@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Poglavje 19 P12 Računalništvo v oblaku, IT varnost in Marshmallow challenge | Osnove informacijskih sistemov 2023/2024</title>
+  <meta name="description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Poglavje 19 P12 Računalništvo v oblaku, IT varnost in Marshmallow challenge | Osnove informacijskih sistemov 2023/2024" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Poglavje 19 P12 Računalništvo v oblaku, IT varnost in Marshmallow challenge | Osnove informacijskih sistemov 2023/2024" />
+  
+  <meta name="twitter:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+<meta name="author" content="izr. prof. dr. Dejan Lavbič" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="P11.html"/>
+<link rel="next" href="literatura.html"/>
+<script src="assets/lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/lib/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/lib/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style/stil.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#terminski-plan-izvajanja-predmeta">OIS 2023/2024 terminski plan</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Uvod</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#splošne-informacije"><i class="fa fa-check"></i>Splošne informacije</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavatelj"><i class="fa fa-check"></i>Predavatelj</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#asistent"><i class="fa fa-check"></i>Asistent</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminski-plan-izvajanja-predmeta"><i class="fa fa-check"></i>Terminski plan izvajanja predmeta</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pravila-igre"><i class="fa fa-check"></i>Pravila igre</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavanja"><i class="fa fa-check"></i>Predavanja</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#vaje"><i class="fa fa-check"></i>Vaje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ocenjevanje"><i class="fa fa-check"></i>Ocenjevanje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pisni-izpiti"><i class="fa fa-check"></i>Pisni izpiti</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#priporočena-literatura"><i class="fa fa-check"></i>Priporočena literatura</a></li>
+</ul></li>
+<li class="part"><span><b>I sklop: Poslovni informacijski sistemi in upravljanje informatike</b></span></li>
+<li class="chapter" data-level="1" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>1</b> <span class="sklop1 oznaka">P1</span> Upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="P1.html"><a href="P1.html#ogrodje-digitalne-preobrazbe"><i class="fa fa-check"></i><b>1.1</b> Ogrodje digitalne preobrazbe</a></li>
+<li class="chapter" data-level="1.2" data-path="P1.html"><a href="P1.html#uvod-1"><i class="fa fa-check"></i><b>1.2</b> Uvod</a></li>
+<li class="chapter" data-level="1.3" data-path="P1.html"><a href="P1.html#upravljanje-it-in-vloga-informatike"><i class="fa fa-check"></i><b>1.3</b> Upravljanje IT in vloga informatike</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="P1.html"><a href="P1.html#vloga-vodstva-pri-upravljanju-it"><i class="fa fa-check"></i><b>1.3.1</b> Vloga vodstva pri upravljanju IT</a></li>
+<li class="chapter" data-level="1.3.2" data-path="P1.html"><a href="P1.html#ključna-vprašanja-o-it"><i class="fa fa-check"></i><b>1.3.2</b> Ključna vprašanja o IT</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="P1.html"><a href="P1.html#ogrodje-za-upravljanje-it"><i class="fa fa-check"></i><b>1.4</b> Ogrodje za upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="P1.html"><a href="P1.html#ključne-odločitve"><i class="fa fa-check"></i><b>1.4.1</b> Ključne odločitve</a></li>
+<li class="chapter" data-level="1.4.2" data-path="P1.html"><a href="P1.html#ključni-odločevalci"><i class="fa fa-check"></i><b>1.4.2</b> Ključni odločevalci</a></li>
+<li class="chapter" data-level="1.4.3" data-path="P1.html"><a href="P1.html#strukture-in-procesi-odločanja"><i class="fa fa-check"></i><b>1.4.3</b> Strukture in procesi odločanja</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="P1-V1.html"><a href="P1-V1.html"><i class="fa fa-check"></i><b>2</b> <span class="sklop1 oznaka">P1</span> → <span class="sklop3 oznaka">V1</span> Obvladovanje verzij</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="P1-V1.html"><a href="P1-V1.html#zgodovina-vcs"><i class="fa fa-check"></i><b>2.1</b> Zgodovina VCS</a></li>
+<li class="chapter" data-level="2.2" data-path="P1-V1.html"><a href="P1-V1.html#osnovne-operacije-vcs"><i class="fa fa-check"></i><b>2.2</b> Osnovne operacije VCS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="P1-V1.html"><a href="P1-V1.html#VCS-create"><i class="fa fa-check"></i><b>2.2.1</b> Create</a></li>
+<li class="chapter" data-level="2.2.2" data-path="P1-V1.html"><a href="P1-V1.html#VCS-checkout"><i class="fa fa-check"></i><b>2.2.2</b> Checkout</a></li>
+<li class="chapter" data-level="2.2.3" data-path="P1-V1.html"><a href="P1-V1.html#VCS-commit"><i class="fa fa-check"></i><b>2.2.3</b> Commit</a></li>
+<li class="chapter" data-level="2.2.4" data-path="P1-V1.html"><a href="P1-V1.html#VCS-update"><i class="fa fa-check"></i><b>2.2.4</b> Update</a></li>
+<li class="chapter" data-level="2.2.5" data-path="P1-V1.html"><a href="P1-V1.html#VCS-add"><i class="fa fa-check"></i><b>2.2.5</b> Add</a></li>
+<li class="chapter" data-level="2.2.6" data-path="P1-V1.html"><a href="P1-V1.html#VCS-edit"><i class="fa fa-check"></i><b>2.2.6</b> Edit</a></li>
+<li class="chapter" data-level="2.2.7" data-path="P1-V1.html"><a href="P1-V1.html#VCS-delete"><i class="fa fa-check"></i><b>2.2.7</b> Delete</a></li>
+<li class="chapter" data-level="2.2.8" data-path="P1-V1.html"><a href="P1-V1.html#VCS-rename"><i class="fa fa-check"></i><b>2.2.8</b> Rename</a></li>
+<li class="chapter" data-level="2.2.9" data-path="P1-V1.html"><a href="P1-V1.html#VCS-move"><i class="fa fa-check"></i><b>2.2.9</b> Move</a></li>
+<li class="chapter" data-level="2.2.10" data-path="P1-V1.html"><a href="P1-V1.html#VCS-status"><i class="fa fa-check"></i><b>2.2.10</b> Status</a></li>
+<li class="chapter" data-level="2.2.11" data-path="P1-V1.html"><a href="P1-V1.html#VCS-diff"><i class="fa fa-check"></i><b>2.2.11</b> Diff</a></li>
+<li class="chapter" data-level="2.2.12" data-path="P1-V1.html"><a href="P1-V1.html#VCS-revert"><i class="fa fa-check"></i><b>2.2.12</b> Revert</a></li>
+<li class="chapter" data-level="2.2.13" data-path="P1-V1.html"><a href="P1-V1.html#VCS-log"><i class="fa fa-check"></i><b>2.2.13</b> Log</a></li>
+<li class="chapter" data-level="2.2.14" data-path="P1-V1.html"><a href="P1-V1.html#VCS-tag"><i class="fa fa-check"></i><b>2.2.14</b> Tag</a></li>
+<li class="chapter" data-level="2.2.15" data-path="P1-V1.html"><a href="P1-V1.html#VCS-branch"><i class="fa fa-check"></i><b>2.2.15</b> Branch</a></li>
+<li class="chapter" data-level="2.2.16" data-path="P1-V1.html"><a href="P1-V1.html#VCS-merge"><i class="fa fa-check"></i><b>2.2.16</b> Merge</a></li>
+<li class="chapter" data-level="2.2.17" data-path="P1-V1.html"><a href="P1-V1.html#VCS-resolve"><i class="fa fa-check"></i><b>2.2.17</b> Resolve</a></li>
+<li class="chapter" data-level="2.2.18" data-path="P1-V1.html"><a href="P1-V1.html#VCS-lock"><i class="fa fa-check"></i><b>2.2.18</b> Lock</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="P1-V1.html"><a href="P1-V1.html#posebnosti-dvcs"><i class="fa fa-check"></i><b>2.3</b> Posebnosti DVCS</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="P1-V1.html"><a href="P1-V1.html#clone"><i class="fa fa-check"></i><b>2.3.1</b> Clone</a></li>
+<li class="chapter" data-level="2.3.2" data-path="P1-V1.html"><a href="P1-V1.html#primerjava-cvcs-in-dvcs"><i class="fa fa-check"></i><b>2.3.2</b> Primerjava CVCS in DVCS</a></li>
+<li class="chapter" data-level="2.3.3" data-path="P1-V1.html"><a href="P1-V1.html#push"><i class="fa fa-check"></i><b>2.3.3</b> Push</a></li>
+<li class="chapter" data-level="2.3.4" data-path="P1-V1.html"><a href="P1-V1.html#pull"><i class="fa fa-check"></i><b>2.3.4</b> Pull</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="P1-V1.html"><a href="P1-V1.html#dobre-prakse-uporabe-git"><i class="fa fa-check"></i><b>2.4</b> Dobre prakse uporabe Git</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="P1-V1.html"><a href="P1-V1.html#osrednji-repozitorij-in-sodelovanje-med-skupinami"><i class="fa fa-check"></i><b>2.4.1</b> Osrednji repozitorij in sodelovanje med skupinami</a></li>
+<li class="chapter" data-level="2.4.2" data-path="P1-V1.html"><a href="P1-V1.html#razdelitev-po-vejah-razvoja"><i class="fa fa-check"></i><b>2.4.2</b> Razdelitev po vejah razvoja</a></li>
+<li class="chapter" data-level="2.4.3" data-path="P1-V1.html"><a href="P1-V1.html#sporočila-uveljavitev"><i class="fa fa-check"></i><b>2.4.3</b> Sporočila uveljavitev</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="P1-V1.html"><a href="P1-V1.html#dodatno-gradivo"><i class="fa fa-check"></i><b>2.5</b> Dodatno gradivo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="P2.html"><a href="P2.html"><i class="fa fa-check"></i><b>3</b> <span class="sklop1 oznaka">P2</span> Delovni model, arhitektura podjetja in vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="P2.html"><a href="P2.html#delovni-model-in-zrelost-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1</b> Delovni model in zrelost arhitekture podjetja</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="P2.html"><a href="P2.html#delovni-model"><i class="fa fa-check"></i><b>3.1.1</b> Delovni model</a></li>
+<li class="chapter" data-level="3.1.2" data-path="P2.html"><a href="P2.html#arhitektura-podjetja"><i class="fa fa-check"></i><b>3.1.2</b> Arhitektura podjetja</a></li>
+<li class="chapter" data-level="3.1.3" data-path="P2.html"><a href="P2.html#posledice-zrelosti-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1.3</b> Posledice zrelosti arhitekture podjetja</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="P2.html"><a href="P2.html#vrednotenje-naložb"><i class="fa fa-check"></i><b>3.2</b> Vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="P2.html"><a href="P2.html#parametrični-pristop-od-zgoraj-navzdol"><i class="fa fa-check"></i><b>3.2.1</b> Parametrični pristop od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.2" data-path="P2.html"><a href="P2.html#pristop-od-spodaj-navzgor"><i class="fa fa-check"></i><b>3.2.2</b> Pristop od spodaj navzgor</a></li>
+<li class="chapter" data-level="3.2.3" data-path="P2.html"><a href="P2.html#ocena-proračuna"><i class="fa fa-check"></i><b>3.2.3</b> Ocena proračuna</a></li>
+<li class="chapter" data-level="3.2.4" data-path="P2.html"><a href="P2.html#ocena-proracuna-s-pristopm-navzdol"><i class="fa fa-check"></i><b>3.2.4</b> Primer ocene proračuna s pristopom od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.5" data-path="P2.html"><a href="P2.html#UCP"><i class="fa fa-check"></i><b>3.2.5</b> Formalna metoda za ocenjevanje stroškov programske opreme</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="P2.html"><a href="P2.html#nematerialne-koristi"><i class="fa fa-check"></i><b>3.3</b> Nematerialne koristi</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="P2.html"><a href="P2.html#zmogljivost-informacijske-tehnologije"><i class="fa fa-check"></i><b>3.3.1</b> Zmogljivost informacijske tehnologije</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="P2-V3.html"><a href="P2-V3.html"><i class="fa fa-check"></i><b>4</b> <span class="sklop1 oznaka">P2</span> → <span class="sklop3 oznaka">V3</span> Uvod v HTML in CSS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="P2-V3.html"><a href="P2-V3.html#html"><i class="fa fa-check"></i><b>4.1</b> HTML</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki"><i class="fa fa-check"></i><b>4.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.1.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek"><i class="fa fa-check"></i><b>4.1.2</b> Zaključek</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="P2-V3.html"><a href="P2-V3.html#CSS"><i class="fa fa-check"></i><b>4.2</b> CSS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki-1"><i class="fa fa-check"></i><b>4.2.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.2.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek-1"><i class="fa fa-check"></i><b>4.2.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="P3.html"><a href="P3.html"><i class="fa fa-check"></i><b>5</b> <span class="sklop1 oznaka">P3</span> Tveganja, IT naložbeni portfelj in povračilo sredstev</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="P3.html"><a href="P3.html#tveganja-pri-projektih-it"><i class="fa fa-check"></i><b>5.1</b> Tveganja pri projektih IT</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="P3.html"><a href="P3.html#upoštevanje-tveganja-pri-vrednotenju-naložb-v-it"><i class="fa fa-check"></i><b>5.1.1</b> Upoštevanje tveganja pri vrednotenju naložb v IT</a></li>
+<li class="chapter" data-level="5.1.2" data-path="P3.html"><a href="P3.html#kako-podjetja-upoštevajo-tveganja"><i class="fa fa-check"></i><b>5.1.2</b> Kako podjetja upoštevajo tveganja?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="P3.html"><a href="P3.html#pristop-z-opcijami-pri-naložbah-v-it"><i class="fa fa-check"></i><b>5.2</b> Pristop z opcijami pri naložbah v IT</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="P3.html"><a href="P3.html#primer-starbuck"><i class="fa fa-check"></i><b>5.2.1</b> Primer Starbuck</a></li>
+<li class="chapter" data-level="5.2.2" data-path="P3.html"><a href="P3.html#primer-opcije"><i class="fa fa-check"></i><b>5.2.2</b> Primer implementacije sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="P3.html"><a href="P3.html#ogrodje-za-vrednotenje-naložb-v-it"><i class="fa fa-check"></i><b>5.3</b> Ogrodje za vrednotenje naložb v IT</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="P3.html"><a href="P3.html#pasti-prekinitve"><i class="fa fa-check"></i><b>5.3.1</b> Pasti prekinitve</a></li>
+<li class="chapter" data-level="5.3.2" data-path="P3.html"><a href="P3.html#pasti-odložitve"><i class="fa fa-check"></i><b>5.3.2</b> Pasti odložitve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="P3.html"><a href="P3.html#it-naložbeni-portfelj"><i class="fa fa-check"></i><b>5.4</b> IT naložbeni portfelj</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="P3.html"><a href="P3.html#upravljanje-portfelja-it"><i class="fa fa-check"></i><b>5.4.1</b> Upravljanje portfelja IT</a></li>
+<li class="chapter" data-level="5.4.2" data-path="P3.html"><a href="P3.html#lastnosti-različnih-skupin-sredstev-it"><i class="fa fa-check"></i><b>5.4.2</b> Lastnosti različnih skupin sredstev IT</a></li>
+<li class="chapter" data-level="5.4.3" data-path="P3.html"><a href="P3.html#strateška-usmeritev-in-upravljanje-portfelja"><i class="fa fa-check"></i><b>5.4.3</b> Strateška usmeritev in upravljanje portfelja</a></li>
+<li class="chapter" data-level="5.4.4" data-path="P3.html"><a href="P3.html#proces-upravljanja-portfelja-it"><i class="fa fa-check"></i><b>5.4.4</b> Proces upravljanja portfelja IT</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="P3.html"><a href="P3.html#povračilo-sredstev-za-it"><i class="fa fa-check"></i><b>5.5</b> Povračilo sredstev za IT</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="P3.html"><a href="P3.html#razumevanje-izziva-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.1</b> Razumevanje izziva povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.2" data-path="P3.html"><a href="P3.html#različni-pristopi-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.2</b> Različni pristopi povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.3" data-path="P3.html"><a href="P3.html#posledice-povračil-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.3</b> Posledice povračil sredstev za IT</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="P3-V3.html"><a href="P3-V3.html"><i class="fa fa-check"></i><b>6</b> <span class="sklop1 oznaka">P3</span> → <span class="sklop3 oznaka">V3</span> JavaScript na strani odjemalca</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="P3-V3.html"><a href="P3-V3.html#JavaScript"><i class="fa fa-check"></i><b>6.1</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="P3-V3.html"><a href="P3-V3.html#gradniki-2"><i class="fa fa-check"></i><b>6.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="6.1.2" data-path="P3-V3.html"><a href="P3-V3.html#zaključek-2"><i class="fa fa-check"></i><b>6.1.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="P4.html"><a href="P4.html"><i class="fa fa-check"></i><b>7</b> <span class="sklop1 oznaka">P4</span> Upravljanje sprememb, IS, podatek, informacija, znanje</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="P4.html"><a href="P4.html#upravljanje-sprememb"><i class="fa fa-check"></i><b>7.1</b> Upravljanje sprememb</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="P4.html"><a href="P4.html#razumevanje-odpora-uporabnikov"><i class="fa fa-check"></i><b>7.1.1</b> Razumevanje odpora uporabnikov</a></li>
+<li class="chapter" data-level="7.1.2" data-path="P4.html"><a href="P4.html#odpor-uporabnikov-do-sprememb-perspektiva-pristranskosti"><i class="fa fa-check"></i><b>7.1.2</b> Odpor uporabnikov do sprememb: perspektiva pristranskosti</a></li>
+<li class="chapter" data-level="7.1.3" data-path="P4.html"><a href="P4.html#model-prilagajanja-uporabniku"><i class="fa fa-check"></i><b>7.1.3</b> Model prilagajanja uporabniku</a></li>
+<li class="chapter" data-level="7.1.4" data-path="P4.html"><a href="P4.html#različni-modeli-sprejetosti-uporabnikov"><i class="fa fa-check"></i><b>7.1.4</b> Različni modeli sprejetosti uporabnikov</a></li>
+<li class="chapter" data-level="7.1.5" data-path="P4.html"><a href="P4.html#ključni-vzvodi-pri-uvajanju-informacijskega-sistema"><i class="fa fa-check"></i><b>7.1.5</b> Ključni vzvodi pri uvajanju informacijskega sistema</a></li>
+<li class="chapter" data-level="7.1.6" data-path="P4.html"><a href="P4.html#kako-učinkovito-uvesti-spremembe-kritični-dejavniki-uspeha"><i class="fa fa-check"></i><b>7.1.6</b> Kako učinkovito uvesti spremembe: kritični dejavniki uspeha</a></li>
+<li class="chapter" data-level="7.1.7" data-path="P4.html"><a href="P4.html#primerjava-evolucijske-in-revolucionarne-spremembe"><i class="fa fa-check"></i><b>7.1.7</b> Primerjava evolucijske in revolucionarne spremembe</a></li>
+<li class="chapter" data-level="7.1.8" data-path="P4.html"><a href="P4.html#projektno-vodenje-v-primerjavi-z-učnim-pristopom"><i class="fa fa-check"></i><b>7.1.8</b> Projektno vodenje v primerjavi z učnim pristopom</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="P4.html"><a href="P4.html#sistem"><i class="fa fa-check"></i><b>7.2</b> Sistem</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="P4.html"><a href="P4.html#opredelitve-osnovnih-pojmov"><i class="fa fa-check"></i><b>7.2.1</b> Opredelitve osnovnih pojmov</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="P4.html"><a href="P4.html#podatek-informacija-in-znanje"><i class="fa fa-check"></i><b>7.3</b> Podatek, informacija in znanje</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="P4.html"><a href="P4.html#podatek-in-informacija"><i class="fa fa-check"></i><b>7.3.1</b> Podatek in informacija</a></li>
+<li class="chapter" data-level="7.3.2" data-path="P4.html"><a href="P4.html#značilnosti-informacij"><i class="fa fa-check"></i><b>7.3.2</b> Značilnosti informacij</a></li>
+<li class="chapter" data-level="7.3.3" data-path="P4.html"><a href="P4.html#raziskava-o-kakovosti-informacij"><i class="fa fa-check"></i><b>7.3.3</b> Raziskava o kakovosti informacij</a></li>
+<li class="chapter" data-level="7.3.4" data-path="P4.html"><a href="P4.html#znanje"><i class="fa fa-check"></i><b>7.3.4</b> Znanje</a></li>
+<li class="chapter" data-level="7.3.5" data-path="P4.html"><a href="P4.html#povezanost-podatka-informacije-in-znanja"><i class="fa fa-check"></i><b>7.3.5</b> Povezanost podatka, informacije in znanja</a></li>
+<li class="chapter" data-level="7.3.6" data-path="P4.html"><a href="P4.html#primeri-interpretacij-informacij"><i class="fa fa-check"></i><b>7.3.6</b> Primeri interpretacij informacij</a></li>
+<li class="chapter" data-level="7.3.7" data-path="P4.html"><a href="P4.html#znanje-vs.-védenje"><i class="fa fa-check"></i><b>7.3.7</b> Znanje vs. védenje</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="P4-V4.html"><a href="P4-V4.html"><i class="fa fa-check"></i><b>8</b> <span class="sklop1 oznaka">P4</span> → <span class="sklop3 oznaka">V4</span> Odjemalec/strežnik in Node.js</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="P4-V4.html"><a href="P4-V4.html#razvoj-enostavnega-spletnega-strežnika"><i class="fa fa-check"></i><b>8.1</b> Razvoj enostavnega spletnega strežnika</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="P4-V4.html"><a href="P4-V4.html#hello-world"><i class="fa fa-check"></i><b>8.1.1</b> Hello World</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="P4-V4.html"><a href="P4-V4.html#spremenljivke-na-strežniku"><i class="fa fa-check"></i><b>8.2</b> Spremenljivke na strežniku</a></li>
+<li class="chapter" data-level="8.3" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-statičnih-spletnih-strani"><i class="fa fa-check"></i><b>8.3</b> Strežnik statičnih spletnih strani</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="P4-V4.html"><a href="P4-V4.html#knjižnice-ki-jih-bo-naš-projekt-uporabljal"><i class="fa fa-check"></i><b>8.3.1</b> Knjižnice, ki jih bo naš projekt uporabljal</a></li>
+<li class="chapter" data-level="8.3.2" data-path="P4-V4.html"><a href="P4-V4.html#uvoz-statičnih-datotek"><i class="fa fa-check"></i><b>8.3.2</b> Uvoz statičnih datotek</a></li>
+<li class="chapter" data-level="8.3.3" data-path="P4-V4.html"><a href="P4-V4.html#začnemo-s-pisanjem-kode-na-strežniku"><i class="fa fa-check"></i><b>8.3.3</b> Začnemo s pisanjem kode na strežniku</a></li>
+<li class="chapter" data-level="8.3.4" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-objekt-strežnika-in-ga-osnovno-nastavimo"><i class="fa fa-check"></i><b>8.3.4</b> Pripravimo objekt strežnika in ga osnovno nastavimo</a></li>
+<li class="chapter" data-level="8.3.5" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-poženemo"><i class="fa fa-check"></i><b>8.3.5</b> Strežnik poženemo</a></li>
+<li class="chapter" data-level="8.3.6" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-še-manjkajočo-metodo-za-strežbo-statične-vsebine"><i class="fa fa-check"></i><b>8.3.6</b> Pripravimo še manjkajočo metodo za strežbo statične vsebine</a></li>
+<li class="chapter" data-level="8.3.7" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-metodo-za-obvladovanje-napak"><i class="fa fa-check"></i><b>8.3.7</b> Pripravimo metodo za obvladovanje napak</a></li>
+<li class="chapter" data-level="8.3.8" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-tudi-metodo-ki-vrne-datoteko-odjemalcu"><i class="fa fa-check"></i><b>8.3.8</b> Pripravimo tudi metodo, ki vrne datoteko odjemalcu</a></li>
+<li class="chapter" data-level="8.3.9" data-path="P4-V4.html"><a href="P4-V4.html#preverimo-delovanje-strežbe-statičnih-strani"><i class="fa fa-check"></i><b>8.3.9</b> Preverimo delovanje strežbe statičnih strani</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-statičnih-strani-dodamo-predpomnjenje"><i class="fa fa-check"></i><b>8.4</b> Strežniku statičnih strani dodamo predpomnjenje</a></li>
+<li class="chapter" data-level="8.5" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-dodamo-dinamične-strani"><i class="fa fa-check"></i><b>8.5</b> Strežniku dodamo dinamične strani</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="P4-V4.html"><a href="P4-V4.html#popravimo-nastavitev-strežnika"><i class="fa fa-check"></i><b>8.5.1</b> Popravimo nastavitev strežnika</a></li>
+<li class="chapter" data-level="8.5.2" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-metodo-za-obdelavo-sporočila"><i class="fa fa-check"></i><b>8.5.2</b> Implementiramo metodo za obdelavo sporočila</a></li>
+<li class="chapter" data-level="8.5.3" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-zahvalo-uporabniku"><i class="fa fa-check"></i><b>8.5.3</b> Implementiramo zahvalo uporabniku</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="P4-V4.html"><a href="P4-V4.html#testiranje-in-dodatno-gradivo"><i class="fa fa-check"></i><b>8.6</b> Testiranje in dodatno gradivo</a></li>
+</ul></li>
+<li class="part"><span><b>II sklop: Arhitektura poslovnega informacijskega sistema</b></span></li>
+<li class="chapter" data-level="9" data-path="DN.html"><a href="DN.html"><i class="fa fa-check"></i><b>9</b> <span class="sklop3 oznaka">DN</span> Spletna aplikacija FRI izletnik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DN.html"><a href="DN.html#DN1"><i class="fa fa-check"></i><b>9.1</b> Spletna aplikacija <small>(1. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="DN.html"><a href="DN.html#opis-naloge-in-navodila"><i class="fa fa-check"></i><b>9.1.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.2" data-path="DN.html"><a href="DN.html#vzpostavitev-repozitorija"><i class="fa fa-check"></i><b>9.1.2</b> Vzpostavitev repozitorija <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.3" data-path="DN.html"><a href="DN.html#DN11"><i class="fa fa-check"></i><b>9.1.3</b> Skladnja strani in stilska preobrazba <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.4" data-path="DN.html"><a href="DN.html#DN12"><i class="fa fa-check"></i><b>9.1.4</b> Podpora funkcionalnosti na odjemalcu in strežniku <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.5" data-path="DN.html"><a href="DN.html#združevanje-sprememb-v-repozitoriju"><i class="fa fa-check"></i><b>9.1.5</b> Združevanje sprememb v repozitoriju <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="DN.html"><a href="DN.html#DN2"><i class="fa fa-check"></i><b>9.2</b> Dopolnitev načrta in implementacija nove funkcionalnosti <small class="skupaj">(2. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="DN.html"><a href="DN.html#DN-navodila"><i class="fa fa-check"></i><b>9.2.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.2" data-path="DN.html"><a href="DN.html#DN-ideja"><i class="fa fa-check"></i><b>9.2.2</b> Opis osnovne ideje predloga <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.3" data-path="DN.html"><a href="DN.html#DN-Generiranje-podatkov"><i class="fa fa-check"></i><b>9.2.3</b> Generiranje podatkov <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.4" data-path="DN.html"><a href="DN.html#DN-nacrt"><i class="fa fa-check"></i><b>9.2.4</b> Načrt informacijske rešitve <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.5" data-path="DN.html"><a href="DN.html#DN-implementacija"><i class="fa fa-check"></i><b>9.2.5</b> Implementacija funkcionalnosti <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="P5.html"><a href="P5.html"><i class="fa fa-check"></i><b>10</b> <span class="sklop2 oznaka">P5</span> Metamodel delovnega sistema in arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="P5.html"><a href="P5.html#metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1</b> Metamodel delovnega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="P5.html"><a href="P5.html#razmerje-med-informacijskim-sistemom-in-delovnim-sistemom"><i class="fa fa-check"></i><b>10.1.1</b> Razmerje med informacijskim sistemom in delovnim sistemom</a></li>
+<li class="chapter" data-level="10.1.2" data-path="P5.html"><a href="P5.html#različni-pogledi-na-metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.2</b> Različni pogledi na metamodel delovnega sistema</a></li>
+<li class="chapter" data-level="10.1.3" data-path="P5.html"><a href="P5.html#primeri-metamodelov-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.3</b> Primeri metamodelov delovnega sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="P5.html"><a href="P5.html#arhitektura-poslovnega-informacijskega-sistema"><i class="fa fa-check"></i><b>10.2</b> Arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="P5.html"><a href="P5.html#uvod-v-poslovne-informacijske-sisteme"><i class="fa fa-check"></i><b>10.2.1</b> Uvod v poslovne informacijske sisteme</a></li>
+<li class="chapter" data-level="10.2.2" data-path="P5.html"><a href="P5.html#poklici-povezani-s-poslovnimi-informacijskimi-sistemi"><i class="fa fa-check"></i><b>10.2.2</b> Poklici, povezani s poslovnimi informacijskimi sistemi</a></li>
+<li class="chapter" data-level="10.2.3" data-path="P5.html"><a href="P5.html#razumevanje-poslovnih-procesov"><i class="fa fa-check"></i><b>10.2.3</b> Razumevanje poslovnih procesov</a></li>
+<li class="chapter" data-level="10.2.4" data-path="P5.html"><a href="P5.html#poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.4</b> Poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.5" data-path="P5.html"><a href="P5.html#primeri-poslovnih-sistemov"><i class="fa fa-check"></i><b>10.2.5</b> Primeri poslovnih sistemov</a></li>
+<li class="chapter" data-level="10.2.6" data-path="P5.html"><a href="P5.html#poslovni-sistemi-in-poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.6</b> Poslovni sistemi in poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.7" data-path="P5.html"><a href="P5.html#podjetja-in-poslovni-procesi"><i class="fa fa-check"></i><b>10.2.7</b> Podjetja in poslovni procesi</a></li>
+<li class="chapter" data-level="10.2.8" data-path="P5.html"><a href="P5.html#primerjava-največjih-ponudnikov"><i class="fa fa-check"></i><b>10.2.8</b> Primerjava največjih ponudnikov</a></li>
+<li class="chapter" data-level="10.2.9" data-path="P5.html"><a href="P5.html#zgodovina-sistema-sap"><i class="fa fa-check"></i><b>10.2.9</b> Zgodovina sistema SAP</a></li>
+<li class="chapter" data-level="10.2.10" data-path="P5.html"><a href="P5.html#komponente-poslovnih-informacijskih-sistemov"><i class="fa fa-check"></i><b>10.2.10</b> Komponente poslovnih informacijskih sistemov</a></li>
+<li class="chapter" data-level="10.2.11" data-path="P5.html"><a href="P5.html#integracija-poslovnih-aplikacij"><i class="fa fa-check"></i><b>10.2.11</b> Integracija poslovnih aplikacij</a></li>
+<li class="chapter" data-level="10.2.12" data-path="P5.html"><a href="P5.html#elektronska-izmenjava-podatkov"><i class="fa fa-check"></i><b>10.2.12</b> Elektronska izmenjava podatkov</a></li>
+<li class="chapter" data-level="10.2.13" data-path="P5.html"><a href="P5.html#ERP-podrobnosti"><i class="fa fa-check"></i><b>10.2.13</b> ERP</a></li>
+<li class="chapter" data-level="10.2.14" data-path="P5.html"><a href="P5.html#CRM-podrobnosti"><i class="fa fa-check"></i><b>10.2.14</b> CRM</a></li>
+<li class="chapter" data-level="10.2.15" data-path="P5.html"><a href="P5.html#SCM-podrobnosti"><i class="fa fa-check"></i><b>10.2.15</b> SCM</a></li>
+<li class="chapter" data-level="10.2.16" data-path="P5.html"><a href="P5.html#KM-podrobnosti"><i class="fa fa-check"></i><b>10.2.16</b> KM</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="P5-V5.html"><a href="P5-V5.html"><i class="fa fa-check"></i><b>11</b> <span class="sklop2 oznaka">P5</span> → <span class="sklop3 oznaka">V5</span> Povezovanje na podatkovno bazo</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="P5-V5.html"><a href="P5-V5.html#priprava-okolja"><i class="fa fa-check"></i><b>11.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="11.2" data-path="P5-V5.html"><a href="P5-V5.html#razširitev-arhitekture-odjemalecstrežnik-s-podatkovno-bazo"><i class="fa fa-check"></i><b>11.2</b> Razširitev arhitekture odjemalec/strežnik s podatkovno bazo</a></li>
+<li class="chapter" data-level="11.3" data-path="P5-V5.html"><a href="P5-V5.html#chinook-podatkovna-baza"><i class="fa fa-check"></i><b>11.3</b> Chinook podatkovna baza</a></li>
+<li class="chapter" data-level="11.4" data-path="P5-V5.html"><a href="P5-V5.html#poizvedovalni-jezik-sql"><i class="fa fa-check"></i><b>11.4</b> Poizvedovalni jezik SQL</a></li>
+<li class="chapter" data-level="11.5" data-path="P5-V5.html"><a href="P5-V5.html#podatkovna-baza-sqlite"><i class="fa fa-check"></i><b>11.5</b> Podatkovna baza SQLite</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="P5-V5.html"><a href="P5-V5.html#vsebina-podatkovne-baze"><i class="fa fa-check"></i><b>11.5.1</b> Vsebina podatkovne baze</a></li>
+<li class="chapter" data-level="11.5.2" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic"><i class="fa fa-check"></i><b>11.5.2</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.5.3" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-vseh-vrednosti-v-tabeli"><i class="fa fa-check"></i><b>11.5.3</b> Prikaz vseh vrednosti v tabeli</a></li>
+<li class="chapter" data-level="11.5.4" data-path="P5-V5.html"><a href="P5-V5.html#filtriranje-zapisov"><i class="fa fa-check"></i><b>11.5.4</b> Filtriranje zapisov</a></li>
+<li class="chapter" data-level="11.5.5" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-podatkov-iz-več-tabel"><i class="fa fa-check"></i><b>11.5.5</b> Prikaz podatkov iz več tabel</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="P5-V5.html"><a href="P5-V5.html#uporaba-ogrodja-express.js-za-poenostavitev-razvoja-aplikacij"><i class="fa fa-check"></i><b>11.6</b> Uporaba ogrodja Express.js za poenostavitev razvoja aplikacij</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic-1"><i class="fa fa-check"></i><b>11.6.1</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.6.2" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-brez-uporabe-express"><i class="fa fa-check"></i><b>11.6.2</b> Hello World brez uporabe Express</a></li>
+<li class="chapter" data-level="11.6.3" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-z-express"><i class="fa fa-check"></i><b>11.6.3</b> Hello World z Express</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="P5-V5.html"><a href="P5-V5.html#master-detail-načrtovalski-vzorec"><i class="fa fa-check"></i><b>11.7</b> Master-detail načrtovalski vzorec</a></li>
+<li class="chapter" data-level="11.8" data-path="P5-V5.html"><a href="P5-V5.html#primer-pesmi-po-žanrih"><i class="fa fa-check"></i><b>11.8</b> Primer: Pesmi po žanrih</a>
+<ul>
+<li class="chapter" data-level="11.8.1" data-path="P5-V5.html"><a href="P5-V5.html#potrebne-knjižnice"><i class="fa fa-check"></i><b>11.8.1</b> Potrebne knjižnice</a></li>
+<li class="chapter" data-level="11.8.2" data-path="P5-V5.html"><a href="P5-V5.html#funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov"><i class="fa fa-check"></i><b>11.8.2</b> Funkcija, ki v povratnem klicu vrača seznam žanrov</a></li>
+<li class="chapter" data-level="11.8.3" data-path="P5-V5.html"><a href="P5-V5.html#zaključek-osnovne-funkcionalnosti-strežnika"><i class="fa fa-check"></i><b>11.8.3</b> Zaključek osnovne funkcionalnosti strežnika</a></li>
+<li class="chapter" data-level="11.8.4" data-path="P5-V5.html"><a href="P5-V5.html#testiranje-osnovne-funkcionalnosti-master"><i class="fa fa-check"></i><b>11.8.4</b> Testiranje osnovne funkcionalnosti (master)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="P5-V5.html"><a href="P5-V5.html#dodajanje-seznama-pesmi-detail"><i class="fa fa-check"></i><b>11.8.5</b> Dodajanje seznama pesmi (detail)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="P6.html"><a href="P6.html"><i class="fa fa-check"></i><b>12</b> <span class="sklop2 oznaka">P6</span> Zgodovina, ključne vloge in vrste IS</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="P6.html"><a href="P6.html#e-poslovanje"><i class="fa fa-check"></i><b>12.1</b> E-poslovanje</a></li>
+<li class="chapter" data-level="12.2" data-path="P6.html"><a href="P6.html#e-trgovanje"><i class="fa fa-check"></i><b>12.2</b> E-trgovanje</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="P6.html"><a href="P6.html#zgodovina-e-trgovanja"><i class="fa fa-check"></i><b>12.2.1</b> Zgodovina e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.2" data-path="P6.html"><a href="P6.html#tehnologije-e-trgovanja"><i class="fa fa-check"></i><b>12.2.2</b> Tehnologije e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.3" data-path="P6.html"><a href="P6.html#osnovne-komponente-e-trgovanja"><i class="fa fa-check"></i><b>12.2.3</b> Osnovne komponente e-trgovanja</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="P6.html"><a href="P6.html#zgodovina-in-ključne-vloge-is"><i class="fa fa-check"></i><b>12.3</b> Zgodovina in ključne vloge IS</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="P6.html"><a href="P6.html#zgodovinski-pregled-pomembnih-dogodkov-v-računalništvu"><i class="fa fa-check"></i><b>12.3.1</b> Zgodovinski pregled pomembnih dogodkov v računalništvu</a></li>
+<li class="chapter" data-level="12.3.2" data-path="P6.html"><a href="P6.html#razvoj-tehnologij"><i class="fa fa-check"></i><b>12.3.2</b> Razvoj tehnologij</a></li>
+<li class="chapter" data-level="12.3.3" data-path="P6.html"><a href="P6.html#razvoj-it-za-podporo-is"><i class="fa fa-check"></i><b>12.3.3</b> Razvoj IT za podporo IS</a></li>
+<li class="chapter" data-level="12.3.4" data-path="P6.html"><a href="P6.html#razvoj-informacijske-podpore-po-ravneh-odločanja"><i class="fa fa-check"></i><b>12.3.4</b> Razvoj informacijske podpore po ravneh odločanja</a></li>
+<li class="chapter" data-level="12.3.5" data-path="P6.html"><a href="P6.html#zgodovina-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.3.5</b> Zgodovina informacijskih sistemov</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="P6.html"><a href="P6.html#vrste-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.4</b> Vrste informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-poslovanju"><i class="fa fa-check"></i><b>12.4.1</b> Sistemi za podporo poslovanju</a></li>
+<li class="chapter" data-level="12.4.2" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-odločanju"><i class="fa fa-check"></i><b>12.4.2</b> Sistemi za podporo odločanju</a></li>
+<li class="chapter" data-level="12.4.3" data-path="P6.html"><a href="P6.html#specializirani-sistemi"><i class="fa fa-check"></i><b>12.4.3</b> Specializirani sistemi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="P6-V6.html"><a href="P6-V6.html"><i class="fa fa-check"></i><b>13</b> <span class="sklop2 oznaka">P6</span> → <span class="sklop3 oznaka">V6</span> Seja, košarica, XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="P6-V6.html"><a href="P6-V6.html#priprava-okolja-1"><i class="fa fa-check"></i><b>13.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="13.2" data-path="P6-V6.html"><a href="P6-V6.html#namestitev-knjižnic-in-vključitev-podatkovne-baze"><i class="fa fa-check"></i><b>13.2</b> Namestitev knjižnic in vključitev podatkovne baze</a></li>
+<li class="chapter" data-level="13.3" data-path="P6-V6.html"><a href="P6-V6.html#seja"><i class="fa fa-check"></i><b>13.3</b> Seja</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="P6-V6.html"><a href="P6-V6.html#globalne-spremenljivke-vs.-seja"><i class="fa fa-check"></i><b>13.3.1</b> Globalne spremenljivke vs. seja</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="P6-V6.html"><a href="P6-V6.html#nakupovalna-košarica"><i class="fa fa-check"></i><b>13.4</b> Nakupovalna košarica</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="P6-V6.html"><a href="P6-V6.html#primer-nakupovanja-pesmi-iz-seznama-100-najbolje-prodajanih"><i class="fa fa-check"></i><b>13.4.1</b> Primer nakupovanja pesmi iz seznama 100 najbolje prodajanih</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="P6-V6.html"><a href="P6-V6.html#xml-in-e-slog"><i class="fa fa-check"></i><b>13.5</b> XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="P6-V6.html"><a href="P6-V6.html#dokumentacija"><i class="fa fa-check"></i><b>13.5.1</b> Dokumentacija</a></li>
+<li class="chapter" data-level="13.5.2" data-path="P6-V6.html"><a href="P6-V6.html#dopolnitve-primera-nakupovanja-pesmi"><i class="fa fa-check"></i><b>13.5.2</b> Dopolnitve primera nakupovanja pesmi</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III sklop: Analiza, načrtovanje in razvoj poslovnih informacijskih sistemov</b></span></li>
+<li class="chapter" data-level="14" data-path="P7.html"><a href="P7.html"><i class="fa fa-check"></i><b>14</b> <span class="sklop3 oznaka">P7</span> Razvojni modeli informacijskih sistemov in metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="P7.html"><a href="P7.html#zgodovina-razvoja-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.1</b> Zgodovina razvoja informacijskih sistemov</a></li>
+<li class="chapter" data-level="14.2" data-path="P7.html"><a href="P7.html#razvojni-model-informacijskega-sistema"><i class="fa fa-check"></i><b>14.2</b> Razvojni model informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="P7.html"><a href="P7.html#SDLC-studija-izvedljivosti"><i class="fa fa-check"></i><b>14.2.1</b> Študija izvedljivosti</a></li>
+<li class="chapter" data-level="14.2.2" data-path="P7.html"><a href="P7.html#SDLC-zbiranje-zahtev"><i class="fa fa-check"></i><b>14.2.2</b> Zbiranje zahtev</a></li>
+<li class="chapter" data-level="14.2.3" data-path="P7.html"><a href="P7.html#SDLC-analiza"><i class="fa fa-check"></i><b>14.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="14.2.4" data-path="P7.html"><a href="P7.html#SDLC-nacrt"><i class="fa fa-check"></i><b>14.2.4</b> Načrtovanje</a></li>
+<li class="chapter" data-level="14.2.5" data-path="P7.html"><a href="P7.html#SDLC-implementacija"><i class="fa fa-check"></i><b>14.2.5</b> Implementacija</a></li>
+<li class="chapter" data-level="14.2.6" data-path="P7.html"><a href="P7.html#SDLC-pregled-in-vzdrzevanje"><i class="fa fa-check"></i><b>14.2.6</b> Pregled in vzdrževanje</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="P7.html"><a href="P7.html#metodologija"><i class="fa fa-check"></i><b>14.3</b> Metodologija</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="P7.html"><a href="P7.html#tehnike"><i class="fa fa-check"></i><b>14.3.1</b> Tehnike</a></li>
+<li class="chapter" data-level="14.3.2" data-path="P7.html"><a href="P7.html#orodja"><i class="fa fa-check"></i><b>14.3.2</b> Orodja</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="P7.html"><a href="P7.html#variante-razvojnih-modelov-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.4</b> Variante razvojnih modelov informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="P7.html"><a href="P7.html#Zaporedni-razvojni-model"><i class="fa fa-check"></i><b>14.4.1</b> Zaporedni oz. slapovni razvojni model</a></li>
+<li class="chapter" data-level="14.4.2" data-path="P7.html"><a href="P7.html#Iterativni-razvojni-model"><i class="fa fa-check"></i><b>14.4.2</b> Iterativni razvojni model</a></li>
+<li class="chapter" data-level="14.4.3" data-path="P7.html"><a href="P7.html#Prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.3</b> Prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.4" data-path="P7.html"><a href="P7.html#Iterativni-prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.4</b> Iterativni/prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.5" data-path="P7.html"><a href="P7.html#Inkrementalni-razvojni-model"><i class="fa fa-check"></i><b>14.4.5</b> Inkrementalni razvojni model</a></li>
+<li class="chapter" data-level="14.4.6" data-path="P7.html"><a href="P7.html#iterativnost-vs.-inkrementalnost"><i class="fa fa-check"></i><b>14.4.6</b> Iterativnost vs. inkrementalnost</a></li>
+<li class="chapter" data-level="14.4.7" data-path="P7.html"><a href="P7.html#Kombinirani-razvojni-model"><i class="fa fa-check"></i><b>14.4.7</b> Kombinirani razvojni model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="P7.html"><a href="P7.html#metodologije-razvoja"><i class="fa fa-check"></i><b>14.5</b> Metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="P7.html"><a href="P7.html#različne-opredelitve-v-literaturi"><i class="fa fa-check"></i><b>14.5.1</b> Različne opredelitve v literaturi</a></li>
+<li class="chapter" data-level="14.5.2" data-path="P7.html"><a href="P7.html#metodologija-v-terminološkem-slovarju"><i class="fa fa-check"></i><b>14.5.2</b> Metodologija v terminološkem slovarju</a></li>
+<li class="chapter" data-level="14.5.3" data-path="P7.html"><a href="P7.html#naša-opredelitev"><i class="fa fa-check"></i><b>14.5.3</b> Naša opredelitev</a></li>
+<li class="chapter" data-level="14.5.4" data-path="P7.html"><a href="P7.html#elementi-metodologije"><i class="fa fa-check"></i><b>14.5.4</b> Elementi metodologije</a></li>
+<li class="chapter" data-level="14.5.5" data-path="P7.html"><a href="P7.html#upravljanje-z-znanjem"><i class="fa fa-check"></i><b>14.5.5</b> Upravljanje z znanjem</a></li>
+<li class="chapter" data-level="14.5.6" data-path="P7.html"><a href="P7.html#formalna-vs.-neformalna-metodologija"><i class="fa fa-check"></i><b>14.5.6</b> Formalna vs. neformalna metodologija</a></li>
+<li class="chapter" data-level="14.5.7" data-path="P7.html"><a href="P7.html#agilni-koncepti-in-metodologije"><i class="fa fa-check"></i><b>14.5.7</b> Agilni koncepti in metodologije</a></li>
+<li class="chapter" data-level="14.5.8" data-path="P7.html"><a href="P7.html#metamodel-metodologije-razvoja-informacijskega-sistema"><i class="fa fa-check"></i><b>14.5.8</b> Metamodel metodologije razvoja informacijskega sistema</a></li>
+<li class="chapter" data-level="14.5.9" data-path="P7.html"><a href="P7.html#ogrodja-za-primerjavo-metodologij"><i class="fa fa-check"></i><b>14.5.9</b> Ogrodja za primerjavo metodologij</a></li>
+<li class="chapter" data-level="14.5.10" data-path="P7.html"><a href="P7.html#učinkovitost-različnih-oblik-komunikacije"><i class="fa fa-check"></i><b>14.5.10</b> Učinkovitost različnih oblik komunikacije</a></li>
+<li class="chapter" data-level="14.5.11" data-path="P7.html"><a href="P7.html#vpliv-velikosti-na-posebnosti-razvojne-skupine"><i class="fa fa-check"></i><b>14.5.11</b> Vpliv velikosti na posebnosti razvojne skupine</a></li>
+<li class="chapter" data-level="14.5.12" data-path="P7.html"><a href="P7.html#Kriticni-projekti"><i class="fa fa-check"></i><b>14.5.12</b> Kritični projekti</a></li>
+<li class="chapter" data-level="14.5.13" data-path="P7.html"><a href="P7.html#Komunikacija-in-povratne-informacije"><i class="fa fa-check"></i><b>14.5.13</b> Komunikacija in povratne informacije</a></li>
+<li class="chapter" data-level="14.5.14" data-path="P7.html"><a href="P7.html#primer-google-inženirji-vs.-managerji"><i class="fa fa-check"></i><b>14.5.14</b> Primer: Google: Inženirji vs. managerji</a></li>
+<li class="chapter" data-level="14.5.15" data-path="P7.html"><a href="P7.html#Discipliniranost-izkusnje-in-znanje"><i class="fa fa-check"></i><b>14.5.15</b> Discipliniranost, izkušnje in znanje</a></li>
+<li class="chapter" data-level="14.5.16" data-path="P7.html"><a href="P7.html#Odkloni-od-nacrtovane-resitve"><i class="fa fa-check"></i><b>14.5.16</b> Odkloni od načrtovane rešitve</a></li>
+<li class="chapter" data-level="14.5.17" data-path="P7.html"><a href="P7.html#evolucija-razvoja-programske-opreme"><i class="fa fa-check"></i><b>14.5.17</b> Evolucija razvoja programske opreme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="P8.html"><a href="P8.html"><i class="fa fa-check"></i><b>15</b> <span class="sklop3 oznaka">P8</span> Strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="P8.html"><a href="P8.html#uvod-v-strukturni-razvoj"><i class="fa fa-check"></i><b>15.1</b> Uvod v strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="P8.html"><a href="P8.html#Strukturni-zajem-in-specifikaija-zahtev"><i class="fa fa-check"></i><b>15.1.1</b> Zajem in specifikacija zahtev</a></li>
+<li class="chapter" data-level="15.1.2" data-path="P8.html"><a href="P8.html#Strukturni-analiza"><i class="fa fa-check"></i><b>15.1.2</b> Analiza</a></li>
+<li class="chapter" data-level="15.1.3" data-path="P8.html"><a href="P8.html#Strukturni-nacrtovanje"><i class="fa fa-check"></i><b>15.1.3</b> Načrtovanje</a></li>
+<li class="chapter" data-level="15.1.4" data-path="P8.html"><a href="P8.html#Strukturni-testiranje"><i class="fa fa-check"></i><b>15.1.4</b> Testiranje</a></li>
+<li class="chapter" data-level="15.1.5" data-path="P8.html"><a href="P8.html#Strukturni-namestitev-in-uvedba"><i class="fa fa-check"></i><b>15.1.5</b> Namestitev in uvedba</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="P8.html"><a href="P8.html#podatkovno-načrtovanje"><i class="fa fa-check"></i><b>15.2</b> Podatkovno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="P8.html"><a href="P8.html#relacijski-model"><i class="fa fa-check"></i><b>15.2.1</b> Relacijski model</a></li>
+<li class="chapter" data-level="15.2.2" data-path="P8.html"><a href="P8.html#matematična-opredelitev"><i class="fa fa-check"></i><b>15.2.2</b> Matematična opredelitev</a></li>
+<li class="chapter" data-level="15.2.3" data-path="P8.html"><a href="P8.html#entitetni-diagram"><i class="fa fa-check"></i><b>15.2.3</b> Entitetni diagram</a></li>
+<li class="chapter" data-level="15.2.4" data-path="P8.html"><a href="P8.html#različne-ravni-podatkovnega-modeliranja"><i class="fa fa-check"></i><b>15.2.4</b> Različne ravni podatkovnega modeliranja</a></li>
+<li class="chapter" data-level="15.2.5" data-path="P8.html"><a href="P8.html#Postopek-konceptualno-nacrtovanje"><i class="fa fa-check"></i><b>15.2.5</b> Konceptualno načrtovanje</a></li>
+<li class="chapter" data-level="15.2.6" data-path="P8.html"><a href="P8.html#prehod-iz-konceptualnega-v-logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.6</b> Prehod iz konceptualnega v logično načrtovanje</a></li>
+<li class="chapter" data-level="15.2.7" data-path="P8.html"><a href="P8.html#logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.7</b> Logično načrtovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="P8.html"><a href="P8.html#Postopek-normalizacija"><i class="fa fa-check"></i><b>15.3</b> Normalizacija</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="P8.html"><a href="P8.html#normalna-oblika-1.-no"><i class="fa fa-check"></i><b>15.3.1</b> 1. normalna oblika (1. NO)</a></li>
+<li class="chapter" data-level="15.3.2" data-path="P8.html"><a href="P8.html#normalna-oblika-2.-no"><i class="fa fa-check"></i><b>15.3.2</b> 2. normalna oblika (2. NO)</a></li>
+<li class="chapter" data-level="15.3.3" data-path="P8.html"><a href="P8.html#normalna-oblika-3.-no"><i class="fa fa-check"></i><b>15.3.3</b> 3. normalna oblika (3. NO)</a></li>
+<li class="chapter" data-level="15.3.4" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-4.-pno"><i class="fa fa-check"></i><b>15.3.4</b> 4. poslovna normalna oblika (4. PNO)</a></li>
+<li class="chapter" data-level="15.3.5" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-5.-pno"><i class="fa fa-check"></i><b>15.3.5</b> 5. poslovna normalna oblika (5. PNO)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="P8.html"><a href="P8.html#denormalizacija"><i class="fa fa-check"></i><b>15.4</b> Denormalizacija</a></li>
+<li class="chapter" data-level="15.5" data-path="P8.html"><a href="P8.html#primeri-normalizacije"><i class="fa fa-check"></i><b>15.5</b> Primeri normalizacije</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="P8.html"><a href="P8.html#normalizacija-računa"><i class="fa fa-check"></i><b>15.5.1</b> Normalizacija računa</a></li>
+<li class="chapter" data-level="15.5.2" data-path="P8.html"><a href="P8.html#normalizacija-reverza"><i class="fa fa-check"></i><b>15.5.2</b> Normalizacija reverza</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="P8.html"><a href="P8.html#procesni-vidik"><i class="fa fa-check"></i><b>15.6</b> Procesni vidik</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="P8.html"><a href="P8.html#dekompozicijski-diagrami"><i class="fa fa-check"></i><b>15.6.1</b> Dekompozicijski diagrami</a></li>
+<li class="chapter" data-level="15.6.2" data-path="P8.html"><a href="P8.html#procesna-logika"><i class="fa fa-check"></i><b>15.6.2</b> Procesna logika</a></li>
+<li class="chapter" data-level="15.6.3" data-path="P8.html"><a href="P8.html#BPMN-tehnika"><i class="fa fa-check"></i><b>15.6.3</b> BPMN</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="P9.html"><a href="P9.html"><i class="fa fa-check"></i><b>16</b> <span class="sklop3 oznaka">P9</span> Objektno usmerjena analiza, načrtovanje in modeliranje</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="P9.html"><a href="P9.html#objektno-usmerjena-analiza-in-načrtovanje"><i class="fa fa-check"></i><b>16.1</b> Objektno usmerjena analiza in načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="P9.html"><a href="P9.html#OO-thinking"><i class="fa fa-check"></i><b>16.1.1</b> Objektno usmerjeno razmišljanje</a></li>
+<li class="chapter" data-level="16.1.2" data-path="P9.html"><a href="P9.html#načrtovanje-v-procesu-razvoja-programske-opreme"><i class="fa fa-check"></i><b>16.1.2</b> Načrtovanje v procesu razvoja programske opreme</a></li>
+<li class="chapter" data-level="16.1.3" data-path="P9.html"><a href="P9.html#načrtovanje-z-upoštevanjem-kakovosti"><i class="fa fa-check"></i><b>16.1.3</b> Načrtovanje z upoštevanjem kakovosti</a></li>
+<li class="chapter" data-level="16.1.4" data-path="P9.html"><a href="P9.html#razred-odgovornost-sodelovanje"><i class="fa fa-check"></i><b>16.1.4</b> Razred, odgovornost, sodelovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="P9.html"><a href="P9.html#objektno-usmerjeno-načrtovanje"><i class="fa fa-check"></i><b>16.2</b> Objektno usmerjeno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="P9.html"><a href="P9.html#izdelava-modelov-načrta"><i class="fa fa-check"></i><b>16.2.1</b> Izdelava modelov načrta</a></li>
+<li class="chapter" data-level="16.2.2" data-path="P9.html"><a href="P9.html#razvoj-programskih-jezikov"><i class="fa fa-check"></i><b>16.2.2</b> Razvoj programskih jezikov</a></li>
+<li class="chapter" data-level="16.2.3" data-path="P9.html"><a href="P9.html#stiri-nacrtovalska-nacela"><i class="fa fa-check"></i><b>16.2.3</b> Štiri načrtovalska načela</a></li>
+<li class="chapter" data-level="16.2.4" data-path="P9.html"><a href="P9.html#načrtovalska-struktura-v-programskem-jeziku-java-in-uml-razrednih-diagramih"><i class="fa fa-check"></i><b>16.2.4</b> Načrtovalska struktura v programskem jeziku Java in UML razrednih diagramih</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="P9.html"><a href="P9.html#načrtovalska-načela"><i class="fa fa-check"></i><b>16.3</b> Načrtovalska načela</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="P9.html"><a href="P9.html#vrednotenje-kompleksnosti-načrta"><i class="fa fa-check"></i><b>16.3.1</b> Vrednotenje kompleksnosti načrta</a></li>
+<li class="chapter" data-level="16.3.2" data-path="P9.html"><a href="P9.html#načelo-ločevanja-pomislekov"><i class="fa fa-check"></i><b>16.3.2</b> Načelo ločevanja pomislekov</a></li>
+<li class="chapter" data-level="16.3.3" data-path="P9.html"><a href="P9.html#skrivanje-informacij"><i class="fa fa-check"></i><b>16.3.3</b> Skrivanje informacij</a></li>
+<li class="chapter" data-level="16.3.4" data-path="P9.html"><a href="P9.html#konceptualna-celovitost"><i class="fa fa-check"></i><b>16.3.4</b> Konceptualna celovitost</a></li>
+<li class="chapter" data-level="16.3.5" data-path="P9.html"><a href="P9.html#načela-posploševanja"><i class="fa fa-check"></i><b>16.3.5</b> Načela posploševanja</a></li>
+<li class="chapter" data-level="16.3.6" data-path="P9.html"><a href="P9.html#preverjanje-modela"><i class="fa fa-check"></i><b>16.3.6</b> Preverjanje modela</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="P10.html"><a href="P10.html"><i class="fa fa-check"></i><b>17</b> <span class="sklop3 oznaka">P10</span> Objektni razvoj, simulacija razvoja informacijskega sistema za bankomat in simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="P10.html"><a href="P10.html#objektni-razvoj"><i class="fa fa-check"></i><b>17.1</b> Objektni razvoj</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="P10.html"><a href="P10.html#rup-proces-razvoja"><i class="fa fa-check"></i><b>17.1.1</b> RUP proces razvoja</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="P10.html"><a href="P10.html#simulacija-razvoja-informacijskega-sistema-za-bankomat"><i class="fa fa-check"></i><b>17.2</b> Simulacija razvoja informacijskega sistema za bankomat</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="P10.html"><a href="P10.html#predstavitev-problema"><i class="fa fa-check"></i><b>17.2.1</b> Predstavitev problema</a></li>
+<li class="chapter" data-level="17.2.2" data-path="P10.html"><a href="P10.html#Bankomat-Zbiranje-zahtev"><i class="fa fa-check"></i><b>17.2.2</b> Zajem zahtev</a></li>
+<li class="chapter" data-level="17.2.3" data-path="P10.html"><a href="P10.html#Bankomat-Analiza"><i class="fa fa-check"></i><b>17.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="17.2.4" data-path="P10.html"><a href="P10.html#Bankomat-Pregledni-nacrt"><i class="fa fa-check"></i><b>17.2.4</b> Pregledni načrt</a></li>
+<li class="chapter" data-level="17.2.5" data-path="P10.html"><a href="P10.html#Bankomat-Podroben-nacrt"><i class="fa fa-check"></i><b>17.2.5</b> Podroben načrt</a></li>
+<li class="chapter" data-level="17.2.6" data-path="P10.html"><a href="P10.html#Bankomat-Implementacija"><i class="fa fa-check"></i><b>17.2.6</b> Implementacija</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="P10.html"><a href="P10.html#Simulacija-projekta"><i class="fa fa-check"></i><b>17.3</b> Simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="P10.html"><a href="P10.html#pravila"><i class="fa fa-check"></i><b>17.3.1</b> Pravila</a></li>
+<li class="chapter" data-level="17.3.2" data-path="P10.html"><a href="P10.html#izračun-točk-simulacije"><i class="fa fa-check"></i><b>17.3.2</b> Izračun točk simulacije</a></li>
+<li class="chapter" data-level="17.3.3" data-path="P10.html"><a href="P10.html#potek-simulacije"><i class="fa fa-check"></i><b>17.3.3</b> Potek simulacije</a></li>
+<li class="chapter" data-level="17.3.4" data-path="P10.html"><a href="P10.html#gradivo"><i class="fa fa-check"></i><b>17.3.4</b> Gradivo</a></li>
+<li class="chapter" data-level="17.3.5" data-path="P10.html"><a href="P10.html#nakljucni-dogodki-simulacije"><i class="fa fa-check"></i><b>17.3.5</b> Naključni dogodki pri simulaciji</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV sklop: Infrastruktura in trendi</b></span></li>
+<li class="chapter" data-level="18" data-path="P11.html"><a href="P11.html"><i class="fa fa-check"></i><b>18</b> <span class="sklop4 oznaka">P11</span> Semantični splet in tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="P11.html"><a href="P11.html#semantični-splet"><i class="fa fa-check"></i><b>18.1</b> Semantični splet</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="P11.html"><a href="P11.html#splet-v-številkah"><i class="fa fa-check"></i><b>18.1.1</b> Splet v številkah</a></li>
+<li class="chapter" data-level="18.1.2" data-path="P11.html"><a href="P11.html#iskalniki-najdejo-le-del-spleta"><i class="fa fa-check"></i><b>18.1.2</b> Iskalniki “najdejo” le del spleta</a></li>
+<li class="chapter" data-level="18.1.3" data-path="P11.html"><a href="P11.html#vloga-svetovnega-spleta"><i class="fa fa-check"></i><b>18.1.3</b> Vloga svetovnega spleta</a></li>
+<li class="chapter" data-level="18.1.4" data-path="P11.html"><a href="P11.html#semantična-integracija-podatkov"><i class="fa fa-check"></i><b>18.1.4</b> Semantična integracija podatkov</a></li>
+<li class="chapter" data-level="18.1.5" data-path="P11.html"><a href="P11.html#primer-organizacije-potovanj"><i class="fa fa-check"></i><b>18.1.5</b> Primer organizacije potovanj</a></li>
+<li class="chapter" data-level="18.1.6" data-path="P11.html"><a href="P11.html#osnova-so-podatki"><i class="fa fa-check"></i><b>18.1.6</b> Osnova so podatki</a></li>
+<li class="chapter" data-level="18.1.7" data-path="P11.html"><a href="P11.html#semantični-splet-1"><i class="fa fa-check"></i><b>18.1.7</b> Semantični splet</a></li>
+<li class="chapter" data-level="18.1.8" data-path="P11.html"><a href="P11.html#web-x"><i class="fa fa-check"></i><b>18.1.8</b> Web X</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="P11.html"><a href="P11.html#tehnologija-veriženja-blokov"><i class="fa fa-check"></i><b>18.2</b> Tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="P11.html"><a href="P11.html#uvod-v-osnovne-pojme"><i class="fa fa-check"></i><b>18.2.1</b> Uvod v osnovne pojme</a></li>
+<li class="chapter" data-level="18.2.2" data-path="P11.html"><a href="P11.html#osnovni-princip-delovanja"><i class="fa fa-check"></i><b>18.2.2</b> Osnovni princip delovanja</a></li>
+<li class="chapter" data-level="18.2.3" data-path="P11.html"><a href="P11.html#zgodovinski-pregled-razvoja-in-trendov-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.3</b> Zgodovinski pregled razvoja in trendov tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.4" data-path="P11.html"><a href="P11.html#mehanizmi-soglasja"><i class="fa fa-check"></i><b>18.2.4</b> Mehanizmi soglasja</a></li>
+<li class="chapter" data-level="18.2.5" data-path="P11.html"><a href="P11.html#področja-uporabe-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.5</b> Področja uporabe tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.6" data-path="P11.html"><a href="P11.html#pametne-pogodbe"><i class="fa fa-check"></i><b>18.2.6</b> Pametne pogodbe</a></li>
+<li class="chapter" data-level="18.2.7" data-path="P11.html"><a href="P11.html#kdaj-uporabiti-tehnologijo-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.7</b> Kdaj uporabiti tehnologijo veriženja blokov?</a></li>
+<li class="chapter" data-level="18.2.8" data-path="P11.html"><a href="P11.html#projekti-na-fakulteti"><i class="fa fa-check"></i><b>18.2.8</b> Projekti na fakulteti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="P12.html"><a href="P12.html"><i class="fa fa-check"></i><b>19</b> <span class="sklop5 oznaka">P12</span> Računalništvo v oblaku, IT varnost in Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="P12.html"><a href="P12.html#računalništvo-v-oblaku"><i class="fa fa-check"></i><b>19.1</b> Računalništvo v oblaku</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="P12.html"><a href="P12.html#izbira-oblačne-storitve"><i class="fa fa-check"></i><b>19.1.1</b> Izbira oblačne storitve</a></li>
+<li class="chapter" data-level="19.1.2" data-path="P12.html"><a href="P12.html#realizacija-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.2</b> Realizacija računalništva v oblaku</a></li>
+<li class="chapter" data-level="19.1.3" data-path="P12.html"><a href="P12.html#virtualizacija"><i class="fa fa-check"></i><b>19.1.3</b> Virtualizacija</a></li>
+<li class="chapter" data-level="19.1.4" data-path="P12.html"><a href="P12.html#modeli-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.4</b> Modeli računalništva v oblaku</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="P12.html"><a href="P12.html#it-varnost"><i class="fa fa-check"></i><b>19.2</b> IT varnost</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="P12.html"><a href="P12.html#napadi"><i class="fa fa-check"></i><b>19.2.1</b> Napadi</a></li>
+<li class="chapter" data-level="19.2.2" data-path="P12.html"><a href="P12.html#najboljše-prakse-protiukrepov"><i class="fa fa-check"></i><b>19.2.2</b> Najboljše prakse protiukrepov</a></li>
+<li class="chapter" data-level="19.2.3" data-path="P12.html"><a href="P12.html#postopek-razkrivanja-ranljivosti"><i class="fa fa-check"></i><b>19.2.3</b> Postopek razkrivanja ranljivosti</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="P12.html"><a href="P12.html#marshmallow-challenge"><i class="fa fa-check"></i><b>19.3</b> Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="P12.html"><a href="P12.html#izziv"><i class="fa fa-check"></i><b>19.3.1</b> Izziv</a></li>
+<li class="chapter" data-level="19.3.2" data-path="P12.html"><a href="P12.html#zaključki"><i class="fa fa-check"></i><b>19.3.2</b> Zaključki</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i>Literatura</a></li>
+<li class="divider"></li>
+<li><a href="https://ucilnica.fri.uni-lj.si/course/view.php?id=54">eUčilnica</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Osnove informacijskih sistemov 2023/2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="P12" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Poglavje 19</span> <span class="sklop5 oznaka">P12</span> Računalništvo v oblaku, IT varnost in Marshmallow challenge<a href="P12.html#P12" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="vrstica">
+<img src="assets/img/ninja/ninja_03_go_right.png">
+<h3>
+<span class="sklop5 oznaka">P12</span>
+</h3>
+</div>
+<div id="računalništvo-v-oblaku" class="section level2 hasAnchor" number="19.1">
+<h2><span class="header-section-number">19.1</span> Računalništvo v oblaku<a href="P12.html#računalništvo-v-oblaku" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology"><i class="fa-brands fa-wikipedia-w"></i>National Institute of Standards and Technology (<strong>NIST</strong>)</a> opredeljuje <strong>računalništvo v oblaku</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Cloud_computing"><i class="fa-brands fa-wikipedia-w"></i>Cloud Computing</a>)</em> je model, ki omogoča mrežni dostop <strong>na zahtevo</strong> do <strong>skupnih nastavljivih</strong> računalniških virov (npr. omrežja, strežniki, pomnilnik, aplikacije in storitev), ki jih lahko z <strong>minimalnim upravljalskim naporom</strong> <strong>hitro zagotovimo</strong> in <strong>sprostimo</strong>.</p>
+<p>Lastnosti računalništva v oblaku:</p>
+<ul>
+<li>samopostrežne storitve na zahtevo <em>(angl. on-demand self-service)</em>,</li>
+<li>širok dostop do omrežja,</li>
+<li>večnajemništvo/združevanje virov <em>(angl. multi-tenancy/resource pooling)</em>,</li>
+<li>elastičnost/agilnost,</li>
+<li>zanesljivost</li>
+<li>obračunavanje porabe <em>(angl. usage/metered billing)</em>.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MS-Exchange"></span>
+<img src="assets/img/MS_Exchange.png" alt="Prednosti uporabe računalništva v oblaku" width="450" />
+<p class="caption">
+Slika 19.1: Prednosti uporabe računalništva v oblaku
+</p>
+</div>
+<div id="izbira-oblačne-storitve" class="section level3 hasAnchor" number="19.1.1">
+<h3><span class="header-section-number">19.1.1</span> Izbira oblačne storitve<a href="P12.html#izbira-oblačne-storitve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri odločanju o oblačni storitvi je treba razmisliti o naslednjih vidikih:</p>
+<ol style="list-style-type: decimal">
+<li>Kaj je <strong>vodilo</strong> za novo paradigmo IT?
+<ul>
+<li>Tehnologija?</li>
+<li>Trg?</li>
+<li>Poslovanje?</li>
+</ul></li>
+<li>Kakšne so <strong>finančne koristi</strong>?
+<ul>
+<li>Capex/Opex?</li>
+<li>Nižji stroški vzdrževanja?</li>
+<li>Pravočasne nadgradnje?</li>
+</ul></li>
+<li>Kakšne so <strong>znane ovire</strong>?
+<ul>
+<li>Zasebni oblak?</li>
+<li>Varnostni cilji?</li>
+<li>Organizacijska strategija?</li>
+</ul></li>
+<li>Kakšni so <strong>dolgoročni kompromisi</strong>?
+<ul>
+<li>Lastništvo podatkov? Zasebnost?</li>
+<li>Pravočasna dosegljivost?</li>
+<li>Stroški migracije? Možnost zaklepanja <em>(angl. lock-in)</em>?</li>
+</ul></li>
+<li>Kakšne so <strong>posledice za prihodke</strong>?
+<ul>
+<li>Priložnosti za stabilen prihodek?</li>
+<li>Freemium ali Premium?</li>
+</ul></li>
+</ol>
+</div>
+<div id="realizacija-računalništva-v-oblaku" class="section level3 hasAnchor" number="19.1.2">
+<h3><span class="header-section-number">19.1.2</span> Realizacija računalništva v oblaku<a href="P12.html#realizacija-računalništva-v-oblaku" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Spletne aplikacije</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Web_application"><i class="fa-brands fa-wikipedia-w"></i>Web applications</a>)</em>,</li>
+<li><strong>Računalniške gruče</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Computer_cluster"><i class="fa-brands fa-wikipedia-w"></i>Computer Clusters</a>)</em>,</li>
+<li><strong>Terminalske storitve</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Terminal_server"><i class="fa-brands fa-wikipedia-w"></i>Terminal Services</a>)</em>,
+<ul>
+<li>predhodnik: <a href="https://en.wikipedia.org/wiki/Remote_Desktop_Services"><i class="fa-brands fa-wikipedia-w"></i>Remoted Desktop Services (<strong>RDS</strong>)</a>,</li>
+<li>temelji na:
+<ul>
+<li>osrednjih računalnikih <em>(angl. mainframe computers)</em> - obdelava in hramba podatkov,</li>
+<li>enostavnih terminalih <em>(angl. dumb terminals)</em> - miška, zaslon,</li>
+<li>multipleksiranje s časovno razdelitvijo - krožna <em>(angl. round robin)</em> raba CPU časa, deljen CPU,</li>
+</ul></li>
+<li><strong>Lahek odjemalec</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Thin_client"><i class="fa-brands fa-wikipedia-w"></i>Thin client</a>)</em> je računalnik oz. računalniški program, ki je pri izpolnjevanju odgovornosti močno odvisen od drugega računalnika (tj. strežnika).</li>
+<li>Spletni tanki odjemalci <em>(angl. Web thin client)</em> zagotavljajo zgolj spletni brskalnik in pri zagotavljanju funkcionalnosti temeljijo zgolj na spletnih aplikacijah. Takšen primer je npr. spletni brskalnik <a href="https://en.wikipedia.org/wiki/Google_Chrome"><i class="fa-brands fa-wikipedia-w"></i>Chrome</a>.</li>
+</ul></li>
+<li><strong>Aplikacijske storitve</strong> <em>(angl. Application Services)</em>,
+<ul>
+<li>uporabljen koncept terminalskih storitev,</li>
+<li>realizacija računalniškega modela aplikacijskega strežnika s tankim odjemalcem,</li>
+<li>tanki odjemalci lahko dostopajo samo do določenih aplikacij,
+<ul>
+<li>v nasprotju s celotnim namiznim okoljem,</li>
+</ul></li>
+<li>aplikacijski strežnik izvaja vso obdelavo in shranjevanje,</li>
+<li>uporabnikom ni treba namestiti aplikacije,
+<ul>
+<li>npr. Photoshop, ki se izvaja v aplikacijski storitvi Creative Cloud,</li>
+</ul></li>
+<li>zanesljivost in licenčni model,</li>
+</ul></li>
+<li><strong>Gostujoče instance</strong> <em>(angl. Hosted Instances)</em>,
+<ul>
+<li>prodaja primerkov operacijskega sistema (OS) v ponudnikovem virtualnem okolju strojne in programske opreme,</li>
+<li>gostovanje v večjih podatkovnih centrih,</li>
+<li>odjemalci lahko:
+<ul>
+<li>kreirajo instance svojega OS v virtualnem okolju ponudnika,</li>
+<li>konfigurirajo instance glede na potrebe,</li>
+<li>plačujejo po odmerjenih količinah,</li>
+</ul></li>
+<li>npr. <a href="https://en.wikipedia.org/wiki/Amazon_Elastic_Compute_Cloud"><i class="fa-brands fa-wikipedia-w"></i>Amazon (Elastic Computing) EC2 v AWS</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_Azure"><i class="fa-brands fa-wikipedia-w"></i>Microsoft Azure</a>,</li>
+<li>ekonomija obsega <em>(angl. <a href="https://en.wikipedia.org/wiki/Economies_of_scale"><i class="fa-brands fa-wikipedia-w"></i>Economies of scale</a>)</em></li>
+</ul></li>
+<li><strong>Gostujoče rešitve</strong> <em>(angl. Hosted Solutions)</em>.</li>
+</ul>
+</div>
+<div id="virtualizacija" class="section level3 hasAnchor" number="19.1.3">
+<h3><span class="header-section-number">19.1.3</span> Virtualizacija<a href="P12.html#virtualizacija" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri prenosu programske opreme iz enega okolja v drugega (še posebej selitev starih sistemov) se moramo spopasti s številnimi izzivi:</p>
+<ul>
+<li>izdelava varnostne kopije podatkov,</li>
+<li>namestitev operacijskega sistema,</li>
+<li>ponovna namestitev programske opreme,</li>
+<li>obnovitev podatkov.</li>
+</ul>
+<p><strong>Virtualizacija</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Virtualization"><i class="fa-brands fa-wikipedia-w"></i>Virtualization</a>)</em> je tehnologija za kreiranje virtualnih različic strojne opreme (npr. strežnika, shrambe, omrežja) ali programske opreme (npr. operacijski sistem), ki delujejo v izoliranem izvajalnem okolju.</p>
+<p>Kot prikazuje tabela <a href="P12.html#tab:vrste-virtualizacije#tab:vrste-virtualizacije">19.1</a>, poznamo več vrst virtualizacije.</p>
+<table class="tabela-manjsa">
+<caption>
+<span id="tab:vrste-virtualizacije">Tabela 19.1: </span>Vrste virtualizacije
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Vrsta
+</th>
+<th style="text-align:left;">
+Opis
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>Virtualizacija shrambe</strong>
+</td>
+<td style="text-align:left;">
+Združevanje več omrežnih naprav za shranjevanje, kar navidezno deluje kot ena enota za shranjevanje.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Virtualizacija strežnika</strong>
+</td>
+<td style="text-align:left;">
+Razdelitev fizičnega strežnika na manjše virtualne strežnike.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Virtualizacija operacijskega sistema</strong>
+</td>
+<td style="text-align:left;">
+Vrsta tehnologije virtualizacije strežnika, ki deluje na plast (jedra) operacijskega sistema.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Virtualizacija omrežja</strong>
+</td>
+<td style="text-align:left;">
+Uporaba omrežnih virov z logično segmentacijo enega fizičnega omrežja.
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hipernadzornik</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Hypervisor"><i class="fa-brands fa-wikipedia-w"></i>Hypervisor</a>)</em> je programska oprema za virtualizacijo (npr. VM manager).</p>
+</div>
+<div id="modeli-računalništva-v-oblaku" class="section level3 hasAnchor" number="19.1.4">
+<h3><span class="header-section-number">19.1.4</span> Modeli računalništva v oblaku<a href="P12.html#modeli-računalništva-v-oblaku" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Na sliki <a href="P12.html#fig:modeli-racunalnistva-v-oblaku#fig:modeli-racunalnistva-v-oblaku">19.2</a> so prikazani različni modeli računalništva v oblaku, v primerjavi s tradicionalnim programskim model oz. paketno programsko opremo.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:modeli-racunalnistva-v-oblaku"></span>
+<img src="assets/img/Model_racunalnistva_v_oblaku.png" alt="Modeli računalništva v oblaku" width="700" />
+<p class="caption">
+Slika 19.2: Modeli računalništva v oblaku
+</p>
+</div>
+<div id="tradicionalni-programski-model" class="section level4 hasAnchor" number="19.1.4.1">
+<h4><span class="header-section-number">19.1.4.1</span> Tradicionalni programski model<a href="P12.html#tradicionalni-programski-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Nakup licence programske opreme in namestitev na odjemalski gostiteljski računalnik.</li>
+<li>Posamezna programska licenca ali omrežna licenca.</li>
+<li>Licenca stranki predstavlja enkratni strošek.</li>
+<li>Prihodnje nadgradnje na novejše različice so lahko brezplačne ali plačljive.</li>
+</ul>
+</div>
+<div id="saas" class="section level4 hasAnchor" number="19.1.4.2">
+<h4><span class="header-section-number">19.1.4.2</span> SaaS<a href="P12.html#saas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Pri <strong>programski opremi kot storitvi</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Software_as_a_service"><i class="fa-brands fa-wikipedia-w"></i>Software as a Service (<strong>SaaS</strong>)</a>)</em> gre za uporabo “na zahtevo”, kjer se plača po uporabi <em>(angl. pay-as-you-go)</em> v določenem pogodbenem obdobju (npr. meseci ali leta). Nekateri SaaS zagotavljajo tudi obračun na podlagi uporabe po minutah.</p>
+<p>Ključne lastnosti:</p>
+<ul>
+<li>Programska oprema ni nameščena na napravah naročnika.</li>
+<li>Naročnikove naprave lahko zgolj vnašajo podatke iz programske opreme samo tako, da se preko interneta povežejo s strežniki ponudnika.</li>
+<li>Uporabniki lahko uporabljajo spletni brskalnik (npr. Google Docs) ali lahek odjemalec (npr. računovodski program).</li>
+<li>Primeri SaaS aplikacij:
+<ul>
+<li>upravljanje odnosov s strankami (CRM),</li>
+<li>računovodstvo (povpraševanje v določenih obdobjih močno naraste, npr. obračun 1x mesečno) in vodenje financ, prodaja,</li>
+<li>elektronska pošta (ker je temeljna tehnologija pogoj za poslovanje, vendar sama po sebi ne daje konkurenčne prednosti), podpora in storitve za stranke.</li>
+</ul></li>
+</ul>
+</div>
+<div id="paas" class="section level4 hasAnchor" number="19.1.4.3">
+<h4><span class="header-section-number">19.1.4.3</span> PaaS<a href="P12.html#paas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Platforma kot storitev</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Platform_as_a_service"><i class="fa-brands fa-wikipedia-w"></i>Platform as a Service (<strong>PaaS</strong>)</a>)</em> omogoča hitro in enostavno izdelavo spletnih aplikacij. Naročnik dobi platformo, kamor lahko preprosto naložijo svoj programsko kodo, brez da bi skrbeli za osnovne težave s strojno opremo in OS. Enostavna realizacija PaaS so skupne spletne storitve. Npr. za <a href="https://en.wikipedia.org/wiki/WordPress"><i class="fa-brands fa-wikipedia-w"></i>WorPpress</a> moramo zgolj najti ponudnika gostovanja, ki podpira <a href="https://en.wikipedia.org/wiki/MySQL"><i class="fa-brands fa-wikipedia-w"></i>MySQL</a> in <a href="https://en.wikipedia.org/wiki/PHP"><i class="fa-brands fa-wikipedia-w"></i>PHP</a>.</p>
+<p>PaaS je še posebej primeren pristop za naslednje scenarije:</p>
+<ul>
+<li>skupinski razvoj programske opreme,</li>
+<li>potreba po avtomatiziranem testiranju in uvedbi,</li>
+<li>agilni razvoj programske opreme.</li>
+</ul>
+<p>PaaS pa ni primeren za naslednje primere:</p>
+<ul>
+<li>aplikacija potrebuje prenosljivost gostovanja,</li>
+<li>lastniški pristopi vplivajo na razvojni proces,</li>
+<li>delovanje aplikacije zahteva prilagajanje osnovne strojne in programske opreme.</li>
+</ul>
+</div>
+<div id="iaas" class="section level4 hasAnchor" number="19.1.4.4">
+<h4><span class="header-section-number">19.1.4.4</span> IaaS<a href="P12.html#iaas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Infrastruktura kot storitev</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Infrastructure_as_a_service"><i class="fa-brands fa-wikipedia-w"></i>Infrastructure as a Service (<strong>IaaS</strong>)</a>)</em> je najbolj primerna za naslednje scenarije:</p>
+<ul>
+<li>zahteve so zelo spremenljive,</li>
+<li>omejena finančna sredstva,</li>
+<li>rastoče podjetje,</li>
+<li>začasna infrastrukturna potreba.</li>
+</ul>
+<p>Bolj previdni pa moramo biti v naslednjih scenarijih:</p>
+<ul>
+<li>potreba po skladnosti s predpisi za shranjevanje in obdelavo podatkov v tujini,</li>
+<li>zahtevane so najvišje stopnje zmogljivosti,</li>
+<li>na voljo je zadostna lokalna ali namenska gostujoča infrastruktura.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="it-varnost" class="section level2 hasAnchor" number="19.2">
+<h2><span class="header-section-number">19.2</span> IT varnost<a href="P12.html#it-varnost" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Varnost</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Computer_security"><i class="fa-brands fa-wikipedia-w"></i>Security</a>)</em> je proces zaščite računalniških sistemov, omrežij in podatkov pred nepooblaščenim dostopom, krajo, spremembo ali uničenjem. Osredotoča se na zagotavljanje zaupnosti, celovitosti in razpoložljivosti podatkov ter zaščito pred škodljivimi dejavniki, kot so hekerji, zlonamerna koda, socialni inženiring idr.</p>
+<p>Dimenzije informacijske varnosti so:</p>
+<ul>
+<li><strong>zaupnost</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Confidentiality"><i class="fa-brands fa-wikipedia-w"></i><strong>C</strong>onfidentiality</a>)</em>, kjer je treba zagotoviti, da so podatki dostopni zgolj pooblaščenim osebam, kar dosežemo s šifriranjem, nadzorom dostopa in uporabe,</li>
+<li><strong>celovitost</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Integrity"><i class="fa-brands fa-wikipedia-w"></i><strong>I</strong>ntegrity</a>)</em> zagotavlja, da se podatki ne spreminjajo ali poškodujejo brez ustreznih pooblastil, kar dosežemo z digitalnimi podpisi, zgoščenimi vrednostmi idr.,</li>
+<li><strong>razpoložljivost</strong> <em>(angl. <strong>A</strong>vailability)</em>, kjer morajo biti podatki in sistem na voljo, ko jih uporabniki potrebujejo, kar dosežemo z redundantnostjo, okrevanjem ob nesrečah in nadzorom obremenitve,</li>
+<li><strong>overjanje</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Authentication"><i class="fa-brands fa-wikipedia-w"></i>Authentication</a>)</em>, kjer preverjamo pristnost uporabnikov in da imajo ustrezna pooblastila za dostop do sistema oz. podatkov,</li>
+<li><strong>zaznava</strong> <em>(angl. Detection)</em> se nanaša na spremljanje in zbiranje informacij o aktivnostih uporabnikov in sistemov.</li>
+</ul>
+<div id="napadi" class="section level3 hasAnchor" number="19.2.1">
+<h3><span class="header-section-number">19.2.1</span> Napadi<a href="P12.html#napadi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="zlonamerna-koda" class="section level4 hasAnchor" number="19.2.1.1">
+<h4><span class="header-section-number">19.2.1.1</span> Zlonamerna koda<a href="P12.html#zlonamerna-koda" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Zlonamerna koda</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Malware"><i class="fa-brands fa-wikipedia-w"></i><strong>Malware</strong></a> = <strong>Mal</strong>icious + Soft<strong>ware</strong>)</em> je programska koda, ki je nastala z namenom povzročitve škode na računalniških sistemih, napravah ali omrežjih. Cilj takšne programske kode je kraja podatkov, uničenje ali spreminjanje podatkov, prekinitev normalnega delovanja sistema, prevzem nadzora nad napravo ali sistemom ipd. Poznam več oblik zlonamerne kode, ki bodo predstavljene v nadaljevanju.</p>
+<div id="virus" class="section level5 hasAnchor" number="19.2.1.1.1">
+<h5><span class="header-section-number">19.2.1.1.1</span> Virus<a href="P12.html#virus" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Virus</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Computer_virus"><i class="fa-brands fa-wikipedia-w"></i>Virus</a>)</em> je računalniški program, ki lahko okuži druge programe. Širi se lahko na različne načine, npr. preko elektronske pošte, datotek ipd.</p>
+<p>Virus deluje tako, da izkorišča varnostne pomanjkljivosti v operacijskem sistemu ali aplikacijah, ki se izvajajo na okuženem sistemu. Ko je sistem okužen, se lahko virus samodejno širi na druge sisteme, ki so povezani v omrežju ali uporabljajo enake medije za prenos datotek.</p>
+<p>Za zaščito pred računalniškimi virusi se priporočajo redne posodobitve programske opreme, namestitev protivirusnega programa in požarnega zidu ter sprejetje drugih varnostnih ukrepov, kot je preprečitev prenosa in odpiranja sumljivih datotek ali programov.</p>
+</div>
+<div id="črv" class="section level5 hasAnchor" number="19.2.1.1.2">
+<h5><span class="header-section-number">19.2.1.1.2</span> Črv<a href="P12.html#črv" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Črv</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Computer_worm"><i class="fa-brands fa-wikipedia-w"></i>Worm</a>)</em> je računalniški program, ki se samodejno razmnožuje in širi preko omrežij in interneta. Črvi se običajno razmnožujejo tako, da se kopirajo in širijo v omrežjih ter izkoriščajo varnostne pomanjkljivosti v programski opremi.</p>
+<p>Črvi se od računalniških virusov razlikujejo po tem, da se lahko širijo preko omrežij brez pomoči uporabnika ali gostitelja. Ko se računalniški črv namesti na računalnik ali napravo, se lahko samodejno kopira in pošilja na druge računalnike ali naprave v omrežju, kar omogoča hitro širjenje in povzročanje velike škode. Primer znanih črvov so: <a href="https://en.wikipedia.org/wiki/Blaster_(computer_worm)"><span style="white-space:nowrap"><i class="fa-brands fa-wikipedia-w"></i>Blaster</span></a>, <a href="https://en.wikipedia.org/wiki/Code_Red_(computer_worm)"><i class="fa-brands fa-wikipedia-w"></i>Code Red</a>, <a href="https://en.wikipedia.org/wiki/Nimda"><i class="fa-brands fa-wikipedia-w"></i>Nimda</a> idr.</p>
+</div>
+<div id="trojanski-konj" class="section level5 hasAnchor" number="19.2.1.1.3">
+<h5><span class="header-section-number">19.2.1.1.3</span> Trojanski konj<a href="P12.html#trojanski-konj" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Trojanski konj</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Trojan_horse_(computing)"><i class="fa-brands fa-wikipedia-w"></i>Trojan horse</a>)</em> se predstavlja kot legitimna programska oprema, v resnici pa ima skrite in zlonamerne funkcionalnosti. Kot pri <a href="https://en.wikipedia.org/wiki/Trojan_Horse"><i class="fa-brands fa-wikipedia-w"></i>grški mitologiji</a>, kjer so Trojanci zgradili lesenega konja, v katerem so bili grški vojaki, je tudi računalniški trojanski konj namenjen vdoru in okužbi računalniških sistemov.</p>
+<p>Trojanski konji se lahko razmnožujejo in širijo preko omrežij, vendar se ne razmnožujejo samodejno kot računalniški virusi ali črvi. Običajno se distribuirajo preko lažnih in zavajajočih sporočil, ki jih pošiljajo hekerji. Ko se trojanski konj izvede na ciljnem sistemu, to ponavadi vključuje funkcionalnosti, kot je kraja podatkov, blokiranje dostopa do pomembnih funkcij sistema, spreminjanje nastavitev sistema, izsiljevanje in celo uničenje podatkov. Še posebej moramo biti previdni pri sprejemanju sumljivih ali neznanih poštnih sporočil, prenosu datotek iz neznanih virov. Primeri znanih trojanskih konjev so: <a href="https://en.wikipedia.org/wiki/Shedun"><i class="fa-brands fa-wikipedia-w"></i>Shedun Trojan</a>, <a href="https://en.wikipedia.org/wiki/Zeus_(malware)"><i class="fa-brands fa-wikipedia-w"></i>Zeus Trojan</a> idr.</p>
+</div>
+<div id="vrivanje-kode" class="section level5 hasAnchor" number="19.2.1.1.4">
+<h5><span class="header-section-number">19.2.1.1.4</span> Vrivanje kode<a href="P12.html#vrivanje-kode" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Vrivanje kode</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Code_injection"><i class="fa-brands fa-wikipedia-w"></i>Code injection</a>)</em> je tehnika, ki hekerju omogoča vrivanje in izvajanje kode v računalniškem programu, brez privolitve ali vedenja uporabnika. Namen je izkoriščanje varnostnih pomanjkljivosti v programski opremi in pridobitev dostopa do sistema ali podatkov.</p>
+<p>Poznamo več vrst vstavljanja kode, kjer so najbolj pogoste vrivanje SQL <em>(angl. <a href="https://en.wikipedia.org/wiki/SQL_injection"><i class="fa-brands fa-wikipedia-w"></i>SQL injection</a>)</em>, vrivanje na spletnih straneh <em>(angl. <a href="https://en.wikipedia.org/wiki/Cross-site_scripting"><i class="fa-brands fa-wikipedia-w"></i>Cross-site scripting (<strong>XSS</strong>)</a>)</em> idr.</p>
+</div>
+<div id="botnet" class="section level5 hasAnchor" number="19.2.1.1.5">
+<h5><span class="header-section-number">19.2.1.1.5</span> Botnet<a href="P12.html#botnet" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><a href="https://en.wikipedia.org/wiki/Botnet"><i class="fa-brands fa-wikipedia-w"></i><strong>Botnet</strong></a> je omrežje računalnikov, ki so okuženi s škodljivimi programi (npr. virus, črv, trojanski konj), s katerimi upravlja heker ali kriminalna skupina. Okuženi računalniki se imenujejo boti, saj pod zunanjim nadzorom delujejo kot roboti brez nadzora lastnika računalnika.</p>
+<p>Boti v botnetu se pogosto uporabljajo za izvajanje zlonamernih aktivnosti, kot so napadi na spletne strani in omrežja (npr. napad z zavrnitvijo storitve <em>(angl. <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack"><i class="fa-brands fa-wikipedia-w"></i>Denial of Service (<strong>DoS</strong>)</a>)</em>), posredovanje nezaželjene elektronske pošte, kraja osebnih podatkov, izsiljevanje idr. Botneti so zelo priljubljeni med kibernetskimi kriminalci, ker omogočajo anonimnost in široko dostopnost številnih računalniških virov za napade.</p>
+<p><strong>Napad z zavrnitvijo storitve</strong> (<strong>DoS</strong>) je vrsta kibernetskega napada, kjer je cil preprečiti uporabo sistema, storitve ali omrežja. Napadalec to doseže s preobremenitvijo sistema, kjer generira veliko število zahtevkov, ki povzročijo, da sistem ne more odgovoriti na legitimne zahteve uporabnikov. Obstaja tudi naprednejša oblika napada DoS, ki se imenuje <strong>porazdeljen napad z zavrnitvijo storitve</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack#Distributed_DoS#Distributed_DoS"><i class="fa-brands fa-wikipedia-w"></i>Distributed Denial of Service (<strong>DDoS</strong>)</a>)</em> in uporablja več botov, ki so del botneta in istočasno napadejo ciljni sistem iz različnih lokacij.</p>
+</div>
+</div>
+<div id="ranljivosti-programske-opreme" class="section level4 hasAnchor" number="19.2.1.2">
+<h4><span class="header-section-number">19.2.1.2</span> Ranljivosti programske opreme<a href="P12.html#ranljivosti-programske-opreme" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="razbijanje-gesla" class="section level5 hasAnchor" number="19.2.1.2.1">
+<h5><span class="header-section-number">19.2.1.2.1</span> Razbijanje gesla<a href="P12.html#razbijanje-gesla" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Razbijanje gesla</strong> <em>(angl. Password crack)</em> je proces ugotavljanja gesla za dostop do sistema s pomočjo namenskih računalniških programov. Cilj je pridobiti dostop do računa, ki ga uporablja druga oseba, brez njenega dovoljenja.</p>
+<p>V sistemih za obvladovanje uporabnikov so gesla ponavadi shranjena v zgoščeni obliki (angl. hash), kjer napadalci z uporabo slovarja ali surove sile poskušajo izkoristiti ranljivosti sistema.</p>
+<p><strong>Napadi z uporabo slovarja</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Dictionary_attack"><i class="fa-brands fa-wikipedia-w"></i>Dictionary attack</a>)</em> uporabljajo seznam najpogostejših gesel ali besed, ki se pogosto uporabljajo, in poskušajo geslo ugotoviti z ujemanjem zapisanih besed z znakovnim nizom gesla. <strong>Napad s surovo silo</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Brute-force_attack"><i class="fa-brands fa-wikipedia-w"></i>Brute force attack</a>)</em> pa poskušajo ugotoviti geslo s preverjanjem vseh možnih kombinacij znakov in številk.</p>
+<p>Za zaščito pred omenjenimi napadi lahko uporabinmo omejevanje števila napačnih poskusov v določenem časovnem obdobju in uporaba znakov, ki so različni od črk in številk.</p>
+</div>
+<div id="prisluškovanje-in-lažno-predstavljanje" class="section level5 hasAnchor" number="19.2.1.2.2">
+<h5><span class="header-section-number">19.2.1.2.2</span> Prisluškovanje in lažno predstavljanje<a href="P12.html#prisluškovanje-in-lažno-predstavljanje" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Prisluškovanje in lažno predstavljanje</strong> <em>(angl. Eavesdropping &amp; impersonation)</em> je ranljivost, ki temelji na identiteti, in je proces prisluškovanja komunikaciji med dvema ali več napravami. Namen prisluškovanja je pridobiti občutljive podatke, kot so gesla, uporabniška imena, finančne podatke idr. Med bolj znane tehnike spadajo: <strong>prestrezanje podatkovnih paketov</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Sniffing_attack"><i class="fa-brands fa-wikipedia-w"></i>packet sniffing</a>)</em>, <strong>ponarejanje</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Spoofing_attack"><i class="fa-brands fa-wikipedia-w"></i>spoofing</a>)</em> (npr. komunikacija prihaja iz drugega naslova IP, ki je lahko lažen), <strong>napad s posrednikom</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack"><i class="fa-brands fa-wikipedia-w"></i>Man-in-the-middle attack</a>)</em> (združuje prestrezanje in ponarejanje).</p>
+</div>
+<div id="socialni-inženiring" class="section level5 hasAnchor" number="19.2.1.2.3">
+<h5><span class="header-section-number">19.2.1.2.3</span> Socialni inženiring<a href="P12.html#socialni-inženiring" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Socialni inženiring</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Social_engineering_(security)"><i class="fa-brands fa-wikipedia-w"></i>Social Engineering</a>)</em> je tehnika, kjer napadalec uporabi psihološke trike, da pridobi zaupne informacije ali dostop do zaščitenih sistemov oz. podatkov. To lahko dosežemo z uporabo različnih metod, npr. <strong>zvabljanje</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Phishing"><i class="fa-brands fa-wikipedia-w"></i>Phishing</a>)</em>, <strong>zavajanje</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Social_engineering_(security)#Baiting#Baiting"><i class="fa-brands fa-wikipedia-w"></i>Baiting</a>)</em> idr.</p>
+<p>Pri <strong>zvabljanju</strong> napadalec pošlje lažno elektronsko sporočilo, za katerega se zdi, da prihaja od zaupanja vrednega pošiljatelja, kot je npr. banka ali podjetje, s katerim je napadeni v stiku. V sporočilo je lahko vključena povezava na lažno spletno stran, ki poskuša pridobiti uporabniška imena, gesla ali kakšne druge občutljive podatke. Cilj je, da napadeni vpiše svoje podatke na lažni strani, ki jih nato napadalec uporabi za krajo identitete ali druge zlonamerne namene.</p>
+<p>Pri <strong>zavajanju</strong> napadalec žrtvi pripravi vabo (npr. prenosni trdi disk), ki ga označi z imenom podjetja in ga pusti na javnem mestu ali v službi. Če napadeni trdi disk priključi na računalnik, se na njem samodejno zažene zlonamerna koda, ki lahko ukrade njegove podatke ali povzroči druge škodljive učinke.</p>
+</div>
+</div>
+</div>
+<div id="najboljše-prakse-protiukrepov" class="section level3 hasAnchor" number="19.2.2">
+<h3><span class="header-section-number">19.2.2</span> Najboljše prakse protiukrepov<a href="P12.html#najboljše-prakse-protiukrepov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>V tabeli <a href="P12.html#tab:protiukrepi#tab:protiukrepi">19.2</a> se nahaja seznam najbolj pogosto uporabljenih protiukrepov v okviru IT varnosti.</p>
+<table class="tabela-manjsa">
+<caption>
+<span id="tab:protiukrepi">Tabela 19.2: </span>Najboljše prakse protiukrepov
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Ukrep
+</th>
+<th style="text-align:left;">
+Opis
+</th>
+<th style="text-align:left;">
+Primer
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>Nadzor dostopa</strong><br><em>(angl. Access Control)</em>
+</td>
+<td style="text-align:left;">
+Omejitev dostopa do sredstev glede na potrebe.
+</td>
+<td style="text-align:left;">
+<ul>
+<li>
+Preverjanje pristnosti (angl. Authentication),
+</li>
+<li>
+dostop na ravni vlog <em>(angl. Role-based privileges)</em>,
+</li>
+<li>
+fizični dostop,
+</li>
+<li>
+sledenje sredstvom <em>(angl. Asset tracking)</em>.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Nadzor aplikacije</strong><br><em>(angl. Application Control)</em>
+</td>
+<td style="text-align:left;">
+Zagotavljanje, da so aplikacije pravilno razvite, nameščene in uporabljane.
+</td>
+<td style="text-align:left;">
+<ul>
+<li>
+Odobritev programske opreme,
+</li>
+<li>
+testiranje programske opreme,
+</li>
+<li>
+pravilna obravnava napak,
+</li>
+<li>
+preverjanje uporabniškega vnosa,
+</li>
+<li>
+nameščanje popravkov.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Nadzor komunikacij</strong><br><em>(angl. Communications Control)</em>
+</td>
+<td style="text-align:left;">
+Zagotavljanje varnega in ustreznega prenosa podatkov.
+</td>
+<td style="text-align:left;">
+<ul>
+<li>
+Onemogočanje neuporabljene programske opreme in naprav,
+</li>
+<li>
+uporaba šifriranja podatkov,
+</li>
+<li>
+nastavitve brezžične povezave,
+</li>
+<li>
+politika prenosa podatkov.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Nadzor delovanja</strong><br><em>(angl. Operations Control)</em>
+</td>
+<td style="text-align:left;">
+Upravljanje delovanja podatkovnega centra za povečanje varnosti.
+</td>
+<td style="text-align:left;">
+<ul>
+<li>
+Filtriranje prometa,
+</li>
+<li>
+upravljanje sprememb,
+</li>
+<li>
+upravljanje zmogljivosti,
+</li>
+<li>
+zaščita pred zlonamerno programsko opremo,
+</li>
+<li>
+postopek varnostnega kopiranja,
+</li>
+<li>
+beleženje in spremljanje dogodkov.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Nadzor človeških virov</strong><br><em>(angl. Human Resource Control)</em>
+</td>
+<td style="text-align:left;">
+Zagotavljanje, da so zaposleni in stranke ustrezni, nadzorovani in usposobljeni.
+</td>
+<td style="text-align:left;">
+<ul>
+<li>
+Preverjanje in spremljanje zaposlenih,
+</li>
+<li>
+ločitev odgovornosti,
+</li>
+<li>
+usposabljanje,
+</li>
+<li>
+pogodbe in politike,
+</li>
+<li>
+spremljanje dobaviteljev.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Nadzor skladnosti</strong><br><em>(angl. Compliance Control)</em>
+</td>
+<td style="text-align:left;">
+Zagotavljanje, da podjetje deluje v skladu s pravili, predpisi in cilji tveganja.
+</td>
+<td style="text-align:left;">
+<ul>
+<li>
+Skladnost s pravnimi predpisi,
+</li>
+<li>
+periodični pregledi in revizije,
+</li>
+<li>
+varnostna organizacija in vloge,
+</li>
+<li>
+pravilno označevanje informacij,
+</li>
+<li>
+varno odstranjevanje informacij.
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Nadzor incidentov</strong><br><em>(angl. Incidence Control)</em>
+</td>
+<td style="text-align:left;">
+Zagotavljanje, da si lahko podjetje opomore pri neizogibnih incidentih, okvarah in kršitvah
+</td>
+<td style="text-align:left;">
+<ul>
+<li>
+Komunikacijski načrt,
+</li>
+<li>
+poročanje o dogodkih,
+</li>
+<li>
+načrt ukrepanja ob incidentu.
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="postopek-razkrivanja-ranljivosti" class="section level3 hasAnchor" number="19.2.3">
+<h3><span class="header-section-number">19.2.3</span> Postopek razkrivanja ranljivosti<a href="P12.html#postopek-razkrivanja-ranljivosti" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Postopek razkrivanja ranljivosti</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Coordinated_vulnerability_disclosure"><i class="fa-brands fa-wikipedia-w"></i>Vulnerability Disclosure Process</a>)</em> je postopek, ki ga podjetja uporabljajo za sporočanje in popravljanje ranljivosti v njihovih programskih izdelkih, sistemih in storitvah. Namen postopka je, da podjetja varnostnim raziskovalcem, etičnim hekerjem in drugim varnostnim strokovnjakom omogočijo sporočanje odkritih ranljivosti, da jih podjetja lahko odpravijo, predenj bi jih izkoristili zlonamerni napadalci.</p>
+<p>Postopek razkrivanja ranljivosti vključuje več korakov, in sicer:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Identifikacija ranljivosti</strong>, kjer raziskovalci odkrijejo in preizkusijo ranljivost v programski opremi ali sistemu podjetja,</li>
+<li><strong>Sporočanje ranljivosti</strong>, kjer raziskovalci kontaktirajo podjetje in jim sporočijo odkrito ranljivost. To lahko storijo preko elektronske pošte, spletnega obrazca ali kakšnega drugega kanala, ki ga zagotovi podjetje.</li>
+<li><strong>Preverjanje ranljivosti</strong>, kjer podjetje preveri odkrito ranljivost, da se prepriča ali je resnična in izvedljiva.</li>
+<li><strong>Ocena ranljivosti</strong>, kjer podjetje oceni resnost in vpliv ranljivosti ter določi rok za popravilo.</li>
+<li><strong>Popravljanje ranljivosti</strong> pomeni, da organizacija razvija in izda popravek ranljivosti.</li>
+<li><strong>Spremljanje</strong>, kjer organizacija spremlja popravljene ranljivosti, da potrdi uspešno odpravljanje.</li>
+</ol>
+<p>Poznamo več načinov postopka razkrivanja ranljivosti, kjer sta najbolj pogosta tista, kjer ločujemo akterja, ki je ranljivost odkril. Na sliki <a href="P12.html#fig:razkrivanje-ranljivosti-napad#fig:razkrivanje-ranljivosti-napad">19.3</a> je prikazan postopek razkrivanja ranljivosti v primeru napada, ko napadalec odkritje objavi na črnem trgu ter nastanejo različne programske rešitve, ki to ranljivost izkoriščajo. Napada se nato zazna šele kasneje v nadzornih sistemih, kjer je ta ranljivost prisotna.</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:razkrivanje-ranljivosti-napad"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/XP5DQiCm48NtEeL85rrb6SWY19AqXIn25YqKIZTZQsohLaPcfFoMtg0zHE-ItgkA4s8vANGZBBzlvhs7NAcf0eQ5J20jSxPBKgarbgLd81Sa92zktHbp1IYxrfJB38n3qIWACrWQ_uGRFp8wfqMOb6aua4MX5KeNlj3wROKY6WDckvxKbea96IA9CVL0kK7vBgHCB2la8tdJUnZtxoU7l-VO9mNxMIzJryfWu5ReZHqEvRhG7iL7d6BfC0LtChfO-LpZVmTeBO7KMnv7r6MX8t2n_fX6D6KxSrMozc_OaU3adNQfNI5lPTCWXlUVJ3gyLbxJuuFZ3BX47qFJNMbP_tpllu1EU-ytbR7QWzUMOlG5TWGa2IfGSlLA16fdWqKXdGulkD15FJxoFZZD4uSSmarfPac7SgWUjmVAnMb5qw7R7ROojfLMfWYx5kDBhVwNvnS0" alt="Postopek razkrivanja ranljivosti v primeru napada PlantUML." width="150" />
+<p class="caption">
+Slika 19.3: Postopek razkrivanja ranljivosti v primeru <strong>napada</strong> <a href="https://teaching.lavbic.net/plantuml/uml/XP5DQiCm48NtEeL85rrb6SWY19AqXIn25YqKIZTZQsohLaPcfFoMtg0zHE-ItgkA4s8vANGZBBzlvhs7NAcf0eQ5J20jSxPBKgarbgLd81Sa92zktHbp1IYxrfJB38n3qIWACrWQ_uGRFp8wfqMOb6aua4MX5KeNlj3wROKY6WDckvxKbea96IA9CVL0kK7vBgHCB2la8tdJUnZtxoU7l-VO9mNxMIzJryfWu5ReZHqEvRhG7iL7d6BfC0LtChfO-LpZVmTeBO7KMnv7r6MX8t2n_fX6D6KxSrMozc_OaU3adNQfNI5lPTCWXlUVJ3gyLbxJuuFZ3BX47qFJNMbP_tpllu1EU-ytbR7QWzUMOlG5TWGa2IfGSlLA16fdWqKXdGulkD15FJxoFZZD4uSSmarfPac7SgWUjmVAnMb5qw7R7ROojfLMfWYx5kDBhVwNvnS0"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+<p>Slika <a href="P12.html#fig:razkrivanje-ranljivosti-strokovnjak-za-varnost#fig:razkrivanje-ranljivosti-strokovnjak-za-varnost">19.4</a> pa prikazuje postopek razkrivanja ranljivosti v primeru, ko ranljivost odkrije strokovnjak za varnost. V tem primeru je pred javnim razkritjem možnih več pristopov. Pri popolnem razkritju se ranljivost neposredno posreduje v javnosti. Pri odgovornem razkritju se pred javnim razkritjem obvesti tudi proizvajalca in se mu omogoči, da ranljivost predhodno odpravi. Pri razkritju na trgu pa se poleg proizvajalca obvesti še naročnike izbrane platforme (npr. <a href="https://intelgraph.idefense.com/"><span style="white-space:nowrap"><i class="fa-solid fa-earth-europe"></i>iDefense</span></a>).</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:razkrivanje-ranljivosti-strokovnjak-za-varnost"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/bPBFJjmm48VlVWeB3gKhqHiI1xHITu5AbLfMor8kN2Rs96jYF67iP86gZy1RzS4moPRy8Lk9IsJbzytdcKbyRbm137So0PLdJANJYYon30pEnmXT49_y6-RNe6bZN2PJi1v5csXCeRHXXG_XgpMPkukLKiK7ibWRZTB74r9uB51qoe2PDlFwoiJ67ZeHemhWCelojv0o8TR83Rb_T3uxFfk_ldrhUvlWSNgKwlV9oOclC5YQJkLcRGAAFzqkIeyA_FQYWVAwniSRw4b01U9PXneEr003VTEDQ8VTkz0vct2BUnAyF3LUKONyADi9kl1aig22h2F9yDJKJIOtxi0L_4NEhhwj6Eu_rwRpqjfNcoLVClOT5pgZYdZSCZzRhXh54dr1pfl4uYxJyb-zT11_egniFUOKKtGU6zSFu1p3kEOxLDrMQdvH9jQebj-nZmMJUQhW5YogkkuNEXtNF4x_1AQ_pyxafcOloyGhDWcoxnQ8zYCS7aw7Y-o7uolgC-z6xniZ4w7Xl6BKl8CTtl11vNIxjJ7F_xFE1by0" alt="Postopek razkrivanja ranljivosti v primeru strokovnjaka za varnost PlantUML." width="500" />
+<p class="caption">
+Slika 19.4: Postopek razkrivanja ranljivosti v primeru <strong>strokovnjaka za varnost</strong> <a href="https://teaching.lavbic.net/plantuml/uml/bPBFJjmm48VlVWeB3gKhqHiI1xHITu5AbLfMor8kN2Rs96jYF67iP86gZy1RzS4moPRy8Lk9IsJbzytdcKbyRbm137So0PLdJANJYYon30pEnmXT49_y6-RNe6bZN2PJi1v5csXCeRHXXG_XgpMPkukLKiK7ibWRZTB74r9uB51qoe2PDlFwoiJ67ZeHemhWCelojv0o8TR83Rb_T3uxFfk_ldrhUvlWSNgKwlV9oOclC5YQJkLcRGAAFzqkIeyA_FQYWVAwniSRw4b01U9PXneEr003VTEDQ8VTkz0vct2BUnAyF3LUKONyADi9kl1aig22h2F9yDJKJIOtxi0L_4NEhhwj6Eu_rwRpqjfNcoLVClOT5pgZYdZSCZzRhXh54dr1pfl4uYxJyb-zT11_egniFUOKKtGU6zSFu1p3kEOxLDrMQdvH9jQebj-nZmMJUQhW5YogkkuNEXtNF4x_1AQ_pyxafcOloyGhDWcoxnQ8zYCS7aw7Y-o7uolgC-z6xniZ4w7Xl6BKl8CTtl11vNIxjJ7F_xFE1by0"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+</div>
+<div id="marshmallow-challenge" class="section level2 hasAnchor" number="19.3">
+<h2><span class="header-section-number">19.3</span> Marshmallow challenge<a href="P12.html#marshmallow-challenge" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="izziv" class="section level3 hasAnchor" number="19.3.1">
+<h3><span class="header-section-number">19.3.1</span> Izziv<a href="P12.html#izziv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Na voljo imate pripomočke, prikazane na sliki <a href="P12.html#fig:slika-Marshmallow-pripomocki#fig:slika-Marshmallow-pripomocki">19.5</a>, in vaša naloga je <strong>zgraditi najvišjo prosto stoječo strukturo</strong>. Za izdelavo imate na voljo <strong>18 min</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Marshmallow-pripomocki"></span>
+<img src="assets/img/Marshmallow_pripomocki.png" alt="Marshmallow pripomočki" width="450" />
+<p class="caption">
+Slika 19.5: Marshmallow pripomočki
+</p>
+</div>
+<p>Višina strukture se izmeri od vznožja strukture do vrha <strong>marshmallowa</strong>, ki mora biti <strong>v celoti na vrhu</strong>. Pri gradnji morate <strong>obvezno uporabiti Marshmallow</strong>, uporaba špagetov, samolepilnega traku in vrvice je opcijska. Špagete, trak in vrvico lahko prosto lomite oz. režete.</p>
+</div>
+<div id="zaključki" class="section level3 hasAnchor" number="19.3.2">
+<h3><span class="header-section-number">19.3.2</span> Zaključki<a href="P12.html#zaključki" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="prototipiranje" class="section level4 hasAnchor" number="19.3.2.1">
+<h4><span class="header-section-number">19.3.2.1</span> Prototipiranje<a href="P12.html#prototipiranje" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+
+</div>
+<div id="različne-spretnosti" class="section level4 hasAnchor" number="19.3.2.2">
+<h4><span class="header-section-number">19.3.2.2</span> Različne spretnosti<a href="P12.html#različne-spretnosti" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+
+</div>
+<div id="spodbude" class="section level4 hasAnchor" number="19.3.2.3">
+<h4><span class="header-section-number">19.3.2.3</span> Spodbude<a href="P12.html#spodbude" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    $("a").click(function(e) {
+      if (
+        $(this).has(".fa-solid").length == 1 || 
+        $(this).has(".fa-brands").length == 1 || 
+        $(this).has(".fa-regular").length == 1 || 
+        $(this).has("img.git").length == 1
+      ) {
+        e.preventDefault();
+        window.open($(this).attr("href"), '_blank');
+      }
+    });
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6109Y2092"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6109Y2092');
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="P11.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="literatura.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/lib/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

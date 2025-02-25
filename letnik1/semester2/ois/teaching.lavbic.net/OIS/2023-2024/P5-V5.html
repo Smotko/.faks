@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Poglavje 11 P5 → V5 Povezovanje na podatkovno bazo | Osnove informacijskih sistemov 2023/2024</title>
+  <meta name="description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Poglavje 11 P5 → V5 Povezovanje na podatkovno bazo | Osnove informacijskih sistemov 2023/2024" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Poglavje 11 P5 → V5 Povezovanje na podatkovno bazo | Osnove informacijskih sistemov 2023/2024" />
+  
+  <meta name="twitter:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+<meta name="author" content="izr. prof. dr. Dejan Lavbič" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="P5.html"/>
+<link rel="next" href="P6.html"/>
+<script src="assets/lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/lib/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/lib/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style/stil.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#terminski-plan-izvajanja-predmeta">OIS 2023/2024 terminski plan</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Uvod</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#splošne-informacije"><i class="fa fa-check"></i>Splošne informacije</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavatelj"><i class="fa fa-check"></i>Predavatelj</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#asistent"><i class="fa fa-check"></i>Asistent</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminski-plan-izvajanja-predmeta"><i class="fa fa-check"></i>Terminski plan izvajanja predmeta</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pravila-igre"><i class="fa fa-check"></i>Pravila igre</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavanja"><i class="fa fa-check"></i>Predavanja</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#vaje"><i class="fa fa-check"></i>Vaje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ocenjevanje"><i class="fa fa-check"></i>Ocenjevanje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pisni-izpiti"><i class="fa fa-check"></i>Pisni izpiti</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#priporočena-literatura"><i class="fa fa-check"></i>Priporočena literatura</a></li>
+</ul></li>
+<li class="part"><span><b>I sklop: Poslovni informacijski sistemi in upravljanje informatike</b></span></li>
+<li class="chapter" data-level="1" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>1</b> <span class="sklop1 oznaka">P1</span> Upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="P1.html"><a href="P1.html#ogrodje-digitalne-preobrazbe"><i class="fa fa-check"></i><b>1.1</b> Ogrodje digitalne preobrazbe</a></li>
+<li class="chapter" data-level="1.2" data-path="P1.html"><a href="P1.html#uvod-1"><i class="fa fa-check"></i><b>1.2</b> Uvod</a></li>
+<li class="chapter" data-level="1.3" data-path="P1.html"><a href="P1.html#upravljanje-it-in-vloga-informatike"><i class="fa fa-check"></i><b>1.3</b> Upravljanje IT in vloga informatike</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="P1.html"><a href="P1.html#vloga-vodstva-pri-upravljanju-it"><i class="fa fa-check"></i><b>1.3.1</b> Vloga vodstva pri upravljanju IT</a></li>
+<li class="chapter" data-level="1.3.2" data-path="P1.html"><a href="P1.html#ključna-vprašanja-o-it"><i class="fa fa-check"></i><b>1.3.2</b> Ključna vprašanja o IT</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="P1.html"><a href="P1.html#ogrodje-za-upravljanje-it"><i class="fa fa-check"></i><b>1.4</b> Ogrodje za upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="P1.html"><a href="P1.html#ključne-odločitve"><i class="fa fa-check"></i><b>1.4.1</b> Ključne odločitve</a></li>
+<li class="chapter" data-level="1.4.2" data-path="P1.html"><a href="P1.html#ključni-odločevalci"><i class="fa fa-check"></i><b>1.4.2</b> Ključni odločevalci</a></li>
+<li class="chapter" data-level="1.4.3" data-path="P1.html"><a href="P1.html#strukture-in-procesi-odločanja"><i class="fa fa-check"></i><b>1.4.3</b> Strukture in procesi odločanja</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="P1-V1.html"><a href="P1-V1.html"><i class="fa fa-check"></i><b>2</b> <span class="sklop1 oznaka">P1</span> → <span class="sklop3 oznaka">V1</span> Obvladovanje verzij</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="P1-V1.html"><a href="P1-V1.html#zgodovina-vcs"><i class="fa fa-check"></i><b>2.1</b> Zgodovina VCS</a></li>
+<li class="chapter" data-level="2.2" data-path="P1-V1.html"><a href="P1-V1.html#osnovne-operacije-vcs"><i class="fa fa-check"></i><b>2.2</b> Osnovne operacije VCS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="P1-V1.html"><a href="P1-V1.html#VCS-create"><i class="fa fa-check"></i><b>2.2.1</b> Create</a></li>
+<li class="chapter" data-level="2.2.2" data-path="P1-V1.html"><a href="P1-V1.html#VCS-checkout"><i class="fa fa-check"></i><b>2.2.2</b> Checkout</a></li>
+<li class="chapter" data-level="2.2.3" data-path="P1-V1.html"><a href="P1-V1.html#VCS-commit"><i class="fa fa-check"></i><b>2.2.3</b> Commit</a></li>
+<li class="chapter" data-level="2.2.4" data-path="P1-V1.html"><a href="P1-V1.html#VCS-update"><i class="fa fa-check"></i><b>2.2.4</b> Update</a></li>
+<li class="chapter" data-level="2.2.5" data-path="P1-V1.html"><a href="P1-V1.html#VCS-add"><i class="fa fa-check"></i><b>2.2.5</b> Add</a></li>
+<li class="chapter" data-level="2.2.6" data-path="P1-V1.html"><a href="P1-V1.html#VCS-edit"><i class="fa fa-check"></i><b>2.2.6</b> Edit</a></li>
+<li class="chapter" data-level="2.2.7" data-path="P1-V1.html"><a href="P1-V1.html#VCS-delete"><i class="fa fa-check"></i><b>2.2.7</b> Delete</a></li>
+<li class="chapter" data-level="2.2.8" data-path="P1-V1.html"><a href="P1-V1.html#VCS-rename"><i class="fa fa-check"></i><b>2.2.8</b> Rename</a></li>
+<li class="chapter" data-level="2.2.9" data-path="P1-V1.html"><a href="P1-V1.html#VCS-move"><i class="fa fa-check"></i><b>2.2.9</b> Move</a></li>
+<li class="chapter" data-level="2.2.10" data-path="P1-V1.html"><a href="P1-V1.html#VCS-status"><i class="fa fa-check"></i><b>2.2.10</b> Status</a></li>
+<li class="chapter" data-level="2.2.11" data-path="P1-V1.html"><a href="P1-V1.html#VCS-diff"><i class="fa fa-check"></i><b>2.2.11</b> Diff</a></li>
+<li class="chapter" data-level="2.2.12" data-path="P1-V1.html"><a href="P1-V1.html#VCS-revert"><i class="fa fa-check"></i><b>2.2.12</b> Revert</a></li>
+<li class="chapter" data-level="2.2.13" data-path="P1-V1.html"><a href="P1-V1.html#VCS-log"><i class="fa fa-check"></i><b>2.2.13</b> Log</a></li>
+<li class="chapter" data-level="2.2.14" data-path="P1-V1.html"><a href="P1-V1.html#VCS-tag"><i class="fa fa-check"></i><b>2.2.14</b> Tag</a></li>
+<li class="chapter" data-level="2.2.15" data-path="P1-V1.html"><a href="P1-V1.html#VCS-branch"><i class="fa fa-check"></i><b>2.2.15</b> Branch</a></li>
+<li class="chapter" data-level="2.2.16" data-path="P1-V1.html"><a href="P1-V1.html#VCS-merge"><i class="fa fa-check"></i><b>2.2.16</b> Merge</a></li>
+<li class="chapter" data-level="2.2.17" data-path="P1-V1.html"><a href="P1-V1.html#VCS-resolve"><i class="fa fa-check"></i><b>2.2.17</b> Resolve</a></li>
+<li class="chapter" data-level="2.2.18" data-path="P1-V1.html"><a href="P1-V1.html#VCS-lock"><i class="fa fa-check"></i><b>2.2.18</b> Lock</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="P1-V1.html"><a href="P1-V1.html#posebnosti-dvcs"><i class="fa fa-check"></i><b>2.3</b> Posebnosti DVCS</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="P1-V1.html"><a href="P1-V1.html#clone"><i class="fa fa-check"></i><b>2.3.1</b> Clone</a></li>
+<li class="chapter" data-level="2.3.2" data-path="P1-V1.html"><a href="P1-V1.html#primerjava-cvcs-in-dvcs"><i class="fa fa-check"></i><b>2.3.2</b> Primerjava CVCS in DVCS</a></li>
+<li class="chapter" data-level="2.3.3" data-path="P1-V1.html"><a href="P1-V1.html#push"><i class="fa fa-check"></i><b>2.3.3</b> Push</a></li>
+<li class="chapter" data-level="2.3.4" data-path="P1-V1.html"><a href="P1-V1.html#pull"><i class="fa fa-check"></i><b>2.3.4</b> Pull</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="P1-V1.html"><a href="P1-V1.html#dobre-prakse-uporabe-git"><i class="fa fa-check"></i><b>2.4</b> Dobre prakse uporabe Git</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="P1-V1.html"><a href="P1-V1.html#osrednji-repozitorij-in-sodelovanje-med-skupinami"><i class="fa fa-check"></i><b>2.4.1</b> Osrednji repozitorij in sodelovanje med skupinami</a></li>
+<li class="chapter" data-level="2.4.2" data-path="P1-V1.html"><a href="P1-V1.html#razdelitev-po-vejah-razvoja"><i class="fa fa-check"></i><b>2.4.2</b> Razdelitev po vejah razvoja</a></li>
+<li class="chapter" data-level="2.4.3" data-path="P1-V1.html"><a href="P1-V1.html#sporočila-uveljavitev"><i class="fa fa-check"></i><b>2.4.3</b> Sporočila uveljavitev</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="P1-V1.html"><a href="P1-V1.html#dodatno-gradivo"><i class="fa fa-check"></i><b>2.5</b> Dodatno gradivo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="P2.html"><a href="P2.html"><i class="fa fa-check"></i><b>3</b> <span class="sklop1 oznaka">P2</span> Delovni model, arhitektura podjetja in vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="P2.html"><a href="P2.html#delovni-model-in-zrelost-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1</b> Delovni model in zrelost arhitekture podjetja</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="P2.html"><a href="P2.html#delovni-model"><i class="fa fa-check"></i><b>3.1.1</b> Delovni model</a></li>
+<li class="chapter" data-level="3.1.2" data-path="P2.html"><a href="P2.html#arhitektura-podjetja"><i class="fa fa-check"></i><b>3.1.2</b> Arhitektura podjetja</a></li>
+<li class="chapter" data-level="3.1.3" data-path="P2.html"><a href="P2.html#posledice-zrelosti-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1.3</b> Posledice zrelosti arhitekture podjetja</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="P2.html"><a href="P2.html#vrednotenje-naložb"><i class="fa fa-check"></i><b>3.2</b> Vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="P2.html"><a href="P2.html#parametrični-pristop-od-zgoraj-navzdol"><i class="fa fa-check"></i><b>3.2.1</b> Parametrični pristop od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.2" data-path="P2.html"><a href="P2.html#pristop-od-spodaj-navzgor"><i class="fa fa-check"></i><b>3.2.2</b> Pristop od spodaj navzgor</a></li>
+<li class="chapter" data-level="3.2.3" data-path="P2.html"><a href="P2.html#ocena-proračuna"><i class="fa fa-check"></i><b>3.2.3</b> Ocena proračuna</a></li>
+<li class="chapter" data-level="3.2.4" data-path="P2.html"><a href="P2.html#ocena-proracuna-s-pristopm-navzdol"><i class="fa fa-check"></i><b>3.2.4</b> Primer ocene proračuna s pristopom od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.5" data-path="P2.html"><a href="P2.html#UCP"><i class="fa fa-check"></i><b>3.2.5</b> Formalna metoda za ocenjevanje stroškov programske opreme</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="P2.html"><a href="P2.html#nematerialne-koristi"><i class="fa fa-check"></i><b>3.3</b> Nematerialne koristi</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="P2.html"><a href="P2.html#zmogljivost-informacijske-tehnologije"><i class="fa fa-check"></i><b>3.3.1</b> Zmogljivost informacijske tehnologije</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="P2-V3.html"><a href="P2-V3.html"><i class="fa fa-check"></i><b>4</b> <span class="sklop1 oznaka">P2</span> → <span class="sklop3 oznaka">V3</span> Uvod v HTML in CSS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="P2-V3.html"><a href="P2-V3.html#html"><i class="fa fa-check"></i><b>4.1</b> HTML</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki"><i class="fa fa-check"></i><b>4.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.1.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek"><i class="fa fa-check"></i><b>4.1.2</b> Zaključek</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="P2-V3.html"><a href="P2-V3.html#CSS"><i class="fa fa-check"></i><b>4.2</b> CSS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki-1"><i class="fa fa-check"></i><b>4.2.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.2.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek-1"><i class="fa fa-check"></i><b>4.2.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="P3.html"><a href="P3.html"><i class="fa fa-check"></i><b>5</b> <span class="sklop1 oznaka">P3</span> Tveganja, IT naložbeni portfelj in povračilo sredstev</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="P3.html"><a href="P3.html#tveganja-pri-projektih-it"><i class="fa fa-check"></i><b>5.1</b> Tveganja pri projektih IT</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="P3.html"><a href="P3.html#upoštevanje-tveganja-pri-vrednotenju-naložb-v-it"><i class="fa fa-check"></i><b>5.1.1</b> Upoštevanje tveganja pri vrednotenju naložb v IT</a></li>
+<li class="chapter" data-level="5.1.2" data-path="P3.html"><a href="P3.html#kako-podjetja-upoštevajo-tveganja"><i class="fa fa-check"></i><b>5.1.2</b> Kako podjetja upoštevajo tveganja?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="P3.html"><a href="P3.html#pristop-z-opcijami-pri-naložbah-v-it"><i class="fa fa-check"></i><b>5.2</b> Pristop z opcijami pri naložbah v IT</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="P3.html"><a href="P3.html#primer-starbuck"><i class="fa fa-check"></i><b>5.2.1</b> Primer Starbuck</a></li>
+<li class="chapter" data-level="5.2.2" data-path="P3.html"><a href="P3.html#primer-opcije"><i class="fa fa-check"></i><b>5.2.2</b> Primer implementacije sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="P3.html"><a href="P3.html#ogrodje-za-vrednotenje-naložb-v-it"><i class="fa fa-check"></i><b>5.3</b> Ogrodje za vrednotenje naložb v IT</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="P3.html"><a href="P3.html#pasti-prekinitve"><i class="fa fa-check"></i><b>5.3.1</b> Pasti prekinitve</a></li>
+<li class="chapter" data-level="5.3.2" data-path="P3.html"><a href="P3.html#pasti-odložitve"><i class="fa fa-check"></i><b>5.3.2</b> Pasti odložitve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="P3.html"><a href="P3.html#it-naložbeni-portfelj"><i class="fa fa-check"></i><b>5.4</b> IT naložbeni portfelj</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="P3.html"><a href="P3.html#upravljanje-portfelja-it"><i class="fa fa-check"></i><b>5.4.1</b> Upravljanje portfelja IT</a></li>
+<li class="chapter" data-level="5.4.2" data-path="P3.html"><a href="P3.html#lastnosti-različnih-skupin-sredstev-it"><i class="fa fa-check"></i><b>5.4.2</b> Lastnosti različnih skupin sredstev IT</a></li>
+<li class="chapter" data-level="5.4.3" data-path="P3.html"><a href="P3.html#strateška-usmeritev-in-upravljanje-portfelja"><i class="fa fa-check"></i><b>5.4.3</b> Strateška usmeritev in upravljanje portfelja</a></li>
+<li class="chapter" data-level="5.4.4" data-path="P3.html"><a href="P3.html#proces-upravljanja-portfelja-it"><i class="fa fa-check"></i><b>5.4.4</b> Proces upravljanja portfelja IT</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="P3.html"><a href="P3.html#povračilo-sredstev-za-it"><i class="fa fa-check"></i><b>5.5</b> Povračilo sredstev za IT</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="P3.html"><a href="P3.html#razumevanje-izziva-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.1</b> Razumevanje izziva povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.2" data-path="P3.html"><a href="P3.html#različni-pristopi-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.2</b> Različni pristopi povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.3" data-path="P3.html"><a href="P3.html#posledice-povračil-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.3</b> Posledice povračil sredstev za IT</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="P3-V3.html"><a href="P3-V3.html"><i class="fa fa-check"></i><b>6</b> <span class="sklop1 oznaka">P3</span> → <span class="sklop3 oznaka">V3</span> JavaScript na strani odjemalca</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="P3-V3.html"><a href="P3-V3.html#JavaScript"><i class="fa fa-check"></i><b>6.1</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="P3-V3.html"><a href="P3-V3.html#gradniki-2"><i class="fa fa-check"></i><b>6.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="6.1.2" data-path="P3-V3.html"><a href="P3-V3.html#zaključek-2"><i class="fa fa-check"></i><b>6.1.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="P4.html"><a href="P4.html"><i class="fa fa-check"></i><b>7</b> <span class="sklop1 oznaka">P4</span> Upravljanje sprememb, IS, podatek, informacija, znanje</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="P4.html"><a href="P4.html#upravljanje-sprememb"><i class="fa fa-check"></i><b>7.1</b> Upravljanje sprememb</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="P4.html"><a href="P4.html#razumevanje-odpora-uporabnikov"><i class="fa fa-check"></i><b>7.1.1</b> Razumevanje odpora uporabnikov</a></li>
+<li class="chapter" data-level="7.1.2" data-path="P4.html"><a href="P4.html#odpor-uporabnikov-do-sprememb-perspektiva-pristranskosti"><i class="fa fa-check"></i><b>7.1.2</b> Odpor uporabnikov do sprememb: perspektiva pristranskosti</a></li>
+<li class="chapter" data-level="7.1.3" data-path="P4.html"><a href="P4.html#model-prilagajanja-uporabniku"><i class="fa fa-check"></i><b>7.1.3</b> Model prilagajanja uporabniku</a></li>
+<li class="chapter" data-level="7.1.4" data-path="P4.html"><a href="P4.html#različni-modeli-sprejetosti-uporabnikov"><i class="fa fa-check"></i><b>7.1.4</b> Različni modeli sprejetosti uporabnikov</a></li>
+<li class="chapter" data-level="7.1.5" data-path="P4.html"><a href="P4.html#ključni-vzvodi-pri-uvajanju-informacijskega-sistema"><i class="fa fa-check"></i><b>7.1.5</b> Ključni vzvodi pri uvajanju informacijskega sistema</a></li>
+<li class="chapter" data-level="7.1.6" data-path="P4.html"><a href="P4.html#kako-učinkovito-uvesti-spremembe-kritični-dejavniki-uspeha"><i class="fa fa-check"></i><b>7.1.6</b> Kako učinkovito uvesti spremembe: kritični dejavniki uspeha</a></li>
+<li class="chapter" data-level="7.1.7" data-path="P4.html"><a href="P4.html#primerjava-evolucijske-in-revolucionarne-spremembe"><i class="fa fa-check"></i><b>7.1.7</b> Primerjava evolucijske in revolucionarne spremembe</a></li>
+<li class="chapter" data-level="7.1.8" data-path="P4.html"><a href="P4.html#projektno-vodenje-v-primerjavi-z-učnim-pristopom"><i class="fa fa-check"></i><b>7.1.8</b> Projektno vodenje v primerjavi z učnim pristopom</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="P4.html"><a href="P4.html#sistem"><i class="fa fa-check"></i><b>7.2</b> Sistem</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="P4.html"><a href="P4.html#opredelitve-osnovnih-pojmov"><i class="fa fa-check"></i><b>7.2.1</b> Opredelitve osnovnih pojmov</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="P4.html"><a href="P4.html#podatek-informacija-in-znanje"><i class="fa fa-check"></i><b>7.3</b> Podatek, informacija in znanje</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="P4.html"><a href="P4.html#podatek-in-informacija"><i class="fa fa-check"></i><b>7.3.1</b> Podatek in informacija</a></li>
+<li class="chapter" data-level="7.3.2" data-path="P4.html"><a href="P4.html#značilnosti-informacij"><i class="fa fa-check"></i><b>7.3.2</b> Značilnosti informacij</a></li>
+<li class="chapter" data-level="7.3.3" data-path="P4.html"><a href="P4.html#raziskava-o-kakovosti-informacij"><i class="fa fa-check"></i><b>7.3.3</b> Raziskava o kakovosti informacij</a></li>
+<li class="chapter" data-level="7.3.4" data-path="P4.html"><a href="P4.html#znanje"><i class="fa fa-check"></i><b>7.3.4</b> Znanje</a></li>
+<li class="chapter" data-level="7.3.5" data-path="P4.html"><a href="P4.html#povezanost-podatka-informacije-in-znanja"><i class="fa fa-check"></i><b>7.3.5</b> Povezanost podatka, informacije in znanja</a></li>
+<li class="chapter" data-level="7.3.6" data-path="P4.html"><a href="P4.html#primeri-interpretacij-informacij"><i class="fa fa-check"></i><b>7.3.6</b> Primeri interpretacij informacij</a></li>
+<li class="chapter" data-level="7.3.7" data-path="P4.html"><a href="P4.html#znanje-vs.-védenje"><i class="fa fa-check"></i><b>7.3.7</b> Znanje vs. védenje</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="P4-V4.html"><a href="P4-V4.html"><i class="fa fa-check"></i><b>8</b> <span class="sklop1 oznaka">P4</span> → <span class="sklop3 oznaka">V4</span> Odjemalec/strežnik in Node.js</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="P4-V4.html"><a href="P4-V4.html#razvoj-enostavnega-spletnega-strežnika"><i class="fa fa-check"></i><b>8.1</b> Razvoj enostavnega spletnega strežnika</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="P4-V4.html"><a href="P4-V4.html#hello-world"><i class="fa fa-check"></i><b>8.1.1</b> Hello World</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="P4-V4.html"><a href="P4-V4.html#spremenljivke-na-strežniku"><i class="fa fa-check"></i><b>8.2</b> Spremenljivke na strežniku</a></li>
+<li class="chapter" data-level="8.3" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-statičnih-spletnih-strani"><i class="fa fa-check"></i><b>8.3</b> Strežnik statičnih spletnih strani</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="P4-V4.html"><a href="P4-V4.html#knjižnice-ki-jih-bo-naš-projekt-uporabljal"><i class="fa fa-check"></i><b>8.3.1</b> Knjižnice, ki jih bo naš projekt uporabljal</a></li>
+<li class="chapter" data-level="8.3.2" data-path="P4-V4.html"><a href="P4-V4.html#uvoz-statičnih-datotek"><i class="fa fa-check"></i><b>8.3.2</b> Uvoz statičnih datotek</a></li>
+<li class="chapter" data-level="8.3.3" data-path="P4-V4.html"><a href="P4-V4.html#začnemo-s-pisanjem-kode-na-strežniku"><i class="fa fa-check"></i><b>8.3.3</b> Začnemo s pisanjem kode na strežniku</a></li>
+<li class="chapter" data-level="8.3.4" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-objekt-strežnika-in-ga-osnovno-nastavimo"><i class="fa fa-check"></i><b>8.3.4</b> Pripravimo objekt strežnika in ga osnovno nastavimo</a></li>
+<li class="chapter" data-level="8.3.5" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-poženemo"><i class="fa fa-check"></i><b>8.3.5</b> Strežnik poženemo</a></li>
+<li class="chapter" data-level="8.3.6" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-še-manjkajočo-metodo-za-strežbo-statične-vsebine"><i class="fa fa-check"></i><b>8.3.6</b> Pripravimo še manjkajočo metodo za strežbo statične vsebine</a></li>
+<li class="chapter" data-level="8.3.7" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-metodo-za-obvladovanje-napak"><i class="fa fa-check"></i><b>8.3.7</b> Pripravimo metodo za obvladovanje napak</a></li>
+<li class="chapter" data-level="8.3.8" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-tudi-metodo-ki-vrne-datoteko-odjemalcu"><i class="fa fa-check"></i><b>8.3.8</b> Pripravimo tudi metodo, ki vrne datoteko odjemalcu</a></li>
+<li class="chapter" data-level="8.3.9" data-path="P4-V4.html"><a href="P4-V4.html#preverimo-delovanje-strežbe-statičnih-strani"><i class="fa fa-check"></i><b>8.3.9</b> Preverimo delovanje strežbe statičnih strani</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-statičnih-strani-dodamo-predpomnjenje"><i class="fa fa-check"></i><b>8.4</b> Strežniku statičnih strani dodamo predpomnjenje</a></li>
+<li class="chapter" data-level="8.5" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-dodamo-dinamične-strani"><i class="fa fa-check"></i><b>8.5</b> Strežniku dodamo dinamične strani</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="P4-V4.html"><a href="P4-V4.html#popravimo-nastavitev-strežnika"><i class="fa fa-check"></i><b>8.5.1</b> Popravimo nastavitev strežnika</a></li>
+<li class="chapter" data-level="8.5.2" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-metodo-za-obdelavo-sporočila"><i class="fa fa-check"></i><b>8.5.2</b> Implementiramo metodo za obdelavo sporočila</a></li>
+<li class="chapter" data-level="8.5.3" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-zahvalo-uporabniku"><i class="fa fa-check"></i><b>8.5.3</b> Implementiramo zahvalo uporabniku</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="P4-V4.html"><a href="P4-V4.html#testiranje-in-dodatno-gradivo"><i class="fa fa-check"></i><b>8.6</b> Testiranje in dodatno gradivo</a></li>
+</ul></li>
+<li class="part"><span><b>II sklop: Arhitektura poslovnega informacijskega sistema</b></span></li>
+<li class="chapter" data-level="9" data-path="DN.html"><a href="DN.html"><i class="fa fa-check"></i><b>9</b> <span class="sklop3 oznaka">DN</span> Spletna aplikacija FRI izletnik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DN.html"><a href="DN.html#DN1"><i class="fa fa-check"></i><b>9.1</b> Spletna aplikacija <small>(1. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="DN.html"><a href="DN.html#opis-naloge-in-navodila"><i class="fa fa-check"></i><b>9.1.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.2" data-path="DN.html"><a href="DN.html#vzpostavitev-repozitorija"><i class="fa fa-check"></i><b>9.1.2</b> Vzpostavitev repozitorija <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.3" data-path="DN.html"><a href="DN.html#DN11"><i class="fa fa-check"></i><b>9.1.3</b> Skladnja strani in stilska preobrazba <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.4" data-path="DN.html"><a href="DN.html#DN12"><i class="fa fa-check"></i><b>9.1.4</b> Podpora funkcionalnosti na odjemalcu in strežniku <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.5" data-path="DN.html"><a href="DN.html#združevanje-sprememb-v-repozitoriju"><i class="fa fa-check"></i><b>9.1.5</b> Združevanje sprememb v repozitoriju <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="DN.html"><a href="DN.html#DN2"><i class="fa fa-check"></i><b>9.2</b> Dopolnitev načrta in implementacija nove funkcionalnosti <small class="skupaj">(2. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="DN.html"><a href="DN.html#DN-navodila"><i class="fa fa-check"></i><b>9.2.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.2" data-path="DN.html"><a href="DN.html#DN-ideja"><i class="fa fa-check"></i><b>9.2.2</b> Opis osnovne ideje predloga <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.3" data-path="DN.html"><a href="DN.html#DN-Generiranje-podatkov"><i class="fa fa-check"></i><b>9.2.3</b> Generiranje podatkov <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.4" data-path="DN.html"><a href="DN.html#DN-nacrt"><i class="fa fa-check"></i><b>9.2.4</b> Načrt informacijske rešitve <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.5" data-path="DN.html"><a href="DN.html#DN-implementacija"><i class="fa fa-check"></i><b>9.2.5</b> Implementacija funkcionalnosti <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="P5.html"><a href="P5.html"><i class="fa fa-check"></i><b>10</b> <span class="sklop2 oznaka">P5</span> Metamodel delovnega sistema in arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="P5.html"><a href="P5.html#metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1</b> Metamodel delovnega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="P5.html"><a href="P5.html#razmerje-med-informacijskim-sistemom-in-delovnim-sistemom"><i class="fa fa-check"></i><b>10.1.1</b> Razmerje med informacijskim sistemom in delovnim sistemom</a></li>
+<li class="chapter" data-level="10.1.2" data-path="P5.html"><a href="P5.html#različni-pogledi-na-metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.2</b> Različni pogledi na metamodel delovnega sistema</a></li>
+<li class="chapter" data-level="10.1.3" data-path="P5.html"><a href="P5.html#primeri-metamodelov-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.3</b> Primeri metamodelov delovnega sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="P5.html"><a href="P5.html#arhitektura-poslovnega-informacijskega-sistema"><i class="fa fa-check"></i><b>10.2</b> Arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="P5.html"><a href="P5.html#uvod-v-poslovne-informacijske-sisteme"><i class="fa fa-check"></i><b>10.2.1</b> Uvod v poslovne informacijske sisteme</a></li>
+<li class="chapter" data-level="10.2.2" data-path="P5.html"><a href="P5.html#poklici-povezani-s-poslovnimi-informacijskimi-sistemi"><i class="fa fa-check"></i><b>10.2.2</b> Poklici, povezani s poslovnimi informacijskimi sistemi</a></li>
+<li class="chapter" data-level="10.2.3" data-path="P5.html"><a href="P5.html#razumevanje-poslovnih-procesov"><i class="fa fa-check"></i><b>10.2.3</b> Razumevanje poslovnih procesov</a></li>
+<li class="chapter" data-level="10.2.4" data-path="P5.html"><a href="P5.html#poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.4</b> Poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.5" data-path="P5.html"><a href="P5.html#primeri-poslovnih-sistemov"><i class="fa fa-check"></i><b>10.2.5</b> Primeri poslovnih sistemov</a></li>
+<li class="chapter" data-level="10.2.6" data-path="P5.html"><a href="P5.html#poslovni-sistemi-in-poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.6</b> Poslovni sistemi in poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.7" data-path="P5.html"><a href="P5.html#podjetja-in-poslovni-procesi"><i class="fa fa-check"></i><b>10.2.7</b> Podjetja in poslovni procesi</a></li>
+<li class="chapter" data-level="10.2.8" data-path="P5.html"><a href="P5.html#primerjava-največjih-ponudnikov"><i class="fa fa-check"></i><b>10.2.8</b> Primerjava največjih ponudnikov</a></li>
+<li class="chapter" data-level="10.2.9" data-path="P5.html"><a href="P5.html#zgodovina-sistema-sap"><i class="fa fa-check"></i><b>10.2.9</b> Zgodovina sistema SAP</a></li>
+<li class="chapter" data-level="10.2.10" data-path="P5.html"><a href="P5.html#komponente-poslovnih-informacijskih-sistemov"><i class="fa fa-check"></i><b>10.2.10</b> Komponente poslovnih informacijskih sistemov</a></li>
+<li class="chapter" data-level="10.2.11" data-path="P5.html"><a href="P5.html#integracija-poslovnih-aplikacij"><i class="fa fa-check"></i><b>10.2.11</b> Integracija poslovnih aplikacij</a></li>
+<li class="chapter" data-level="10.2.12" data-path="P5.html"><a href="P5.html#elektronska-izmenjava-podatkov"><i class="fa fa-check"></i><b>10.2.12</b> Elektronska izmenjava podatkov</a></li>
+<li class="chapter" data-level="10.2.13" data-path="P5.html"><a href="P5.html#ERP-podrobnosti"><i class="fa fa-check"></i><b>10.2.13</b> ERP</a></li>
+<li class="chapter" data-level="10.2.14" data-path="P5.html"><a href="P5.html#CRM-podrobnosti"><i class="fa fa-check"></i><b>10.2.14</b> CRM</a></li>
+<li class="chapter" data-level="10.2.15" data-path="P5.html"><a href="P5.html#SCM-podrobnosti"><i class="fa fa-check"></i><b>10.2.15</b> SCM</a></li>
+<li class="chapter" data-level="10.2.16" data-path="P5.html"><a href="P5.html#KM-podrobnosti"><i class="fa fa-check"></i><b>10.2.16</b> KM</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="P5-V5.html"><a href="P5-V5.html"><i class="fa fa-check"></i><b>11</b> <span class="sklop2 oznaka">P5</span> → <span class="sklop3 oznaka">V5</span> Povezovanje na podatkovno bazo</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="P5-V5.html"><a href="P5-V5.html#priprava-okolja"><i class="fa fa-check"></i><b>11.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="11.2" data-path="P5-V5.html"><a href="P5-V5.html#razširitev-arhitekture-odjemalecstrežnik-s-podatkovno-bazo"><i class="fa fa-check"></i><b>11.2</b> Razširitev arhitekture odjemalec/strežnik s podatkovno bazo</a></li>
+<li class="chapter" data-level="11.3" data-path="P5-V5.html"><a href="P5-V5.html#chinook-podatkovna-baza"><i class="fa fa-check"></i><b>11.3</b> Chinook podatkovna baza</a></li>
+<li class="chapter" data-level="11.4" data-path="P5-V5.html"><a href="P5-V5.html#poizvedovalni-jezik-sql"><i class="fa fa-check"></i><b>11.4</b> Poizvedovalni jezik SQL</a></li>
+<li class="chapter" data-level="11.5" data-path="P5-V5.html"><a href="P5-V5.html#podatkovna-baza-sqlite"><i class="fa fa-check"></i><b>11.5</b> Podatkovna baza SQLite</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="P5-V5.html"><a href="P5-V5.html#vsebina-podatkovne-baze"><i class="fa fa-check"></i><b>11.5.1</b> Vsebina podatkovne baze</a></li>
+<li class="chapter" data-level="11.5.2" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic"><i class="fa fa-check"></i><b>11.5.2</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.5.3" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-vseh-vrednosti-v-tabeli"><i class="fa fa-check"></i><b>11.5.3</b> Prikaz vseh vrednosti v tabeli</a></li>
+<li class="chapter" data-level="11.5.4" data-path="P5-V5.html"><a href="P5-V5.html#filtriranje-zapisov"><i class="fa fa-check"></i><b>11.5.4</b> Filtriranje zapisov</a></li>
+<li class="chapter" data-level="11.5.5" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-podatkov-iz-več-tabel"><i class="fa fa-check"></i><b>11.5.5</b> Prikaz podatkov iz več tabel</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="P5-V5.html"><a href="P5-V5.html#uporaba-ogrodja-express.js-za-poenostavitev-razvoja-aplikacij"><i class="fa fa-check"></i><b>11.6</b> Uporaba ogrodja Express.js za poenostavitev razvoja aplikacij</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic-1"><i class="fa fa-check"></i><b>11.6.1</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.6.2" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-brez-uporabe-express"><i class="fa fa-check"></i><b>11.6.2</b> Hello World brez uporabe Express</a></li>
+<li class="chapter" data-level="11.6.3" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-z-express"><i class="fa fa-check"></i><b>11.6.3</b> Hello World z Express</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="P5-V5.html"><a href="P5-V5.html#master-detail-načrtovalski-vzorec"><i class="fa fa-check"></i><b>11.7</b> Master-detail načrtovalski vzorec</a></li>
+<li class="chapter" data-level="11.8" data-path="P5-V5.html"><a href="P5-V5.html#primer-pesmi-po-žanrih"><i class="fa fa-check"></i><b>11.8</b> Primer: Pesmi po žanrih</a>
+<ul>
+<li class="chapter" data-level="11.8.1" data-path="P5-V5.html"><a href="P5-V5.html#potrebne-knjižnice"><i class="fa fa-check"></i><b>11.8.1</b> Potrebne knjižnice</a></li>
+<li class="chapter" data-level="11.8.2" data-path="P5-V5.html"><a href="P5-V5.html#funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov"><i class="fa fa-check"></i><b>11.8.2</b> Funkcija, ki v povratnem klicu vrača seznam žanrov</a></li>
+<li class="chapter" data-level="11.8.3" data-path="P5-V5.html"><a href="P5-V5.html#zaključek-osnovne-funkcionalnosti-strežnika"><i class="fa fa-check"></i><b>11.8.3</b> Zaključek osnovne funkcionalnosti strežnika</a></li>
+<li class="chapter" data-level="11.8.4" data-path="P5-V5.html"><a href="P5-V5.html#testiranje-osnovne-funkcionalnosti-master"><i class="fa fa-check"></i><b>11.8.4</b> Testiranje osnovne funkcionalnosti (master)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="P5-V5.html"><a href="P5-V5.html#dodajanje-seznama-pesmi-detail"><i class="fa fa-check"></i><b>11.8.5</b> Dodajanje seznama pesmi (detail)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="P6.html"><a href="P6.html"><i class="fa fa-check"></i><b>12</b> <span class="sklop2 oznaka">P6</span> Zgodovina, ključne vloge in vrste IS</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="P6.html"><a href="P6.html#e-poslovanje"><i class="fa fa-check"></i><b>12.1</b> E-poslovanje</a></li>
+<li class="chapter" data-level="12.2" data-path="P6.html"><a href="P6.html#e-trgovanje"><i class="fa fa-check"></i><b>12.2</b> E-trgovanje</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="P6.html"><a href="P6.html#zgodovina-e-trgovanja"><i class="fa fa-check"></i><b>12.2.1</b> Zgodovina e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.2" data-path="P6.html"><a href="P6.html#tehnologije-e-trgovanja"><i class="fa fa-check"></i><b>12.2.2</b> Tehnologije e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.3" data-path="P6.html"><a href="P6.html#osnovne-komponente-e-trgovanja"><i class="fa fa-check"></i><b>12.2.3</b> Osnovne komponente e-trgovanja</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="P6.html"><a href="P6.html#zgodovina-in-ključne-vloge-is"><i class="fa fa-check"></i><b>12.3</b> Zgodovina in ključne vloge IS</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="P6.html"><a href="P6.html#zgodovinski-pregled-pomembnih-dogodkov-v-računalništvu"><i class="fa fa-check"></i><b>12.3.1</b> Zgodovinski pregled pomembnih dogodkov v računalništvu</a></li>
+<li class="chapter" data-level="12.3.2" data-path="P6.html"><a href="P6.html#razvoj-tehnologij"><i class="fa fa-check"></i><b>12.3.2</b> Razvoj tehnologij</a></li>
+<li class="chapter" data-level="12.3.3" data-path="P6.html"><a href="P6.html#razvoj-it-za-podporo-is"><i class="fa fa-check"></i><b>12.3.3</b> Razvoj IT za podporo IS</a></li>
+<li class="chapter" data-level="12.3.4" data-path="P6.html"><a href="P6.html#razvoj-informacijske-podpore-po-ravneh-odločanja"><i class="fa fa-check"></i><b>12.3.4</b> Razvoj informacijske podpore po ravneh odločanja</a></li>
+<li class="chapter" data-level="12.3.5" data-path="P6.html"><a href="P6.html#zgodovina-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.3.5</b> Zgodovina informacijskih sistemov</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="P6.html"><a href="P6.html#vrste-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.4</b> Vrste informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-poslovanju"><i class="fa fa-check"></i><b>12.4.1</b> Sistemi za podporo poslovanju</a></li>
+<li class="chapter" data-level="12.4.2" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-odločanju"><i class="fa fa-check"></i><b>12.4.2</b> Sistemi za podporo odločanju</a></li>
+<li class="chapter" data-level="12.4.3" data-path="P6.html"><a href="P6.html#specializirani-sistemi"><i class="fa fa-check"></i><b>12.4.3</b> Specializirani sistemi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="P6-V6.html"><a href="P6-V6.html"><i class="fa fa-check"></i><b>13</b> <span class="sklop2 oznaka">P6</span> → <span class="sklop3 oznaka">V6</span> Seja, košarica, XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="P6-V6.html"><a href="P6-V6.html#priprava-okolja-1"><i class="fa fa-check"></i><b>13.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="13.2" data-path="P6-V6.html"><a href="P6-V6.html#namestitev-knjižnic-in-vključitev-podatkovne-baze"><i class="fa fa-check"></i><b>13.2</b> Namestitev knjižnic in vključitev podatkovne baze</a></li>
+<li class="chapter" data-level="13.3" data-path="P6-V6.html"><a href="P6-V6.html#seja"><i class="fa fa-check"></i><b>13.3</b> Seja</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="P6-V6.html"><a href="P6-V6.html#globalne-spremenljivke-vs.-seja"><i class="fa fa-check"></i><b>13.3.1</b> Globalne spremenljivke vs. seja</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="P6-V6.html"><a href="P6-V6.html#nakupovalna-košarica"><i class="fa fa-check"></i><b>13.4</b> Nakupovalna košarica</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="P6-V6.html"><a href="P6-V6.html#primer-nakupovanja-pesmi-iz-seznama-100-najbolje-prodajanih"><i class="fa fa-check"></i><b>13.4.1</b> Primer nakupovanja pesmi iz seznama 100 najbolje prodajanih</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="P6-V6.html"><a href="P6-V6.html#xml-in-e-slog"><i class="fa fa-check"></i><b>13.5</b> XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="P6-V6.html"><a href="P6-V6.html#dokumentacija"><i class="fa fa-check"></i><b>13.5.1</b> Dokumentacija</a></li>
+<li class="chapter" data-level="13.5.2" data-path="P6-V6.html"><a href="P6-V6.html#dopolnitve-primera-nakupovanja-pesmi"><i class="fa fa-check"></i><b>13.5.2</b> Dopolnitve primera nakupovanja pesmi</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III sklop: Analiza, načrtovanje in razvoj poslovnih informacijskih sistemov</b></span></li>
+<li class="chapter" data-level="14" data-path="P7.html"><a href="P7.html"><i class="fa fa-check"></i><b>14</b> <span class="sklop3 oznaka">P7</span> Razvojni modeli informacijskih sistemov in metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="P7.html"><a href="P7.html#zgodovina-razvoja-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.1</b> Zgodovina razvoja informacijskih sistemov</a></li>
+<li class="chapter" data-level="14.2" data-path="P7.html"><a href="P7.html#razvojni-model-informacijskega-sistema"><i class="fa fa-check"></i><b>14.2</b> Razvojni model informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="P7.html"><a href="P7.html#SDLC-studija-izvedljivosti"><i class="fa fa-check"></i><b>14.2.1</b> Študija izvedljivosti</a></li>
+<li class="chapter" data-level="14.2.2" data-path="P7.html"><a href="P7.html#SDLC-zbiranje-zahtev"><i class="fa fa-check"></i><b>14.2.2</b> Zbiranje zahtev</a></li>
+<li class="chapter" data-level="14.2.3" data-path="P7.html"><a href="P7.html#SDLC-analiza"><i class="fa fa-check"></i><b>14.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="14.2.4" data-path="P7.html"><a href="P7.html#SDLC-nacrt"><i class="fa fa-check"></i><b>14.2.4</b> Načrtovanje</a></li>
+<li class="chapter" data-level="14.2.5" data-path="P7.html"><a href="P7.html#SDLC-implementacija"><i class="fa fa-check"></i><b>14.2.5</b> Implementacija</a></li>
+<li class="chapter" data-level="14.2.6" data-path="P7.html"><a href="P7.html#SDLC-pregled-in-vzdrzevanje"><i class="fa fa-check"></i><b>14.2.6</b> Pregled in vzdrževanje</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="P7.html"><a href="P7.html#metodologija"><i class="fa fa-check"></i><b>14.3</b> Metodologija</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="P7.html"><a href="P7.html#tehnike"><i class="fa fa-check"></i><b>14.3.1</b> Tehnike</a></li>
+<li class="chapter" data-level="14.3.2" data-path="P7.html"><a href="P7.html#orodja"><i class="fa fa-check"></i><b>14.3.2</b> Orodja</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="P7.html"><a href="P7.html#variante-razvojnih-modelov-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.4</b> Variante razvojnih modelov informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="P7.html"><a href="P7.html#Zaporedni-razvojni-model"><i class="fa fa-check"></i><b>14.4.1</b> Zaporedni oz. slapovni razvojni model</a></li>
+<li class="chapter" data-level="14.4.2" data-path="P7.html"><a href="P7.html#Iterativni-razvojni-model"><i class="fa fa-check"></i><b>14.4.2</b> Iterativni razvojni model</a></li>
+<li class="chapter" data-level="14.4.3" data-path="P7.html"><a href="P7.html#Prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.3</b> Prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.4" data-path="P7.html"><a href="P7.html#Iterativni-prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.4</b> Iterativni/prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.5" data-path="P7.html"><a href="P7.html#Inkrementalni-razvojni-model"><i class="fa fa-check"></i><b>14.4.5</b> Inkrementalni razvojni model</a></li>
+<li class="chapter" data-level="14.4.6" data-path="P7.html"><a href="P7.html#iterativnost-vs.-inkrementalnost"><i class="fa fa-check"></i><b>14.4.6</b> Iterativnost vs. inkrementalnost</a></li>
+<li class="chapter" data-level="14.4.7" data-path="P7.html"><a href="P7.html#Kombinirani-razvojni-model"><i class="fa fa-check"></i><b>14.4.7</b> Kombinirani razvojni model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="P7.html"><a href="P7.html#metodologije-razvoja"><i class="fa fa-check"></i><b>14.5</b> Metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="P7.html"><a href="P7.html#različne-opredelitve-v-literaturi"><i class="fa fa-check"></i><b>14.5.1</b> Različne opredelitve v literaturi</a></li>
+<li class="chapter" data-level="14.5.2" data-path="P7.html"><a href="P7.html#metodologija-v-terminološkem-slovarju"><i class="fa fa-check"></i><b>14.5.2</b> Metodologija v terminološkem slovarju</a></li>
+<li class="chapter" data-level="14.5.3" data-path="P7.html"><a href="P7.html#naša-opredelitev"><i class="fa fa-check"></i><b>14.5.3</b> Naša opredelitev</a></li>
+<li class="chapter" data-level="14.5.4" data-path="P7.html"><a href="P7.html#elementi-metodologije"><i class="fa fa-check"></i><b>14.5.4</b> Elementi metodologije</a></li>
+<li class="chapter" data-level="14.5.5" data-path="P7.html"><a href="P7.html#upravljanje-z-znanjem"><i class="fa fa-check"></i><b>14.5.5</b> Upravljanje z znanjem</a></li>
+<li class="chapter" data-level="14.5.6" data-path="P7.html"><a href="P7.html#formalna-vs.-neformalna-metodologija"><i class="fa fa-check"></i><b>14.5.6</b> Formalna vs. neformalna metodologija</a></li>
+<li class="chapter" data-level="14.5.7" data-path="P7.html"><a href="P7.html#agilni-koncepti-in-metodologije"><i class="fa fa-check"></i><b>14.5.7</b> Agilni koncepti in metodologije</a></li>
+<li class="chapter" data-level="14.5.8" data-path="P7.html"><a href="P7.html#metamodel-metodologije-razvoja-informacijskega-sistema"><i class="fa fa-check"></i><b>14.5.8</b> Metamodel metodologije razvoja informacijskega sistema</a></li>
+<li class="chapter" data-level="14.5.9" data-path="P7.html"><a href="P7.html#ogrodja-za-primerjavo-metodologij"><i class="fa fa-check"></i><b>14.5.9</b> Ogrodja za primerjavo metodologij</a></li>
+<li class="chapter" data-level="14.5.10" data-path="P7.html"><a href="P7.html#učinkovitost-različnih-oblik-komunikacije"><i class="fa fa-check"></i><b>14.5.10</b> Učinkovitost različnih oblik komunikacije</a></li>
+<li class="chapter" data-level="14.5.11" data-path="P7.html"><a href="P7.html#vpliv-velikosti-na-posebnosti-razvojne-skupine"><i class="fa fa-check"></i><b>14.5.11</b> Vpliv velikosti na posebnosti razvojne skupine</a></li>
+<li class="chapter" data-level="14.5.12" data-path="P7.html"><a href="P7.html#Kriticni-projekti"><i class="fa fa-check"></i><b>14.5.12</b> Kritični projekti</a></li>
+<li class="chapter" data-level="14.5.13" data-path="P7.html"><a href="P7.html#Komunikacija-in-povratne-informacije"><i class="fa fa-check"></i><b>14.5.13</b> Komunikacija in povratne informacije</a></li>
+<li class="chapter" data-level="14.5.14" data-path="P7.html"><a href="P7.html#primer-google-inženirji-vs.-managerji"><i class="fa fa-check"></i><b>14.5.14</b> Primer: Google: Inženirji vs. managerji</a></li>
+<li class="chapter" data-level="14.5.15" data-path="P7.html"><a href="P7.html#Discipliniranost-izkusnje-in-znanje"><i class="fa fa-check"></i><b>14.5.15</b> Discipliniranost, izkušnje in znanje</a></li>
+<li class="chapter" data-level="14.5.16" data-path="P7.html"><a href="P7.html#Odkloni-od-nacrtovane-resitve"><i class="fa fa-check"></i><b>14.5.16</b> Odkloni od načrtovane rešitve</a></li>
+<li class="chapter" data-level="14.5.17" data-path="P7.html"><a href="P7.html#evolucija-razvoja-programske-opreme"><i class="fa fa-check"></i><b>14.5.17</b> Evolucija razvoja programske opreme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="P8.html"><a href="P8.html"><i class="fa fa-check"></i><b>15</b> <span class="sklop3 oznaka">P8</span> Strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="P8.html"><a href="P8.html#uvod-v-strukturni-razvoj"><i class="fa fa-check"></i><b>15.1</b> Uvod v strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="P8.html"><a href="P8.html#Strukturni-zajem-in-specifikaija-zahtev"><i class="fa fa-check"></i><b>15.1.1</b> Zajem in specifikacija zahtev</a></li>
+<li class="chapter" data-level="15.1.2" data-path="P8.html"><a href="P8.html#Strukturni-analiza"><i class="fa fa-check"></i><b>15.1.2</b> Analiza</a></li>
+<li class="chapter" data-level="15.1.3" data-path="P8.html"><a href="P8.html#Strukturni-nacrtovanje"><i class="fa fa-check"></i><b>15.1.3</b> Načrtovanje</a></li>
+<li class="chapter" data-level="15.1.4" data-path="P8.html"><a href="P8.html#Strukturni-testiranje"><i class="fa fa-check"></i><b>15.1.4</b> Testiranje</a></li>
+<li class="chapter" data-level="15.1.5" data-path="P8.html"><a href="P8.html#Strukturni-namestitev-in-uvedba"><i class="fa fa-check"></i><b>15.1.5</b> Namestitev in uvedba</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="P8.html"><a href="P8.html#podatkovno-načrtovanje"><i class="fa fa-check"></i><b>15.2</b> Podatkovno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="P8.html"><a href="P8.html#relacijski-model"><i class="fa fa-check"></i><b>15.2.1</b> Relacijski model</a></li>
+<li class="chapter" data-level="15.2.2" data-path="P8.html"><a href="P8.html#matematična-opredelitev"><i class="fa fa-check"></i><b>15.2.2</b> Matematična opredelitev</a></li>
+<li class="chapter" data-level="15.2.3" data-path="P8.html"><a href="P8.html#entitetni-diagram"><i class="fa fa-check"></i><b>15.2.3</b> Entitetni diagram</a></li>
+<li class="chapter" data-level="15.2.4" data-path="P8.html"><a href="P8.html#različne-ravni-podatkovnega-modeliranja"><i class="fa fa-check"></i><b>15.2.4</b> Različne ravni podatkovnega modeliranja</a></li>
+<li class="chapter" data-level="15.2.5" data-path="P8.html"><a href="P8.html#Postopek-konceptualno-nacrtovanje"><i class="fa fa-check"></i><b>15.2.5</b> Konceptualno načrtovanje</a></li>
+<li class="chapter" data-level="15.2.6" data-path="P8.html"><a href="P8.html#prehod-iz-konceptualnega-v-logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.6</b> Prehod iz konceptualnega v logično načrtovanje</a></li>
+<li class="chapter" data-level="15.2.7" data-path="P8.html"><a href="P8.html#logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.7</b> Logično načrtovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="P8.html"><a href="P8.html#Postopek-normalizacija"><i class="fa fa-check"></i><b>15.3</b> Normalizacija</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="P8.html"><a href="P8.html#normalna-oblika-1.-no"><i class="fa fa-check"></i><b>15.3.1</b> 1. normalna oblika (1. NO)</a></li>
+<li class="chapter" data-level="15.3.2" data-path="P8.html"><a href="P8.html#normalna-oblika-2.-no"><i class="fa fa-check"></i><b>15.3.2</b> 2. normalna oblika (2. NO)</a></li>
+<li class="chapter" data-level="15.3.3" data-path="P8.html"><a href="P8.html#normalna-oblika-3.-no"><i class="fa fa-check"></i><b>15.3.3</b> 3. normalna oblika (3. NO)</a></li>
+<li class="chapter" data-level="15.3.4" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-4.-pno"><i class="fa fa-check"></i><b>15.3.4</b> 4. poslovna normalna oblika (4. PNO)</a></li>
+<li class="chapter" data-level="15.3.5" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-5.-pno"><i class="fa fa-check"></i><b>15.3.5</b> 5. poslovna normalna oblika (5. PNO)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="P8.html"><a href="P8.html#denormalizacija"><i class="fa fa-check"></i><b>15.4</b> Denormalizacija</a></li>
+<li class="chapter" data-level="15.5" data-path="P8.html"><a href="P8.html#primeri-normalizacije"><i class="fa fa-check"></i><b>15.5</b> Primeri normalizacije</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="P8.html"><a href="P8.html#normalizacija-računa"><i class="fa fa-check"></i><b>15.5.1</b> Normalizacija računa</a></li>
+<li class="chapter" data-level="15.5.2" data-path="P8.html"><a href="P8.html#normalizacija-reverza"><i class="fa fa-check"></i><b>15.5.2</b> Normalizacija reverza</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="P8.html"><a href="P8.html#procesni-vidik"><i class="fa fa-check"></i><b>15.6</b> Procesni vidik</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="P8.html"><a href="P8.html#dekompozicijski-diagrami"><i class="fa fa-check"></i><b>15.6.1</b> Dekompozicijski diagrami</a></li>
+<li class="chapter" data-level="15.6.2" data-path="P8.html"><a href="P8.html#procesna-logika"><i class="fa fa-check"></i><b>15.6.2</b> Procesna logika</a></li>
+<li class="chapter" data-level="15.6.3" data-path="P8.html"><a href="P8.html#BPMN-tehnika"><i class="fa fa-check"></i><b>15.6.3</b> BPMN</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="P9.html"><a href="P9.html"><i class="fa fa-check"></i><b>16</b> <span class="sklop3 oznaka">P9</span> Objektno usmerjena analiza, načrtovanje in modeliranje</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="P9.html"><a href="P9.html#objektno-usmerjena-analiza-in-načrtovanje"><i class="fa fa-check"></i><b>16.1</b> Objektno usmerjena analiza in načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="P9.html"><a href="P9.html#OO-thinking"><i class="fa fa-check"></i><b>16.1.1</b> Objektno usmerjeno razmišljanje</a></li>
+<li class="chapter" data-level="16.1.2" data-path="P9.html"><a href="P9.html#načrtovanje-v-procesu-razvoja-programske-opreme"><i class="fa fa-check"></i><b>16.1.2</b> Načrtovanje v procesu razvoja programske opreme</a></li>
+<li class="chapter" data-level="16.1.3" data-path="P9.html"><a href="P9.html#načrtovanje-z-upoštevanjem-kakovosti"><i class="fa fa-check"></i><b>16.1.3</b> Načrtovanje z upoštevanjem kakovosti</a></li>
+<li class="chapter" data-level="16.1.4" data-path="P9.html"><a href="P9.html#razred-odgovornost-sodelovanje"><i class="fa fa-check"></i><b>16.1.4</b> Razred, odgovornost, sodelovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="P9.html"><a href="P9.html#objektno-usmerjeno-načrtovanje"><i class="fa fa-check"></i><b>16.2</b> Objektno usmerjeno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="P9.html"><a href="P9.html#izdelava-modelov-načrta"><i class="fa fa-check"></i><b>16.2.1</b> Izdelava modelov načrta</a></li>
+<li class="chapter" data-level="16.2.2" data-path="P9.html"><a href="P9.html#razvoj-programskih-jezikov"><i class="fa fa-check"></i><b>16.2.2</b> Razvoj programskih jezikov</a></li>
+<li class="chapter" data-level="16.2.3" data-path="P9.html"><a href="P9.html#stiri-nacrtovalska-nacela"><i class="fa fa-check"></i><b>16.2.3</b> Štiri načrtovalska načela</a></li>
+<li class="chapter" data-level="16.2.4" data-path="P9.html"><a href="P9.html#načrtovalska-struktura-v-programskem-jeziku-java-in-uml-razrednih-diagramih"><i class="fa fa-check"></i><b>16.2.4</b> Načrtovalska struktura v programskem jeziku Java in UML razrednih diagramih</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="P9.html"><a href="P9.html#načrtovalska-načela"><i class="fa fa-check"></i><b>16.3</b> Načrtovalska načela</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="P9.html"><a href="P9.html#vrednotenje-kompleksnosti-načrta"><i class="fa fa-check"></i><b>16.3.1</b> Vrednotenje kompleksnosti načrta</a></li>
+<li class="chapter" data-level="16.3.2" data-path="P9.html"><a href="P9.html#načelo-ločevanja-pomislekov"><i class="fa fa-check"></i><b>16.3.2</b> Načelo ločevanja pomislekov</a></li>
+<li class="chapter" data-level="16.3.3" data-path="P9.html"><a href="P9.html#skrivanje-informacij"><i class="fa fa-check"></i><b>16.3.3</b> Skrivanje informacij</a></li>
+<li class="chapter" data-level="16.3.4" data-path="P9.html"><a href="P9.html#konceptualna-celovitost"><i class="fa fa-check"></i><b>16.3.4</b> Konceptualna celovitost</a></li>
+<li class="chapter" data-level="16.3.5" data-path="P9.html"><a href="P9.html#načela-posploševanja"><i class="fa fa-check"></i><b>16.3.5</b> Načela posploševanja</a></li>
+<li class="chapter" data-level="16.3.6" data-path="P9.html"><a href="P9.html#preverjanje-modela"><i class="fa fa-check"></i><b>16.3.6</b> Preverjanje modela</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="P10.html"><a href="P10.html"><i class="fa fa-check"></i><b>17</b> <span class="sklop3 oznaka">P10</span> Objektni razvoj, simulacija razvoja informacijskega sistema za bankomat in simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="P10.html"><a href="P10.html#objektni-razvoj"><i class="fa fa-check"></i><b>17.1</b> Objektni razvoj</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="P10.html"><a href="P10.html#rup-proces-razvoja"><i class="fa fa-check"></i><b>17.1.1</b> RUP proces razvoja</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="P10.html"><a href="P10.html#simulacija-razvoja-informacijskega-sistema-za-bankomat"><i class="fa fa-check"></i><b>17.2</b> Simulacija razvoja informacijskega sistema za bankomat</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="P10.html"><a href="P10.html#predstavitev-problema"><i class="fa fa-check"></i><b>17.2.1</b> Predstavitev problema</a></li>
+<li class="chapter" data-level="17.2.2" data-path="P10.html"><a href="P10.html#Bankomat-Zbiranje-zahtev"><i class="fa fa-check"></i><b>17.2.2</b> Zajem zahtev</a></li>
+<li class="chapter" data-level="17.2.3" data-path="P10.html"><a href="P10.html#Bankomat-Analiza"><i class="fa fa-check"></i><b>17.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="17.2.4" data-path="P10.html"><a href="P10.html#Bankomat-Pregledni-nacrt"><i class="fa fa-check"></i><b>17.2.4</b> Pregledni načrt</a></li>
+<li class="chapter" data-level="17.2.5" data-path="P10.html"><a href="P10.html#Bankomat-Podroben-nacrt"><i class="fa fa-check"></i><b>17.2.5</b> Podroben načrt</a></li>
+<li class="chapter" data-level="17.2.6" data-path="P10.html"><a href="P10.html#Bankomat-Implementacija"><i class="fa fa-check"></i><b>17.2.6</b> Implementacija</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="P10.html"><a href="P10.html#Simulacija-projekta"><i class="fa fa-check"></i><b>17.3</b> Simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="P10.html"><a href="P10.html#pravila"><i class="fa fa-check"></i><b>17.3.1</b> Pravila</a></li>
+<li class="chapter" data-level="17.3.2" data-path="P10.html"><a href="P10.html#izračun-točk-simulacije"><i class="fa fa-check"></i><b>17.3.2</b> Izračun točk simulacije</a></li>
+<li class="chapter" data-level="17.3.3" data-path="P10.html"><a href="P10.html#potek-simulacije"><i class="fa fa-check"></i><b>17.3.3</b> Potek simulacije</a></li>
+<li class="chapter" data-level="17.3.4" data-path="P10.html"><a href="P10.html#gradivo"><i class="fa fa-check"></i><b>17.3.4</b> Gradivo</a></li>
+<li class="chapter" data-level="17.3.5" data-path="P10.html"><a href="P10.html#nakljucni-dogodki-simulacije"><i class="fa fa-check"></i><b>17.3.5</b> Naključni dogodki pri simulaciji</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV sklop: Infrastruktura in trendi</b></span></li>
+<li class="chapter" data-level="18" data-path="P11.html"><a href="P11.html"><i class="fa fa-check"></i><b>18</b> <span class="sklop4 oznaka">P11</span> Semantični splet in tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="P11.html"><a href="P11.html#semantični-splet"><i class="fa fa-check"></i><b>18.1</b> Semantični splet</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="P11.html"><a href="P11.html#splet-v-številkah"><i class="fa fa-check"></i><b>18.1.1</b> Splet v številkah</a></li>
+<li class="chapter" data-level="18.1.2" data-path="P11.html"><a href="P11.html#iskalniki-najdejo-le-del-spleta"><i class="fa fa-check"></i><b>18.1.2</b> Iskalniki “najdejo” le del spleta</a></li>
+<li class="chapter" data-level="18.1.3" data-path="P11.html"><a href="P11.html#vloga-svetovnega-spleta"><i class="fa fa-check"></i><b>18.1.3</b> Vloga svetovnega spleta</a></li>
+<li class="chapter" data-level="18.1.4" data-path="P11.html"><a href="P11.html#semantična-integracija-podatkov"><i class="fa fa-check"></i><b>18.1.4</b> Semantična integracija podatkov</a></li>
+<li class="chapter" data-level="18.1.5" data-path="P11.html"><a href="P11.html#primer-organizacije-potovanj"><i class="fa fa-check"></i><b>18.1.5</b> Primer organizacije potovanj</a></li>
+<li class="chapter" data-level="18.1.6" data-path="P11.html"><a href="P11.html#osnova-so-podatki"><i class="fa fa-check"></i><b>18.1.6</b> Osnova so podatki</a></li>
+<li class="chapter" data-level="18.1.7" data-path="P11.html"><a href="P11.html#semantični-splet-1"><i class="fa fa-check"></i><b>18.1.7</b> Semantični splet</a></li>
+<li class="chapter" data-level="18.1.8" data-path="P11.html"><a href="P11.html#web-x"><i class="fa fa-check"></i><b>18.1.8</b> Web X</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="P11.html"><a href="P11.html#tehnologija-veriženja-blokov"><i class="fa fa-check"></i><b>18.2</b> Tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="P11.html"><a href="P11.html#uvod-v-osnovne-pojme"><i class="fa fa-check"></i><b>18.2.1</b> Uvod v osnovne pojme</a></li>
+<li class="chapter" data-level="18.2.2" data-path="P11.html"><a href="P11.html#osnovni-princip-delovanja"><i class="fa fa-check"></i><b>18.2.2</b> Osnovni princip delovanja</a></li>
+<li class="chapter" data-level="18.2.3" data-path="P11.html"><a href="P11.html#zgodovinski-pregled-razvoja-in-trendov-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.3</b> Zgodovinski pregled razvoja in trendov tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.4" data-path="P11.html"><a href="P11.html#mehanizmi-soglasja"><i class="fa fa-check"></i><b>18.2.4</b> Mehanizmi soglasja</a></li>
+<li class="chapter" data-level="18.2.5" data-path="P11.html"><a href="P11.html#področja-uporabe-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.5</b> Področja uporabe tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.6" data-path="P11.html"><a href="P11.html#pametne-pogodbe"><i class="fa fa-check"></i><b>18.2.6</b> Pametne pogodbe</a></li>
+<li class="chapter" data-level="18.2.7" data-path="P11.html"><a href="P11.html#kdaj-uporabiti-tehnologijo-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.7</b> Kdaj uporabiti tehnologijo veriženja blokov?</a></li>
+<li class="chapter" data-level="18.2.8" data-path="P11.html"><a href="P11.html#projekti-na-fakulteti"><i class="fa fa-check"></i><b>18.2.8</b> Projekti na fakulteti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="P12.html"><a href="P12.html"><i class="fa fa-check"></i><b>19</b> <span class="sklop5 oznaka">P12</span> Računalništvo v oblaku, IT varnost in Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="P12.html"><a href="P12.html#računalništvo-v-oblaku"><i class="fa fa-check"></i><b>19.1</b> Računalništvo v oblaku</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="P12.html"><a href="P12.html#izbira-oblačne-storitve"><i class="fa fa-check"></i><b>19.1.1</b> Izbira oblačne storitve</a></li>
+<li class="chapter" data-level="19.1.2" data-path="P12.html"><a href="P12.html#realizacija-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.2</b> Realizacija računalništva v oblaku</a></li>
+<li class="chapter" data-level="19.1.3" data-path="P12.html"><a href="P12.html#virtualizacija"><i class="fa fa-check"></i><b>19.1.3</b> Virtualizacija</a></li>
+<li class="chapter" data-level="19.1.4" data-path="P12.html"><a href="P12.html#modeli-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.4</b> Modeli računalništva v oblaku</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="P12.html"><a href="P12.html#it-varnost"><i class="fa fa-check"></i><b>19.2</b> IT varnost</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="P12.html"><a href="P12.html#napadi"><i class="fa fa-check"></i><b>19.2.1</b> Napadi</a></li>
+<li class="chapter" data-level="19.2.2" data-path="P12.html"><a href="P12.html#najboljše-prakse-protiukrepov"><i class="fa fa-check"></i><b>19.2.2</b> Najboljše prakse protiukrepov</a></li>
+<li class="chapter" data-level="19.2.3" data-path="P12.html"><a href="P12.html#postopek-razkrivanja-ranljivosti"><i class="fa fa-check"></i><b>19.2.3</b> Postopek razkrivanja ranljivosti</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="P12.html"><a href="P12.html#marshmallow-challenge"><i class="fa fa-check"></i><b>19.3</b> Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="P12.html"><a href="P12.html#izziv"><i class="fa fa-check"></i><b>19.3.1</b> Izziv</a></li>
+<li class="chapter" data-level="19.3.2" data-path="P12.html"><a href="P12.html#zaključki"><i class="fa fa-check"></i><b>19.3.2</b> Zaključki</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i>Literatura</a></li>
+<li class="divider"></li>
+<li><a href="https://ucilnica.fri.uni-lj.si/course/view.php?id=54">eUčilnica</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Osnove informacijskih sistemov 2023/2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="P5-V5" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Poglavje 11</span> <span class="sklop2 oznaka">P5</span> → <span class="sklop3 oznaka">V5</span> Povezovanje na podatkovno bazo<a href="P5-V5.html#P5-V5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="vrstica">
+<img src="assets/img/ninja/ninja_18_knee_finger_point_up.png">
+<h3>
+<span class="sklop2 oznaka">P5</span> → <span class="sklop3 oznaka">V5</span>
+</h3>
+</div>
+<p>V pripravah na vaje <span class="sklop3">V5</span> bomo razširili arhitekturo odjemalec/strežnik s <strong>podatkovno bazo</strong>, kjer bomo spoznali naslednje koncepte:</p>
+<ul>
+<li><a href="https://github.com/lerocha/chinook-database"><i class="fa-brands fa-github"></i>Chinook</a> zbirko podatkov,</li>
+<li><a href="https://en.wikipedia.org/wiki/Master%E2%80%93detail_interface"><i class="fa-brands fa-wikipedia-w"></i>master-detail</a> načrtovalski vzorec,</li>
+<li>podatkovna baza <a href="https://www.sqlite.org/"><i class='fa-solid fa-earth-europe'></i>SQLite</a>,</li>
+<li>Node.js knjižnica <a href="http://expressjs.com/"><i class='fa-solid fa-earth-europe'></i>Express.js</a>.</li>
+</ul>
+<div id="priprava-okolja" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Priprava okolja<a href="P5-V5.html#priprava-okolja" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Celotna izvorna koda primera v nadaljevanju je na voljo v GitHub repozitoriju <a href="https://github.com/ois-2023-2024/P5-V5"><i class="fa-brands fa-github"></i><strong>P5-V5</strong></a>. Najprej na GitHub izdelajte kopijo projekta <em>(angl. Fork)</em> z istim imenom repozitorija, nato pa si lokalno okolje nastavite z naslednjima ukazoma:</p>
+<p><code>git clone git@github.com:{VAŠE-GITHUB-UPORABNIŠKO-IME}/P5-V5.git</code><br/>
+<code>cd P5-V5</code></p>
+<p>ali</p>
+<p><code>git clone https://github.com/{VAŠE-GITHUB-UPORABNIŠKO-IME}/P5-V5.git</code><br/>
+<code>cd P5-V5</code></p>
+</blockquote>
+</div>
+<div id="razširitev-arhitekture-odjemalecstrežnik-s-podatkovno-bazo" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Razširitev arhitekture odjemalec/strežnik s podatkovno bazo<a href="P5-V5.html#razširitev-arhitekture-odjemalecstrežnik-s-podatkovno-bazo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>predstavitvena raven</strong> (spletna stran na strani odjemalca),</li>
+<li><strong>aplikacijski strežnik</strong> (poslovna logika, ki se izvaja na strežniku),</li>
+<li><strong>podatkovna baza</strong> (persistenčna raven, kamor se shranijo podatki).</li>
+</ul>
+</div>
+<div id="chinook-podatkovna-baza" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Chinook podatkovna baza<a href="P5-V5.html#chinook-podatkovna-baza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uporabljali bomo testno <a href="https://github.com/lerocha/chinook-database"><i class="fa-brands fa-github"></i>Chinook</a> podatkovno bazo (glej shemo na sliki <a href="P5-V5.html#fig:slika-Chinook-schema#fig:slika-Chinook-schema">11.1</a>), ki so jo v izobraževalne namene pripravili pri podjetju Microsoft.</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Chinook-schema"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/hLRRRjim37tNLmZjMu0y5YYAecZYnbkmTl2sx0CKcss4o98XAMspfly-MXV7jmnvs4iW7bA7v954vzvOfksk53HJ1RDRzIePDHie6VspvdeBj0euJJPSAhKbn6ovh9Xc9Sq5CuP-44hNBD--QBMJHQA4qlHjmotKkD85Q8zTNgNpwqM2ADDQlNbmBN0d-MoH7gbo5s4ramPT82tPy09epdKkW104kDtJYyaa4smlkB6JoGLbXaRJLHQDvSCDvTBIszliszqTEgPJ_FdEIhYX5jujrZ32kD9OJO_MOIUuK-G-fd2HosBCsSasq_POlJSSlryU2SwfV2RMkp9IrMlFLA_6YLRSYiWqJ9aEYcrBugMuXEldg-V29UgrVABYGK6fZtk2WhFLleA1vmj8FKGJLLRAW6vedpYU1-HA5iQ58ZJVMsYCtvBRJFCS2z70HBUp9dlehh5TPoErdNCUhl10wDQEhDVEEKIBiX9g3v4hceuk6kECZypOZlWfrpsaUmb-GgMqDIlLatlEjTqyC8kHE1J0yh9-ur-vXW4uAmeDnZIK2NRH6B-i2uykVEjM7xsPmg4a4bL0FBLiesIhUlRUh1Sbus9ChMHdh2f11xMYwTIAnhXQGt46-jNNZibZnV-fsGYTrIqIxwhwcF2m_lLSb_9LuNqFEWIhysG3Dgx6KAjm5yAkmS7FkH1SllGb2N17cO1r1Og1FPq2F2BNIY4ozfn3XOzSzhglaNRdjJtU_K2QzEHW7nakbFxOCLUElyXONVDfEXocK_NH_QQGxXVcKqsdXuFFHS9N8MnpqvFuyHuW7zRPsKoiBknc3sdcHzWVxO4ZtW3Il25q81wq8MrHGuReyca3JokEa7kG1Vxh-0i0" alt="Podatkovna shema zbirke podatkov Chinook PlantUML." width="550" />
+<p class="caption">
+Slika 11.1: Podatkovna shema zbirke podatkov <strong>Chinook</strong> <a href="https://teaching.lavbic.net/plantuml/uml/hLRRRjim37tNLmZjMu0y5YYAecZYnbkmTl2sx0CKcss4o98XAMspfly-MXV7jmnvs4iW7bA7v954vzvOfksk53HJ1RDRzIePDHie6VspvdeBj0euJJPSAhKbn6ovh9Xc9Sq5CuP-44hNBD--QBMJHQA4qlHjmotKkD85Q8zTNgNpwqM2ADDQlNbmBN0d-MoH7gbo5s4ramPT82tPy09epdKkW104kDtJYyaa4smlkB6JoGLbXaRJLHQDvSCDvTBIszliszqTEgPJ_FdEIhYX5jujrZ32kD9OJO_MOIUuK-G-fd2HosBCsSasq_POlJSSlryU2SwfV2RMkp9IrMlFLA_6YLRSYiWqJ9aEYcrBugMuXEldg-V29UgrVABYGK6fZtk2WhFLleA1vmj8FKGJLLRAW6vedpYU1-HA5iQ58ZJVMsYCtvBRJFCS2z70HBUp9dlehh5TPoErdNCUhl10wDQEhDVEEKIBiX9g3v4hceuk6kECZypOZlWfrpsaUmb-GgMqDIlLatlEjTqyC8kHE1J0yh9-ur-vXW4uAmeDnZIK2NRH6B-i2uykVEjM7xsPmg4a4bL0FBLiesIhUlRUh1Sbus9ChMHdh2f11xMYwTIAnhXQGt46-jNNZibZnV-fsGYTrIqIxwhwcF2m_lLSb_9LuNqFEWIhysG3Dgx6KAjm5yAkmS7FkH1SllGb2N17cO1r1Og1FPq2F2BNIY4ozfn3XOzSzhglaNRdjJtU_K2QzEHW7nakbFxOCLUElyXONVDfEXocK_NH_QQGxXVcKqsdXuFFHS9N8MnpqvFuyHuW7zRPsKoiBknc3sdcHzWVxO4ZtW3Il25q81wq8MrHGuReyca3JokEa7kG1Vxh-0i0"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+<p>Podatkovna baza podpira digitalno spletno trgovino in vključuje transakcije, ki podpirajo spletno prodajo pesmi (npr. v iTunes). Je alternativa popularni izobraževalni podatkovni bazi <a href="https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs"><i class='fa-solid fa-earth-europe'></i>Northwind</a>.</p>
+</div>
+<div id="poizvedovalni-jezik-sql" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Poizvedovalni jezik SQL<a href="P5-V5.html#poizvedovalni-jezik-sql" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://en.wikipedia.org/wiki/SQL"><i class="fa-brands fa-wikipedia-w"></i>Poizvedovalni jezik <strong>SQL</strong></a> je <a href="https://en.wikipedia.org/wiki/De_facto_standard"><i class="fa-brands fa-wikipedia-w"></i>de-facto standard</a> za poizvedovanje po relacijskih podatkovnih bazah. Več o njem si bomo pogledali pri načrtovanju informacijskih sistemov. Zaenkrat bomo uporabljali zgolj poizvedbe, ki so v poenostavljeni obliki sestavljene iz naslednjih gradnikov:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb100-1"><a href="P5-V5.html#cb100-1" tabindex="-1"></a><span class="kw">SELECT</span> atribut1, atribut2, <span class="op">..</span>.</span>
+<span id="cb100-2"><a href="P5-V5.html#cb100-2" tabindex="-1"></a><span class="kw">FROM</span> tabela1, tabela2, <span class="op">..</span>.</span>
+<span id="cb100-3"><a href="P5-V5.html#cb100-3" tabindex="-1"></a><span class="kw">WHERE</span> pogoj1 <span class="kw">AND</span> pogoj2 <span class="kw">OR</span> pogoj3 <span class="kw">AND</span> <span class="op">..</span>.</span></code></pre></div>
+<blockquote>
+<p><strong>Opomba</strong>: Podrobneje se boste s poizvedovalnim jezikom SQL srečali v višjih letnikih, predvsem pri predmetu <strong>Osnove podatkovnih baz</strong>.</p>
+</blockquote>
+</div>
+<div id="podatkovna-baza-sqlite" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Podatkovna baza SQLite<a href="P5-V5.html#podatkovna-baza-sqlite" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Gre za zelo enostavno implementacijo odprtokodne podatkovne baze <a href="https://www.sqlite.org"><i class='fa-solid fa-earth-europe'></i>SQLite</a>, ki ob začetku uporabe ne potrebuje nobenih nastavitev, podatke pa lahko enostavno shranjuje v datoteko.</p>
+<div id="vsebina-podatkovne-baze" class="section level3 hasAnchor" number="11.5.1">
+<h3><span class="header-section-number">11.5.1</span> Vsebina podatkovne baze<a href="P5-V5.html#vsebina-podatkovne-baze" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Za pregled vsebine podatkovne baze lahko uporabimo orodje <a href="http://sqlitebrowser.org"><i class='fa-solid fa-earth-europe'></i>DB Browser for SQLite</a>, ki je na voljo za vsa okolja (Windows, OSX in Linux). Za Windows okolje je na voljo tudi prenosna različica (tj. PortableApp), ki vam je ni potrebno namestiti in jo samo prenesete k sebi na računalnik ter poženete.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-DB-Browser-for-SQLite"></span>
+<img src="assets/img/DB_Browser_for_SQLite.png" alt="Uporabniški vmesnik DB Browser for SQLite" width="500" />
+<p class="caption">
+Slika 11.2: Uporabniški vmesnik DB Browser for SQLite
+</p>
+</div>
+</div>
+<div id="namestitev-knjižnic" class="section level3 hasAnchor" number="11.5.2">
+<h3><span class="header-section-number">11.5.2</span> Namestitev knjižnic<a href="P5-V5.html#namestitev-knjižnic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Spremembe v repozitoriju od tega koraka naprej so na voljo na uveljavitvi s sporočilom <strong>Dodajanje odvisnosti od knjižnic in podatkovne baze Chinook</strong>.</p>
+</blockquote>
+<p>Najprej moramo v okolju Node.js poskrbeti za namestitev knjižnice <a href="https://www.npmjs.com/package/sqlite3"><strong><i class="fa-solid fa-tag"></i><code>sqlite3</code></strong></a>, zato pripravimo <code>package.json</code> z naslednjo vsebino:</p>
+<p><code>package.json</code></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb101-1"><a href="P5-V5.html#cb101-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb101-2"><a href="P5-V5.html#cb101-2" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;pb&quot;</span><span class="fu">,</span></span>
+<span id="cb101-3"><a href="P5-V5.html#cb101-3" tabindex="-1"></a>  <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;Povezovanje na podatkovno bazo&quot;</span><span class="fu">,</span></span>
+<span id="cb101-4"><a href="P5-V5.html#cb101-4" tabindex="-1"></a>  <span class="dt">&quot;author&quot;</span><span class="fu">:</span> <span class="st">&quot;Dejan Lavbič &lt;Dejan@lavbic.net&gt;&quot;</span><span class="fu">,</span></span>
+<span id="cb101-5"><a href="P5-V5.html#cb101-5" tabindex="-1"></a>  <span class="dt">&quot;dependencies&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb101-6"><a href="P5-V5.html#cb101-6" tabindex="-1"></a>    <span class="dt">&quot;sqlite3&quot;</span><span class="fu">:</span> <span class="st">&quot;*&quot;</span></span>
+<span id="cb101-7"><a href="P5-V5.html#cb101-7" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb101-8"><a href="P5-V5.html#cb101-8" tabindex="-1"></a>  <span class="dt">&quot;private&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb101-9"><a href="P5-V5.html#cb101-9" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>in poženemo ukaz</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb102-1"><a href="P5-V5.html#cb102-1" tabindex="-1"></a><span class="ex">$</span> npm install</span></code></pre></div>
+<p>V projekt vključimo tudi datoteko <span class="chinook-dl"><a href="https://github.com/ois-2023-2024/P5-V5/blob/master/Chinook.sl3?raw=true"><i class='fa-solid fa-earth-europe'></i><code>Chinook.sl3</code></a></span>, ki predstavlja zbirko podatkov obliki v SQL Lite podatkovne baze.</p>
+<blockquote>
+<p><strong>Namig</strong>: Če imate pri uporabi MacOS težave z namestitvijo knjižnice, si lahko pomagate z <a href="https://github.com/mapbox/node-sqlite3/issues/1552"><i class="fa-brands fa-github"></i>dodatnimi navodili</a>.</p>
+</blockquote>
+<p>Dodajmo tudi datoteko <code>.gitignore</code>, kjer zahtevamo, da se vsebina mape <code>node_modules</code> ne posreduje v oddaljeni GitHub repozitorij, saj tam ne želimo shranjevati knjižnic, ampak zgolj izvorno kodo.</p>
+<p><code>.gitignore</code></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb103-1"><a href="P5-V5.html#cb103-1" tabindex="-1"></a><span class="ex">node_modules</span></span></code></pre></div>
+<p>V nadaljevanju si bomo pogledali enostaven primer <strong>Hello World</strong> s klasičnim pristopom (kar smo na vajah že implementirali) in <strong>z uporabo ogrodja Express.js</strong>, da vidimo razlike.</p>
+</div>
+<div id="prikaz-vseh-vrednosti-v-tabeli" class="section level3 hasAnchor" number="11.5.3">
+<h3><span class="header-section-number">11.5.3</span> Prikaz vseh vrednosti v tabeli<a href="P5-V5.html#prikaz-vseh-vrednosti-v-tabeli" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Spremembe v repozitoriju od tega koraka naprej so na voljo na uveljavitvi s sporočilom <strong>Dostop do podatkovne baze in pridobivanje podatkov</strong>.</p>
+</blockquote>
+<p>Najprej si poglejmo, kako dostopamo do podatkovne baze in izpišemo vse žanre iz tabele <code>Genre</code> (glej sliko <a href="P5-V5.html#fig:slika-Chinook-Genre#fig:slika-Chinook-Genre">11.3</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Chinook-Genre"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/JP3HQW9134NVvok2VLlmKH0H4HTRf53yXUnCS8UPJPPChAtIV-zqBUXBk9mazuPiYw7QUSXmb82Mv9CHIay3mhMBcWZ6Vmvj7raaELTIv14L1_0PIu6R0-ZGfvFAcKChMHGkVJJwuwA1zCvU5g-xvRwj55NbSeTThflkvydqOUMd2LFaKbl4vleO27nKdycv2g9zmwnfteYLccO6M63IqqsJEeGLH3POhu_lcqsbytaj7pZG2eo-h4QxBN6eB_W5" alt="Tabela `Genre`" width="120" />
+<p class="caption">
+Slika 11.3: Tabela <code>Genre</code>
+</p>
+</div>
+<p><code>PB_dostop.js</code></p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb104-1"><a href="P5-V5.html#cb104-1" tabindex="-1"></a><span class="kw">const</span> sqlite3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">&quot;sqlite3&quot;</span>)<span class="op">.</span><span class="fu">verbose</span>()<span class="op">;</span></span>
+<span id="cb104-2"><a href="P5-V5.html#cb104-2" tabindex="-1"></a><span class="kw">const</span> pb <span class="op">=</span> <span class="kw">new</span> sqlite3<span class="op">.</span><span class="fu">Database</span>(<span class="st">&quot;Chinook.sl3&quot;</span>)<span class="op">;</span></span>
+<span id="cb104-3"><a href="P5-V5.html#cb104-3" tabindex="-1"></a></span>
+<span id="cb104-4"><a href="P5-V5.html#cb104-4" tabindex="-1"></a><span class="co">// Prikaži vse podatke v tabeli</span></span>
+<span id="cb104-5"><a href="P5-V5.html#cb104-5" tabindex="-1"></a>pb<span class="op">.</span><span class="fu">each</span>(<span class="st">&quot;SELECT * FROM Genre&quot;</span><span class="op">,</span> (napaka<span class="op">,</span> vrstica) <span class="kw">=&gt;</span> {</span>
+<span id="cb104-6"><a href="P5-V5.html#cb104-6" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>napaka) <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Žanr : &quot;</span> <span class="op">+</span> vrstica<span class="op">.</span><span class="at">Name</span>)<span class="op">;</span></span>
+<span id="cb104-7"><a href="P5-V5.html#cb104-7" tabindex="-1"></a>  <span class="cf">else</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Prišlo je do napake!&quot;</span>)<span class="op">;</span></span>
+<span id="cb104-8"><a href="P5-V5.html#cb104-8" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb104-9"><a href="P5-V5.html#cb104-9" tabindex="-1"></a></span>
+<span id="cb104-10"><a href="P5-V5.html#cb104-10" tabindex="-1"></a>pb<span class="op">.</span><span class="fu">close</span>()<span class="op">;</span></span></code></pre></div>
+<p>Če naš program poženemo z ukazom</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb105-1"><a href="P5-V5.html#cb105-1" tabindex="-1"></a><span class="ex">$</span> node PB_dostop.js</span></code></pre></div>
+<p>dobimo naslednji rezultat:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb106-1"><a href="P5-V5.html#cb106-1" tabindex="-1"></a><span class="ex">Žanr</span> : Rock</span>
+<span id="cb106-2"><a href="P5-V5.html#cb106-2" tabindex="-1"></a><span class="ex">Žanr</span> : Jazz</span>
+<span id="cb106-3"><a href="P5-V5.html#cb106-3" tabindex="-1"></a><span class="ex">Žanr</span> : Metal</span>
+<span id="cb106-4"><a href="P5-V5.html#cb106-4" tabindex="-1"></a><span class="ex">Žanr</span> : Alternative <span class="kw">&amp;</span> <span class="ex">Punk</span></span>
+<span id="cb106-5"><a href="P5-V5.html#cb106-5" tabindex="-1"></a><span class="ex">Žanr</span> : Rock And Roll</span>
+<span id="cb106-6"><a href="P5-V5.html#cb106-6" tabindex="-1"></a><span class="ex">Žanr</span> : Blues</span>
+<span id="cb106-7"><a href="P5-V5.html#cb106-7" tabindex="-1"></a><span class="ex">Žanr</span> : Latin</span>
+<span id="cb106-8"><a href="P5-V5.html#cb106-8" tabindex="-1"></a><span class="ex">Žanr</span> : Reggae</span>
+<span id="cb106-9"><a href="P5-V5.html#cb106-9" tabindex="-1"></a><span class="ex">Žanr</span> : Pop</span>
+<span id="cb106-10"><a href="P5-V5.html#cb106-10" tabindex="-1"></a><span class="ex">Žanr</span> : Soundtrack</span>
+<span id="cb106-11"><a href="P5-V5.html#cb106-11" tabindex="-1"></a><span class="ex">Žanr</span> : Bossa Nova</span>
+<span id="cb106-12"><a href="P5-V5.html#cb106-12" tabindex="-1"></a><span class="ex">Žanr</span> : Easy Listening</span>
+<span id="cb106-13"><a href="P5-V5.html#cb106-13" tabindex="-1"></a><span class="ex">Žanr</span> : Heavy Metal</span>
+<span id="cb106-14"><a href="P5-V5.html#cb106-14" tabindex="-1"></a><span class="ex">Žanr</span> : R<span class="kw">&amp;</span><span class="ex">B/Soul</span></span>
+<span id="cb106-15"><a href="P5-V5.html#cb106-15" tabindex="-1"></a><span class="ex">Žanr</span> : Electronica/Dance</span>
+<span id="cb106-16"><a href="P5-V5.html#cb106-16" tabindex="-1"></a><span class="ex">Žanr</span> : World</span>
+<span id="cb106-17"><a href="P5-V5.html#cb106-17" tabindex="-1"></a><span class="ex">Žanr</span> : Hip Hop/Rap</span>
+<span id="cb106-18"><a href="P5-V5.html#cb106-18" tabindex="-1"></a><span class="ex">Žanr</span> : Science Fiction</span>
+<span id="cb106-19"><a href="P5-V5.html#cb106-19" tabindex="-1"></a><span class="ex">Žanr</span> : TV Shows</span>
+<span id="cb106-20"><a href="P5-V5.html#cb106-20" tabindex="-1"></a><span class="ex">Žanr</span> : Sci Fi <span class="kw">&amp;</span> <span class="ex">Fantasy</span></span>
+<span id="cb106-21"><a href="P5-V5.html#cb106-21" tabindex="-1"></a><span class="ex">Žanr</span> : Drama</span>
+<span id="cb106-22"><a href="P5-V5.html#cb106-22" tabindex="-1"></a><span class="ex">Žanr</span> : Comedy</span>
+<span id="cb106-23"><a href="P5-V5.html#cb106-23" tabindex="-1"></a><span class="ex">Žanr</span> : Alternative</span>
+<span id="cb106-24"><a href="P5-V5.html#cb106-24" tabindex="-1"></a><span class="ex">Žanr</span> : Classical</span>
+<span id="cb106-25"><a href="P5-V5.html#cb106-25" tabindex="-1"></a><span class="ex">Žanr</span> : Opera</span></code></pre></div>
+</div>
+<div id="filtriranje-zapisov" class="section level3 hasAnchor" number="11.5.4">
+<h3><span class="header-section-number">11.5.4</span> Filtriranje zapisov<a href="P5-V5.html#filtriranje-zapisov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri prikazu vrednosti iz podatkovne baze lahko rezultate tudi omejimo, kot prikazuje naslednji primer, kjer iz tabele <code>Track</code> (glej sliko <a href="P5-V5.html#fig:slika-Chinook-Track#fig:slika-Chinook-Track">11.4</a>) izpišemo pesem z ID-jem <code>17</code>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Chinook-Track"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/PP5HIyD03CVVxrE4-LROeo1ZZBdYH6JIX_a1qhjWGwzt9NTrLl6x6rlPXBs4v9T__eHacp9A7ZeFLNIOs_WU45937S9dpT8Iz7ySoeP3ZAqngUNGes07rcDAy6K0QhJjcyGXk3BwA71gEDClZ-98PdPpkz_TFPHAKIIUPbXxdJJV_qmlLdPIPC6Gj4KXcuOTWMMndenHm7c4HL4SHMUAOW6OOCgddQRioQs0GuRrkdhUR9GkbnfUiACLPFh8MjpxUkWkklsiEv1ZF8uzNNKUASWrBMFNnqHojZsmvqGs1fScgQBTcEbSl0REbR3LHOJGwmtCbeBJN_m0" alt="Tabela `Track`" width="140" />
+<p class="caption">
+Slika 11.4: Tabela <code>Track</code>
+</p>
+</div>
+<p><code>PB_dostop.js</code></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb107-1"><a href="P5-V5.html#cb107-1" tabindex="-1"></a><span class="co">// Prikaži podatke o izbrani pesmi</span></span>
+<span id="cb107-2"><a href="P5-V5.html#cb107-2" tabindex="-1"></a>pb<span class="op">.</span><span class="fu">each</span>(<span class="st">&quot;SELECT Name FROM Track WHERE TrackId=17&quot;</span><span class="op">,</span> (napaka<span class="op">,</span> vrstica) <span class="kw">=&gt;</span> {</span>
+<span id="cb107-3"><a href="P5-V5.html#cb107-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>napaka) <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Pesem : &quot;</span> <span class="op">+</span> vrstica<span class="op">.</span><span class="at">Name</span>)<span class="op">;</span></span>
+<span id="cb107-4"><a href="P5-V5.html#cb107-4" tabindex="-1"></a>  <span class="cf">else</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Prišlo je do napake!&quot;</span>)<span class="op">;</span></span>
+<span id="cb107-5"><a href="P5-V5.html#cb107-5" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Če naš dopolnjen program ponovno poženemo z ukazom,</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb108-1"><a href="P5-V5.html#cb108-1" tabindex="-1"></a><span class="ex">$</span> node PB_dostop.js</span></code></pre></div>
+<p>dobimo, poleg že prej omenjenega izpisa žanrov, tudi naslednji izpis:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb109-1"><a href="P5-V5.html#cb109-1" tabindex="-1"></a><span class="ex">Pesem</span> : Let There Be Rock</span></code></pre></div>
+</div>
+<div id="prikaz-podatkov-iz-več-tabel" class="section level3 hasAnchor" number="11.5.5">
+<h3><span class="header-section-number">11.5.5</span> Prikaz podatkov iz več tabel<a href="P5-V5.html#prikaz-podatkov-iz-več-tabel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Iz podatkovne baze pa lahko pridobimo tudi podatke iz več tabel, ki jih prikažemo združene. V našem primeru bomo za vsako pesem izpisali njen naslov in morebitnega skladatelja (podatki so v tabeli <code>Track</code>) ter žanr (podatek je v tabeli <code>Genre</code>), kar prikazuje slika <a href="P5-V5.html#fig:slika-Chinook-Genre-Track#fig:slika-Chinook-Genre-Track">11.5</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Chinook-Genre-Track"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/TP7DQW8n4CVlUOh1tXRsM2WYObrgASNYmJx0R3AumsQJPH9hRVNTcsP5fT9BcFdDp7y-CWiH9Mux2ojlCBR-mo64XZg4hvgb9UXF7Ag6dVUjKg5brwDW1zfY2F2j06hKxKRyrfdAMo-mQpZIB_TYI0PsTx-OFpnLYQA8tmsmjgbI7Qz4Br8wPqH15rA8N5GD6mBDeYqfbG37FOoAOYsffYX6W06odMVAreiP0xi8aydgTJfDj2pJyuOTZI7IPqpEewsttILlCUGjoJ2kzptTH9x9oIsjVDVxG7AMNRBbGDex4t9gGlDzfBFpxZYkX7KQH0Xjki7LHhd7QQDivut-TFvdeoGq7E7eI-5D4yl3OIXLQaREfD_-0G00" alt="Tabeli `Genre` in `Track`" width="270" />
+<p class="caption">
+Slika 11.5: Tabeli <code>Genre</code> in <code>Track</code>
+</p>
+</div>
+<p><code>PB_dostop.js</code></p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb110-1"><a href="P5-V5.html#cb110-1" tabindex="-1"></a><span class="co">// Prikaži podatke iz več tabel hkrati</span></span>
+<span id="cb110-2"><a href="P5-V5.html#cb110-2" tabindex="-1"></a>pb<span class="op">.</span><span class="fu">each</span>(</span>
+<span id="cb110-3"><a href="P5-V5.html#cb110-3" tabindex="-1"></a>  <span class="st">&quot;SELECT  Genre.Name AS zanr, Track.Name AS pesem, </span><span class="sc">\</span></span>
+<span id="cb110-4"><a href="P5-V5.html#cb110-4" tabindex="-1"></a><span class="st">           Track.Composer AS skladatelj </span><span class="sc">\</span></span>
+<span id="cb110-5"><a href="P5-V5.html#cb110-5" tabindex="-1"></a><span class="st">  FROM     Track, Genre </span><span class="sc">\</span></span>
+<span id="cb110-6"><a href="P5-V5.html#cb110-6" tabindex="-1"></a><span class="st">  WHERE    Track.GenreId = Genre.GenreId </span><span class="sc">\</span></span>
+<span id="cb110-7"><a href="P5-V5.html#cb110-7" tabindex="-1"></a><span class="st">  ORDER BY zanr, pesem </span><span class="sc">\</span></span>
+<span id="cb110-8"><a href="P5-V5.html#cb110-8" tabindex="-1"></a><span class="st">  LIMIT    20&quot;</span><span class="op">,</span></span>
+<span id="cb110-9"><a href="P5-V5.html#cb110-9" tabindex="-1"></a>  (napaka<span class="op">,</span> vrstica) <span class="kw">=&gt;</span> {</span>
+<span id="cb110-10"><a href="P5-V5.html#cb110-10" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>napaka)</span>
+<span id="cb110-11"><a href="P5-V5.html#cb110-11" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(</span>
+<span id="cb110-12"><a href="P5-V5.html#cb110-12" tabindex="-1"></a>        <span class="st">&quot;Žanr = &quot;</span> <span class="op">+</span></span>
+<span id="cb110-13"><a href="P5-V5.html#cb110-13" tabindex="-1"></a>          vrstica<span class="op">.</span><span class="at">zanr</span> <span class="op">+</span></span>
+<span id="cb110-14"><a href="P5-V5.html#cb110-14" tabindex="-1"></a>          <span class="st">&quot;, pesem = &quot;</span> <span class="op">+</span></span>
+<span id="cb110-15"><a href="P5-V5.html#cb110-15" tabindex="-1"></a>          vrstica<span class="op">.</span><span class="at">pesem</span> <span class="op">+</span></span>
+<span id="cb110-16"><a href="P5-V5.html#cb110-16" tabindex="-1"></a>          (vrstica<span class="op">.</span><span class="at">skladatelj</span> <span class="op">!=</span> <span class="kw">null</span></span>
+<span id="cb110-17"><a href="P5-V5.html#cb110-17" tabindex="-1"></a>            <span class="op">?</span> <span class="st">&quot;, skladatelj = &quot;</span> <span class="op">+</span> vrstica<span class="op">.</span><span class="at">skladatelj</span></span>
+<span id="cb110-18"><a href="P5-V5.html#cb110-18" tabindex="-1"></a>            <span class="op">:</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb110-19"><a href="P5-V5.html#cb110-19" tabindex="-1"></a>      )<span class="op">;</span></span>
+<span id="cb110-20"><a href="P5-V5.html#cb110-20" tabindex="-1"></a>    <span class="cf">else</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Prišlo je do napake!&quot;</span>)<span class="op">;</span></span>
+<span id="cb110-21"><a href="P5-V5.html#cb110-21" tabindex="-1"></a>  }</span>
+<span id="cb110-22"><a href="P5-V5.html#cb110-22" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div>
+<p>Če naš dopolnjen program ponovno poženemo z ukazom</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb111-1"><a href="P5-V5.html#cb111-1" tabindex="-1"></a><span class="ex">$</span> node PB_dostop.js</span></code></pre></div>
+<p>dobimo, poleg že prej omenjenega izpisa žanrov in podrobnosti pesmi z ID-jem <code>17</code>, tudi naslednji izpis:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb112-1"><a href="P5-V5.html#cb112-1" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = All Night Thing</span>
+<span id="cb112-2"><a href="P5-V5.html#cb112-2" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Arms Around Your Love, skladatelj = Chris Cornell</span>
+<span id="cb112-3"><a href="P5-V5.html#cb112-3" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Band Members Discuss Tracks from <span class="st">&quot;Revelations&quot;</span></span>
+<span id="cb112-4"><a href="P5-V5.html#cb112-4" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Billie Jean, skladatelj = Michael Jackson</span>
+<span id="cb112-5"><a href="P5-V5.html#cb112-5" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Broken City</span>
+<span id="cb112-6"><a href="P5-V5.html#cb112-6" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Call Me a Dog</span>
+<span id="cb112-7"><a href="P5-V5.html#cb112-7" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Disappearing Act, skladatelj = Chris Cornell</span>
+<span id="cb112-8"><a href="P5-V5.html#cb112-8" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Finally Forever, skladatelj = Chris Cornell</span>
+<span id="cb112-9"><a href="P5-V5.html#cb112-9" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Four Walled World</span>
+<span id="cb112-10"><a href="P5-V5.html#cb112-10" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Ghosts, skladatelj = Chris Cornell</span>
+<span id="cb112-11"><a href="P5-V5.html#cb112-11" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Hunger Strike</span>
+<span id="cb112-12"><a href="P5-V5.html#cb112-12" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Jewel of the Summertime</span>
+<span id="cb112-13"><a href="P5-V5.html#cb112-13" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Killing Birds, skladatelj = Chris Cornell</span>
+<span id="cb112-14"><a href="P5-V5.html#cb112-14" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Moth</span>
+<span id="cb112-15"><a href="P5-V5.html#cb112-15" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = No Such Thing, skladatelj = Chris Cornell</span>
+<span id="cb112-16"><a href="P5-V5.html#cb112-16" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Nothing Left to Say But Goodbye</span>
+<span id="cb112-17"><a href="P5-V5.html#cb112-17" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = One and the Same</span>
+<span id="cb112-18"><a href="P5-V5.html#cb112-18" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Original Fire</span>
+<span id="cb112-19"><a href="P5-V5.html#cb112-19" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Poison Eye, skladatelj = Chris Cornell</span>
+<span id="cb112-20"><a href="P5-V5.html#cb112-20" tabindex="-1"></a><span class="ex">Žanr</span> = Alternative, pesem = Pushin Forward Back</span></code></pre></div>
+</div>
+</div>
+<div id="uporaba-ogrodja-express.js-za-poenostavitev-razvoja-aplikacij" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Uporaba ogrodja Express.js za poenostavitev razvoja aplikacij<a href="P5-V5.html#uporaba-ogrodja-express.js-za-poenostavitev-razvoja-aplikacij" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Celotna funkcionalnost enostavnega spletnega strežnika (npr. predpomnilnik, strežba statičnih strani ipd.), ki smo ga pred časom razvili na predavanjih <span class="sklop2">P4</span> → <span class="sklop3">V4</span> <a href="P4-V4.html#P4-V4">Odjemalec/strežnik in Node.js</a>, je že na voljo v enostavnem ogrodju za razvoj spletnih aplikacij <a href="http://expressjs.com"><i class='fa-solid fa-earth-europe'></i>Express.js</a> in ga bomo od zdaj naprej tudi uporabljali.</p>
+<div id="namestitev-knjižnic-1" class="section level3 hasAnchor" number="11.6.1">
+<h3><span class="header-section-number">11.6.1</span> Namestitev knjižnic<a href="P5-V5.html#namestitev-knjižnic-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Spremembe v repozitoriju od tega koraka naprej so na voljo na uveljavitvi s sporočilom <strong>Vpeljava ogrodja Express.js</strong>.</p>
+</blockquote>
+<p>Najprej moramo poskrbeti za namestitev knjižnice <a href="https://www.npmjs.com/package/express"><strong><i class="fa-solid fa-tag"></i><code>express</code></strong></a>, ki jo dodamo v datoteko <code>package.json</code>.</p>
+<p><code>package.json</code></p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb113-1"><a href="P5-V5.html#cb113-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb113-2"><a href="P5-V5.html#cb113-2" tabindex="-1"></a>  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;pb&quot;</span><span class="fu">,</span></span>
+<span id="cb113-3"><a href="P5-V5.html#cb113-3" tabindex="-1"></a>  <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;Povezovanje na podatkovno bazo&quot;</span><span class="fu">,</span></span>
+<span id="cb113-4"><a href="P5-V5.html#cb113-4" tabindex="-1"></a>  <span class="dt">&quot;author&quot;</span><span class="fu">:</span> <span class="st">&quot;Dejan Lavbič &lt;Dejan@lavbic.net&gt;&quot;</span><span class="fu">,</span></span>
+<span id="cb113-5"><a href="P5-V5.html#cb113-5" tabindex="-1"></a>  <span class="dt">&quot;dependencies&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb113-6"><a href="P5-V5.html#cb113-6" tabindex="-1"></a>    <span class="dt">&quot;sqlite3&quot;</span><span class="fu">:</span> <span class="st">&quot;*&quot;</span><span class="fu">,</span></span>
+<span id="cb113-7"><a href="P5-V5.html#cb113-7" tabindex="-1"></a>    <span class="dt">&quot;express&quot;</span><span class="fu">:</span> <span class="st">&quot;*&quot;</span></span>
+<span id="cb113-8"><a href="P5-V5.html#cb113-8" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb113-9"><a href="P5-V5.html#cb113-9" tabindex="-1"></a>  <span class="dt">&quot;private&quot;</span><span class="fu">:</span> <span class="kw">true</span></span>
+<span id="cb113-10"><a href="P5-V5.html#cb113-10" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>Knjižnice enostavno namestimo s ponovnim zagonom ukaza:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb114-1"><a href="P5-V5.html#cb114-1" tabindex="-1"></a><span class="ex">$</span> npm install</span></code></pre></div>
+</div>
+<div id="hello-world-brez-uporabe-express" class="section level3 hasAnchor" number="11.6.2">
+<h3><span class="header-section-number">11.6.2</span> Hello World brez uporabe Express<a href="P5-V5.html#hello-world-brez-uporabe-express" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>Hello_basic.js</code></p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb115-1"><a href="P5-V5.html#cb115-1" tabindex="-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span>) <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span> <span class="op">=</span> <span class="dv">8080</span><span class="op">;</span></span>
+<span id="cb115-2"><a href="P5-V5.html#cb115-2" tabindex="-1"></a></span>
+<span id="cb115-3"><a href="P5-V5.html#cb115-3" tabindex="-1"></a><span class="kw">const</span> http <span class="op">=</span> <span class="pp">require</span>(<span class="st">&quot;http&quot;</span>)<span class="op">;</span></span>
+<span id="cb115-4"><a href="P5-V5.html#cb115-4" tabindex="-1"></a></span>
+<span id="cb115-5"><a href="P5-V5.html#cb115-5" tabindex="-1"></a><span class="kw">const</span> streznik <span class="op">=</span> http<span class="op">.</span><span class="fu">createServer</span>((zahteva<span class="op">,</span> odgovor) <span class="kw">=&gt;</span> {</span>
+<span id="cb115-6"><a href="P5-V5.html#cb115-6" tabindex="-1"></a>  odgovor<span class="op">.</span><span class="fu">writeHead</span>(<span class="dv">200</span><span class="op">,</span> { <span class="st">&quot;Content-Type&quot;</span><span class="op">:</span> <span class="st">&quot;text/plain&quot;</span> })<span class="op">;</span></span>
+<span id="cb115-7"><a href="P5-V5.html#cb115-7" tabindex="-1"></a>  odgovor<span class="op">.</span><span class="fu">end</span>(<span class="st">&quot;Lepo pozdravljeni ljubitelji predmeta OIS!&quot;</span>)<span class="op">;</span></span>
+<span id="cb115-8"><a href="P5-V5.html#cb115-8" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb115-9"><a href="P5-V5.html#cb115-9" tabindex="-1"></a></span>
+<span id="cb115-10"><a href="P5-V5.html#cb115-10" tabindex="-1"></a>streznik<span class="op">.</span><span class="fu">listen</span>(<span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb115-11"><a href="P5-V5.html#cb115-11" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Strežnik je pognan!&quot;</span>)<span class="op">;</span></span>
+<span id="cb115-12"><a href="P5-V5.html#cb115-12" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Strežnik lahko poženemo z naslednjim ukazom v terminalu.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb116-1"><a href="P5-V5.html#cb116-1" tabindex="-1"></a><span class="ex">$</span> node Hello_basic.js</span></code></pre></div>
+<blockquote>
+<p><strong>Namig</strong>: Če smo strežnik pognali iz terminala, ga ustavimo s kombinacijo tipk <strong>CTRL + C</strong>, sicer s klikom na gumb <strong>Stop</strong>.</p>
+</blockquote>
+</div>
+<div id="hello-world-z-express" class="section level3 hasAnchor" number="11.6.3">
+<h3><span class="header-section-number">11.6.3</span> Hello World z Express<a href="P5-V5.html#hello-world-z-express" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>Hello_express.js</code></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb117-1"><a href="P5-V5.html#cb117-1" tabindex="-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span>) <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span> <span class="op">=</span> <span class="dv">8080</span><span class="op">;</span></span>
+<span id="cb117-2"><a href="P5-V5.html#cb117-2" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="P5-V5.html#cb117-3" tabindex="-1"></a><span class="kw">const</span> express <span class="op">=</span> <span class="pp">require</span>(<span class="st">&quot;express&quot;</span>)<span class="op">;</span></span>
+<span id="cb117-4"><a href="P5-V5.html#cb117-4" tabindex="-1"></a><span class="kw">const</span> streznik <span class="op">=</span> <span class="fu">express</span>()<span class="op">;</span></span>
+<span id="cb117-5"><a href="P5-V5.html#cb117-5" tabindex="-1"></a></span>
+<span id="cb117-6"><a href="P5-V5.html#cb117-6" tabindex="-1"></a>streznik<span class="op">.</span><span class="fu">get</span>(<span class="st">&quot;/&quot;</span><span class="op">,</span> (zahteva<span class="op">,</span> odgovor) <span class="kw">=&gt;</span> {</span>
+<span id="cb117-7"><a href="P5-V5.html#cb117-7" tabindex="-1"></a>  odgovor<span class="op">.</span><span class="fu">send</span>(<span class="st">&quot;Lepo pozdravljeni ljubitelji predmeta OIS!&quot;</span>)<span class="op">;</span></span>
+<span id="cb117-8"><a href="P5-V5.html#cb117-8" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb117-9"><a href="P5-V5.html#cb117-9" tabindex="-1"></a></span>
+<span id="cb117-10"><a href="P5-V5.html#cb117-10" tabindex="-1"></a>streznik<span class="op">.</span><span class="fu">listen</span>(<span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb117-11"><a href="P5-V5.html#cb117-11" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Strežnik je pognan!&quot;</span>)<span class="op">;</span></span>
+<span id="cb117-12"><a href="P5-V5.html#cb117-12" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Podobno kot prej lahko strežnik poženete z naslednjim ukazom.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb118-1"><a href="P5-V5.html#cb118-1" tabindex="-1"></a><span class="ex">$</span> node Hello_express.js</span></code></pre></div>
+<div id="strežba-statičnih-datotek" class="section level4 hasAnchor" number="11.6.3.1">
+<h4><span class="header-section-number">11.6.3.1</span> Strežba statičnih datotek<a href="P5-V5.html#strežba-statičnih-datotek" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Express ogrodje nam omogoča tudi enostavno strežbo statičnih datotek (funkcionalnost, ki smo jo razvili sami na predavanjih <span class="sklop2">P2.1</span> → <span class="sklop2">V4</span> <a href="#Odjemalec-streznik-in-Node-js">Odjemalec/strežnik in Node.js</a>), in sicer zgolj tako, da opredelimo mapo, v kateri se nahajajo statične datoteke.</p>
+<p><code>Hello_express.js</code></p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb119-1"><a href="P5-V5.html#cb119-1" tabindex="-1"></a>streznik<span class="op">.</span><span class="fu">use</span>(express<span class="op">.</span><span class="fu">static</span>(<span class="st">&quot;public&quot;</span>))<span class="op">;</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="master-detail-načrtovalski-vzorec" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> Master-detail načrtovalski vzorec<a href="P5-V5.html#master-detail-načrtovalski-vzorec" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://msdn.microsoft.com/windows/uwp/controls-and-patterns/master-details"><i class='fa-solid fa-earth-europe'></i>Master-detail načrtovalski vzorec</a> je sestavljen iz dveh delov, kjer je <strong>master</strong> oz. <strong>list</strong> (nadrejeni) del ponavadi predstavljen v obliki seznama možnosti, medtem ko <strong>detail</strong> (podrejeni) del vsebuje podrobnosti izbranega elementa iz <strong>master</strong> dela, kot to prikazuje primer na sliki <a href="P5-V5.html#fig:slika-Master-detail-example#fig:slika-Master-detail-example">11.6</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Master-detail-example"></span>
+<img src="assets/img/Master_Detail_example.png" alt="Primer master/detail načrtovalskega vzorca" width="600" />
+<p class="caption">
+Slika 11.6: Primer master/detail načrtovalskega vzorca
+</p>
+</div>
+</div>
+<div id="primer-pesmi-po-žanrih" class="section level2 hasAnchor" number="11.8">
+<h2><span class="header-section-number">11.8</span> Primer: Pesmi po žanrih<a href="P5-V5.html#primer-pesmi-po-žanrih" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Spremembe v repozitoriju od tega koraka naprej so na voljo na uveljavitvi s sporočilom <strong>Primer spletne aplikacije pesmi po žanrih z master/detail načrtovalskim vzorcem</strong>.</p>
+</blockquote>
+<p>Poglejmo si enostaven primer master-detail načrtovalskega vzorca s pregledovanjem pesmi po žanrih iz podatkovne baze Chinook.</p>
+<div id="potrebne-knjižnice" class="section level3 hasAnchor" number="11.8.1">
+<h3><span class="header-section-number">11.8.1</span> Potrebne knjižnice<a href="P5-V5.html#potrebne-knjižnice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri projektu bomo uporabljali ogrodje <code>express</code> in podatkovno bazo <code>sqlite3</code>.</p>
+<p><code>streznik_pesmi_po_zanrih.js</code></p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb120-1"><a href="P5-V5.html#cb120-1" tabindex="-1"></a><span class="cf">if</span> (<span class="op">!</span><span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span>) <span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span> <span class="op">=</span> <span class="dv">8080</span><span class="op">;</span></span>
+<span id="cb120-2"><a href="P5-V5.html#cb120-2" tabindex="-1"></a></span>
+<span id="cb120-3"><a href="P5-V5.html#cb120-3" tabindex="-1"></a><span class="kw">const</span> express <span class="op">=</span> <span class="pp">require</span>(<span class="st">&quot;express&quot;</span>)<span class="op">;</span></span>
+<span id="cb120-4"><a href="P5-V5.html#cb120-4" tabindex="-1"></a><span class="kw">const</span> streznik <span class="op">=</span> <span class="fu">express</span>()<span class="op">;</span></span>
+<span id="cb120-5"><a href="P5-V5.html#cb120-5" tabindex="-1"></a></span>
+<span id="cb120-6"><a href="P5-V5.html#cb120-6" tabindex="-1"></a><span class="kw">const</span> sqlite3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">&quot;sqlite3&quot;</span>)<span class="op">.</span><span class="fu">verbose</span>()<span class="op">;</span></span>
+<span id="cb120-7"><a href="P5-V5.html#cb120-7" tabindex="-1"></a><span class="kw">const</span> pb <span class="op">=</span> <span class="kw">new</span> sqlite3<span class="op">.</span><span class="fu">Database</span>(<span class="st">&quot;Chinook.sl3&quot;</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov" class="section level3 hasAnchor" number="11.8.2">
+<h3><span class="header-section-number">11.8.2</span> Funkcija, ki v povratnem klicu vrača seznam žanrov<a href="P5-V5.html#funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Z namenom implementacije učinkovitega dostopa do podatkovne baze, ki omogoča več hkratnih dostopov, bomo implementirali funkcijo <code>vrniVseZanre(povratniKlic)</code>, ki preko funkcije <code>povratniKlic</code> vrne seznam žanrov.</p>
+<p><code>streznik_pesmi_po_zanrih.js</code></p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb121-1"><a href="P5-V5.html#cb121-1" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb121-2"><a href="P5-V5.html#cb121-2" tabindex="-1"></a><span class="co"> * Vrni seznam žanrov v povratnem klicu</span></span>
+<span id="cb121-3"><a href="P5-V5.html#cb121-3" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb121-4"><a href="P5-V5.html#cb121-4" tabindex="-1"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">povratniKlic</span><span class="co"> rezultat klica funkcije, ki predstavlja tabelo vrstic</span></span>
+<span id="cb121-5"><a href="P5-V5.html#cb121-5" tabindex="-1"></a><span class="co"> * in v vsaki vrstici je podatek o nazivu žanra</span></span>
+<span id="cb121-6"><a href="P5-V5.html#cb121-6" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb121-7"><a href="P5-V5.html#cb121-7" tabindex="-1"></a><span class="kw">const</span> vrniVseZanre <span class="op">=</span> (povratniKlic) <span class="kw">=&gt;</span> {</span>
+<span id="cb121-8"><a href="P5-V5.html#cb121-8" tabindex="-1"></a>  pb<span class="op">.</span><span class="fu">all</span>(<span class="st">&quot;SELECT * FROM Genre&quot;</span><span class="op">,</span> (napaka<span class="op">,</span> vrstice) <span class="kw">=&gt;</span> {</span>
+<span id="cb121-9"><a href="P5-V5.html#cb121-9" tabindex="-1"></a>    <span class="kw">let</span> rezultat <span class="op">=</span> <span class="st">&quot;Prišlo je do napake!&quot;</span><span class="op">;</span></span>
+<span id="cb121-10"><a href="P5-V5.html#cb121-10" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>napaka) {</span>
+<span id="cb121-11"><a href="P5-V5.html#cb121-11" tabindex="-1"></a>      rezultat <span class="op">=</span> <span class="st">&quot;&lt;h1&gt;&quot;</span> <span class="op">+</span> <span class="st">&quot;Žanri&quot;</span> <span class="op">+</span> <span class="st">&quot;&lt;/h1&gt;&quot;</span> <span class="op">+</span> <span class="st">&quot;&lt;ul&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb121-12"><a href="P5-V5.html#cb121-12" tabindex="-1"></a>      vrstice<span class="op">.</span><span class="fu">forEach</span>((vrstica) <span class="kw">=&gt;</span> {</span>
+<span id="cb121-13"><a href="P5-V5.html#cb121-13" tabindex="-1"></a>        rezultat <span class="op">+=</span> <span class="st">&quot;&lt;li&gt;&quot;</span> <span class="op">+</span> vrstica<span class="op">.</span><span class="at">Name</span> <span class="op">+</span> <span class="st">&quot;&lt;/li&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb121-14"><a href="P5-V5.html#cb121-14" tabindex="-1"></a>      })<span class="op">;</span></span>
+<span id="cb121-15"><a href="P5-V5.html#cb121-15" tabindex="-1"></a>      rezultat <span class="op">+=</span> <span class="st">&quot;&lt;/ul&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb121-16"><a href="P5-V5.html#cb121-16" tabindex="-1"></a>    }</span>
+<span id="cb121-17"><a href="P5-V5.html#cb121-17" tabindex="-1"></a>    <span class="fu">povratniKlic</span>(rezultat)<span class="op">;</span></span>
+<span id="cb121-18"><a href="P5-V5.html#cb121-18" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb121-19"><a href="P5-V5.html#cb121-19" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="zaključek-osnovne-funkcionalnosti-strežnika" class="section level3 hasAnchor" number="11.8.3">
+<h3><span class="header-section-number">11.8.3</span> Zaključek osnovne funkcionalnosti strežnika<a href="P5-V5.html#zaključek-osnovne-funkcionalnosti-strežnika" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>streznik_pesmi_po_zanrih.js</code></p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb122-1"><a href="P5-V5.html#cb122-1" tabindex="-1"></a>streznik<span class="op">.</span><span class="fu">get</span>(<span class="st">&quot;/&quot;</span><span class="op">,</span> (zahteva<span class="op">,</span> odgovor) <span class="kw">=&gt;</span> {</span>
+<span id="cb122-2"><a href="P5-V5.html#cb122-2" tabindex="-1"></a>  <span class="fu">vrniVseZanre</span>((rezultat) <span class="kw">=&gt;</span> {</span>
+<span id="cb122-3"><a href="P5-V5.html#cb122-3" tabindex="-1"></a>    odgovor<span class="op">.</span><span class="fu">send</span>(rezultat)<span class="op">;</span></span>
+<span id="cb122-4"><a href="P5-V5.html#cb122-4" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb122-5"><a href="P5-V5.html#cb122-5" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb122-6"><a href="P5-V5.html#cb122-6" tabindex="-1"></a></span>
+<span id="cb122-7"><a href="P5-V5.html#cb122-7" tabindex="-1"></a>streznik<span class="op">.</span><span class="fu">listen</span>(<span class="bu">process</span><span class="op">.</span><span class="at">env</span><span class="op">.</span><span class="at">PORT</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb122-8"><a href="P5-V5.html#cb122-8" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Strežnik je pognan!&quot;</span>)<span class="op">;</span></span>
+<span id="cb122-9"><a href="P5-V5.html#cb122-9" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="testiranje-osnovne-funkcionalnosti-master" class="section level3 hasAnchor" number="11.8.4">
+<h3><span class="header-section-number">11.8.4</span> Testiranje osnovne funkcionalnosti (master)<a href="P5-V5.html#testiranje-osnovne-funkcionalnosti-master" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Aplikacija v osnovi deluje tako, da nam ob prihodu na začetno spletno stran vrne seznam žanrov v obliki alinej.</p>
+<p>Zdaj želimo, da se nam <strong>ob kliku na žanr izpišejo pesmi izbranega žanra</strong>.</p>
+</div>
+<div id="dodajanje-seznama-pesmi-detail" class="section level3 hasAnchor" number="11.8.5">
+<h3><span class="header-section-number">11.8.5</span> Dodajanje seznama pesmi (detail)<a href="P5-V5.html#dodajanje-seznama-pesmi-detail" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ob-kliku-se-kliče-nova-spletna-stran" class="section level4 hasAnchor" number="11.8.5.1">
+<h4><span class="header-section-number">11.8.5.1</span> Ob kliku se kliče nova spletna stran<a href="P5-V5.html#ob-kliku-se-kliče-nova-spletna-stran" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Najprej dodamo povezave na vsak žanr, ki pošlje zahtevo na novo stran <code>http://.../kategorija/{id žanra}</code>.</p>
+<p><code>streznik_pesmi_po_zanrih.js</code></p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb123-1"><a href="P5-V5.html#cb123-1" tabindex="-1"></a><span class="kw">const</span> vrniVseZanre <span class="op">=</span> (povratniKlic) <span class="kw">=&gt;</span> {</span>
+<span id="cb123-2"><a href="P5-V5.html#cb123-2" tabindex="-1"></a>  pb<span class="op">.</span><span class="fu">all</span>(<span class="st">&quot;SELECT * FROM Genre&quot;</span><span class="op">,</span> (napaka<span class="op">,</span> vrstice) <span class="kw">=&gt;</span> {</span>
+<span id="cb123-3"><a href="P5-V5.html#cb123-3" tabindex="-1"></a>    <span class="kw">let</span> rezultat <span class="op">=</span> <span class="st">&quot;Prišlo je do napake!&quot;</span><span class="op">;</span></span>
+<span id="cb123-4"><a href="P5-V5.html#cb123-4" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>napaka) {</span>
+<span id="cb123-5"><a href="P5-V5.html#cb123-5" tabindex="-1"></a>      rezultat <span class="op">=</span> <span class="st">&quot;&lt;h1&gt;&quot;</span> <span class="op">+</span> <span class="st">&quot;Žanri&quot;</span> <span class="op">+</span> <span class="st">&quot;&lt;/h1&gt;&quot;</span> <span class="op">+</span> <span class="st">&quot;&lt;ul&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb123-6"><a href="P5-V5.html#cb123-6" tabindex="-1"></a>      vrstice<span class="op">.</span><span class="fu">forEach</span>((vrstica) <span class="kw">=&gt;</span> {</span>
+<span id="cb123-7"><a href="P5-V5.html#cb123-7" tabindex="-1"></a>        rezultat <span class="op">+=</span></span>
+<span id="cb123-8"><a href="P5-V5.html#cb123-8" tabindex="-1"></a>          <span class="st">&quot;&lt;li&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb123-9"><a href="P5-V5.html#cb123-9" tabindex="-1"></a>          <span class="st">&quot;&lt;a href=&#39;/kategorija/&quot;</span> <span class="op">+</span></span>
+<span id="cb123-10"><a href="P5-V5.html#cb123-10" tabindex="-1"></a>          vrstica<span class="op">.</span><span class="at">GenreId</span> <span class="op">+</span></span>
+<span id="cb123-11"><a href="P5-V5.html#cb123-11" tabindex="-1"></a>          <span class="st">&quot;&#39;&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb123-12"><a href="P5-V5.html#cb123-12" tabindex="-1"></a>          vrstica<span class="op">.</span><span class="at">Name</span> <span class="op">+</span></span>
+<span id="cb123-13"><a href="P5-V5.html#cb123-13" tabindex="-1"></a>          <span class="st">&quot;&lt;/a&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb123-14"><a href="P5-V5.html#cb123-14" tabindex="-1"></a>          <span class="st">&quot;&lt;/li&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb123-15"><a href="P5-V5.html#cb123-15" tabindex="-1"></a>      })<span class="op">;</span></span>
+<span id="cb123-16"><a href="P5-V5.html#cb123-16" tabindex="-1"></a>      rezultat <span class="op">+=</span> <span class="st">&quot;&lt;/ul&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb123-17"><a href="P5-V5.html#cb123-17" tabindex="-1"></a>    }</span>
+<span id="cb123-18"><a href="P5-V5.html#cb123-18" tabindex="-1"></a>    <span class="fu">povratniKlic</span>(rezultat)<span class="op">;</span></span>
+<span id="cb123-19"><a href="P5-V5.html#cb123-19" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb123-20"><a href="P5-V5.html#cb123-20" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="funkcija-ki-vrne-seznam-pesmi-izbranega-žanra" class="section level4 hasAnchor" number="11.8.5.2">
+<h4><span class="header-section-number">11.8.5.2</span> Funkcija, ki vrne seznam pesmi izbranega žanra<a href="P5-V5.html#funkcija-ki-vrne-seznam-pesmi-izbranega-žanra" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Seznam vseh izbranih pesmi nam vrne SQL poizvedba: <code>SELECT * FROM Track WHERE GenreId = $id</code>, kjer je <code>$id</code> identifikator žanra, ki se posreduje ob kliku na žanr v prejšnjem koraku.</p>
+<p><code>streznik_pesmi_po_zanrih.js</code></p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb124-1"><a href="P5-V5.html#cb124-1" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb124-2"><a href="P5-V5.html#cb124-2" tabindex="-1"></a><span class="co"> * Vrni vse pesmi podanega žanra v povratnem klicu</span></span>
+<span id="cb124-3"><a href="P5-V5.html#cb124-3" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb124-4"><a href="P5-V5.html#cb124-4" tabindex="-1"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">idZanra</span><span class="co"> ID žanra</span></span>
+<span id="cb124-5"><a href="P5-V5.html#cb124-5" tabindex="-1"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">povratniKlic</span><span class="co"> rezultat klica funkcije, ki predstavlja HTML kodo</span></span>
+<span id="cb124-6"><a href="P5-V5.html#cb124-6" tabindex="-1"></a><span class="co"> * v obliki alinej, kjer je v vsaki podatek o nazivu in ceni pesmi</span></span>
+<span id="cb124-7"><a href="P5-V5.html#cb124-7" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb124-8"><a href="P5-V5.html#cb124-8" tabindex="-1"></a><span class="kw">const</span> vrniPesmiZanra <span class="op">=</span> (idZanra<span class="op">,</span> povratniKlic) <span class="kw">=&gt;</span> {</span>
+<span id="cb124-9"><a href="P5-V5.html#cb124-9" tabindex="-1"></a>  pb<span class="op">.</span><span class="fu">all</span>(</span>
+<span id="cb124-10"><a href="P5-V5.html#cb124-10" tabindex="-1"></a>    <span class="st">&quot;SELECT * FROM Track WHERE GenreId = $id&quot;</span><span class="op">,</span></span>
+<span id="cb124-11"><a href="P5-V5.html#cb124-11" tabindex="-1"></a>    { <span class="dt">$id</span><span class="op">:</span> idZanra }<span class="op">,</span></span>
+<span id="cb124-12"><a href="P5-V5.html#cb124-12" tabindex="-1"></a>    (napaka<span class="op">,</span> vrstice) <span class="kw">=&gt;</span> {</span>
+<span id="cb124-13"><a href="P5-V5.html#cb124-13" tabindex="-1"></a>      <span class="kw">let</span> rezultat <span class="op">=</span> <span class="st">&quot;Prišlo je do napake!&quot;</span><span class="op">;</span></span>
+<span id="cb124-14"><a href="P5-V5.html#cb124-14" tabindex="-1"></a>      <span class="cf">if</span> (<span class="op">!</span>napaka) {</span>
+<span id="cb124-15"><a href="P5-V5.html#cb124-15" tabindex="-1"></a>        rezultat <span class="op">=</span> <span class="st">&quot;&lt;h2&gt;&quot;</span> <span class="op">+</span> <span class="st">&quot;Pesmi&quot;</span> <span class="op">+</span> <span class="st">&quot;&lt;/h2&gt;&quot;</span> <span class="op">+</span> <span class="st">&quot;&lt;ul&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb124-16"><a href="P5-V5.html#cb124-16" tabindex="-1"></a>        vrstice<span class="op">.</span><span class="fu">forEach</span>((vrstica) <span class="kw">=&gt;</span> {</span>
+<span id="cb124-17"><a href="P5-V5.html#cb124-17" tabindex="-1"></a>          rezultat <span class="op">+=</span></span>
+<span id="cb124-18"><a href="P5-V5.html#cb124-18" tabindex="-1"></a>            <span class="st">&quot;&lt;li&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb124-19"><a href="P5-V5.html#cb124-19" tabindex="-1"></a>            <span class="st">&quot;&lt;b&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb124-20"><a href="P5-V5.html#cb124-20" tabindex="-1"></a>            vrstica<span class="op">.</span><span class="at">Name</span> <span class="op">+</span></span>
+<span id="cb124-21"><a href="P5-V5.html#cb124-21" tabindex="-1"></a>            <span class="st">&quot;&lt;/b&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb124-22"><a href="P5-V5.html#cb124-22" tabindex="-1"></a>            <span class="st">&quot; @ &quot;</span> <span class="op">+</span></span>
+<span id="cb124-23"><a href="P5-V5.html#cb124-23" tabindex="-1"></a>            <span class="st">&quot;$&quot;</span> <span class="op">+</span></span>
+<span id="cb124-24"><a href="P5-V5.html#cb124-24" tabindex="-1"></a>            vrstica<span class="op">.</span><span class="at">UnitPrice</span> <span class="op">+</span></span>
+<span id="cb124-25"><a href="P5-V5.html#cb124-25" tabindex="-1"></a>            <span class="st">&quot;&lt;/li&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb124-26"><a href="P5-V5.html#cb124-26" tabindex="-1"></a>        })<span class="op">;</span></span>
+<span id="cb124-27"><a href="P5-V5.html#cb124-27" tabindex="-1"></a>        rezultat <span class="op">+=</span> <span class="st">&quot;&lt;/ul&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb124-28"><a href="P5-V5.html#cb124-28" tabindex="-1"></a>      }</span>
+<span id="cb124-29"><a href="P5-V5.html#cb124-29" tabindex="-1"></a>      <span class="fu">povratniKlic</span>(rezultat)<span class="op">;</span></span>
+<span id="cb124-30"><a href="P5-V5.html#cb124-30" tabindex="-1"></a>    }</span>
+<span id="cb124-31"><a href="P5-V5.html#cb124-31" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb124-32"><a href="P5-V5.html#cb124-32" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="klic-funkcije-ob-zahtevi-seznama-pesmi" class="section level4 hasAnchor" number="11.8.5.3">
+<h4><span class="header-section-number">11.8.5.3</span> Klic funkcije ob zahtevi seznama pesmi<a href="P5-V5.html#klic-funkcije-ob-zahtevi-seznama-pesmi" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Ob zahtevi prikaza seznama pesmi izbranega žanra prikažemo:</p>
+<ul>
+<li><strong>seznam vseh žanrov</strong> in</li>
+<li><strong>seznam pesmi izbranega žanra</strong>.</li>
+</ul>
+<p>Uporabimo lahko preprosto gnezdenje funkcij, kjer najprej zahtevamo seznam vseh žanrov, nato v povratnem klicu še seznam pesmi izbranega žanra in na koncu vse skupaj prikažemo na strani.</p>
+<p><code>streznik_pesmi_po_zanrih.js</code></p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb125-1"><a href="P5-V5.html#cb125-1" tabindex="-1"></a>streznik<span class="op">.</span><span class="fu">get</span>(<span class="st">&quot;/kategorija/:idKategorije&quot;</span><span class="op">,</span> (zahteva<span class="op">,</span> odgovor) <span class="kw">=&gt;</span> {</span>
+<span id="cb125-2"><a href="P5-V5.html#cb125-2" tabindex="-1"></a>  <span class="fu">vrniVseZanre</span>((rezultatMaster) <span class="kw">=&gt;</span> {</span>
+<span id="cb125-3"><a href="P5-V5.html#cb125-3" tabindex="-1"></a>    <span class="fu">vrniPesmiZanra</span>(zahteva<span class="op">.</span><span class="at">params</span><span class="op">.</span><span class="at">idKategorije</span><span class="op">,</span> (rezultatDetail) <span class="kw">=&gt;</span> {</span>
+<span id="cb125-4"><a href="P5-V5.html#cb125-4" tabindex="-1"></a>      odgovor<span class="op">.</span><span class="fu">send</span>(rezultatMaster <span class="op">+</span> rezultatDetail)<span class="op">;</span></span>
+<span id="cb125-5"><a href="P5-V5.html#cb125-5" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb125-6"><a href="P5-V5.html#cb125-6" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb125-7"><a href="P5-V5.html#cb125-7" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="nadgradnja-seznama-pesmi-z-izvajalcem" class="section level4 hasAnchor" number="11.8.5.4">
+<h4><span class="header-section-number">11.8.5.4</span> Nadgradnja seznama pesmi z izvajalcem<a href="P5-V5.html#nadgradnja-seznama-pesmi-z-izvajalcem" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Spremenimo izpis seznama pesmi tako, da poleg <strong>naslova pesmi</strong> in <strong>cene</strong> dodamo še <strong>izvajalca</strong>.</p>
+<p><code>streznik_pesmi_po_zanrih.js</code></p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb126-1"><a href="P5-V5.html#cb126-1" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb126-2"><a href="P5-V5.html#cb126-2" tabindex="-1"></a><span class="co"> * Vrni vse pesmi, skupaj z avtorji, podanega žanra v povratnem klicu</span></span>
+<span id="cb126-3"><a href="P5-V5.html#cb126-3" tabindex="-1"></a><span class="co"> *</span></span>
+<span id="cb126-4"><a href="P5-V5.html#cb126-4" tabindex="-1"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">idZanra</span><span class="co"> ID žanra</span></span>
+<span id="cb126-5"><a href="P5-V5.html#cb126-5" tabindex="-1"></a><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">povratniKlic</span><span class="co"> rezultat klica funkcije, ki predstavlja HTML kodo</span></span>
+<span id="cb126-6"><a href="P5-V5.html#cb126-6" tabindex="-1"></a><span class="co"> * v obliki alinej, kjer je v vsaki podatek o nazivu, izvajalcu in ceni</span></span>
+<span id="cb126-7"><a href="P5-V5.html#cb126-7" tabindex="-1"></a><span class="co"> */</span></span>
+<span id="cb126-8"><a href="P5-V5.html#cb126-8" tabindex="-1"></a><span class="kw">const</span> vrniPesmiInAvtorjeZanra <span class="op">=</span> (idZanra<span class="op">,</span> povratniKlic) <span class="kw">=&gt;</span> {</span>
+<span id="cb126-9"><a href="P5-V5.html#cb126-9" tabindex="-1"></a>  pb<span class="op">.</span><span class="fu">all</span>(</span>
+<span id="cb126-10"><a href="P5-V5.html#cb126-10" tabindex="-1"></a>    <span class="st">&quot;SELECT Track.Name AS pesem, Artist.Name AS izvajalec, </span><span class="sc">\</span></span>
+<span id="cb126-11"><a href="P5-V5.html#cb126-11" tabindex="-1"></a><span class="st">            Track.UnitPrice AS cena </span><span class="sc">\</span></span>
+<span id="cb126-12"><a href="P5-V5.html#cb126-12" tabindex="-1"></a><span class="st">    FROM    Track, Album, Artist </span><span class="sc">\</span></span>
+<span id="cb126-13"><a href="P5-V5.html#cb126-13" tabindex="-1"></a><span class="st">    WHERE   Track.AlbumId = Album.AlbumId AND </span><span class="sc">\</span></span>
+<span id="cb126-14"><a href="P5-V5.html#cb126-14" tabindex="-1"></a><span class="st">            Album.ArtistId = Artist.ArtistId AND </span><span class="sc">\</span></span>
+<span id="cb126-15"><a href="P5-V5.html#cb126-15" tabindex="-1"></a><span class="st">            GenreId = $id&quot;</span><span class="op">,</span></span>
+<span id="cb126-16"><a href="P5-V5.html#cb126-16" tabindex="-1"></a>    { <span class="dt">$id</span><span class="op">:</span> idZanra }<span class="op">,</span></span>
+<span id="cb126-17"><a href="P5-V5.html#cb126-17" tabindex="-1"></a>    (napaka<span class="op">,</span> vrstice) <span class="kw">=&gt;</span> {</span>
+<span id="cb126-18"><a href="P5-V5.html#cb126-18" tabindex="-1"></a>      <span class="kw">let</span> rezultat <span class="op">=</span> <span class="st">&quot;Prišlo je do napake!&quot;</span><span class="op">;</span></span>
+<span id="cb126-19"><a href="P5-V5.html#cb126-19" tabindex="-1"></a>      <span class="cf">if</span> (<span class="op">!</span>napaka) {</span>
+<span id="cb126-20"><a href="P5-V5.html#cb126-20" tabindex="-1"></a>        rezultat <span class="op">=</span> <span class="st">&quot;&lt;h2&gt;&quot;</span> <span class="op">+</span> <span class="st">&quot;Pesmi&quot;</span> <span class="op">+</span> <span class="st">&quot;&lt;/h2&gt;&quot;</span> <span class="op">+</span> <span class="st">&quot;&lt;ul&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb126-21"><a href="P5-V5.html#cb126-21" tabindex="-1"></a>        vrstice<span class="op">.</span><span class="fu">forEach</span>((vrstica) <span class="kw">=&gt;</span> {</span>
+<span id="cb126-22"><a href="P5-V5.html#cb126-22" tabindex="-1"></a>          rezultat <span class="op">+=</span></span>
+<span id="cb126-23"><a href="P5-V5.html#cb126-23" tabindex="-1"></a>            <span class="st">&quot;&lt;li&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb126-24"><a href="P5-V5.html#cb126-24" tabindex="-1"></a>            <span class="st">&quot;&lt;b&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb126-25"><a href="P5-V5.html#cb126-25" tabindex="-1"></a>            vrstica<span class="op">.</span><span class="at">pesem</span> <span class="op">+</span></span>
+<span id="cb126-26"><a href="P5-V5.html#cb126-26" tabindex="-1"></a>            <span class="st">&quot;&lt;/b&gt;&quot;</span> <span class="op">+</span></span>
+<span id="cb126-27"><a href="P5-V5.html#cb126-27" tabindex="-1"></a>            <span class="st">&quot; (&quot;</span> <span class="op">+</span></span>
+<span id="cb126-28"><a href="P5-V5.html#cb126-28" tabindex="-1"></a>            vrstica<span class="op">.</span><span class="at">izvajalec</span> <span class="op">+</span></span>
+<span id="cb126-29"><a href="P5-V5.html#cb126-29" tabindex="-1"></a>            <span class="st">&quot;)&quot;</span> <span class="op">+</span></span>
+<span id="cb126-30"><a href="P5-V5.html#cb126-30" tabindex="-1"></a>            <span class="st">&quot; @ &quot;</span> <span class="op">+</span></span>
+<span id="cb126-31"><a href="P5-V5.html#cb126-31" tabindex="-1"></a>            <span class="st">&quot;$&quot;</span> <span class="op">+</span></span>
+<span id="cb126-32"><a href="P5-V5.html#cb126-32" tabindex="-1"></a>            vrstica<span class="op">.</span><span class="at">cena</span> <span class="op">+</span></span>
+<span id="cb126-33"><a href="P5-V5.html#cb126-33" tabindex="-1"></a>            <span class="st">&quot;&lt;/li&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb126-34"><a href="P5-V5.html#cb126-34" tabindex="-1"></a>        })<span class="op">;</span></span>
+<span id="cb126-35"><a href="P5-V5.html#cb126-35" tabindex="-1"></a>        rezultat <span class="op">+=</span> <span class="st">&quot;&lt;/ul&gt;&quot;</span><span class="op">;</span></span>
+<span id="cb126-36"><a href="P5-V5.html#cb126-36" tabindex="-1"></a>      }</span>
+<span id="cb126-37"><a href="P5-V5.html#cb126-37" tabindex="-1"></a>      <span class="fu">povratniKlic</span>(rezultat)<span class="op">;</span></span>
+<span id="cb126-38"><a href="P5-V5.html#cb126-38" tabindex="-1"></a>    }</span>
+<span id="cb126-39"><a href="P5-V5.html#cb126-39" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb126-40"><a href="P5-V5.html#cb126-40" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Spremenimo tudi funkcijo, ki se kliče ob zahtevi podrobnosti žanra.</p>
+<p><code>streznik_pesmi_po_zanrih.js</code></p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb127-1"><a href="P5-V5.html#cb127-1" tabindex="-1"></a>streznik<span class="op">.</span><span class="fu">get</span>(<span class="st">&quot;/kategorija/:idKategorije&quot;</span><span class="op">,</span> (zahteva<span class="op">,</span> odgovor) <span class="kw">=&gt;</span> {</span>
+<span id="cb127-2"><a href="P5-V5.html#cb127-2" tabindex="-1"></a>  <span class="fu">vrniVseZanre</span>((rezultatMaster) <span class="kw">=&gt;</span> {</span>
+<span id="cb127-3"><a href="P5-V5.html#cb127-3" tabindex="-1"></a>    <span class="fu">vrniPesmiInAvtorjeZanra</span>(zahteva<span class="op">.</span><span class="at">params</span><span class="op">.</span><span class="at">idKategorije</span><span class="op">,</span> (rezultatDetail) <span class="kw">=&gt;</span> {</span>
+<span id="cb127-4"><a href="P5-V5.html#cb127-4" tabindex="-1"></a>      odgovor<span class="op">.</span><span class="fu">send</span>(rezultatMaster <span class="op">+</span> rezultatDetail)<span class="op">;</span></span>
+<span id="cb127-5"><a href="P5-V5.html#cb127-5" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb127-6"><a href="P5-V5.html#cb127-6" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb127-7"><a href="P5-V5.html#cb127-7" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+<script>
+  var options_dodaj = {acrossElements: true, element: "dodaj"};
+  var options_izbrisi = {acrossElements: true, element: "izbrisi"};
+  
+  $(document).ready(function() {
+    $("#namestitev-knjižnic code:eq(3)").markRegExp(/.+/, options_dodaj);
+    $("#namestitev-knjižnic code.json").markRegExp(/.+/, options_dodaj);
+    $("#namestitev-knjižnic code.bash").markRegExp(/npm.+/, options_dodaj);
+    $("#namestitev-knjižnic code:eq(6)").markRegExp(/.+/, options_dodaj);
+    $("#namestitev-knjižnic code:eq(9)").markRegExp(/.+/, options_dodaj);
+    $("#prikaz-vseh-vrednosti-v-tabeli code:eq(3)").markRegExp(/.+/, options_dodaj);
+    $("#prikaz-vseh-vrednosti-v-tabeli code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#prikaz-vseh-vrednosti-v-tabeli code.bash:eq(0)").markRegExp(/node.+/, options_dodaj);
+    $("#filtriranje-zapisov code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#filtriranje-zapisov code.bash:eq(0)").markRegExp(/node.+/, options_dodaj);
+    $("#prikaz-podatkov-iz-več-tabel code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#prikaz-podatkov-iz-več-tabel code.bash:eq(0)").markRegExp(/node.+/, options_dodaj);
+    $("#namestitev-knjižnic-1 code.json").markRegExp(/,[\s\n]+?"express": "\*"/, options_dodaj);
+    $("#namestitev-knjižnic-1 code.bash").markRegExp(/npm.+/, options_dodaj);
+    $("#hello-world-brez-uporabe-express code:eq(0)").markRegExp(/.+/, options_dodaj);
+    $("#hello-world-brez-uporabe-express code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#hello-world-brez-uporabe-express code.bash").markRegExp(/node.+/, options_dodaj);
+    $("#hello-world-z-express code:eq(0)").markRegExp(/.+/, options_dodaj);
+    $("#hello-world-z-express code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#hello-world-z-express code.bash").markRegExp(/node.+/, options_dodaj);
+    $("#potrebne-knjižnice code:eq(2)").markRegExp(/.+/, options_dodaj);
+    $("#potrebne-knjižnice code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#zaključek-osnovne-funkcionalnosti-strežnika code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#ob-kliku-se-kliče-nova-spletna-stran code:eq(0)").markRegExp(/\/kategorija\/{id žanra}/, options_dodaj);
+    $("#ob-kliku-se-kliče-nova-spletna-stran code.javascript").markRegExp(/\s+?"<a[\s\S]+?"'>" \+/, options_dodaj);
+    $("#ob-kliku-se-kliče-nova-spletna-stran code.javascript").markRegExp(/\s+?"<\/a>" \+/, options_dodaj);
+    $("#funkcija-ki-vrne-seznam-pesmi-izbranega-žanra code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#klic-funkcije-ob-zahtevi-seznama-pesmi code.javascript").markRegExp(/.+/, options_dodaj);
+    $("#nadgradnja-seznama-pesmi-z-izvajalcem code.javascript:eq(0)").markRegExp(/.+/, options_dodaj);
+    $("#nadgradnja-seznama-pesmi-z-izvajalcem code.javascript:eq(1)").markRegExp(/InAvtorje/, options_dodaj);
+  });
+</script>
+
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    $("a").click(function(e) {
+      if (
+        $(this).has(".fa-solid").length == 1 || 
+        $(this).has(".fa-brands").length == 1 || 
+        $(this).has(".fa-regular").length == 1 || 
+        $(this).has("img.git").length == 1
+      ) {
+        e.preventDefault();
+        window.open($(this).attr("href"), '_blank');
+      }
+    });
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6109Y2092"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6109Y2092');
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="P5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="P6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/lib/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

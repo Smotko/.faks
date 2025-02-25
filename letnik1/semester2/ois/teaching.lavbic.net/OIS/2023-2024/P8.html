@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Poglavje 15 P8 Strukturni razvoj | Osnove informacijskih sistemov 2023/2024</title>
+  <meta name="description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Poglavje 15 P8 Strukturni razvoj | Osnove informacijskih sistemov 2023/2024" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Poglavje 15 P8 Strukturni razvoj | Osnove informacijskih sistemov 2023/2024" />
+  
+  <meta name="twitter:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+<meta name="author" content="izr. prof. dr. Dejan Lavbič" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="P7.html"/>
+<link rel="next" href="P9.html"/>
+<script src="assets/lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/lib/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/lib/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style/stil.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#terminski-plan-izvajanja-predmeta">OIS 2023/2024 terminski plan</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Uvod</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#splošne-informacije"><i class="fa fa-check"></i>Splošne informacije</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavatelj"><i class="fa fa-check"></i>Predavatelj</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#asistent"><i class="fa fa-check"></i>Asistent</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminski-plan-izvajanja-predmeta"><i class="fa fa-check"></i>Terminski plan izvajanja predmeta</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pravila-igre"><i class="fa fa-check"></i>Pravila igre</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavanja"><i class="fa fa-check"></i>Predavanja</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#vaje"><i class="fa fa-check"></i>Vaje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ocenjevanje"><i class="fa fa-check"></i>Ocenjevanje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pisni-izpiti"><i class="fa fa-check"></i>Pisni izpiti</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#priporočena-literatura"><i class="fa fa-check"></i>Priporočena literatura</a></li>
+</ul></li>
+<li class="part"><span><b>I sklop: Poslovni informacijski sistemi in upravljanje informatike</b></span></li>
+<li class="chapter" data-level="1" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>1</b> <span class="sklop1 oznaka">P1</span> Upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="P1.html"><a href="P1.html#ogrodje-digitalne-preobrazbe"><i class="fa fa-check"></i><b>1.1</b> Ogrodje digitalne preobrazbe</a></li>
+<li class="chapter" data-level="1.2" data-path="P1.html"><a href="P1.html#uvod-1"><i class="fa fa-check"></i><b>1.2</b> Uvod</a></li>
+<li class="chapter" data-level="1.3" data-path="P1.html"><a href="P1.html#upravljanje-it-in-vloga-informatike"><i class="fa fa-check"></i><b>1.3</b> Upravljanje IT in vloga informatike</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="P1.html"><a href="P1.html#vloga-vodstva-pri-upravljanju-it"><i class="fa fa-check"></i><b>1.3.1</b> Vloga vodstva pri upravljanju IT</a></li>
+<li class="chapter" data-level="1.3.2" data-path="P1.html"><a href="P1.html#ključna-vprašanja-o-it"><i class="fa fa-check"></i><b>1.3.2</b> Ključna vprašanja o IT</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="P1.html"><a href="P1.html#ogrodje-za-upravljanje-it"><i class="fa fa-check"></i><b>1.4</b> Ogrodje za upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="P1.html"><a href="P1.html#ključne-odločitve"><i class="fa fa-check"></i><b>1.4.1</b> Ključne odločitve</a></li>
+<li class="chapter" data-level="1.4.2" data-path="P1.html"><a href="P1.html#ključni-odločevalci"><i class="fa fa-check"></i><b>1.4.2</b> Ključni odločevalci</a></li>
+<li class="chapter" data-level="1.4.3" data-path="P1.html"><a href="P1.html#strukture-in-procesi-odločanja"><i class="fa fa-check"></i><b>1.4.3</b> Strukture in procesi odločanja</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="P1-V1.html"><a href="P1-V1.html"><i class="fa fa-check"></i><b>2</b> <span class="sklop1 oznaka">P1</span> → <span class="sklop3 oznaka">V1</span> Obvladovanje verzij</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="P1-V1.html"><a href="P1-V1.html#zgodovina-vcs"><i class="fa fa-check"></i><b>2.1</b> Zgodovina VCS</a></li>
+<li class="chapter" data-level="2.2" data-path="P1-V1.html"><a href="P1-V1.html#osnovne-operacije-vcs"><i class="fa fa-check"></i><b>2.2</b> Osnovne operacije VCS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="P1-V1.html"><a href="P1-V1.html#VCS-create"><i class="fa fa-check"></i><b>2.2.1</b> Create</a></li>
+<li class="chapter" data-level="2.2.2" data-path="P1-V1.html"><a href="P1-V1.html#VCS-checkout"><i class="fa fa-check"></i><b>2.2.2</b> Checkout</a></li>
+<li class="chapter" data-level="2.2.3" data-path="P1-V1.html"><a href="P1-V1.html#VCS-commit"><i class="fa fa-check"></i><b>2.2.3</b> Commit</a></li>
+<li class="chapter" data-level="2.2.4" data-path="P1-V1.html"><a href="P1-V1.html#VCS-update"><i class="fa fa-check"></i><b>2.2.4</b> Update</a></li>
+<li class="chapter" data-level="2.2.5" data-path="P1-V1.html"><a href="P1-V1.html#VCS-add"><i class="fa fa-check"></i><b>2.2.5</b> Add</a></li>
+<li class="chapter" data-level="2.2.6" data-path="P1-V1.html"><a href="P1-V1.html#VCS-edit"><i class="fa fa-check"></i><b>2.2.6</b> Edit</a></li>
+<li class="chapter" data-level="2.2.7" data-path="P1-V1.html"><a href="P1-V1.html#VCS-delete"><i class="fa fa-check"></i><b>2.2.7</b> Delete</a></li>
+<li class="chapter" data-level="2.2.8" data-path="P1-V1.html"><a href="P1-V1.html#VCS-rename"><i class="fa fa-check"></i><b>2.2.8</b> Rename</a></li>
+<li class="chapter" data-level="2.2.9" data-path="P1-V1.html"><a href="P1-V1.html#VCS-move"><i class="fa fa-check"></i><b>2.2.9</b> Move</a></li>
+<li class="chapter" data-level="2.2.10" data-path="P1-V1.html"><a href="P1-V1.html#VCS-status"><i class="fa fa-check"></i><b>2.2.10</b> Status</a></li>
+<li class="chapter" data-level="2.2.11" data-path="P1-V1.html"><a href="P1-V1.html#VCS-diff"><i class="fa fa-check"></i><b>2.2.11</b> Diff</a></li>
+<li class="chapter" data-level="2.2.12" data-path="P1-V1.html"><a href="P1-V1.html#VCS-revert"><i class="fa fa-check"></i><b>2.2.12</b> Revert</a></li>
+<li class="chapter" data-level="2.2.13" data-path="P1-V1.html"><a href="P1-V1.html#VCS-log"><i class="fa fa-check"></i><b>2.2.13</b> Log</a></li>
+<li class="chapter" data-level="2.2.14" data-path="P1-V1.html"><a href="P1-V1.html#VCS-tag"><i class="fa fa-check"></i><b>2.2.14</b> Tag</a></li>
+<li class="chapter" data-level="2.2.15" data-path="P1-V1.html"><a href="P1-V1.html#VCS-branch"><i class="fa fa-check"></i><b>2.2.15</b> Branch</a></li>
+<li class="chapter" data-level="2.2.16" data-path="P1-V1.html"><a href="P1-V1.html#VCS-merge"><i class="fa fa-check"></i><b>2.2.16</b> Merge</a></li>
+<li class="chapter" data-level="2.2.17" data-path="P1-V1.html"><a href="P1-V1.html#VCS-resolve"><i class="fa fa-check"></i><b>2.2.17</b> Resolve</a></li>
+<li class="chapter" data-level="2.2.18" data-path="P1-V1.html"><a href="P1-V1.html#VCS-lock"><i class="fa fa-check"></i><b>2.2.18</b> Lock</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="P1-V1.html"><a href="P1-V1.html#posebnosti-dvcs"><i class="fa fa-check"></i><b>2.3</b> Posebnosti DVCS</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="P1-V1.html"><a href="P1-V1.html#clone"><i class="fa fa-check"></i><b>2.3.1</b> Clone</a></li>
+<li class="chapter" data-level="2.3.2" data-path="P1-V1.html"><a href="P1-V1.html#primerjava-cvcs-in-dvcs"><i class="fa fa-check"></i><b>2.3.2</b> Primerjava CVCS in DVCS</a></li>
+<li class="chapter" data-level="2.3.3" data-path="P1-V1.html"><a href="P1-V1.html#push"><i class="fa fa-check"></i><b>2.3.3</b> Push</a></li>
+<li class="chapter" data-level="2.3.4" data-path="P1-V1.html"><a href="P1-V1.html#pull"><i class="fa fa-check"></i><b>2.3.4</b> Pull</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="P1-V1.html"><a href="P1-V1.html#dobre-prakse-uporabe-git"><i class="fa fa-check"></i><b>2.4</b> Dobre prakse uporabe Git</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="P1-V1.html"><a href="P1-V1.html#osrednji-repozitorij-in-sodelovanje-med-skupinami"><i class="fa fa-check"></i><b>2.4.1</b> Osrednji repozitorij in sodelovanje med skupinami</a></li>
+<li class="chapter" data-level="2.4.2" data-path="P1-V1.html"><a href="P1-V1.html#razdelitev-po-vejah-razvoja"><i class="fa fa-check"></i><b>2.4.2</b> Razdelitev po vejah razvoja</a></li>
+<li class="chapter" data-level="2.4.3" data-path="P1-V1.html"><a href="P1-V1.html#sporočila-uveljavitev"><i class="fa fa-check"></i><b>2.4.3</b> Sporočila uveljavitev</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="P1-V1.html"><a href="P1-V1.html#dodatno-gradivo"><i class="fa fa-check"></i><b>2.5</b> Dodatno gradivo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="P2.html"><a href="P2.html"><i class="fa fa-check"></i><b>3</b> <span class="sklop1 oznaka">P2</span> Delovni model, arhitektura podjetja in vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="P2.html"><a href="P2.html#delovni-model-in-zrelost-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1</b> Delovni model in zrelost arhitekture podjetja</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="P2.html"><a href="P2.html#delovni-model"><i class="fa fa-check"></i><b>3.1.1</b> Delovni model</a></li>
+<li class="chapter" data-level="3.1.2" data-path="P2.html"><a href="P2.html#arhitektura-podjetja"><i class="fa fa-check"></i><b>3.1.2</b> Arhitektura podjetja</a></li>
+<li class="chapter" data-level="3.1.3" data-path="P2.html"><a href="P2.html#posledice-zrelosti-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1.3</b> Posledice zrelosti arhitekture podjetja</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="P2.html"><a href="P2.html#vrednotenje-naložb"><i class="fa fa-check"></i><b>3.2</b> Vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="P2.html"><a href="P2.html#parametrični-pristop-od-zgoraj-navzdol"><i class="fa fa-check"></i><b>3.2.1</b> Parametrični pristop od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.2" data-path="P2.html"><a href="P2.html#pristop-od-spodaj-navzgor"><i class="fa fa-check"></i><b>3.2.2</b> Pristop od spodaj navzgor</a></li>
+<li class="chapter" data-level="3.2.3" data-path="P2.html"><a href="P2.html#ocena-proračuna"><i class="fa fa-check"></i><b>3.2.3</b> Ocena proračuna</a></li>
+<li class="chapter" data-level="3.2.4" data-path="P2.html"><a href="P2.html#ocena-proracuna-s-pristopm-navzdol"><i class="fa fa-check"></i><b>3.2.4</b> Primer ocene proračuna s pristopom od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.5" data-path="P2.html"><a href="P2.html#UCP"><i class="fa fa-check"></i><b>3.2.5</b> Formalna metoda za ocenjevanje stroškov programske opreme</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="P2.html"><a href="P2.html#nematerialne-koristi"><i class="fa fa-check"></i><b>3.3</b> Nematerialne koristi</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="P2.html"><a href="P2.html#zmogljivost-informacijske-tehnologije"><i class="fa fa-check"></i><b>3.3.1</b> Zmogljivost informacijske tehnologije</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="P2-V3.html"><a href="P2-V3.html"><i class="fa fa-check"></i><b>4</b> <span class="sklop1 oznaka">P2</span> → <span class="sklop3 oznaka">V3</span> Uvod v HTML in CSS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="P2-V3.html"><a href="P2-V3.html#html"><i class="fa fa-check"></i><b>4.1</b> HTML</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki"><i class="fa fa-check"></i><b>4.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.1.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek"><i class="fa fa-check"></i><b>4.1.2</b> Zaključek</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="P2-V3.html"><a href="P2-V3.html#CSS"><i class="fa fa-check"></i><b>4.2</b> CSS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki-1"><i class="fa fa-check"></i><b>4.2.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.2.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek-1"><i class="fa fa-check"></i><b>4.2.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="P3.html"><a href="P3.html"><i class="fa fa-check"></i><b>5</b> <span class="sklop1 oznaka">P3</span> Tveganja, IT naložbeni portfelj in povračilo sredstev</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="P3.html"><a href="P3.html#tveganja-pri-projektih-it"><i class="fa fa-check"></i><b>5.1</b> Tveganja pri projektih IT</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="P3.html"><a href="P3.html#upoštevanje-tveganja-pri-vrednotenju-naložb-v-it"><i class="fa fa-check"></i><b>5.1.1</b> Upoštevanje tveganja pri vrednotenju naložb v IT</a></li>
+<li class="chapter" data-level="5.1.2" data-path="P3.html"><a href="P3.html#kako-podjetja-upoštevajo-tveganja"><i class="fa fa-check"></i><b>5.1.2</b> Kako podjetja upoštevajo tveganja?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="P3.html"><a href="P3.html#pristop-z-opcijami-pri-naložbah-v-it"><i class="fa fa-check"></i><b>5.2</b> Pristop z opcijami pri naložbah v IT</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="P3.html"><a href="P3.html#primer-starbuck"><i class="fa fa-check"></i><b>5.2.1</b> Primer Starbuck</a></li>
+<li class="chapter" data-level="5.2.2" data-path="P3.html"><a href="P3.html#primer-opcije"><i class="fa fa-check"></i><b>5.2.2</b> Primer implementacije sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="P3.html"><a href="P3.html#ogrodje-za-vrednotenje-naložb-v-it"><i class="fa fa-check"></i><b>5.3</b> Ogrodje za vrednotenje naložb v IT</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="P3.html"><a href="P3.html#pasti-prekinitve"><i class="fa fa-check"></i><b>5.3.1</b> Pasti prekinitve</a></li>
+<li class="chapter" data-level="5.3.2" data-path="P3.html"><a href="P3.html#pasti-odložitve"><i class="fa fa-check"></i><b>5.3.2</b> Pasti odložitve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="P3.html"><a href="P3.html#it-naložbeni-portfelj"><i class="fa fa-check"></i><b>5.4</b> IT naložbeni portfelj</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="P3.html"><a href="P3.html#upravljanje-portfelja-it"><i class="fa fa-check"></i><b>5.4.1</b> Upravljanje portfelja IT</a></li>
+<li class="chapter" data-level="5.4.2" data-path="P3.html"><a href="P3.html#lastnosti-različnih-skupin-sredstev-it"><i class="fa fa-check"></i><b>5.4.2</b> Lastnosti različnih skupin sredstev IT</a></li>
+<li class="chapter" data-level="5.4.3" data-path="P3.html"><a href="P3.html#strateška-usmeritev-in-upravljanje-portfelja"><i class="fa fa-check"></i><b>5.4.3</b> Strateška usmeritev in upravljanje portfelja</a></li>
+<li class="chapter" data-level="5.4.4" data-path="P3.html"><a href="P3.html#proces-upravljanja-portfelja-it"><i class="fa fa-check"></i><b>5.4.4</b> Proces upravljanja portfelja IT</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="P3.html"><a href="P3.html#povračilo-sredstev-za-it"><i class="fa fa-check"></i><b>5.5</b> Povračilo sredstev za IT</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="P3.html"><a href="P3.html#razumevanje-izziva-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.1</b> Razumevanje izziva povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.2" data-path="P3.html"><a href="P3.html#različni-pristopi-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.2</b> Različni pristopi povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.3" data-path="P3.html"><a href="P3.html#posledice-povračil-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.3</b> Posledice povračil sredstev za IT</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="P3-V3.html"><a href="P3-V3.html"><i class="fa fa-check"></i><b>6</b> <span class="sklop1 oznaka">P3</span> → <span class="sklop3 oznaka">V3</span> JavaScript na strani odjemalca</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="P3-V3.html"><a href="P3-V3.html#JavaScript"><i class="fa fa-check"></i><b>6.1</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="P3-V3.html"><a href="P3-V3.html#gradniki-2"><i class="fa fa-check"></i><b>6.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="6.1.2" data-path="P3-V3.html"><a href="P3-V3.html#zaključek-2"><i class="fa fa-check"></i><b>6.1.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="P4.html"><a href="P4.html"><i class="fa fa-check"></i><b>7</b> <span class="sklop1 oznaka">P4</span> Upravljanje sprememb, IS, podatek, informacija, znanje</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="P4.html"><a href="P4.html#upravljanje-sprememb"><i class="fa fa-check"></i><b>7.1</b> Upravljanje sprememb</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="P4.html"><a href="P4.html#razumevanje-odpora-uporabnikov"><i class="fa fa-check"></i><b>7.1.1</b> Razumevanje odpora uporabnikov</a></li>
+<li class="chapter" data-level="7.1.2" data-path="P4.html"><a href="P4.html#odpor-uporabnikov-do-sprememb-perspektiva-pristranskosti"><i class="fa fa-check"></i><b>7.1.2</b> Odpor uporabnikov do sprememb: perspektiva pristranskosti</a></li>
+<li class="chapter" data-level="7.1.3" data-path="P4.html"><a href="P4.html#model-prilagajanja-uporabniku"><i class="fa fa-check"></i><b>7.1.3</b> Model prilagajanja uporabniku</a></li>
+<li class="chapter" data-level="7.1.4" data-path="P4.html"><a href="P4.html#različni-modeli-sprejetosti-uporabnikov"><i class="fa fa-check"></i><b>7.1.4</b> Različni modeli sprejetosti uporabnikov</a></li>
+<li class="chapter" data-level="7.1.5" data-path="P4.html"><a href="P4.html#ključni-vzvodi-pri-uvajanju-informacijskega-sistema"><i class="fa fa-check"></i><b>7.1.5</b> Ključni vzvodi pri uvajanju informacijskega sistema</a></li>
+<li class="chapter" data-level="7.1.6" data-path="P4.html"><a href="P4.html#kako-učinkovito-uvesti-spremembe-kritični-dejavniki-uspeha"><i class="fa fa-check"></i><b>7.1.6</b> Kako učinkovito uvesti spremembe: kritični dejavniki uspeha</a></li>
+<li class="chapter" data-level="7.1.7" data-path="P4.html"><a href="P4.html#primerjava-evolucijske-in-revolucionarne-spremembe"><i class="fa fa-check"></i><b>7.1.7</b> Primerjava evolucijske in revolucionarne spremembe</a></li>
+<li class="chapter" data-level="7.1.8" data-path="P4.html"><a href="P4.html#projektno-vodenje-v-primerjavi-z-učnim-pristopom"><i class="fa fa-check"></i><b>7.1.8</b> Projektno vodenje v primerjavi z učnim pristopom</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="P4.html"><a href="P4.html#sistem"><i class="fa fa-check"></i><b>7.2</b> Sistem</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="P4.html"><a href="P4.html#opredelitve-osnovnih-pojmov"><i class="fa fa-check"></i><b>7.2.1</b> Opredelitve osnovnih pojmov</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="P4.html"><a href="P4.html#podatek-informacija-in-znanje"><i class="fa fa-check"></i><b>7.3</b> Podatek, informacija in znanje</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="P4.html"><a href="P4.html#podatek-in-informacija"><i class="fa fa-check"></i><b>7.3.1</b> Podatek in informacija</a></li>
+<li class="chapter" data-level="7.3.2" data-path="P4.html"><a href="P4.html#značilnosti-informacij"><i class="fa fa-check"></i><b>7.3.2</b> Značilnosti informacij</a></li>
+<li class="chapter" data-level="7.3.3" data-path="P4.html"><a href="P4.html#raziskava-o-kakovosti-informacij"><i class="fa fa-check"></i><b>7.3.3</b> Raziskava o kakovosti informacij</a></li>
+<li class="chapter" data-level="7.3.4" data-path="P4.html"><a href="P4.html#znanje"><i class="fa fa-check"></i><b>7.3.4</b> Znanje</a></li>
+<li class="chapter" data-level="7.3.5" data-path="P4.html"><a href="P4.html#povezanost-podatka-informacije-in-znanja"><i class="fa fa-check"></i><b>7.3.5</b> Povezanost podatka, informacije in znanja</a></li>
+<li class="chapter" data-level="7.3.6" data-path="P4.html"><a href="P4.html#primeri-interpretacij-informacij"><i class="fa fa-check"></i><b>7.3.6</b> Primeri interpretacij informacij</a></li>
+<li class="chapter" data-level="7.3.7" data-path="P4.html"><a href="P4.html#znanje-vs.-védenje"><i class="fa fa-check"></i><b>7.3.7</b> Znanje vs. védenje</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="P4-V4.html"><a href="P4-V4.html"><i class="fa fa-check"></i><b>8</b> <span class="sklop1 oznaka">P4</span> → <span class="sklop3 oznaka">V4</span> Odjemalec/strežnik in Node.js</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="P4-V4.html"><a href="P4-V4.html#razvoj-enostavnega-spletnega-strežnika"><i class="fa fa-check"></i><b>8.1</b> Razvoj enostavnega spletnega strežnika</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="P4-V4.html"><a href="P4-V4.html#hello-world"><i class="fa fa-check"></i><b>8.1.1</b> Hello World</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="P4-V4.html"><a href="P4-V4.html#spremenljivke-na-strežniku"><i class="fa fa-check"></i><b>8.2</b> Spremenljivke na strežniku</a></li>
+<li class="chapter" data-level="8.3" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-statičnih-spletnih-strani"><i class="fa fa-check"></i><b>8.3</b> Strežnik statičnih spletnih strani</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="P4-V4.html"><a href="P4-V4.html#knjižnice-ki-jih-bo-naš-projekt-uporabljal"><i class="fa fa-check"></i><b>8.3.1</b> Knjižnice, ki jih bo naš projekt uporabljal</a></li>
+<li class="chapter" data-level="8.3.2" data-path="P4-V4.html"><a href="P4-V4.html#uvoz-statičnih-datotek"><i class="fa fa-check"></i><b>8.3.2</b> Uvoz statičnih datotek</a></li>
+<li class="chapter" data-level="8.3.3" data-path="P4-V4.html"><a href="P4-V4.html#začnemo-s-pisanjem-kode-na-strežniku"><i class="fa fa-check"></i><b>8.3.3</b> Začnemo s pisanjem kode na strežniku</a></li>
+<li class="chapter" data-level="8.3.4" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-objekt-strežnika-in-ga-osnovno-nastavimo"><i class="fa fa-check"></i><b>8.3.4</b> Pripravimo objekt strežnika in ga osnovno nastavimo</a></li>
+<li class="chapter" data-level="8.3.5" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-poženemo"><i class="fa fa-check"></i><b>8.3.5</b> Strežnik poženemo</a></li>
+<li class="chapter" data-level="8.3.6" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-še-manjkajočo-metodo-za-strežbo-statične-vsebine"><i class="fa fa-check"></i><b>8.3.6</b> Pripravimo še manjkajočo metodo za strežbo statične vsebine</a></li>
+<li class="chapter" data-level="8.3.7" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-metodo-za-obvladovanje-napak"><i class="fa fa-check"></i><b>8.3.7</b> Pripravimo metodo za obvladovanje napak</a></li>
+<li class="chapter" data-level="8.3.8" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-tudi-metodo-ki-vrne-datoteko-odjemalcu"><i class="fa fa-check"></i><b>8.3.8</b> Pripravimo tudi metodo, ki vrne datoteko odjemalcu</a></li>
+<li class="chapter" data-level="8.3.9" data-path="P4-V4.html"><a href="P4-V4.html#preverimo-delovanje-strežbe-statičnih-strani"><i class="fa fa-check"></i><b>8.3.9</b> Preverimo delovanje strežbe statičnih strani</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-statičnih-strani-dodamo-predpomnjenje"><i class="fa fa-check"></i><b>8.4</b> Strežniku statičnih strani dodamo predpomnjenje</a></li>
+<li class="chapter" data-level="8.5" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-dodamo-dinamične-strani"><i class="fa fa-check"></i><b>8.5</b> Strežniku dodamo dinamične strani</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="P4-V4.html"><a href="P4-V4.html#popravimo-nastavitev-strežnika"><i class="fa fa-check"></i><b>8.5.1</b> Popravimo nastavitev strežnika</a></li>
+<li class="chapter" data-level="8.5.2" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-metodo-za-obdelavo-sporočila"><i class="fa fa-check"></i><b>8.5.2</b> Implementiramo metodo za obdelavo sporočila</a></li>
+<li class="chapter" data-level="8.5.3" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-zahvalo-uporabniku"><i class="fa fa-check"></i><b>8.5.3</b> Implementiramo zahvalo uporabniku</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="P4-V4.html"><a href="P4-V4.html#testiranje-in-dodatno-gradivo"><i class="fa fa-check"></i><b>8.6</b> Testiranje in dodatno gradivo</a></li>
+</ul></li>
+<li class="part"><span><b>II sklop: Arhitektura poslovnega informacijskega sistema</b></span></li>
+<li class="chapter" data-level="9" data-path="DN.html"><a href="DN.html"><i class="fa fa-check"></i><b>9</b> <span class="sklop3 oznaka">DN</span> Spletna aplikacija FRI izletnik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DN.html"><a href="DN.html#DN1"><i class="fa fa-check"></i><b>9.1</b> Spletna aplikacija <small>(1. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="DN.html"><a href="DN.html#opis-naloge-in-navodila"><i class="fa fa-check"></i><b>9.1.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.2" data-path="DN.html"><a href="DN.html#vzpostavitev-repozitorija"><i class="fa fa-check"></i><b>9.1.2</b> Vzpostavitev repozitorija <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.3" data-path="DN.html"><a href="DN.html#DN11"><i class="fa fa-check"></i><b>9.1.3</b> Skladnja strani in stilska preobrazba <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.4" data-path="DN.html"><a href="DN.html#DN12"><i class="fa fa-check"></i><b>9.1.4</b> Podpora funkcionalnosti na odjemalcu in strežniku <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.5" data-path="DN.html"><a href="DN.html#združevanje-sprememb-v-repozitoriju"><i class="fa fa-check"></i><b>9.1.5</b> Združevanje sprememb v repozitoriju <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="DN.html"><a href="DN.html#DN2"><i class="fa fa-check"></i><b>9.2</b> Dopolnitev načrta in implementacija nove funkcionalnosti <small class="skupaj">(2. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="DN.html"><a href="DN.html#DN-navodila"><i class="fa fa-check"></i><b>9.2.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.2" data-path="DN.html"><a href="DN.html#DN-ideja"><i class="fa fa-check"></i><b>9.2.2</b> Opis osnovne ideje predloga <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.3" data-path="DN.html"><a href="DN.html#DN-Generiranje-podatkov"><i class="fa fa-check"></i><b>9.2.3</b> Generiranje podatkov <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.4" data-path="DN.html"><a href="DN.html#DN-nacrt"><i class="fa fa-check"></i><b>9.2.4</b> Načrt informacijske rešitve <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.5" data-path="DN.html"><a href="DN.html#DN-implementacija"><i class="fa fa-check"></i><b>9.2.5</b> Implementacija funkcionalnosti <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="P5.html"><a href="P5.html"><i class="fa fa-check"></i><b>10</b> <span class="sklop2 oznaka">P5</span> Metamodel delovnega sistema in arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="P5.html"><a href="P5.html#metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1</b> Metamodel delovnega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="P5.html"><a href="P5.html#razmerje-med-informacijskim-sistemom-in-delovnim-sistemom"><i class="fa fa-check"></i><b>10.1.1</b> Razmerje med informacijskim sistemom in delovnim sistemom</a></li>
+<li class="chapter" data-level="10.1.2" data-path="P5.html"><a href="P5.html#različni-pogledi-na-metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.2</b> Različni pogledi na metamodel delovnega sistema</a></li>
+<li class="chapter" data-level="10.1.3" data-path="P5.html"><a href="P5.html#primeri-metamodelov-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.3</b> Primeri metamodelov delovnega sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="P5.html"><a href="P5.html#arhitektura-poslovnega-informacijskega-sistema"><i class="fa fa-check"></i><b>10.2</b> Arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="P5.html"><a href="P5.html#uvod-v-poslovne-informacijske-sisteme"><i class="fa fa-check"></i><b>10.2.1</b> Uvod v poslovne informacijske sisteme</a></li>
+<li class="chapter" data-level="10.2.2" data-path="P5.html"><a href="P5.html#poklici-povezani-s-poslovnimi-informacijskimi-sistemi"><i class="fa fa-check"></i><b>10.2.2</b> Poklici, povezani s poslovnimi informacijskimi sistemi</a></li>
+<li class="chapter" data-level="10.2.3" data-path="P5.html"><a href="P5.html#razumevanje-poslovnih-procesov"><i class="fa fa-check"></i><b>10.2.3</b> Razumevanje poslovnih procesov</a></li>
+<li class="chapter" data-level="10.2.4" data-path="P5.html"><a href="P5.html#poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.4</b> Poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.5" data-path="P5.html"><a href="P5.html#primeri-poslovnih-sistemov"><i class="fa fa-check"></i><b>10.2.5</b> Primeri poslovnih sistemov</a></li>
+<li class="chapter" data-level="10.2.6" data-path="P5.html"><a href="P5.html#poslovni-sistemi-in-poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.6</b> Poslovni sistemi in poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.7" data-path="P5.html"><a href="P5.html#podjetja-in-poslovni-procesi"><i class="fa fa-check"></i><b>10.2.7</b> Podjetja in poslovni procesi</a></li>
+<li class="chapter" data-level="10.2.8" data-path="P5.html"><a href="P5.html#primerjava-največjih-ponudnikov"><i class="fa fa-check"></i><b>10.2.8</b> Primerjava največjih ponudnikov</a></li>
+<li class="chapter" data-level="10.2.9" data-path="P5.html"><a href="P5.html#zgodovina-sistema-sap"><i class="fa fa-check"></i><b>10.2.9</b> Zgodovina sistema SAP</a></li>
+<li class="chapter" data-level="10.2.10" data-path="P5.html"><a href="P5.html#komponente-poslovnih-informacijskih-sistemov"><i class="fa fa-check"></i><b>10.2.10</b> Komponente poslovnih informacijskih sistemov</a></li>
+<li class="chapter" data-level="10.2.11" data-path="P5.html"><a href="P5.html#integracija-poslovnih-aplikacij"><i class="fa fa-check"></i><b>10.2.11</b> Integracija poslovnih aplikacij</a></li>
+<li class="chapter" data-level="10.2.12" data-path="P5.html"><a href="P5.html#elektronska-izmenjava-podatkov"><i class="fa fa-check"></i><b>10.2.12</b> Elektronska izmenjava podatkov</a></li>
+<li class="chapter" data-level="10.2.13" data-path="P5.html"><a href="P5.html#ERP-podrobnosti"><i class="fa fa-check"></i><b>10.2.13</b> ERP</a></li>
+<li class="chapter" data-level="10.2.14" data-path="P5.html"><a href="P5.html#CRM-podrobnosti"><i class="fa fa-check"></i><b>10.2.14</b> CRM</a></li>
+<li class="chapter" data-level="10.2.15" data-path="P5.html"><a href="P5.html#SCM-podrobnosti"><i class="fa fa-check"></i><b>10.2.15</b> SCM</a></li>
+<li class="chapter" data-level="10.2.16" data-path="P5.html"><a href="P5.html#KM-podrobnosti"><i class="fa fa-check"></i><b>10.2.16</b> KM</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="P5-V5.html"><a href="P5-V5.html"><i class="fa fa-check"></i><b>11</b> <span class="sklop2 oznaka">P5</span> → <span class="sklop3 oznaka">V5</span> Povezovanje na podatkovno bazo</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="P5-V5.html"><a href="P5-V5.html#priprava-okolja"><i class="fa fa-check"></i><b>11.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="11.2" data-path="P5-V5.html"><a href="P5-V5.html#razširitev-arhitekture-odjemalecstrežnik-s-podatkovno-bazo"><i class="fa fa-check"></i><b>11.2</b> Razširitev arhitekture odjemalec/strežnik s podatkovno bazo</a></li>
+<li class="chapter" data-level="11.3" data-path="P5-V5.html"><a href="P5-V5.html#chinook-podatkovna-baza"><i class="fa fa-check"></i><b>11.3</b> Chinook podatkovna baza</a></li>
+<li class="chapter" data-level="11.4" data-path="P5-V5.html"><a href="P5-V5.html#poizvedovalni-jezik-sql"><i class="fa fa-check"></i><b>11.4</b> Poizvedovalni jezik SQL</a></li>
+<li class="chapter" data-level="11.5" data-path="P5-V5.html"><a href="P5-V5.html#podatkovna-baza-sqlite"><i class="fa fa-check"></i><b>11.5</b> Podatkovna baza SQLite</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="P5-V5.html"><a href="P5-V5.html#vsebina-podatkovne-baze"><i class="fa fa-check"></i><b>11.5.1</b> Vsebina podatkovne baze</a></li>
+<li class="chapter" data-level="11.5.2" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic"><i class="fa fa-check"></i><b>11.5.2</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.5.3" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-vseh-vrednosti-v-tabeli"><i class="fa fa-check"></i><b>11.5.3</b> Prikaz vseh vrednosti v tabeli</a></li>
+<li class="chapter" data-level="11.5.4" data-path="P5-V5.html"><a href="P5-V5.html#filtriranje-zapisov"><i class="fa fa-check"></i><b>11.5.4</b> Filtriranje zapisov</a></li>
+<li class="chapter" data-level="11.5.5" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-podatkov-iz-več-tabel"><i class="fa fa-check"></i><b>11.5.5</b> Prikaz podatkov iz več tabel</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="P5-V5.html"><a href="P5-V5.html#uporaba-ogrodja-express.js-za-poenostavitev-razvoja-aplikacij"><i class="fa fa-check"></i><b>11.6</b> Uporaba ogrodja Express.js za poenostavitev razvoja aplikacij</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic-1"><i class="fa fa-check"></i><b>11.6.1</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.6.2" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-brez-uporabe-express"><i class="fa fa-check"></i><b>11.6.2</b> Hello World brez uporabe Express</a></li>
+<li class="chapter" data-level="11.6.3" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-z-express"><i class="fa fa-check"></i><b>11.6.3</b> Hello World z Express</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="P5-V5.html"><a href="P5-V5.html#master-detail-načrtovalski-vzorec"><i class="fa fa-check"></i><b>11.7</b> Master-detail načrtovalski vzorec</a></li>
+<li class="chapter" data-level="11.8" data-path="P5-V5.html"><a href="P5-V5.html#primer-pesmi-po-žanrih"><i class="fa fa-check"></i><b>11.8</b> Primer: Pesmi po žanrih</a>
+<ul>
+<li class="chapter" data-level="11.8.1" data-path="P5-V5.html"><a href="P5-V5.html#potrebne-knjižnice"><i class="fa fa-check"></i><b>11.8.1</b> Potrebne knjižnice</a></li>
+<li class="chapter" data-level="11.8.2" data-path="P5-V5.html"><a href="P5-V5.html#funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov"><i class="fa fa-check"></i><b>11.8.2</b> Funkcija, ki v povratnem klicu vrača seznam žanrov</a></li>
+<li class="chapter" data-level="11.8.3" data-path="P5-V5.html"><a href="P5-V5.html#zaključek-osnovne-funkcionalnosti-strežnika"><i class="fa fa-check"></i><b>11.8.3</b> Zaključek osnovne funkcionalnosti strežnika</a></li>
+<li class="chapter" data-level="11.8.4" data-path="P5-V5.html"><a href="P5-V5.html#testiranje-osnovne-funkcionalnosti-master"><i class="fa fa-check"></i><b>11.8.4</b> Testiranje osnovne funkcionalnosti (master)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="P5-V5.html"><a href="P5-V5.html#dodajanje-seznama-pesmi-detail"><i class="fa fa-check"></i><b>11.8.5</b> Dodajanje seznama pesmi (detail)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="P6.html"><a href="P6.html"><i class="fa fa-check"></i><b>12</b> <span class="sklop2 oznaka">P6</span> Zgodovina, ključne vloge in vrste IS</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="P6.html"><a href="P6.html#e-poslovanje"><i class="fa fa-check"></i><b>12.1</b> E-poslovanje</a></li>
+<li class="chapter" data-level="12.2" data-path="P6.html"><a href="P6.html#e-trgovanje"><i class="fa fa-check"></i><b>12.2</b> E-trgovanje</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="P6.html"><a href="P6.html#zgodovina-e-trgovanja"><i class="fa fa-check"></i><b>12.2.1</b> Zgodovina e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.2" data-path="P6.html"><a href="P6.html#tehnologije-e-trgovanja"><i class="fa fa-check"></i><b>12.2.2</b> Tehnologije e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.3" data-path="P6.html"><a href="P6.html#osnovne-komponente-e-trgovanja"><i class="fa fa-check"></i><b>12.2.3</b> Osnovne komponente e-trgovanja</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="P6.html"><a href="P6.html#zgodovina-in-ključne-vloge-is"><i class="fa fa-check"></i><b>12.3</b> Zgodovina in ključne vloge IS</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="P6.html"><a href="P6.html#zgodovinski-pregled-pomembnih-dogodkov-v-računalništvu"><i class="fa fa-check"></i><b>12.3.1</b> Zgodovinski pregled pomembnih dogodkov v računalništvu</a></li>
+<li class="chapter" data-level="12.3.2" data-path="P6.html"><a href="P6.html#razvoj-tehnologij"><i class="fa fa-check"></i><b>12.3.2</b> Razvoj tehnologij</a></li>
+<li class="chapter" data-level="12.3.3" data-path="P6.html"><a href="P6.html#razvoj-it-za-podporo-is"><i class="fa fa-check"></i><b>12.3.3</b> Razvoj IT za podporo IS</a></li>
+<li class="chapter" data-level="12.3.4" data-path="P6.html"><a href="P6.html#razvoj-informacijske-podpore-po-ravneh-odločanja"><i class="fa fa-check"></i><b>12.3.4</b> Razvoj informacijske podpore po ravneh odločanja</a></li>
+<li class="chapter" data-level="12.3.5" data-path="P6.html"><a href="P6.html#zgodovina-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.3.5</b> Zgodovina informacijskih sistemov</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="P6.html"><a href="P6.html#vrste-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.4</b> Vrste informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-poslovanju"><i class="fa fa-check"></i><b>12.4.1</b> Sistemi za podporo poslovanju</a></li>
+<li class="chapter" data-level="12.4.2" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-odločanju"><i class="fa fa-check"></i><b>12.4.2</b> Sistemi za podporo odločanju</a></li>
+<li class="chapter" data-level="12.4.3" data-path="P6.html"><a href="P6.html#specializirani-sistemi"><i class="fa fa-check"></i><b>12.4.3</b> Specializirani sistemi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="P6-V6.html"><a href="P6-V6.html"><i class="fa fa-check"></i><b>13</b> <span class="sklop2 oznaka">P6</span> → <span class="sklop3 oznaka">V6</span> Seja, košarica, XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="P6-V6.html"><a href="P6-V6.html#priprava-okolja-1"><i class="fa fa-check"></i><b>13.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="13.2" data-path="P6-V6.html"><a href="P6-V6.html#namestitev-knjižnic-in-vključitev-podatkovne-baze"><i class="fa fa-check"></i><b>13.2</b> Namestitev knjižnic in vključitev podatkovne baze</a></li>
+<li class="chapter" data-level="13.3" data-path="P6-V6.html"><a href="P6-V6.html#seja"><i class="fa fa-check"></i><b>13.3</b> Seja</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="P6-V6.html"><a href="P6-V6.html#globalne-spremenljivke-vs.-seja"><i class="fa fa-check"></i><b>13.3.1</b> Globalne spremenljivke vs. seja</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="P6-V6.html"><a href="P6-V6.html#nakupovalna-košarica"><i class="fa fa-check"></i><b>13.4</b> Nakupovalna košarica</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="P6-V6.html"><a href="P6-V6.html#primer-nakupovanja-pesmi-iz-seznama-100-najbolje-prodajanih"><i class="fa fa-check"></i><b>13.4.1</b> Primer nakupovanja pesmi iz seznama 100 najbolje prodajanih</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="P6-V6.html"><a href="P6-V6.html#xml-in-e-slog"><i class="fa fa-check"></i><b>13.5</b> XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="P6-V6.html"><a href="P6-V6.html#dokumentacija"><i class="fa fa-check"></i><b>13.5.1</b> Dokumentacija</a></li>
+<li class="chapter" data-level="13.5.2" data-path="P6-V6.html"><a href="P6-V6.html#dopolnitve-primera-nakupovanja-pesmi"><i class="fa fa-check"></i><b>13.5.2</b> Dopolnitve primera nakupovanja pesmi</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III sklop: Analiza, načrtovanje in razvoj poslovnih informacijskih sistemov</b></span></li>
+<li class="chapter" data-level="14" data-path="P7.html"><a href="P7.html"><i class="fa fa-check"></i><b>14</b> <span class="sklop3 oznaka">P7</span> Razvojni modeli informacijskih sistemov in metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="P7.html"><a href="P7.html#zgodovina-razvoja-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.1</b> Zgodovina razvoja informacijskih sistemov</a></li>
+<li class="chapter" data-level="14.2" data-path="P7.html"><a href="P7.html#razvojni-model-informacijskega-sistema"><i class="fa fa-check"></i><b>14.2</b> Razvojni model informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="P7.html"><a href="P7.html#SDLC-studija-izvedljivosti"><i class="fa fa-check"></i><b>14.2.1</b> Študija izvedljivosti</a></li>
+<li class="chapter" data-level="14.2.2" data-path="P7.html"><a href="P7.html#SDLC-zbiranje-zahtev"><i class="fa fa-check"></i><b>14.2.2</b> Zbiranje zahtev</a></li>
+<li class="chapter" data-level="14.2.3" data-path="P7.html"><a href="P7.html#SDLC-analiza"><i class="fa fa-check"></i><b>14.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="14.2.4" data-path="P7.html"><a href="P7.html#SDLC-nacrt"><i class="fa fa-check"></i><b>14.2.4</b> Načrtovanje</a></li>
+<li class="chapter" data-level="14.2.5" data-path="P7.html"><a href="P7.html#SDLC-implementacija"><i class="fa fa-check"></i><b>14.2.5</b> Implementacija</a></li>
+<li class="chapter" data-level="14.2.6" data-path="P7.html"><a href="P7.html#SDLC-pregled-in-vzdrzevanje"><i class="fa fa-check"></i><b>14.2.6</b> Pregled in vzdrževanje</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="P7.html"><a href="P7.html#metodologija"><i class="fa fa-check"></i><b>14.3</b> Metodologija</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="P7.html"><a href="P7.html#tehnike"><i class="fa fa-check"></i><b>14.3.1</b> Tehnike</a></li>
+<li class="chapter" data-level="14.3.2" data-path="P7.html"><a href="P7.html#orodja"><i class="fa fa-check"></i><b>14.3.2</b> Orodja</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="P7.html"><a href="P7.html#variante-razvojnih-modelov-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.4</b> Variante razvojnih modelov informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="P7.html"><a href="P7.html#Zaporedni-razvojni-model"><i class="fa fa-check"></i><b>14.4.1</b> Zaporedni oz. slapovni razvojni model</a></li>
+<li class="chapter" data-level="14.4.2" data-path="P7.html"><a href="P7.html#Iterativni-razvojni-model"><i class="fa fa-check"></i><b>14.4.2</b> Iterativni razvojni model</a></li>
+<li class="chapter" data-level="14.4.3" data-path="P7.html"><a href="P7.html#Prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.3</b> Prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.4" data-path="P7.html"><a href="P7.html#Iterativni-prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.4</b> Iterativni/prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.5" data-path="P7.html"><a href="P7.html#Inkrementalni-razvojni-model"><i class="fa fa-check"></i><b>14.4.5</b> Inkrementalni razvojni model</a></li>
+<li class="chapter" data-level="14.4.6" data-path="P7.html"><a href="P7.html#iterativnost-vs.-inkrementalnost"><i class="fa fa-check"></i><b>14.4.6</b> Iterativnost vs. inkrementalnost</a></li>
+<li class="chapter" data-level="14.4.7" data-path="P7.html"><a href="P7.html#Kombinirani-razvojni-model"><i class="fa fa-check"></i><b>14.4.7</b> Kombinirani razvojni model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="P7.html"><a href="P7.html#metodologije-razvoja"><i class="fa fa-check"></i><b>14.5</b> Metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="P7.html"><a href="P7.html#različne-opredelitve-v-literaturi"><i class="fa fa-check"></i><b>14.5.1</b> Različne opredelitve v literaturi</a></li>
+<li class="chapter" data-level="14.5.2" data-path="P7.html"><a href="P7.html#metodologija-v-terminološkem-slovarju"><i class="fa fa-check"></i><b>14.5.2</b> Metodologija v terminološkem slovarju</a></li>
+<li class="chapter" data-level="14.5.3" data-path="P7.html"><a href="P7.html#naša-opredelitev"><i class="fa fa-check"></i><b>14.5.3</b> Naša opredelitev</a></li>
+<li class="chapter" data-level="14.5.4" data-path="P7.html"><a href="P7.html#elementi-metodologije"><i class="fa fa-check"></i><b>14.5.4</b> Elementi metodologije</a></li>
+<li class="chapter" data-level="14.5.5" data-path="P7.html"><a href="P7.html#upravljanje-z-znanjem"><i class="fa fa-check"></i><b>14.5.5</b> Upravljanje z znanjem</a></li>
+<li class="chapter" data-level="14.5.6" data-path="P7.html"><a href="P7.html#formalna-vs.-neformalna-metodologija"><i class="fa fa-check"></i><b>14.5.6</b> Formalna vs. neformalna metodologija</a></li>
+<li class="chapter" data-level="14.5.7" data-path="P7.html"><a href="P7.html#agilni-koncepti-in-metodologije"><i class="fa fa-check"></i><b>14.5.7</b> Agilni koncepti in metodologije</a></li>
+<li class="chapter" data-level="14.5.8" data-path="P7.html"><a href="P7.html#metamodel-metodologije-razvoja-informacijskega-sistema"><i class="fa fa-check"></i><b>14.5.8</b> Metamodel metodologije razvoja informacijskega sistema</a></li>
+<li class="chapter" data-level="14.5.9" data-path="P7.html"><a href="P7.html#ogrodja-za-primerjavo-metodologij"><i class="fa fa-check"></i><b>14.5.9</b> Ogrodja za primerjavo metodologij</a></li>
+<li class="chapter" data-level="14.5.10" data-path="P7.html"><a href="P7.html#učinkovitost-različnih-oblik-komunikacije"><i class="fa fa-check"></i><b>14.5.10</b> Učinkovitost različnih oblik komunikacije</a></li>
+<li class="chapter" data-level="14.5.11" data-path="P7.html"><a href="P7.html#vpliv-velikosti-na-posebnosti-razvojne-skupine"><i class="fa fa-check"></i><b>14.5.11</b> Vpliv velikosti na posebnosti razvojne skupine</a></li>
+<li class="chapter" data-level="14.5.12" data-path="P7.html"><a href="P7.html#Kriticni-projekti"><i class="fa fa-check"></i><b>14.5.12</b> Kritični projekti</a></li>
+<li class="chapter" data-level="14.5.13" data-path="P7.html"><a href="P7.html#Komunikacija-in-povratne-informacije"><i class="fa fa-check"></i><b>14.5.13</b> Komunikacija in povratne informacije</a></li>
+<li class="chapter" data-level="14.5.14" data-path="P7.html"><a href="P7.html#primer-google-inženirji-vs.-managerji"><i class="fa fa-check"></i><b>14.5.14</b> Primer: Google: Inženirji vs. managerji</a></li>
+<li class="chapter" data-level="14.5.15" data-path="P7.html"><a href="P7.html#Discipliniranost-izkusnje-in-znanje"><i class="fa fa-check"></i><b>14.5.15</b> Discipliniranost, izkušnje in znanje</a></li>
+<li class="chapter" data-level="14.5.16" data-path="P7.html"><a href="P7.html#Odkloni-od-nacrtovane-resitve"><i class="fa fa-check"></i><b>14.5.16</b> Odkloni od načrtovane rešitve</a></li>
+<li class="chapter" data-level="14.5.17" data-path="P7.html"><a href="P7.html#evolucija-razvoja-programske-opreme"><i class="fa fa-check"></i><b>14.5.17</b> Evolucija razvoja programske opreme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="P8.html"><a href="P8.html"><i class="fa fa-check"></i><b>15</b> <span class="sklop3 oznaka">P8</span> Strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="P8.html"><a href="P8.html#uvod-v-strukturni-razvoj"><i class="fa fa-check"></i><b>15.1</b> Uvod v strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="P8.html"><a href="P8.html#Strukturni-zajem-in-specifikaija-zahtev"><i class="fa fa-check"></i><b>15.1.1</b> Zajem in specifikacija zahtev</a></li>
+<li class="chapter" data-level="15.1.2" data-path="P8.html"><a href="P8.html#Strukturni-analiza"><i class="fa fa-check"></i><b>15.1.2</b> Analiza</a></li>
+<li class="chapter" data-level="15.1.3" data-path="P8.html"><a href="P8.html#Strukturni-nacrtovanje"><i class="fa fa-check"></i><b>15.1.3</b> Načrtovanje</a></li>
+<li class="chapter" data-level="15.1.4" data-path="P8.html"><a href="P8.html#Strukturni-testiranje"><i class="fa fa-check"></i><b>15.1.4</b> Testiranje</a></li>
+<li class="chapter" data-level="15.1.5" data-path="P8.html"><a href="P8.html#Strukturni-namestitev-in-uvedba"><i class="fa fa-check"></i><b>15.1.5</b> Namestitev in uvedba</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="P8.html"><a href="P8.html#podatkovno-načrtovanje"><i class="fa fa-check"></i><b>15.2</b> Podatkovno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="P8.html"><a href="P8.html#relacijski-model"><i class="fa fa-check"></i><b>15.2.1</b> Relacijski model</a></li>
+<li class="chapter" data-level="15.2.2" data-path="P8.html"><a href="P8.html#matematična-opredelitev"><i class="fa fa-check"></i><b>15.2.2</b> Matematična opredelitev</a></li>
+<li class="chapter" data-level="15.2.3" data-path="P8.html"><a href="P8.html#entitetni-diagram"><i class="fa fa-check"></i><b>15.2.3</b> Entitetni diagram</a></li>
+<li class="chapter" data-level="15.2.4" data-path="P8.html"><a href="P8.html#različne-ravni-podatkovnega-modeliranja"><i class="fa fa-check"></i><b>15.2.4</b> Različne ravni podatkovnega modeliranja</a></li>
+<li class="chapter" data-level="15.2.5" data-path="P8.html"><a href="P8.html#Postopek-konceptualno-nacrtovanje"><i class="fa fa-check"></i><b>15.2.5</b> Konceptualno načrtovanje</a></li>
+<li class="chapter" data-level="15.2.6" data-path="P8.html"><a href="P8.html#prehod-iz-konceptualnega-v-logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.6</b> Prehod iz konceptualnega v logično načrtovanje</a></li>
+<li class="chapter" data-level="15.2.7" data-path="P8.html"><a href="P8.html#logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.7</b> Logično načrtovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="P8.html"><a href="P8.html#Postopek-normalizacija"><i class="fa fa-check"></i><b>15.3</b> Normalizacija</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="P8.html"><a href="P8.html#normalna-oblika-1.-no"><i class="fa fa-check"></i><b>15.3.1</b> 1. normalna oblika (1. NO)</a></li>
+<li class="chapter" data-level="15.3.2" data-path="P8.html"><a href="P8.html#normalna-oblika-2.-no"><i class="fa fa-check"></i><b>15.3.2</b> 2. normalna oblika (2. NO)</a></li>
+<li class="chapter" data-level="15.3.3" data-path="P8.html"><a href="P8.html#normalna-oblika-3.-no"><i class="fa fa-check"></i><b>15.3.3</b> 3. normalna oblika (3. NO)</a></li>
+<li class="chapter" data-level="15.3.4" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-4.-pno"><i class="fa fa-check"></i><b>15.3.4</b> 4. poslovna normalna oblika (4. PNO)</a></li>
+<li class="chapter" data-level="15.3.5" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-5.-pno"><i class="fa fa-check"></i><b>15.3.5</b> 5. poslovna normalna oblika (5. PNO)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="P8.html"><a href="P8.html#denormalizacija"><i class="fa fa-check"></i><b>15.4</b> Denormalizacija</a></li>
+<li class="chapter" data-level="15.5" data-path="P8.html"><a href="P8.html#primeri-normalizacije"><i class="fa fa-check"></i><b>15.5</b> Primeri normalizacije</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="P8.html"><a href="P8.html#normalizacija-računa"><i class="fa fa-check"></i><b>15.5.1</b> Normalizacija računa</a></li>
+<li class="chapter" data-level="15.5.2" data-path="P8.html"><a href="P8.html#normalizacija-reverza"><i class="fa fa-check"></i><b>15.5.2</b> Normalizacija reverza</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="P8.html"><a href="P8.html#procesni-vidik"><i class="fa fa-check"></i><b>15.6</b> Procesni vidik</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="P8.html"><a href="P8.html#dekompozicijski-diagrami"><i class="fa fa-check"></i><b>15.6.1</b> Dekompozicijski diagrami</a></li>
+<li class="chapter" data-level="15.6.2" data-path="P8.html"><a href="P8.html#procesna-logika"><i class="fa fa-check"></i><b>15.6.2</b> Procesna logika</a></li>
+<li class="chapter" data-level="15.6.3" data-path="P8.html"><a href="P8.html#BPMN-tehnika"><i class="fa fa-check"></i><b>15.6.3</b> BPMN</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="P9.html"><a href="P9.html"><i class="fa fa-check"></i><b>16</b> <span class="sklop3 oznaka">P9</span> Objektno usmerjena analiza, načrtovanje in modeliranje</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="P9.html"><a href="P9.html#objektno-usmerjena-analiza-in-načrtovanje"><i class="fa fa-check"></i><b>16.1</b> Objektno usmerjena analiza in načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="P9.html"><a href="P9.html#OO-thinking"><i class="fa fa-check"></i><b>16.1.1</b> Objektno usmerjeno razmišljanje</a></li>
+<li class="chapter" data-level="16.1.2" data-path="P9.html"><a href="P9.html#načrtovanje-v-procesu-razvoja-programske-opreme"><i class="fa fa-check"></i><b>16.1.2</b> Načrtovanje v procesu razvoja programske opreme</a></li>
+<li class="chapter" data-level="16.1.3" data-path="P9.html"><a href="P9.html#načrtovanje-z-upoštevanjem-kakovosti"><i class="fa fa-check"></i><b>16.1.3</b> Načrtovanje z upoštevanjem kakovosti</a></li>
+<li class="chapter" data-level="16.1.4" data-path="P9.html"><a href="P9.html#razred-odgovornost-sodelovanje"><i class="fa fa-check"></i><b>16.1.4</b> Razred, odgovornost, sodelovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="P9.html"><a href="P9.html#objektno-usmerjeno-načrtovanje"><i class="fa fa-check"></i><b>16.2</b> Objektno usmerjeno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="P9.html"><a href="P9.html#izdelava-modelov-načrta"><i class="fa fa-check"></i><b>16.2.1</b> Izdelava modelov načrta</a></li>
+<li class="chapter" data-level="16.2.2" data-path="P9.html"><a href="P9.html#razvoj-programskih-jezikov"><i class="fa fa-check"></i><b>16.2.2</b> Razvoj programskih jezikov</a></li>
+<li class="chapter" data-level="16.2.3" data-path="P9.html"><a href="P9.html#stiri-nacrtovalska-nacela"><i class="fa fa-check"></i><b>16.2.3</b> Štiri načrtovalska načela</a></li>
+<li class="chapter" data-level="16.2.4" data-path="P9.html"><a href="P9.html#načrtovalska-struktura-v-programskem-jeziku-java-in-uml-razrednih-diagramih"><i class="fa fa-check"></i><b>16.2.4</b> Načrtovalska struktura v programskem jeziku Java in UML razrednih diagramih</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="P9.html"><a href="P9.html#načrtovalska-načela"><i class="fa fa-check"></i><b>16.3</b> Načrtovalska načela</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="P9.html"><a href="P9.html#vrednotenje-kompleksnosti-načrta"><i class="fa fa-check"></i><b>16.3.1</b> Vrednotenje kompleksnosti načrta</a></li>
+<li class="chapter" data-level="16.3.2" data-path="P9.html"><a href="P9.html#načelo-ločevanja-pomislekov"><i class="fa fa-check"></i><b>16.3.2</b> Načelo ločevanja pomislekov</a></li>
+<li class="chapter" data-level="16.3.3" data-path="P9.html"><a href="P9.html#skrivanje-informacij"><i class="fa fa-check"></i><b>16.3.3</b> Skrivanje informacij</a></li>
+<li class="chapter" data-level="16.3.4" data-path="P9.html"><a href="P9.html#konceptualna-celovitost"><i class="fa fa-check"></i><b>16.3.4</b> Konceptualna celovitost</a></li>
+<li class="chapter" data-level="16.3.5" data-path="P9.html"><a href="P9.html#načela-posploševanja"><i class="fa fa-check"></i><b>16.3.5</b> Načela posploševanja</a></li>
+<li class="chapter" data-level="16.3.6" data-path="P9.html"><a href="P9.html#preverjanje-modela"><i class="fa fa-check"></i><b>16.3.6</b> Preverjanje modela</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="P10.html"><a href="P10.html"><i class="fa fa-check"></i><b>17</b> <span class="sklop3 oznaka">P10</span> Objektni razvoj, simulacija razvoja informacijskega sistema za bankomat in simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="P10.html"><a href="P10.html#objektni-razvoj"><i class="fa fa-check"></i><b>17.1</b> Objektni razvoj</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="P10.html"><a href="P10.html#rup-proces-razvoja"><i class="fa fa-check"></i><b>17.1.1</b> RUP proces razvoja</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="P10.html"><a href="P10.html#simulacija-razvoja-informacijskega-sistema-za-bankomat"><i class="fa fa-check"></i><b>17.2</b> Simulacija razvoja informacijskega sistema za bankomat</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="P10.html"><a href="P10.html#predstavitev-problema"><i class="fa fa-check"></i><b>17.2.1</b> Predstavitev problema</a></li>
+<li class="chapter" data-level="17.2.2" data-path="P10.html"><a href="P10.html#Bankomat-Zbiranje-zahtev"><i class="fa fa-check"></i><b>17.2.2</b> Zajem zahtev</a></li>
+<li class="chapter" data-level="17.2.3" data-path="P10.html"><a href="P10.html#Bankomat-Analiza"><i class="fa fa-check"></i><b>17.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="17.2.4" data-path="P10.html"><a href="P10.html#Bankomat-Pregledni-nacrt"><i class="fa fa-check"></i><b>17.2.4</b> Pregledni načrt</a></li>
+<li class="chapter" data-level="17.2.5" data-path="P10.html"><a href="P10.html#Bankomat-Podroben-nacrt"><i class="fa fa-check"></i><b>17.2.5</b> Podroben načrt</a></li>
+<li class="chapter" data-level="17.2.6" data-path="P10.html"><a href="P10.html#Bankomat-Implementacija"><i class="fa fa-check"></i><b>17.2.6</b> Implementacija</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="P10.html"><a href="P10.html#Simulacija-projekta"><i class="fa fa-check"></i><b>17.3</b> Simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="P10.html"><a href="P10.html#pravila"><i class="fa fa-check"></i><b>17.3.1</b> Pravila</a></li>
+<li class="chapter" data-level="17.3.2" data-path="P10.html"><a href="P10.html#izračun-točk-simulacije"><i class="fa fa-check"></i><b>17.3.2</b> Izračun točk simulacije</a></li>
+<li class="chapter" data-level="17.3.3" data-path="P10.html"><a href="P10.html#potek-simulacije"><i class="fa fa-check"></i><b>17.3.3</b> Potek simulacije</a></li>
+<li class="chapter" data-level="17.3.4" data-path="P10.html"><a href="P10.html#gradivo"><i class="fa fa-check"></i><b>17.3.4</b> Gradivo</a></li>
+<li class="chapter" data-level="17.3.5" data-path="P10.html"><a href="P10.html#nakljucni-dogodki-simulacije"><i class="fa fa-check"></i><b>17.3.5</b> Naključni dogodki pri simulaciji</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV sklop: Infrastruktura in trendi</b></span></li>
+<li class="chapter" data-level="18" data-path="P11.html"><a href="P11.html"><i class="fa fa-check"></i><b>18</b> <span class="sklop4 oznaka">P11</span> Semantični splet in tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="P11.html"><a href="P11.html#semantični-splet"><i class="fa fa-check"></i><b>18.1</b> Semantični splet</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="P11.html"><a href="P11.html#splet-v-številkah"><i class="fa fa-check"></i><b>18.1.1</b> Splet v številkah</a></li>
+<li class="chapter" data-level="18.1.2" data-path="P11.html"><a href="P11.html#iskalniki-najdejo-le-del-spleta"><i class="fa fa-check"></i><b>18.1.2</b> Iskalniki “najdejo” le del spleta</a></li>
+<li class="chapter" data-level="18.1.3" data-path="P11.html"><a href="P11.html#vloga-svetovnega-spleta"><i class="fa fa-check"></i><b>18.1.3</b> Vloga svetovnega spleta</a></li>
+<li class="chapter" data-level="18.1.4" data-path="P11.html"><a href="P11.html#semantična-integracija-podatkov"><i class="fa fa-check"></i><b>18.1.4</b> Semantična integracija podatkov</a></li>
+<li class="chapter" data-level="18.1.5" data-path="P11.html"><a href="P11.html#primer-organizacije-potovanj"><i class="fa fa-check"></i><b>18.1.5</b> Primer organizacije potovanj</a></li>
+<li class="chapter" data-level="18.1.6" data-path="P11.html"><a href="P11.html#osnova-so-podatki"><i class="fa fa-check"></i><b>18.1.6</b> Osnova so podatki</a></li>
+<li class="chapter" data-level="18.1.7" data-path="P11.html"><a href="P11.html#semantični-splet-1"><i class="fa fa-check"></i><b>18.1.7</b> Semantični splet</a></li>
+<li class="chapter" data-level="18.1.8" data-path="P11.html"><a href="P11.html#web-x"><i class="fa fa-check"></i><b>18.1.8</b> Web X</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="P11.html"><a href="P11.html#tehnologija-veriženja-blokov"><i class="fa fa-check"></i><b>18.2</b> Tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="P11.html"><a href="P11.html#uvod-v-osnovne-pojme"><i class="fa fa-check"></i><b>18.2.1</b> Uvod v osnovne pojme</a></li>
+<li class="chapter" data-level="18.2.2" data-path="P11.html"><a href="P11.html#osnovni-princip-delovanja"><i class="fa fa-check"></i><b>18.2.2</b> Osnovni princip delovanja</a></li>
+<li class="chapter" data-level="18.2.3" data-path="P11.html"><a href="P11.html#zgodovinski-pregled-razvoja-in-trendov-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.3</b> Zgodovinski pregled razvoja in trendov tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.4" data-path="P11.html"><a href="P11.html#mehanizmi-soglasja"><i class="fa fa-check"></i><b>18.2.4</b> Mehanizmi soglasja</a></li>
+<li class="chapter" data-level="18.2.5" data-path="P11.html"><a href="P11.html#področja-uporabe-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.5</b> Področja uporabe tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.6" data-path="P11.html"><a href="P11.html#pametne-pogodbe"><i class="fa fa-check"></i><b>18.2.6</b> Pametne pogodbe</a></li>
+<li class="chapter" data-level="18.2.7" data-path="P11.html"><a href="P11.html#kdaj-uporabiti-tehnologijo-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.7</b> Kdaj uporabiti tehnologijo veriženja blokov?</a></li>
+<li class="chapter" data-level="18.2.8" data-path="P11.html"><a href="P11.html#projekti-na-fakulteti"><i class="fa fa-check"></i><b>18.2.8</b> Projekti na fakulteti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="P12.html"><a href="P12.html"><i class="fa fa-check"></i><b>19</b> <span class="sklop5 oznaka">P12</span> Računalništvo v oblaku, IT varnost in Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="P12.html"><a href="P12.html#računalništvo-v-oblaku"><i class="fa fa-check"></i><b>19.1</b> Računalništvo v oblaku</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="P12.html"><a href="P12.html#izbira-oblačne-storitve"><i class="fa fa-check"></i><b>19.1.1</b> Izbira oblačne storitve</a></li>
+<li class="chapter" data-level="19.1.2" data-path="P12.html"><a href="P12.html#realizacija-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.2</b> Realizacija računalništva v oblaku</a></li>
+<li class="chapter" data-level="19.1.3" data-path="P12.html"><a href="P12.html#virtualizacija"><i class="fa fa-check"></i><b>19.1.3</b> Virtualizacija</a></li>
+<li class="chapter" data-level="19.1.4" data-path="P12.html"><a href="P12.html#modeli-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.4</b> Modeli računalništva v oblaku</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="P12.html"><a href="P12.html#it-varnost"><i class="fa fa-check"></i><b>19.2</b> IT varnost</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="P12.html"><a href="P12.html#napadi"><i class="fa fa-check"></i><b>19.2.1</b> Napadi</a></li>
+<li class="chapter" data-level="19.2.2" data-path="P12.html"><a href="P12.html#najboljše-prakse-protiukrepov"><i class="fa fa-check"></i><b>19.2.2</b> Najboljše prakse protiukrepov</a></li>
+<li class="chapter" data-level="19.2.3" data-path="P12.html"><a href="P12.html#postopek-razkrivanja-ranljivosti"><i class="fa fa-check"></i><b>19.2.3</b> Postopek razkrivanja ranljivosti</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="P12.html"><a href="P12.html#marshmallow-challenge"><i class="fa fa-check"></i><b>19.3</b> Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="P12.html"><a href="P12.html#izziv"><i class="fa fa-check"></i><b>19.3.1</b> Izziv</a></li>
+<li class="chapter" data-level="19.3.2" data-path="P12.html"><a href="P12.html#zaključki"><i class="fa fa-check"></i><b>19.3.2</b> Zaključki</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i>Literatura</a></li>
+<li class="divider"></li>
+<li><a href="https://ucilnica.fri.uni-lj.si/course/view.php?id=54">eUčilnica</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Osnove informacijskih sistemov 2023/2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="P8" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Poglavje 15</span> <span class="sklop3 oznaka">P8</span> Strukturni razvoj<a href="P8.html#P8" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="vrstica">
+<img src="assets/img/ninja/ninja_03_go_right.png">
+<h3>
+<span class="sklop3 oznaka">P8</span>
+</h3>
+</div>
+<div id="uvod-v-strukturni-razvoj" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Uvod v strukturni razvoj<a href="P8.html#uvod-v-strukturni-razvoj" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Razvoj po strukturnem pristopu zajema več postopkov:</p>
+<ul>
+<li><strong>zajem in specifikacijo zahtev</strong> (glej poglavje <a href="P8.html#Strukturni-zajem-in-specifikaija-zahtev">15.1.1</a>),</li>
+<li><strong>analizo</strong> (glej poglavje <a href="P8.html#Strukturni-analiza">15.1.2</a>),</li>
+<li><strong>načrtovanje</strong> (glej poglavje <a href="P8.html#Strukturni-nacrtovanje">15.1.3</a>),</li>
+<li><strong>izvedbo</strong>,</li>
+<li><strong>testiranje</strong> (glej poglavje <a href="P8.html#Strukturni-testiranje">15.1.4</a>),</li>
+<li><strong>uvajanje</strong> (glej poglavje <a href="P8.html#Strukturni-namestitev-in-uvedba">15.1.5</a>),</li>
+<li><strong>vzdrževanje</strong>.</li>
+</ul>
+<div id="Strukturni-zajem-in-specifikaija-zahtev" class="section level3 hasAnchor" number="15.1.1">
+<h3><span class="header-section-number">15.1.1</span> Zajem in specifikacija zahtev<a href="P8.html#Strukturni-zajem-in-specifikaija-zahtev" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Strukturni-pristop-Zajem-zahtev"></span>
+<img src="assets/img/Strukturni_pristop_Zajem_zahtev.png" alt="Zajem in specifikacija zahtev pri strukturnem pristopu &lt;span class='manjse'&gt;&lt;a href='assets/img/Strukturni_pristop_Zajem_zahtev.png'&gt;(večja slika)&lt;/a&gt;&lt;/span&gt;" width="450" />
+<p class="caption">
+Slika 15.1: Zajem in specifikacija zahtev pri strukturnem pristopu <span class="manjse"><a href='assets/img/Strukturni_pristop_Zajem_zahtev.png'>(večja slika)</a></span>
+</p>
+</div>
+</div>
+<div id="Strukturni-analiza" class="section level3 hasAnchor" number="15.1.2">
+<h3><span class="header-section-number">15.1.2</span> Analiza<a href="P8.html#Strukturni-analiza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Glavni namen analize je <strong>izdelati razumljiv opis</strong> realnega sveta oz. poslovnega okolja, na katerega se nanaša razvoj informacijskega sistema. Izdelamo <strong>model sistema</strong>, ki na formalen način opredeli potrebne podatkovne strukture in funkcije, ki te podatke uporabljajo.</p>
+<p>Analiza daje odgovor na vprašanje, <strong>KAJ</strong> naj informacijski sistem podpira:</p>
+<ul>
+<li>Kaj se izvaja v poslovnih funkcijah in kakšni podatki so potrebni?</li>
+</ul>
+<p>Analiza se uporablja kot:</p>
+<ul>
+<li>sredstvo za opredelitev zahtev,</li>
+<li>osnova za dogovor med naročnikom in izvajalcem,</li>
+<li>osnova za kasnejše faze razvoja.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Strukturni-pristop-Analiza"></span>
+<img src="assets/img/Strukturni_pristop_Analiza.png" alt="Analiza pri strukturnem pristopu &lt;span class='manjse'&gt;&lt;a href='assets/img/Strukturni_pristop_Analiza.png'&gt;(večja slika)&lt;/a&gt;&lt;/span&gt;" width="700" />
+<p class="caption">
+Slika 15.2: Analiza pri strukturnem pristopu <span class="manjse"><a href='assets/img/Strukturni_pristop_Analiza.png'>(večja slika)</a></span>
+</p>
+</div>
+<p><strong>Rezultat analize</strong> je <strong>model sistema</strong>. Na osnovi modelov se v nadaljnjih korakih izdela <strong>podatkovna baza</strong> ter potrebni <strong>programski moduli</strong>. Poleg modela sistema v fazi analize izdelamo tudi <strong>predlog tehnične arhitekture</strong> sistema ter opcijsko prototipe komponent uporabniškega vmesnika. Med izdelke analize sodi tudi <strong>strategija testiranja</strong> (glej sliko <a href="P8.html#fig:slika-Strukturni-pristop-Analiza#fig:slika-Strukturni-pristop-Analiza">15.2</a>).</p>
+</div>
+<div id="Strukturni-nacrtovanje" class="section level3 hasAnchor" number="15.1.3">
+<h3><span class="header-section-number">15.1.3</span> Načrtovanje<a href="P8.html#Strukturni-nacrtovanje" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Glavni namen načrtovanja je <strong>izdelati načrt zgradbe sistema</strong> glede na specifikacije, ki so bile zbrane v fazi analize.</p>
+<p>Načrt daje odgovor na vprašanje, <strong>KAKO</strong> izdelati sistem, da bo ustrezal zahtevam, ki smo jih evidentirali v fazi analize.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Strukturni-pristop-Nacrtovanje"></span>
+<img src="assets/img/Strukturni_pristop_Nacrtovanje.png" alt="Načrtovanje pri strukturnem pristopu &lt;span class='manjse'&gt;&lt;a href='assets/img/Strukturni_pristop_Nacrtovanje.png'&gt;(večja slika)&lt;/a&gt;&lt;/span&gt;" width="800" />
+<p class="caption">
+Slika 15.3: Načrtovanje pri strukturnem pristopu <span class="manjse"><a href='assets/img/Strukturni_pristop_Nacrtovanje.png'>(večja slika)</a></span>
+</p>
+</div>
+<p><strong>Cilji načrtovanja</strong> so (glej sliko <a href="P8.html#fig:slika-Strukturni-pristop-Nacrtovanje#fig:slika-Strukturni-pristop-Nacrtovanje">15.3</a>):</p>
+<ul>
+<li><strong>izdelati načrt informacijske rešitve</strong>, ki ustreza ugotovitvam iz analize in upošteva tehnološke omejitve sistema,</li>
+<li><strong>dokumentirati specifikacije načrta</strong> na način, ki bo omogočal vzdrževanje sistema,</li>
+<li><strong>zasnovati strategijo prehoda</strong> iz obstoječe na novo aplikacijo.</li>
+</ul>
+</div>
+<div id="Strukturni-testiranje" class="section level3 hasAnchor" number="15.1.4">
+<h3><span class="header-section-number">15.1.4</span> Testiranje<a href="P8.html#Strukturni-testiranje" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Testiranje poteka na različnih <strong>ravneh</strong> (analiza, načrtovanje, izvedba, namestitev in uvedba), v različnih <strong>okoljih</strong> (razvojno, testno in produkcijsko) in s strani različnih <strong>vlog</strong> (razvijalec, načrtovalec aplikacije, končni uporabnik) (glej sliko <a href="P8.html#fig:slika-Strukturni-pristop-Testiranje#fig:slika-Strukturni-pristop-Testiranje">15.4</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Strukturni-pristop-Testiranje"></span>
+<img src="assets/img/Strukturni_pristop_Testiranje.png" alt="Testiranje pri strukturnem pristopu" width="600" />
+<p class="caption">
+Slika 15.4: Testiranje pri strukturnem pristopu
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-V-model-testiranja"></span>
+<img src="assets/img/V_model_testiranja.png" alt="V model testiranja" width="500" />
+<p class="caption">
+Slika 15.5: V model testiranja
+</p>
+</div>
+<p>Več o primerjavi SDLC in STLC si lahko ogledate v video posnetku, objavljenem v poglavju <a href="P7.html#razvojni-model-informacijskega-sistema">Razvojni model informacijskega sistema</a> predavanja <span class="sklop3">P7</span>.</p>
+</div>
+<div id="Strukturni-namestitev-in-uvedba" class="section level3 hasAnchor" number="15.1.5">
+<h3><span class="header-section-number">15.1.5</span> Namestitev in uvedba<a href="P8.html#Strukturni-namestitev-in-uvedba" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Glavni <strong>namen namestitve in uvedbe</strong> je:</p>
+<ul>
+<li><strong>namestitev</strong> izbrane informacijske rešitve ali njenih delov v testno oz. produkcijsko okolje,</li>
+<li><strong>izvedba potrditvenega</strong> in <strong>končnega testa</strong> informacijske rešitve,</li>
+<li><strong>uvedba</strong> uporabnikov, skrbnikov in drugih, ki bodo z informacijsko rešitvijo delali.</li>
+</ul>
+<p>Z izvedbo postopka namestitve in uvedbe zagotovimo, da lahko uporabniki nemoteno uporabljajo novo informacijsko rešitev.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Strukturni-pristop-Namestitev-in-uvedba"></span>
+<img src="assets/img/Strukturni_pristop_Namestitev_in_uvedba.png" alt="Namestitev in uvedba pri strukturnem pristopu &lt;span class='manjse'&gt;&lt;a href='assets/img/Strukturni_pristop_Namestitev_in_uvedba.png'&gt;(večja slika)&lt;/a&gt;&lt;/span&gt;" width="800" />
+<p class="caption">
+Slika 15.6: Namestitev in uvedba pri strukturnem pristopu <span class="manjse"><a href='assets/img/Strukturni_pristop_Namestitev_in_uvedba.png'>(večja slika)</a></span>
+</p>
+</div>
+<p>Končni izdelek namestitve in uvedbe sta <strong>nameščena informacijska rešitev v produkcijsko okolje</strong> in <strong>uvedeni uporabniki</strong>. Ko je nova informacijska rešitev nameščena v produkcijsko okolje in so uporabniki usposobljeni za uporabo, se lahko uporaba začne.</p>
+</div>
+</div>
+<div id="podatkovno-načrtovanje" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> Podatkovno načrtovanje<a href="P8.html#podatkovno-načrtovanje" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="relacijski-model" class="section level3 hasAnchor" number="15.2.1">
+<h3><span class="header-section-number">15.2.1</span> Relacijski model<a href="P8.html#relacijski-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Relacijski model</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Relational_model"><i class="fa-brands fa-wikipedia-w"></i>Relational model</a>)</em> je konceptualna osnova relacijskih podatkovnih baz in predstavlja metodo strukturiranja podatkov s pomočjo relacij, ki so podobne matematičnim matrikam, tj. sestavljene iz vrstic in stolpcev.</p>
+<p><strong>Lastnosti</strong> relacijskega modela:</p>
+<ul>
+<li>dosledna <strong>razmejitev logičnega</strong> in <strong>fizičnega vidika</strong>, še posebej v fazi načrtovanja,</li>
+<li><strong>enostavnost strukture</strong> za uporabnika in programerja,</li>
+<li>podprtost s <strong>formalno matematično teorijo</strong>,</li>
+<li><strong>povpraševalni jeziki</strong> delujejo nad množico podatkov,</li>
+<li>množica <strong>entitet</strong> istega tipa je predstavljena z relacijo,
+<ul>
+<li>neformalno je to <strong>tabela</strong>, kjer stolpci ustrezajo atributom entitet, vrstice pa posameznim entitetam,</li>
+</ul></li>
+<li>vrstni red stolpcev in vrstic je poljuben, vrstice pa se med seboj razlikujejo,</li>
+<li>opredeljena je množica operatorjev za vprašanja in za manipulacijo nad tabelami,</li>
+<li>opredeljen je formalni matematični jezik,</li>
+<li>fleksibilnost modela, ki olajšuje delo s porazdeljenimi podatkovnimi bazami.</li>
+</ul>
+</div>
+<div id="matematična-opredelitev" class="section level3 hasAnchor" number="15.2.2">
+<h3><span class="header-section-number">15.2.2</span> Matematična opredelitev<a href="P8.html#matematična-opredelitev" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Množica entitet</strong> <span class="math inline">\(E (A_1, A_2, \ldots, A_n)\)</span> je opredeljena z množico atributov <span class="math inline">\(A_1, A_2, \ldots, A_n\)</span>, kjer velja <span class="math inline">\(A_i: E \to D_i\)</span> in <span class="math inline">\(D_i\)</span> je domena atributa <span class="math inline">\(A_i\)</span>. Za <span class="math inline">\(e \in E\)</span> velja <span class="math inline">\(A_i(e) \in D_i\)</span>, kar je vrednost <span class="math inline">\(A_i\)</span> entitete <span class="math inline">\(e\)</span>.</p>
+<div id="množica-n-teric" class="section level4 hasAnchor" number="15.2.2.1">
+<h4><span class="header-section-number">15.2.2.1</span> Množica n-teric<a href="P8.html#množica-n-teric" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Za dani tip entitet <span class="math inline">\(E (A_1, A_2, \ldots, A_n)\)</span> je opredeljena množica funkcij,</p>
+<p><span class="math display">\[
+A_1: E \to D_1 \\
+A_2: E \to D_2 \\
+\ldots \\
+A_n: E \to D_n
+\]</span></p>
+<p>ki predstavlja atribute tega tipa entitet tako, da velja</p>
+<p><span class="math display">\[(A_1, A_2, \ldots, A_n): E \to D_1 \times D_2 \times \ldots \times D_n\]</span></p>
+<p>kjer je kartezični produkt množica vseh n-teric:</p>
+<p><span class="math display">\[(d_1, d_2, \ldots, d_n), d_i \in D_i, \text{za } i=1, 2, \ldots, n\]</span></p>
+<p>Funkcija <span class="math inline">\((A_1, A_2, \ldots, A_n)\)</span> je definirana kot</p>
+<p><span class="math display">\[(A_1, A_2, \ldots, A_n)(e) = (A_1(e), A_2(e), \ldots, A_n(e))\]</span></p>
+<p>Pri tem mora obstajati nek <span class="math inline">\(j = 1, \ldots, n\)</span>, da velja <span class="math inline">\(A_j(e_1) \neq A_j(e_2)\)</span> (tj. katerikoli vrstici se morata razlikovati vsaj v vrednosti enega atributa) in <strong>vrednosti atributov</strong> <span class="math inline">\(A_j(e_i)\)</span>, kjer je <span class="math inline">\(i = 1, 2, \ldots, n\)</span>, morajo biti <strong>atomarne</strong>.</p>
+</div>
+<div id="relacija" class="section level4 hasAnchor" number="15.2.2.2">
+<h4><span class="header-section-number">15.2.2.2</span> Relacija<a href="P8.html#relacija" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(R\)</span> je relacija na množicah <span class="math inline">\(D_1, D_2, \ldots, D_n\)</span>, če in samo če <span class="math inline">\(R \subseteq D_1 \times D_2 \times \ldots D_n\)</span>.</p>
+<div id="primer" class="section level5 hasAnchor" number="15.2.2.2.1">
+<h5><span class="header-section-number">15.2.2.2.1</span> Primer<a href="P8.html#primer" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><code>Delavec (ID, Ime, Priimek, Delovna_doba)</code>, kjer vsakemu delavcu ustreza vrstica <span class="math inline">\(r_1, r_2, \ldots\)</span>.</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Primer-relacije"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/NO_R2i8m38RlynH1hmKdJ5316-_qARekqshNIXhnXEzkDRgXXS2V_ykfwU32qR1fqNgJ4ju1iJBsiELu2lKg-iWuR1gQqlH58jV47tSs6-UNtIO6-VSCSpp_cW-0r6thTzXtaR09AICA0ZjN4rh7rfFgbjgAE86dHb0Yijlk16l7PCN50A35E43EOH9sDo-y2pJN0nP25_beo7kSN7DrCIaARNgftb-RG3S5RzcJJJvrdt-Yy9lrl5HG0Z2EHakTgr8dgUuQDIsV" alt="Entitete tipa \(E(A_1, A_2, \ldots, A_n)\) lahko predstavimo z n-tericami vrednosti njihovih atributov PlantUML." width="180" />
+<p class="caption">
+Slika 15.7: Entitete tipa <span class="math inline">\(E(A_1, A_2, \ldots, A_n)\)</span> lahko predstavimo z n-tericami vrednosti njihovih atributov <a href="https://teaching.lavbic.net/plantuml/uml/NO_R2i8m38RlynH1hmKdJ5316-_qARekqshNIXhnXEzkDRgXXS2V_ykfwU32qR1fqNgJ4ju1iJBsiELu2lKg-iWuR1gQqlH58jV47tSs6-UNtIO6-VSCSpp_cW-0r6thTzXtaR09AICA0ZjN4rh7rfFgbjgAE86dHb0Yijlk16l7PCN50A35E43EOH9sDo-y2pJN0nP25_beo7kSN7DrCIaARNgftb-RG3S5RzcJJJvrdt-Yy9lrl5HG0Z2EHakTgr8dgUuQDIsV"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+<p>Množico entitet tipa <span class="math inline">\(E(A_1, A_2, \ldots, A_n)\)</span> lahko predstavimo v obliki tabele (glej tabelo <a href="P8.html#tab:tabela-Primer-relacije#tab:tabela-Primer-relacije">15.1</a>), kjer stolpci ustrezajo atributom, vrstice pa n-tericam, ki so različne (po vrednostih).</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tabela-Primer-relacije">Tabela 15.1: </span>Predstavitev v obliki tabele
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+ID
+</th>
+<th style="text-align:center;">
+Ime
+</th>
+<th style="text-align:center;">
+Priimek
+</th>
+<th style="text-align:center;">
+Delovna_doba
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+<td style="text-align:center;">
+…
+</td>
+</tr>
+</tbody>
+</table>
+<p>Tabela kot množica predstavlja relacijo <span class="math inline">\(R (A_1, A_2, \ldots, A_n)\)</span>, kjer velja <span class="math inline">\(A_i: R \to D_i\)</span> in so <span class="math inline">\(D_i\)</span> domene atributov.</p>
+</div>
+</div>
+<div id="entiteta" class="section level4 hasAnchor" number="15.2.2.3">
+<h4><span class="header-section-number">15.2.2.3</span> Entiteta<a href="P8.html#entiteta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Entiteta</strong> je realni ali abstraktni predmet obravnave, o katerem zbiramo podatke. <strong>Atributi</strong> so izbrane lastnosti entitete, o katerih zbiramo podatke. Obstaja množica sorodnih entitet, ki se predstavijo z <strong>entitetnim tipom</strong>.</p>
+</div>
+<div id="ključ" class="section level4 hasAnchor" number="15.2.2.4">
+<h4><span class="header-section-number">15.2.2.4</span> Ključ<a href="P8.html#ključ" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Naj bo <span class="math inline">\(R (A_1, A_2, \ldots, A_n)\)</span> relacija ter <span class="math inline">\(X\)</span> in <span class="math inline">\(Y\)</span> podmnožica vseh atributov <span class="math inline">\(R\)</span></p>
+<p><span class="math display">\[
+X \subseteq \{A_1, A_2, \ldots, A_n\} \\
+Y \subseteq \{A_1, A_2, \ldots, A_n\}
+\]</span></p>
+<p>Če je <span class="math inline">\(R[XY]\)</span> projekcija po atributih <span class="math inline">\(X\)</span> in <span class="math inline">\(Y\)</span>, obstaja funkcionalna odvisnost <span class="math inline">\(X \to Y\)</span> v primeru, da za vsak <span class="math inline">\(R[XY]\)</span> velja funkcija <span class="math inline">\(R[X] \to R[Y]\)</span>.</p>
+<p>Če so pari <span class="math inline">\(xy\)</span> in <span class="math inline">\(xy&#39;\)</span> elementi <span class="math inline">\(R[XY]\)</span>, potem velja <span class="math inline">\(y = y&#39;\)</span>.</p>
+<p>Če za <span class="math inline">\(R(A_1, A_2, \ldots, A_n)\)</span> in <span class="math inline">\(X \subseteq \{A_1, A_2, \ldots, A_n\}\)</span> velja <span class="math inline">\(X \to A_i; i=1,2,\ldots,n\)</span>, ne obstaja <span class="math inline">\(X&#39; \subseteq X\)</span>, ki ima isto lastnost, torej <span class="math inline">\(X&#39;\)</span> ne določa <span class="math inline">\(A_i\)</span>.</p>
+<p>Vsaka relacija ima najmanj en ključ, kajti velja, da <span class="math inline">\(A_1, \ldots, A_n \to A_1, \ldots, A_n\)</span>.</p>
+<p>Če ne obstaja <span class="math inline">\(X \subset \{A_1, A_2, \ldots, A_n\}\)</span>, potem je <span class="math inline">\(A_1, \ldots, A_n\)</span> ključ relacije.</p>
+</div>
+</div>
+<div id="entitetni-diagram" class="section level3 hasAnchor" number="15.2.3">
+<h3><span class="header-section-number">15.2.3</span> Entitetni diagram<a href="P8.html#entitetni-diagram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri entitetnem diagramu so določeni osnovni grafični simboli in drugi koncepti. Postopki izgradnje entitetnega diagrama niso natančno predpisani. Pravila risanja entitetnih diagramov so natančno definirana.</p>
+<p>Pri grafični predstavitvi povezav med entitetami poznamo več vrst notacij, med katerimi sta najbolj razširjeni:</p>
+<ul>
+<li><strong>Chenova</strong> notacija in</li>
+</ul>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Simbol
+</th>
+<th style="text-align:center;">
+Števnost
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="assets/img/Chenova_notacija_1_1.png" />
+</td>
+<td style="text-align:center;">
+1:1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<img src="assets/img/Chenova_notacija_1_n.png" />
+</td>
+<td style="text-align:center;">
+1:n
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<img src="assets/img/Chenova_notacija_m_n.png" />
+</td>
+<td style="text-align:center;">
+m:n
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Martinova</strong> oz. <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model#Crow&#39;s_foot_notation#Crow&'s_foot_notation"><i class="fa-brands fa-wikipedia-w"></i><strong>Crow’s Foot</strong></a> notacija.</li>
+</ul>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Simbol
+</th>
+<th style="text-align:center;">
+Števnost
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="assets/img/Martinova_notacija_0_1_1_1.png" />
+</td>
+<td style="text-align:center;">
+0,1:1,1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<img src="assets/img/Martinova_notacija_0_n_1_m.png" />
+</td>
+<td style="text-align:center;">
+0,n:1,m
+</td>
+</tr>
+</tbody>
+</table>
+<p>Primer povezave med dvema entitetama prikazujeta spodnji sliki:</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Chenova notacija
+</th>
+<th style="text-align:center;">
+Martinova notacija
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="assets/img/Chenova_notacija_primer_povezave.png" />
+</td>
+<td style="text-align:center;">
+<img src="assets/img/Martinova_notacija_primer_povezave.png" />
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Primerki-entitet-in-povezave-med-njimi"></span>
+<img src="assets/img/Primerki_entitet_in_povezave_med_njimi.png" alt="Primerki entitet in povezave med njimi" width="550" />
+<p class="caption">
+Slika 15.8: Primerki entitet in povezave med njimi
+</p>
+</div>
+<div id="povezave-s-števnostjo-11" class="section level4 hasAnchor" number="15.2.3.1">
+<h4><span class="header-section-number">15.2.3.1</span> Povezave s števnostjo 1:1<a href="P8.html#povezave-s-števnostjo-11" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Povezave-s-stevnostjo-1-1"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/RL2zJiCm4Dxz51RCbPWgTQOxB31KMIxEfPWwv-gSkWBC8_1AJF1UE7OQXwYUVD_lsUwWwGWCdLG6d9CVGieQr67FzaJDlJMMvMtRuXhN0sEvGHxHpUOkdeYsbleb1ips_1_y5C9DRQL39L7FG2vIIBruqGrAfLaPpFSEknhP2H5PtR_96xdbts_mvXKe3k3Y_9x78dbahBK7WofBoZoBGGC-2hoig4cHX5r5blT0fnoS5Sz3GUGU4bC2deuSFNgmPs4oZUZedTHRy3zVf2kISLaSyiRL8g58xoxWPDWrCSVr7YycOEkBRKRl2YV4z1aoXDKgXFdJhxudwMnOxhrOImQRLDTh_m00" alt="Povezave s števnostjo 1:1 PlantUML." width="310" />
+<p class="caption">
+Slika 15.9: Povezave s števnostjo 1:1 <a href="https://teaching.lavbic.net/plantuml/uml/RL2zJiCm4Dxz51RCbPWgTQOxB31KMIxEfPWwv-gSkWBC8_1AJF1UE7OQXwYUVD_lsUwWwGWCdLG6d9CVGieQr67FzaJDlJMMvMtRuXhN0sEvGHxHpUOkdeYsbleb1ips_1_y5C9DRQL39L7FG2vIIBruqGrAfLaPpFSEknhP2H5PtR_96xdbts_mvXKe3k3Y_9x78dbahBK7WofBoZoBGGC-2hoig4cHX5r5blT0fnoS5Sz3GUGU4bC2deuSFNgmPs4oZUZedTHRy3zVf2kISLaSyiRL8g58xoxWPDWrCSVr7YycOEkBRKRl2YV4z1aoXDKgXFdJhxudwMnOxhrOImQRLDTh_m00"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="povezave-s-števnostjo-1n" class="section level4 hasAnchor" number="15.2.3.2">
+<h4><span class="header-section-number">15.2.3.2</span> Povezave s števnostjo 1:n<a href="P8.html#povezave-s-števnostjo-1n" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Povezave-s-stevnostjo-1-n"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/fP2nJiCm48PtFyMfp9MWGwNEi30WAbNgWBfSd6inJNpHsGsY3O_0Ap71U-7OeKcBEk79-kxxx-npMsCh52n15-WS71H0Xdgx4TxP_9OB5hXQhsbAqxR2afDqT3Qx3YVGDLj_pb24Nq_XkrBkEAsVeQFa1QqB9R9UFPkSG1lH1QLxIML6ufGALUFVO0Htyls9jJMmiYmRj2D05-2-POyj6AXKO4qQwk3cAKPb5zkbN3AMRJxKOdvtqtTuCDOuByxN334m0BqLOt6A8-UnDb6DTBb8v2W_PKOihonKBFprOOgkSUBp07LWVU_vgVP7M7Ykx0k6XcRFcU0-esHsXVjV-k-rJ9GQhXcQPZnk3fTMEDnSQ_BXR26d7uQ6OxVZ_ywV7mM-C6xo0m00" alt="Povezave s števnostjo 1:n PlantUML." width="390" />
+<p class="caption">
+Slika 15.10: Povezave s števnostjo 1:n <a href="https://teaching.lavbic.net/plantuml/uml/fP2nJiCm48PtFyMfp9MWGwNEi30WAbNgWBfSd6inJNpHsGsY3O_0Ap71U-7OeKcBEk79-kxxx-npMsCh52n15-WS71H0Xdgx4TxP_9OB5hXQhsbAqxR2afDqT3Qx3YVGDLj_pb24Nq_XkrBkEAsVeQFa1QqB9R9UFPkSG1lH1QLxIML6ufGALUFVO0Htyls9jJMmiYmRj2D05-2-POyj6AXKO4qQwk3cAKPb5zkbN3AMRJxKOdvtqtTuCDOuByxN334m0BqLOt6A8-UnDb6DTBb8v2W_PKOihonKBFprOOgkSUBp07LWVU_vgVP7M7Ykx0k6XcRFcU0-esHsXVjV-k-rJ9GQhXcQPZnk3fTMEDnSQ_BXR26d7uQ6OxVZ_ywV7mM-C6xo0m00"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="povezave-s-števnostjo-mn" class="section level4 hasAnchor" number="15.2.3.3">
+<h4><span class="header-section-number">15.2.3.3</span> Povezave s števnostjo m:n<a href="P8.html#povezave-s-števnostjo-mn" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Povezave-s-stevnostjo-m-n"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/NO-xRiCm34LtVONGp04w1SWOD7k6eakHXPRfL91D6fJYed7yQztwNzN3gDre4N7kWIxbdQKU13fjMl1UZqhh2eox25-fVk6MHM-Q1dUuImbBZJBJ_VuvdaWRfl38G8G__yD9AV_NjdIOB0K1yZ522kh3rgYD5TDYcJliAXIlL4nj-D9F-XqSKxp1bt59tdg1WQm-4xYGXPaSN5Yie_nypnhB1IYBHxabTafWfMBB0q4qlRlsbg2uXRuMjDWdZnMKnVAu98SXS0dIf5JvmdJVRk_ZUiVr5ZdcyR6jb4oSi_JQBm00" alt="Povezave s števnostjo m:n PlantUML." width="250" />
+<p class="caption">
+Slika 15.11: Povezave s števnostjo m:n <a href="https://teaching.lavbic.net/plantuml/uml/NO-xRiCm34LtVONGp04w1SWOD7k6eakHXPRfL91D6fJYed7yQztwNzN3gDre4N7kWIxbdQKU13fjMl1UZqhh2eox25-fVk6MHM-Q1dUuImbBZJBJ_VuvdaWRfl38G8G__yD9AV_NjdIOB0K1yZ522kh3rgYD5TDYcJliAXIlL4nj-D9F-XqSKxp1bt59tdg1WQm-4xYGXPaSN5Yie_nypnhB1IYBHxabTafWfMBB0q4qlRlsbg2uXRuMjDWdZnMKnVAu98SXS0dIf5JvmdJVRk_ZUiVr5ZdcyR6jb4oSi_JQBm00"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="specializacijageneralizacija" class="section level4 hasAnchor" number="15.2.3.4">
+<h4><span class="header-section-number">15.2.3.4</span> Specializacija/generalizacija<a href="P8.html#specializacijageneralizacija" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Specializacija-generalizacija"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/bK-zJiD03DxlAQmoLsAgr9cAbQ4YKnRtufHh4hloNO9emyFm8cnzBuua91HA9MxoVR-sBnplKR42MwBtS3G06xJ5LgNcx4vAKRZ9SrhGufCHpKW7TBcyZI-YkN3uYQ6gF9-3hyRuiMtgi9qeABAF574mJouZi4vjIVrSKRKXzSP4reKNcAsen8Pioj10fgTtR9WgI5bqYrpF03qCacIbXuvzwAWn0UvhBgmJHeLEF_r7JU9ERpkNShtN6147oFhGtf4ultEFFJUqJV437dSQF9tb3_Kwg1JILtWvAncfzHTkpENJe6tdSsc_7t9TU6d_wuv_YNzl_W40" alt="Specializacija/generalizacija PlantUML." width="420" />
+<p class="caption">
+Slika 15.12: Specializacija/generalizacija <a href="https://teaching.lavbic.net/plantuml/uml/bK-zJiD03DxlAQmoLsAgr9cAbQ4YKnRtufHh4hloNO9emyFm8cnzBuua91HA9MxoVR-sBnplKR42MwBtS3G06xJ5LgNcx4vAKRZ9SrhGufCHpKW7TBcyZI-YkN3uYQ6gF9-3hyRuiMtgi9qeABAF574mJouZi4vjIVrSKRKXzSP4reKNcAsen8Pioj10fgTtR9WgI5bqYrpF03qCacIbXuvzwAWn0UvhBgmJHeLEF_r7JU9ERpkNShtN6147oFhGtf4ultEFFJUqJV437dSQF9tb3_Kwg1JILtWvAncfzHTkpENJe6tdSsc_7t9TU6d_wuv_YNzl_W40"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+</div>
+<div id="različne-ravni-podatkovnega-modeliranja" class="section level3 hasAnchor" number="15.2.4">
+<h3><span class="header-section-number">15.2.4</span> Različne ravni podatkovnega modeliranja<a href="P8.html#različne-ravni-podatkovnega-modeliranja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri podatkovnem modeliranju želimo koncepte iz realnega sveta najprej predstaviti v obliki konceptualnega modela, ki se nazadnje preslika v fizični model, tj. v dejansko izbrano podatkovno bazo (glej sliko <a href="P8.html#fig:slika-Ravni-v-podatkovnem-modeliranju#fig:slika-Ravni-v-podatkovnem-modeliranju">15.13</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Ravni-v-podatkovnem-modeliranju"></span>
+<img src="assets/img/Ravni_v_podatkovnem_modeliranju.png" alt="Preslikovanje med ravnmi pri podatkovnem modeliranju" width="500" />
+<p class="caption">
+Slika 15.13: Preslikovanje med ravnmi pri podatkovnem modeliranju
+</p>
+</div>
+<p>V procesu izgradnje podatkovnega modela nastanejo na različnih ravneh naslednji izdelki:</p>
+<ul>
+<li><strong>globalni</strong> podatkovni model,</li>
+<li><strong>konceptualni</strong> podatkovni model,</li>
+<li><strong>logični</strong> podatkovni model,</li>
+<li><strong>fizični</strong> podatkovni model,</li>
+<li><strong>podatkovna baza</strong>.</li>
+</ul>
+<p>Lastnosti dobrega konceptualnega modeliranja:</p>
+<ul>
+<li><strong>neredundantnost</strong>, kjer je določen podatek na enem mestu in</li>
+<li>največja možna mera <strong>medsebojne neodvisnosti podatkov</strong>.</li>
+</ul>
+</div>
+<div id="Postopek-konceptualno-nacrtovanje" class="section level3 hasAnchor" number="15.2.5">
+<h3><span class="header-section-number">15.2.5</span> Konceptualno načrtovanje<a href="P8.html#Postopek-konceptualno-nacrtovanje" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="identificiraj-entitetne-tipe-k1.1" class="section level4 hasAnchor" number="15.2.5.1">
+<h4><span class="header-section-number">15.2.5.1</span> Identificiraj entitetne tipe (K1.1)<a href="P8.html#identificiraj-entitetne-tipe-k1.1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Entitete</strong> so primerki tipov objektov iz poslovne domene (predmeti, osebe itd.). Vse entitete, ki ustrezajo določeni predstavi, pripadajo posameznemu <strong>entitetnemu tipu</strong> (glej sliko <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-1#fig:slika-Konceptualno-nacrtovanje-K-1-1">15.14</a>).</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-1"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/hO_FIWCn4CRlUOf1BxeN5Q7GKdgfuALWmUjUPhEpRVRFf4nIIn4VmOVmNVIzJ9EbQqkFvfAFxvlCxujh36zGi0FTedFmhW0ArCrAx9RBkMsjm7LLqOX6XyHAITAxu_5zEC6jBFjp3qNixjJyKEu8O-lf8cktDfwE91szbU3-11EDl-k6BUc55sGN8cAlrgOaq4PqIqbtr1KaJgcG6h-7AtXnL62uqIKv94lxy-NxA6cbOdTlDs2hD3w1QSHE-f_EicmffYDfJ9PDxs8so_biw2P2oDFjC9Bp4zN8iC2tmdn_vloAN1fu9dr2JKt-4_iO8fXJMrFE3mUzgBT56whWBm00" alt="Primer identifikacije entitetnih tipov PlantUML." width="250" />
+<p class="caption">
+Slika 15.14: Primer identifikacije entitetnih tipov <a href="https://teaching.lavbic.net/plantuml/uml/hO_FIWCn4CRlUOf1BxeN5Q7GKdgfuALWmUjUPhEpRVRFf4nIIn4VmOVmNVIzJ9EbQqkFvfAFxvlCxujh36zGi0FTedFmhW0ArCrAx9RBkMsjm7LLqOX6XyHAITAxu_5zEC6jBFjp3qNixjJyKEu8O-lf8cktDfwE91szbU3-11EDl-k6BUc55sGN8cAlrgOaq4PqIqbtr1KaJgcG6h-7AtXnL62uqIKv94lxy-NxA6cbOdTlDs2hD3w1QSHE-f_EicmffYDfJ9PDxs8so_biw2P2oDFjC9Bp4zN8iC2tmdn_vloAN1fu9dr2JKt-4_iO8fXJMrFE3mUzgBT56whWBm00"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="identificiraj-povezave-k1.2" class="section level4 hasAnchor" number="15.2.5.2">
+<h4><span class="header-section-number">15.2.5.2</span> Identificiraj povezave (K1.2)<a href="P8.html#identificiraj-povezave-k1.2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Entitete se med seboj povezujejo preko <strong>razmerij (relacij)</strong>. Razmerje, ki ima določen pomen in predstavitev v modelu ER, je povezava. Med paroma entitet je lahko več razmerij (glej sliko <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-2#fig:slika-Konceptualno-nacrtovanje-K-1-2">15.15</a>).</p>
+<p><strong>Kardinalnost (števnost)</strong> je število entitet entitetnega tipa, ki so v razmerju glede na pomen razmerja. Najmanjša in največja števnost določata veljaven razpon števila entitet.</p>
+<p><strong>Obveznost</strong> oz. <strong>mandatarnost</strong> pove, ali sta entiteti vedno v razmerju (obvezno in neobvezno razmerje). To lahko obravnavamo v okrilju števnosti (uvedemo števnost 0).</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-2"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/RL11Ri8m4Bpx5Qlsq5Eadf10lLHzG7keUkAoIJR1u7YZzIOK2a_W4Vm5_bMJK09jVR17CpipjiF2-Xe5AyWSXW1V1Y35R54ADpv_OSS2zqL18ngT59QSvCoEnuznHRPWhxyv5E7bBRaruLBcMUdVhkNCAbsQieuh1LStDHrn7JUaz0uLz25AvFLgAgS26wVlzAdFpfQ-YZ9aSICnCviJP5OoHpskg4f9WdaO_CvwqbLDmA8pDYOwhQxW3bu3fHXF33qSb3S-xlKizTYOVdgxIPBDvanE82WwprDV2wMsHMUF-yEEJFTFoZMmFzKl9j4GhptrWkkAP8u_QPmaFAIrvEO8QvpwDHvs6FucmrEVdR8gLqFyX-Coshe7KDJRIrNp3G00" alt="Primer identifikacije povezav PlantUML." width="250" />
+<p class="caption">
+Slika 15.15: Primer identifikacije povezav <a href="https://teaching.lavbic.net/plantuml/uml/RL11Ri8m4Bpx5Qlsq5Eadf10lLHzG7keUkAoIJR1u7YZzIOK2a_W4Vm5_bMJK09jVR17CpipjiF2-Xe5AyWSXW1V1Y35R54ADpv_OSS2zqL18ngT59QSvCoEnuznHRPWhxyv5E7bBRaruLBcMUdVhkNCAbsQieuh1LStDHrn7JUaz0uLz25AvFLgAgS26wVlzAdFpfQ-YZ9aSICnCviJP5OoHpskg4f9WdaO_CvwqbLDmA8pDYOwhQxW3bu3fHXF33qSb3S-xlKizTYOVdgxIPBDvanE82WwprDV2wMsHMUF-yEEJFTFoZMmFzKl9j4GhptrWkkAP8u_QPmaFAIrvEO8QvpwDHvs6FucmrEVdR8gLqFyX-Coshe7KDJRIrNp3G00"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="identificiraj-in-poveži-atribute-z-entitetnimi-tipi-k1.3" class="section level4 hasAnchor" number="15.2.5.3">
+<h4><span class="header-section-number">15.2.5.3</span> Identificiraj in poveži atribute z entitetnimi tipi (K1.3)<a href="P8.html#identificiraj-in-poveži-atribute-z-entitetnimi-tipi-k1.3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Entitete imajo določene lastnosti, posamezne entitete istega entitetnega tipa se med seboj razlikujejo po njihovi vrednosti. Entiteta ima številne lastnosti, le majhen del pa je pomemben za opazovan problem (abstrakcija). Lastnosti, ki so pomembne, so <strong>atributi entitetnega tipa</strong> (glej sliko <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-3#fig:slika-Konceptualno-nacrtovanje-K-1-3">15.16</a>).</p>
+<p>Pri tem koraku je potrebno paziti na:</p>
+<ul>
+<li><strong>enostavne</strong> in <strong>sestavljene atribute</strong> (naslov → ulica, hišna številka, poštna številka, naziv pošte),</li>
+<li><strong>eno</strong> in <strong>več vrednostni atributi</strong> (telefonska številka → mobilna številka, številka v službi),</li>
+<li><strong>izpeljani atributi</strong> (skupna cena, starost študenta → ponavadi obravnavamo v fizičnih modelih).</li>
+</ul>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-3"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/ZPBFJjj04CRl-nGZzL28v5A4X0H2Y0hrWA220yTS9lROcMQzQyrEGWFX4NW7U96Uo7jriacJW51L7zRsjx_TR_wT9KNHSUlXegAWN7F9WZ-10tHnGlFV3AZ2Wx4ItCE2KDB0BODonx1pkV_bODUvDEBGeM0BfSUKuC413B0SDHB7eJgFFWfygciwfCF5JfIAPAKU7NsrnzGw1dsleKYyUoi-Rfc5Q65zv7Ktj3ZNJcNM6i7f6viiR5-tkMLvGWL3iYrBsttUO1NLEFPwIx_qc-ScjBOFfIqaRiWLWPMmzBHzn7CWdNO4KNGOdSk5dC9reW7c18h2bky_vi_Nzhve5x7V27DB8ujmHT_4-OjkuVa_8DXA4_OZDEtIccSdNAwCS3DKYFNIvnXESbh7gqgUzdfNc3J4f0pH2EhrJlOoSjeFEwksyxhfr63VFZlCCEw-yrX6zq-JRe7yjqkcpSOjg_GuAuhPR6rZS-j3xDkO2WruWfxdBwzFz1UEHH4ty3s-Fc7w27Td52eR_py0" alt="Primer identifikacije atributov in povezovanja z entitetnimi tipi PlantUML." width="300" />
+<p class="caption">
+Slika 15.16: Primer identifikacije atributov in povezovanja z entitetnimi tipi <a href="https://teaching.lavbic.net/plantuml/uml/ZPBFJjj04CRl-nGZzL28v5A4X0H2Y0hrWA220yTS9lROcMQzQyrEGWFX4NW7U96Uo7jriacJW51L7zRsjx_TR_wT9KNHSUlXegAWN7F9WZ-10tHnGlFV3AZ2Wx4ItCE2KDB0BODonx1pkV_bODUvDEBGeM0BfSUKuC413B0SDHB7eJgFFWfygciwfCF5JfIAPAKU7NsrnzGw1dsleKYyUoi-Rfc5Q65zv7Ktj3ZNJcNM6i7f6viiR5-tkMLvGWL3iYrBsttUO1NLEFPwIx_qc-ScjBOFfIqaRiWLWPMmzBHzn7CWdNO4KNGOdSk5dC9reW7c18h2bky_vi_Nzhve5x7V27DB8ujmHT_4-OjkuVa_8DXA4_OZDEtIccSdNAwCS3DKYFNIvnXESbh7gqgUzdfNc3J4f0pH2EhrJlOoSjeFEwksyxhfr63VFZlCCEw-yrX6zq-JRe7yjqkcpSOjg_GuAuhPR6rZS-j3xDkO2WruWfxdBwzFz1UEHH4ty3s-Fc7w27Td52eR_py0"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="atributom-določi-domene-k1.4" class="section level4 hasAnchor" number="15.2.5.4">
+<h4><span class="header-section-number">15.2.5.4</span> Atributom določi domene (K1.4)<a href="P8.html#atributom-določi-domene-k1.4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Domena</strong> je množica vrednosti atributov, vključenih v to domeno. Domeni lahko določimo: seznam dovoljenih vrednosti, min. in max. vrednost, podatkovni tip in dolžino.</p>
+<p>Primeri domen:</p>
+<ul>
+<li><code>starost</code> → <code>[0 ... 120]</code>,</li>
+<li><code>EMŠO</code> → <code>string 13</code>.</li>
+</ul>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-4"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/ROzDJiD038NtSmfBB5X50Y5LQdS8iK08jGkMR9p4IKqcuyepRGcqH-WTw5tQUp5D_rBKMLZov-VtnhvYDq756ZABtiEF0KWngqgLgSkVn8h2JL5GZtgxYMXEUg3z_bryaHRYmd-6gZA_X4lZJs5E0btDceyvq2afQrcfs5p4jA1hTtRPRmH5v-E8N32tPrbE1KvjUAUly6YvT7MSGnOBgHbpJf2nPfQwAvOTXMP281h6OamKSsXWw2d5ze0aYUNvRVix780Fogw4-uU8NcewWjYDbBccwaIMHwEHRDUXuzJs3Y5Mch6jS00SZm1uLVpih9lz3vQB95ai3YwxCLed7mucIYdFqF9slLdHKIn98cVnDsvMwA_8_m00" alt="Primer določanja domen atributom PlantUML." width="170" />
+<p class="caption">
+Slika 15.17: Primer določanja domen atributom <a href="https://teaching.lavbic.net/plantuml/uml/ROzDJiD038NtSmfBB5X50Y5LQdS8iK08jGkMR9p4IKqcuyepRGcqH-WTw5tQUp5D_rBKMLZov-VtnhvYDq756ZABtiEF0KWngqgLgSkVn8h2JL5GZtgxYMXEUg3z_bryaHRYmd-6gZA_X4lZJs5E0btDceyvq2afQrcfs5p4jA1hTtRPRmH5v-E8N32tPrbE1KvjUAUly6YvT7MSGnOBgHbpJf2nPfQwAvOTXMP281h6OamKSsXWw2d5ze0aYUNvRVix780Fogw4-uU8NcewWjYDbBccwaIMHwEHRDUXuzJs3Y5Mch6jS00SZm1uLVpih9lz3vQB95ai3YwxCLed7mucIYdFqF9slLdHKIn98cVnDsvMwA_8_m00"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="določi-kandidate-za-ključ-in-izmed-kandidatov-izberi-primarni-ključ-k1.5" class="section level4 hasAnchor" number="15.2.5.5">
+<h4><span class="header-section-number">15.2.5.5</span> Določi kandidate za ključ in izmed kandidatov izberi primarni ključ (K1.5)<a href="P8.html#določi-kandidate-za-ključ-in-izmed-kandidatov-izberi-primarni-ključ-k1.5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Kandidati za ključ</strong> so minimalne podmnožice atributov, ki enolično identificirajo vsako entiteto. V primeru več kandidatov izberemo samo enega za <strong>primarni ključ</strong> (glej sliko <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-5#fig:slika-Konceptualno-nacrtovanje-K-1-5">15.18</a>).</p>
+<p>Priporočila za kandidate za ključ:</p>
+<ul>
+<li>ima najmanj atributov,</li>
+<li>najmanjša verjetnost spreminjanja vrednosti,</li>
+<li>najmanjša dolžina znakov (alfanumerični kandidati),</li>
+<li>najmanjša max. vrednost (numerični kandidati),</li>
+<li>najlažje uporabljiv s stališča uporabnika.</li>
+</ul>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-5"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/RL5BQW914DttAGgo20YJ3m71GGP2o298q4MMsPGpDLfEJxVKj1gD7i4xnBlelTAs_yHU5DtllNhrwQfWCqJ14bADLGNV2g2BQT4JEpBPYzLMu2RFgKxrBMCb8zcZZSQ3FnxDhN5_CHInaqjmeQfZCMCTNQqrwREZOwKqO3t1wKMP09pRdLns6KxGL9uYuzJjIPPHZYFjFkZBFMlkcTBpaFf0elgS4QGigQRp5Cs6t7H8OCNrhL9Up6uAxOgw60PuVT_yj6EedB3fmUCJD9kTLf9u9efyU2lfGFfNHvXBAex8uk3NiPkLsnc6gq7maSQi2uo1VPkNjYt1mPcB2llKb3km-QwvE0wTUMsjrWnRYVSVaVWkIXJ3KEZ1QBritWSwgTN0g-tixdz6w9ASuPFsch5VeHVcNA2pSYObauKVLsgtjyKyYkRp_T3RCL0R-sbWADJbCMhUhDPBEeXj5DcJU8Rh9LPNvBy0" alt="Primer določanja primarnega ključa PlantUML." width="300" />
+<p class="caption">
+Slika 15.18: Primer določanja primarnega ključa <a href="https://teaching.lavbic.net/plantuml/uml/RL5BQW914DttAGgo20YJ3m71GGP2o298q4MMsPGpDLfEJxVKj1gD7i4xnBlelTAs_yHU5DtllNhrwQfWCqJ14bADLGNV2g2BQT4JEpBPYzLMu2RFgKxrBMCb8zcZZSQ3FnxDhN5_CHInaqjmeQfZCMCTNQqrwREZOwKqO3t1wKMP09pRdLns6KxGL9uYuzJjIPPHZYFjFkZBFMlkcTBpaFf0elgS4QGigQRp5Cs6t7H8OCNrhL9Up6uAxOgw60PuVT_yj6EedB3fmUCJD9kTLf9u9efyU2lfGFfNHvXBAex8uk3NiPkLsnc6gq7maSQi2uo1VPkNjYt1mPcB2llKb3km-QwvE0wTUMsjrWnRYVSVaVWkIXJ3KEZ1QBritWSwgTN0g-tixdz6w9ASuPFsch5VeHVcNA2pSYObauKVLsgtjyKyYkRp_T3RCL0R-sbWADJbCMhUhDPBEeXj5DcJU8Rh9LPNvBy0"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+<p>Pri <strong>močnem entitetnem tipu</strong> primarni ključ sestavljajo le atributi entitetnega tipa (glej entitetni tip OSEBA na sliki <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-5#fig:slika-Konceptualno-nacrtovanje-K-1-5">15.18</a>).</p>
+<p>Pri <strong>šibkem entitetnem tipu</strong> primarni ključ ni sestavljen le iz lastnih atributov, ampak tudi iz primarnih ključev drugih entitetnih tipov v razmerju (glej entitetni tip POSEL na sliki <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-5-sibki-mocni#fig:slika-Konceptualno-nacrtovanje-K-1-5-sibki-mocni">15.19</a>).</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-5-sibki-mocni"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/VL9BRjH04DttAKfX0LWQ0G95YZMnX0AH448p2vPiQjnbJ-DsbzLTap1ASWJk4Ex2t2kLdcz2WXTj-xrNhtwTEXS6ZDX3xJ4bk380CwoxDl8Ys3Fs7E55qz0n7Typ72t53NfoybOVHHiEyXZ36Fdo8NXZqYvPOA4dSrtEdT0kKvsnDkBoGPeC7DhjNTOH4Z4afIY8URcNMMfmuUKx_PAFthMXLnvgFIYQkRC4jOkrfyCGxmB9SY3WA7CsHiLEbZ19DCFSmETlgzj92KcY2osyUm_ZyVHhLIap6kdnfQSjgN_Jw5nFtGwvsVfDEP7FVgjRrqJK-OdhF9OG5lsC8dpO-suKGsIBFz7NJue-eIpw4YmAYQRS4y_Kgw_pWxBFAAXjpu7k1stokZmr0joiQotBRAJIeXZdePURFLSJU-5Iu2JZDvceYW9KzqYr-kDc7RK8UG8aGR-t0V-gnGq8RBMYlx__htobzUHMu1JEEPAk6JfQ5iNhNGm5co-WCUirNb-FHdorwGkE4bloV84UuKSOeZk2wWu0" alt="Primer šibkega in močnega entitetnega tipa PlantUML." width="350" />
+<p class="caption">
+Slika 15.19: Primer šibkega in močnega entitetnega tipa <a href="https://teaching.lavbic.net/plantuml/uml/VL9BRjH04DttAKfX0LWQ0G95YZMnX0AH448p2vPiQjnbJ-DsbzLTap1ASWJk4Ex2t2kLdcz2WXTj-xrNhtwTEXS6ZDX3xJ4bk380CwoxDl8Ys3Fs7E55qz0n7Typ72t53NfoybOVHHiEyXZ36Fdo8NXZqYvPOA4dSrtEdT0kKvsnDkBoGPeC7DhjNTOH4Z4afIY8URcNMMfmuUKx_PAFthMXLnvgFIYQkRC4jOkrfyCGxmB9SY3WA7CsHiLEbZ19DCFSmETlgzj92KcY2osyUm_ZyVHhLIap6kdnfQSjgN_Jw5nFtGwvsVfDEP7FVgjRrqJK-OdhF9OG5lsC8dpO-suKGsIBFz7NJue-eIpw4YmAYQRS4y_Kgw_pWxBFAAXjpu7k1stokZmr0joiQotBRAJIeXZdePURFLSJU-5Iu2JZDvceYW9KzqYr-kDc7RK8UG8aGR-t0V-gnGq8RBMYlx__htobzUHMu1JEEPAk6JfQ5iNhNGm5co-WCUirNb-FHdorwGkE4bloV84UuKSOeZk2wWu0"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="po-potrebi-uporabi-elemente-razširjenega-diagrama-entiteta-razmerjeeer-k1.6" class="section level4 hasAnchor" number="15.2.5.6">
+<h4><span class="header-section-number">15.2.5.6</span> Po potrebi uporabi elemente razširjenega diagrama entiteta-razmerje<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> (K1.6)<a href="P8.html#po-potrebi-uporabi-elemente-razširjenega-diagrama-entiteta-razmerjeeer-k1.6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Na voljo imamo več elementov:</p>
+<ul>
+<li><strong>specializacija</strong> (razbijanje na več entitetnih tipov, glej primer na sliki <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-6#fig:slika-Konceptualno-nacrtovanje-K-1-6">15.20</a>),</li>
+<li><strong>generalizacija</strong> (nov entitetni tip s skupnimi lastnostmi),</li>
+<li><strong>agregacija</strong> (pripadnost dela celoti),</li>
+<li><strong>kompozicija</strong> (močna pripadnost dela celoti).</li>
+</ul>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-6"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/fL5TIq9147tVNp7OGx1mhGW4HOJe0o92eUWXV1dl7NLotRtihfgcFw7_KFyb_rVhLLUDUke-x6NFcJbdvgmRiCxHuX1IXSx1cm3eO3heMJFIsQLHni9HjqiLggmOOpEo6xHQFGrVGBj6-vyOMcicX-12k6YcZQTVlIPzzXITqWBhMPmUs1J0ljnEPTtXBMeNAD9U7E_ACkhYIFb7UlKNYdjw67X8mq5Mz3aZIDccYlPR56loqvp0MDytGeHYzbDeEkfWiS3r_VAZMGFdBUiUd9r3lTwwQpG2aoJXk1tIbWotbcKUqY0YYwtUyiEFijKqAycdd9r6M7vw6hCQO0quC57t3yVmkud6KVWPS-CKQIwKht3yzVvlQL6yNgbUP5tRF6z3oeUSKaR5Cqpv1S64Z4ZA-abHrsZhCMHZX7o5XnayvrXhQod3CCNkKePXGChPTcGfIu0EcY4E8TQ9p-T9OkOnhaCqxYf4pBDSNlVlSjWWtm00" alt="Primer uporabe specializacije PlantUML." width="350" />
+<p class="caption">
+Slika 15.20: Primer uporabe specializacije <a href="https://teaching.lavbic.net/plantuml/uml/fL5TIq9147tVNp7OGx1mhGW4HOJe0o92eUWXV1dl7NLotRtihfgcFw7_KFyb_rVhLLUDUke-x6NFcJbdvgmRiCxHuX1IXSx1cm3eO3heMJFIsQLHni9HjqiLggmOOpEo6xHQFGrVGBj6-vyOMcicX-12k6YcZQTVlIPzzXITqWBhMPmUs1J0ljnEPTtXBMeNAD9U7E_ACkhYIFb7UlKNYdjw67X8mq5Mz3aZIDccYlPR56loqvp0MDytGeHYzbDeEkfWiS3r_VAZMGFdBUiUd9r3lTwwQpG2aoJXk1tIbWotbcKUqY0YYwtUyiEFijKqAycdd9r6M7vw6hCQO0quC57t3yVmkud6KVWPS-CKQIwKht3yzVvlQL6yNgbUP5tRF6z3oeUSKaR5Cqpv1S64Z4ZA-abHrsZhCMHZX7o5XnayvrXhQod3CCNkKePXGChPTcGfIu0EcY4E8TQ9p-T9OkOnhaCqxYf4pBDSNlVlSjWWtm00"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+<p>Specializacija in generalizacija sta lahko <strong>polni</strong> in <strong>ekskluzivni</strong> (npr. entitetna tipa moški in ženska) oz. <strong>delni</strong> in <strong>prekrivni</strong> (npr. entitetna tipa študent in športnik).</p>
+<p>Elementi razširjenega diagrama entiteta-razmerje povečajo semantiko modela in tudi kompleksnost modela.</p>
+</div>
+<div id="preveri-če-v-modelu-obstajajo-odvečni-elementi-k1.7" class="section level4 hasAnchor" number="15.2.5.7">
+<h4><span class="header-section-number">15.2.5.7</span> Preveri, če v modelu obstajajo odvečni elementi (K1.7)<a href="P8.html#preveri-če-v-modelu-obstajajo-odvečni-elementi-k1.7" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Pogoste napake:</p>
+<ul>
+<li><strong>povezave 1:1</strong> (npr. entitetna tipa oseba in stranka, kjer imamo dva entitetna tipa, opisana z istimi atributi; gre za sinonim, zato jih je potrebno združiti),</li>
+<li><strong>odvečne povezave</strong> (odstraniti je potrebno predvsem tranzitivne povezave, glej primer na sliki <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-7#fig:slika-Konceptualno-nacrtovanje-K-1-7">15.21</a>).</li>
+</ul>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-7"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/ROtDQiCm3CVlVWgn7NegR2aKkjiOVOEzWEl8YQbZ1Lcb2qtVVSe7JJhcWon--d_aSqYjPTk0YpPdk1c0atNdYkcIoY-AnF3gFUvnFro8I-IP7Wvl-fHwIlANMMQwFiExoO-oH8B_Tbth8FXeSYEhs7PFDIDOnoqfaqFOfgmdJ68sYwn4RozHll57FcEeKgDtS3gGJHrA11VOHPps1fiJSbxxOqWeNOj0B3MPJKGl80GSgbgW38nE0YLZD3981ozmVDTXi_uhLioiMB7Tp7R6gEVURxTzhueFnQrc63Nr0xofP8J501Vb13Nb5m00" alt="Primer odvečne tranzitivne povezave PlantUML." width="110" />
+<p class="caption">
+Slika 15.21: Primer odvečne tranzitivne povezave <a href="https://teaching.lavbic.net/plantuml/uml/ROtDQiCm3CVlVWgn7NegR2aKkjiOVOEzWEl8YQbZ1Lcb2qtVVSe7JJhcWon--d_aSqYjPTk0YpPdk1c0atNdYkcIoY-AnF3gFUvnFro8I-IP7Wvl-fHwIlANMMQwFiExoO-oH8B_Tbth8FXeSYEhs7PFDIDOnoqfaqFOfgmdJ68sYwn4RozHll57FcEeKgDtS3gGJHrA11VOHPps1fiJSbxxOqWeNOj0B3MPJKGl80GSgbgW38nE0YLZD3981ozmVDTXi_uhLioiMB7Tp7R6gEVURxTzhueFnQrc63Nr0xofP8J501Vb13Nb5m00"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="preveri-če-model-zdrži-transakcije-k1.8" class="section level4 hasAnchor" number="15.2.5.8">
+<h4><span class="header-section-number">15.2.5.8</span> Preveri, če model “zdrži” transakcije (K1.8)<a href="P8.html#preveri-če-model-zdrži-transakcije-k1.8" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Preveriti je potrebno vse operacije:</p>
+<ul>
+<li>vnos podatkov,</li>
+<li>urejanje in brisanje podatkov,</li>
+<li>poizvedbe (glej primer na sliki <a href="P8.html#fig:slika-Konceptualno-nacrtovanje-K-1-8#fig:slika-Konceptualno-nacrtovanje-K-1-8">15.22</a>).</li>
+</ul>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Konceptualno-nacrtovanje-K-1-8"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/bPB1RjD048RlVegHEFHa2GIgrAYgX5gGK8MQ0-A0k4piiJFrUiVQ7QU4Ee-GTqZV9NalraviDn2ey65j_pFx_REpumks5Jei8J7eFJn603DCYjn9RTDhCUBWLPRHEPst4N4fkODwSV4wF47DnEhl6Zed3yVYAlA3cHMbaruFSrOQd99EonqkZsmwuJbkfEntg4FhGuYiHcTZMaePraQ_q0zzRpYtPOX34XPoqPnJWeHTOkZv5iEMT5aHYDEvH6U6CWKLS9pF5L9sb2YBZQ90OLt2dQSPTYVxy7ctkPk0LySsXpTluV9oUdjr5I9n79PF9VN1y3Trp2KLWxBgURkDrcbRPelyMh6t2BidfGMR0YV08J9m_-8ONXy7um7y3IlnXYntv1jSRDSlesrTpiYzX9vAmEoRq7t-WzkrujRX_Pydduedqq5s6yuSXf5IBWmELRmRCOUCoacAzsYIaqatg7KvWHILD3Jx__e6S4qsO4knrCvUjB_efecxIOZbSLzm7rWrSLt5JNDeHaj7O-Mx3KNIZ1TeUFUqNLEVBd4iO_9FtAxHdqeVVTlyVZgErU5gVm40" alt="Primer, kjer je potrebno preveriti, ali model zna odgovoriti na poizvedbi (1) izpišite vse osebe po poštah in (2) izpišite vse ženske iz Ljubljane PlantUML." width="440" />
+<p class="caption">
+Slika 15.22: Primer, kjer je potrebno preveriti, ali model zna odgovoriti na poizvedbi (1) izpišite vse osebe po poštah in (2) izpišite vse ženske iz Ljubljane <a href="https://teaching.lavbic.net/plantuml/uml/bPB1RjD048RlVegHEFHa2GIgrAYgX5gGK8MQ0-A0k4piiJFrUiVQ7QU4Ee-GTqZV9NalraviDn2ey65j_pFx_REpumks5Jei8J7eFJn603DCYjn9RTDhCUBWLPRHEPst4N4fkODwSV4wF47DnEhl6Zed3yVYAlA3cHMbaruFSrOQd99EonqkZsmwuJbkfEntg4FhGuYiHcTZMaePraQ_q0zzRpYtPOX34XPoqPnJWeHTOkZv5iEMT5aHYDEvH6U6CWKLS9pF5L9sb2YBZQ90OLt2dQSPTYVxy7ctkPk0LySsXpTluV9oUdjr5I9n79PF9VN1y3Trp2KLWxBgURkDrcbRPelyMh6t2BidfGMR0YV08J9m_-8ONXy7um7y3IlnXYntv1jSRDSlesrTpiYzX9vAmEoRq7t-WzkrujRX_Pydduedqq5s6yuSXf5IBWmELRmRCOUCoacAzsYIaqatg7KvWHILD3Jx__e6S4qsO4knrCvUjB_efecxIOZbSLzm7rWrSLt5JNDeHaj7O-Mx3KNIZ1TeUFUqNLEVBd4iO_9FtAxHdqeVVTlyVZgErU5gVm40"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+</div>
+<div id="preveri-model-z-uporabnikom-k1.9" class="section level4 hasAnchor" number="15.2.5.9">
+<h4><span class="header-section-number">15.2.5.9</span> Preveri model z uporabnikom (K1.9)<a href="P8.html#preveri-model-z-uporabnikom-k1.9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Skupaj preverimo obstoj anomalij, pomanjkljivosti in napak.</p>
+</div>
+</div>
+<div id="prehod-iz-konceptualnega-v-logično-načrtovanje" class="section level3 hasAnchor" number="15.2.6">
+<h3><span class="header-section-number">15.2.6</span> Prehod iz konceptualnega v logično načrtovanje<a href="P8.html#prehod-iz-konceptualnega-v-logično-načrtovanje" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Analiza
+</th>
+<th style="text-align:center;">
+ 
+</th>
+<th style="text-align:center;">
+Načrtovanje
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<strong>konceptualni model</strong>
+</td>
+<td style="text-align:center;">
+→
+</td>
+<td style="text-align:center;">
+relacijski model
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<strong>entitetni tip</strong>
+</td>
+<td style="text-align:center;">
+→
+</td>
+<td style="text-align:center;">
+tabela
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<strong>atribut</strong>
+</td>
+<td style="text-align:center;">
+→
+</td>
+<td style="text-align:center;">
+stolpec
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<strong>enolični identifikator</strong>
+</td>
+<td style="text-align:center;">
+→
+</td>
+<td style="text-align:center;">
+ključ
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<strong>povezava 1:n</strong>
+</td>
+<td style="text-align:center;">
+→
+</td>
+<td style="text-align:center;">
+tuj ključ
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<strong>povezava m:n</strong>
+</td>
+<td style="text-align:center;">
+→
+</td>
+<td style="text-align:center;">
+vmesna tabela
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="logično-načrtovanje" class="section level3 hasAnchor" number="15.2.7">
+<h3><span class="header-section-number">15.2.7</span> Logično načrtovanje<a href="P8.html#logično-načrtovanje" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Oblikovanje logičnega podatkovnega modela informacijskega sistema poteka:</p>
+<ul>
+<li><strong>v celoti</strong> ali</li>
+<li><strong>po delih</strong>, kjer posamezne dele na koncu združimo v celoto in jih konsolidiramo v skladu s konceptualnim modelom (glej poglavje <a href="P8.html#Postopek-konceptualno-nacrtovanje">15.2.5</a>) in pravili normalizacije (glej poglavje <a href="P8.html#Postopek-normalizacija">15.3</a>).</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Globalni-in-podrobni-podatkovni-model"></span>
+<img src="assets/img/Globalni_in_podrobni_podatkovni_model.png" alt="Globalni in podrobni podatkovni model pri načrtovanju po delih" width="500" />
+<p class="caption">
+Slika 15.23: Globalni in podrobni podatkovni model pri načrtovanju po delih
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Podrobni-podatkovni-model"></span>
+<img src="assets/img/Podrobni_podatkovni_model.png" alt="Uskladitve podrobnega podatkovnega modela pri načrtovanju po delih" width="500" />
+<p class="caption">
+Slika 15.24: Uskladitve podrobnega podatkovnega modela pri načrtovanju po delih
+</p>
+</div>
+<p>Pravila za <strong>združevanje entitetnih diagramov</strong>:</p>
+<ul>
+<li><strong>hkrati</strong> je pregledno možno predstaviti <strong>do 20 entitet</strong>, zato naj bi bila tudi prvotna delitev delovnih področij prilagojena temu kriteriju,</li>
+<li>v CASE orodju že sam podatkovni slovar (repozitorij) skrbi za usklajenost posameznih delovnih področij,</li>
+<li>združen entitetni diagram mora biti:
+<ul>
+<li><strong>celovit</strong>,</li>
+<li><strong>usklajen</strong> in</li>
+<li><strong>neredundanten</strong>.</li>
+</ul></li>
+</ul>
+<div id="primer-medsebojno-ocenjevanje" class="section level4 hasAnchor" number="15.2.7.1">
+<h4><span class="header-section-number">15.2.7.1</span> Primer: Medsebojno ocenjevanje<a href="P8.html#primer-medsebojno-ocenjevanje" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Na sliki <a href="P8.html#fig:slika-GUI-medsebojno-ocenjevanje#fig:slika-GUI-medsebojno-ocenjevanje">15.25</a> je <strong>uporabniški vmesnik</strong>, na podlagi katerega izdelamo <strong>predlog modela podatkovne baze</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-GUI-medsebojno-ocenjevanje"></span>
+<img src="assets/img/GUI_medsebojno_ocenjevanje.png" alt="Primer uporabniškega vmesnika medsebojnega ocenjevanja" width="800" />
+<p class="caption">
+Slika 15.25: Primer uporabniškega vmesnika medsebojnega ocenjevanja
+</p>
+</div>
+</div>
+<div id="primer-cenik" class="section level4 hasAnchor" number="15.2.7.2">
+<h4><span class="header-section-number">15.2.7.2</span> Primer: Cenik<a href="P8.html#primer-cenik" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Na sliki <a href="P8.html#fig:slika-GUI-cenik#fig:slika-GUI-cenik">15.26</a> je <strong>fleksibilen cenik z akcijami in dodatnimi popusti</strong>, na podlagi katerega izdelajmo <strong>predlog modela podatkovne baze</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-GUI-cenik"></span>
+<img src="assets/img/GUI_cenik_iStyle.png" alt="Primer cenika in akcij" width="800" />
+<p class="caption">
+Slika 15.26: Primer cenika in akcij
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="Postopek-normalizacija" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> Normalizacija<a href="P8.html#Postopek-normalizacija" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Namen uporabe <strong>normalizacije</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Database_normalization"><i class="fa-brands fa-wikipedia-w"></i>Database normalization</a>)</em>:</p>
+<ul>
+<li><strong>Uporaba formalne množice pravil</strong> za določitev ključnih atributov, ki <strong>enolično določajo vse atribute</strong> in jih prirediti entiteti, ki je s tem v celoti določena s celotnim primarnim ključem.
+<ul>
+<li>Vsak atribut pripada entiteti, kjer je v celoti odvisen od ključa, od celotnega ključa in samo od ključa.</li>
+</ul></li>
+<li><strong>Odpravljanje anomalij</strong> nenormaliziranih podatkovnih struktur:
+<ul>
+<li>anomalija <strong>dodajanja</strong> <em>(angl. insert)</em> (glej primer na sliki <a href="P8.html#fig:slika-Normalizacija-anomalija-dodajanje#fig:slika-Normalizacija-anomalija-dodajanje">15.28</a>),</li>
+<li>anomalija <strong>brisanja</strong> <em>(angl. angl. delete)</em> (glej primer na sliki <a href="P8.html#fig:slika-Normalizacija-anomalija-brisanje#fig:slika-Normalizacija-anomalija-brisanje">15.29</a>) in</li>
+<li>anomalija <strong>ažuriranja</strong> <em>(angl. update)</em> (glej primer na sliki <a href="P8.html#fig:slika-Normalizacija-anomalija-spreminjanje#fig:slika-Normalizacija-anomalija-spreminjanje">15.30</a>).</li>
+</ul></li>
+</ul>
+<p>Cilj načrtovanja podatkovne baze je grupiranje atributov v relacije na takšen način, da je <strong>čim manj redundance</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Data_redundancy"><i class="fa-brands fa-wikipedia-w"></i>redundancy</a>)</em> <strong>med podatki</strong> (glej sliko <a href="P8.html#fig:slika-Normalizacija-ponavljajoci-atributi#fig:slika-Normalizacija-ponavljajoci-atributi">15.27</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-ponavljajoci-atributi"></span>
+<img src="assets/img/Normalizacija_ponavljajoci_atributi.png" alt="Primer ponavljajočih atributov" width="400" />
+<p class="caption">
+Slika 15.27: Primer ponavljajočih atributov
+</p>
+</div>
+<p>Odvečni podatki v relacijah lahko povzročajo ažurne anomalije pri <strong>dodajanju</strong>, kar prikazuje primer na sliki <a href="P8.html#fig:slika-Normalizacija-anomalija-dodajanje#fig:slika-Normalizacija-anomalija-dodajanje">15.28</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-anomalija-dodajanje"></span>
+<img src="assets/img/Normalizacija_anomalija_dodajanje.png" alt="Primer anomalije dodajanja" width="400" />
+<p class="caption">
+Slika 15.28: Primer anomalije dodajanja
+</p>
+</div>
+<p>Odvečni podatki v relacijah lahko povzročajo ažurne anomalije pri <strong>brisanju</strong>, kar prikazuje primer na sliki <a href="P8.html#fig:slika-Normalizacija-anomalija-brisanje#fig:slika-Normalizacija-anomalija-brisanje">15.29</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-anomalija-brisanje"></span>
+<img src="assets/img/Normalizacija_anomalija_brisanje.png" alt="Primer anomalije brisanja" width="400" />
+<p class="caption">
+Slika 15.29: Primer anomalije brisanja
+</p>
+</div>
+<p>Odvečni podatki v relacijah lahko povzročijo ažurne anomalije pri <strong>spreminjanju</strong>, kar prikazuje primer na sliki <a href="P8.html#fig:slika-Normalizacija-anomalija-spreminjanje#fig:slika-Normalizacija-anomalija-spreminjanje">15.30</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-anomalija-spreminjanje"></span>
+<img src="assets/img/Normalizacija_anomalija_spreminjanje.png" alt="Primer anomalije ažuriranja" width="400" />
+<p class="caption">
+Slika 15.30: Primer anomalije ažuriranja
+</p>
+</div>
+<p><strong>Normalizacija</strong> je postopek preoblikovanja relacij v obliko, pri kateri do ažurnih anomalij ne more priti.</p>
+<p>Poznamo več stopenj normalnih oblik (NO), mi bomo spoznali:</p>
+<ul>
+<li><strong>1. NO</strong>, <strong>2. NO</strong> in <strong>3. NO</strong>,</li>
+<li><strong>4. PNO</strong> (četrta poslovna normalna oblika) in</li>
+<li><strong>5. PNO</strong> (peta poslovna normalna oblika).</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Postopek-normalizacije-do-3-NO"></span>
+<img src="assets/img/Postopek_normalizacije_do_3_NO.png" alt="Poenostavljen postopek normalizacije do 3. NO" width="250" />
+<p class="caption">
+Slika 15.31: Poenostavljen postopek normalizacije do 3. NO
+</p>
+</div>
+<div id="normalna-oblika-1.-no" class="section level3 hasAnchor" number="15.3.1">
+<h3><span class="header-section-number">15.3.1</span> 1. normalna oblika (1. NO)<a href="P8.html#normalna-oblika-1.-no" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="potrebni-pogoji" class="section level4 hasAnchor" number="15.3.1.1">
+<h4><span class="header-section-number">15.3.1.1</span> Potrebni pogoji<a href="P8.html#potrebni-pogoji" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><strong>ni ponavljajočih skupin atributov</strong> (atributi so <a href="https://sl.wikipedia.org/wiki/Prva_normalna_oblika#Atomarnost#Atomarnost"><i class="fa-brands fa-wikipedia-w"></i>atomarni</a> in ne večvrednostni),
+<ul>
+<li>identificiraj in premakni ponavljajoče skupine atributov v novo relacijo,</li>
+<li>ključ tako nastalega entitetnega tipa je sestavljen iz ključa matične relacije in ključa same skupine,</li>
+<li>ime nove relacije pogosto obdrži del imena matične relacije, ki se lahko tekom normalizacije še spreminja.</li>
+</ul></li>
+<li>opredeljene <strong>funkcionalne odvisnosti</strong> in <strong>primarni ključ</strong>.</li>
+</ul>
+<p>Na sliki <a href="P8.html#fig:slika-Normalizacija-primer-pred-1-NO#fig:slika-Normalizacija-primer-pred-1-NO">15.32</a> si poglejmo primer relacije</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, St_dovoljenja, Posta, Kraj, (Datum_in_ura, Znesek, St_tock))</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-pred-1-NO"></span>
+<img src="assets/img/Normalizacija_primer_pred_1_NO.png" alt="Primer relacije pred 1. NO" width="500" />
+<p class="caption">
+Slika 15.32: Primer relacije pred 1. NO
+</p>
+</div>
+</div>
+<div id="koraki-normalizacije-v-1.-no" class="section level4 hasAnchor" number="15.3.1.2">
+<h4><span class="header-section-number">15.3.1.2</span> Koraki normalizacije v 1. NO<a href="P8.html#koraki-normalizacije-v-1.-no" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li><strong>Odpravimo ponavljajoče skupine atributov</strong></li>
+</ol>
+<ul class="odmik">
+<li>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, St_dovoljenja, Posta, Kraj, Datum_in_ura, Znesek, St_tock)</p>
+</blockquote>
+</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-1-NO"></span>
+<img src="assets/img/Normalizacija_primer_1_NO.png" alt="Primer relacije v 1. NO" width="500" />
+<p class="caption">
+Slika 15.33: Primer relacije v 1. NO
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Določimo funkcionalne odvisnosti</strong></li>
+</ol>
+<ul class="odmik">
+<li>
+<blockquote>
+<p>St_dovoljenja → (Ime, Priimek, Posta, Kraj) <br/>
+(St_dovoljenja, Datum_in_ura) → (Znesek, St_tock) <br/>
+Posta → Kraj</p>
+</blockquote>
+</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-1-NO-funkcionalne-odvisnosti"></span>
+<img src="assets/img/Normalizacija_primer_1_NO_funkcionalne_odvisnosti.png" alt="Primer funkcionalnih odvisnosti relacije v 1. NO" width="500" />
+<p class="caption">
+Slika 15.34: Primer funkcionalnih odvisnosti relacije v 1. NO
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Določimo ključ</strong></li>
+</ol>
+<ul class="odmik">
+<li>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, <u>St_dovoljenja</u>, Posta, Kraj, <u>Datum_in_ura</u>, Znesek, St_tock)</p>
+</blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div id="normalna-oblika-2.-no" class="section level3 hasAnchor" number="15.3.2">
+<h3><span class="header-section-number">15.3.2</span> 2. normalna oblika (2. NO)<a href="P8.html#normalna-oblika-2.-no" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="potrebni-pogoji-1" class="section level4 hasAnchor" number="15.3.2.1">
+<h4><span class="header-section-number">15.3.2.1</span> Potrebni pogoji<a href="P8.html#potrebni-pogoji-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>relacija je v <strong>1. NO</strong>,</li>
+<li><strong>ni parcialnih odvisnosti</strong> (odvisnosti od dela primarnega ključa),
+<ul>
+<li>identificiraj in prestavi v novo relacijo tiste atribute, ki so le delno odvisni od ključa.</li>
+</ul></li>
+</ul>
+</div>
+<div id="zadostni-pogoj" class="section level4 hasAnchor" number="15.3.2.2">
+<h4><span class="header-section-number">15.3.2.2</span> Zadostni pogoj<a href="P8.html#zadostni-pogoj" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>če ima relacija <span class="math inline">\(n\)</span> atributov in je primarni ključ sestavljen iz <span class="math inline">\(1\)</span>, <span class="math inline">\(n-1\)</span> ali <span class="math inline">\(n\)</span> atributov.</li>
+</ul>
+</div>
+<div id="koraki-normalizacije-v-2.-no" class="section level4 hasAnchor" number="15.3.2.3">
+<h4><span class="header-section-number">15.3.2.3</span> Koraki normalizacije v 2. NO<a href="P8.html#koraki-normalizacije-v-2.-no" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Relacija v 1. NO:</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, <u>St_dovoljenja</u>, Posta, Kraj, <u>Datum_in_ura</u>, Znesek, St_tock)</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><strong>Atribute, delno odvisne od ključa, prenesemo v novo relacijo in dodamo odvisne dele ključa</strong>.</li>
+</ol>
+<ul class="odmik">
+<li>
+<p>Upoštevamo funkcionalno odvisnost</p>
+<blockquote>
+<p>(St_dovoljenja, Datum_in_ura) → (Znesek, St_tock)</p>
+</blockquote>
+<p>in dobimo novo relacijo</p>
+<blockquote>
+<p><strong>Prekrsek</strong> (<u>#St_dovoljenja</u>, <u>Datum_in_ura</u>, Znesek, St_tock)</p>
+</blockquote>
+<p>preostanek atributov ob upoštevanju funkcionalne odvisnosti</p>
+<blockquote>
+<p>St_dovoljenja → (Ime, Priimek, Posta, Kraj)</p>
+</blockquote>
+<p>ostane v matični relaciji.</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, Posta, Kraj, <u>St_dovoljenja</u>)</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div id="povzetek-preslikovanja-iz-1.-no-v-2.-no" class="section level4 hasAnchor" number="15.3.2.4">
+<h4><span class="header-section-number">15.3.2.4</span> Povzetek preslikovanja iz 1. NO v 2. NO<a href="P8.html#povzetek-preslikovanja-iz-1.-no-v-2.-no" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Relacijo</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, <u>St_dovoljenja</u>, Posta, Kraj, <u>Datum_in_ura</u>, Znesek, St_tock)</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-1-NO-prej"></span>
+<img src="assets/img/Normalizacija_primer_1_NO.png" alt="Relacija **Voznik** v 1. NO" width="500" />
+<p class="caption">
+Slika 15.35: Relacija <strong>Voznik</strong> v 1. NO
+</p>
+</div>
+<p>smo iz 1. NO (glej sliko <a href="P8.html#fig:slika-Normalizacija-primer-1-NO-prej#fig:slika-Normalizacija-primer-1-NO-prej">15.35</a>) preslikali v 2. NO v relaciji (glej sliki <a href="P8.html#fig:slika-Normalizacija-primer-2-NO-Voznik#fig:slika-Normalizacija-primer-2-NO-Voznik">15.36</a> in <a href="P8.html#fig:slika-Normalizacija-primer-2-NO-Prekrsek#fig:slika-Normalizacija-primer-2-NO-Prekrsek">15.37</a>).</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, Posta, Kraj, <u>St_dovoljenja</u>) <br/>
+<strong>Prekrsek</strong> (<u>#St_dovoljenja</u>, <u>Datum_in_ura</u>, Znesek, St_tock)</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-2-NO-Voznik"></span>
+<img src="assets/img/Normalizacija_primer_2_NO_Voznik.png" alt="Relacija **Voznik** v 2. NO" width="300" />
+<p class="caption">
+Slika 15.36: Relacija <strong>Voznik</strong> v 2. NO
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-2-NO-Prekrsek"></span>
+<img src="assets/img/Normalizacija_primer_2_NO_Prekrsek.png" alt="Relacija **Prekrsek** v 2. NO" width="300" />
+<p class="caption">
+Slika 15.37: Relacija <strong>Prekrsek</strong> v 2. NO
+</p>
+</div>
+</div>
+</div>
+<div id="normalna-oblika-3.-no" class="section level3 hasAnchor" number="15.3.3">
+<h3><span class="header-section-number">15.3.3</span> 3. normalna oblika (3. NO)<a href="P8.html#normalna-oblika-3.-no" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="potrebni-pogoji-2" class="section level4 hasAnchor" number="15.3.3.1">
+<h4><span class="header-section-number">15.3.3.1</span> Potrebni pogoji<a href="P8.html#potrebni-pogoji-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>relacija je v <strong>2. NO</strong>,</li>
+<li><strong>ni tranzitivnih funkcionalnih odvisnosti</strong> (med atributi, ki niso del primarnega ključa, ni odvisnosti)
+<ul>
+<li>določi in prestavi v novo relacijo tiste atribute, ki so odvisni od drugega ključa, ki ni primarni.</li>
+</ul></li>
+</ul>
+</div>
+<div id="zadostni-pogoj-1" class="section level4 hasAnchor" number="15.3.3.2">
+<h4><span class="header-section-number">15.3.3.2</span> Zadostni pogoj<a href="P8.html#zadostni-pogoj-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>če ima relacija <span class="math inline">\(n\)</span> atributov in je primarni ključ sestavljen iz <span class="math inline">\(n-1\)</span> ali <span class="math inline">\(n\)</span> atributov.</li>
+</ul>
+</div>
+<div id="koraki-normalizacije-v-3.-no" class="section level4 hasAnchor" number="15.3.3.3">
+<h4><span class="header-section-number">15.3.3.3</span> Koraki normalizacije v 3. NO<a href="P8.html#koraki-normalizacije-v-3.-no" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Relaciji v 2. NO:</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, Posta, Kraj, <u>St_dovoljenja</u>) <br/>
+<strong>Prekrsek</strong> (<u>#St_dovoljenja</u>, <u>Datum_in_ura</u>, Znesek, St_tock)</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><strong>Odstranimo tranzitivne odvisnosti med atributi, ki niso del primarnega ključa</strong>.</li>
+</ol>
+<ul class="odmik">
+<li>
+<p>Upoštevamo funkcionalno odvisnost (glej sliko <a href="P8.html#fig:slika-Normalizacija-primer-2-NO-Funkcionalna-odvisnost#fig:slika-Normalizacija-primer-2-NO-Funkcionalna-odvisnost">15.38</a>)</p>
+<blockquote>
+<p>Posta → Kraj</p>
+</blockquote>
+</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-2-NO-Funkcionalna-odvisnost"></span>
+<img src="assets/img/Normalizacija_primer_2_NO_funkcionalna_odvisnost.png" alt="Funkcionalna odvisnost v 2. NO" width="300" />
+<p class="caption">
+Slika 15.38: Funkcionalna odvisnost v 2. NO
+</p>
+</div>
+<ul class="odmik">
+<li>
+<p>in vpeljemo novo relacijo <strong>Lokacija</strong> ter popravimo obstoječo <strong>Voznik</strong>.</p>
+<blockquote>
+<p><strong>Lokacija</strong> (<u>Posta</u>, Kraj)<br/>
+<strong>Voznik</strong> (Ime, Priimek, #Posta, <u>St_dovoljenja</u>)</p>
+</blockquote>
+</li>
+</ul>
+</div>
+<div id="povzetek-preslikovanja-iz-2.-no-v-3.-no" class="section level4 hasAnchor" number="15.3.3.4">
+<h4><span class="header-section-number">15.3.3.4</span> Povzetek preslikovanja iz 2. NO v 3. NO<a href="P8.html#povzetek-preslikovanja-iz-2.-no-v-3.-no" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Relaciji</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, Posta, Kraj, <u>St_dovoljenja</u>) <br/>
+<strong>Prekrsek</strong> (<u>#St_dovoljenja</u>, <u>Datum_in_ura</u>, Znesek, St_tock)</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-2-NO-Voznik-prej"></span>
+<img src="assets/img/Normalizacija_primer_2_NO_Voznik.png" alt="Relacija **Voznik** v 2. NO" width="300" />
+<p class="caption">
+Slika 15.39: Relacija <strong>Voznik</strong> v 2. NO
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-2-NO-Prekrsek-prej"></span>
+<img src="assets/img/Normalizacija_primer_2_NO_Prekrsek.png" alt="Relacija **Prekrsek** v 2. NO" width="300" />
+<p class="caption">
+Slika 15.40: Relacija <strong>Prekrsek</strong> v 2. NO
+</p>
+</div>
+<p>smo iz 2. NO (glej sliki <a href="P8.html#fig:slika-Normalizacija-primer-2-NO-Voznik-prej#fig:slika-Normalizacija-primer-2-NO-Voznik-prej">15.39</a> in <a href="P8.html#fig:slika-Normalizacija-primer-2-NO-Prekrsek-prej#fig:slika-Normalizacija-primer-2-NO-Prekrsek-prej">15.40</a>) preslikali v 3. NO v relacije (glej slike <a href="P8.html#fig:slika-Normalizacija-primer-3-NO-Lokacija#fig:slika-Normalizacija-primer-3-NO-Lokacija">15.41</a>, <a href="P8.html#fig:slika-Normalizacija-primer-3-NO-Voznik#fig:slika-Normalizacija-primer-3-NO-Voznik">15.42</a> in <a href="P8.html#fig:slika-Normalizacija-primer-3-NO-Prekrsek#fig:slika-Normalizacija-primer-3-NO-Prekrsek">15.43</a>).</p>
+<blockquote>
+<p><strong>Lokacija</strong> (<u>Posta</u>, Kraj)<br/>
+<strong>Voznik</strong> (Ime, Priimek, #Posta, <u>St_dovoljenja</u>)<br/>
+<strong>Prekrsek</strong> (<u>#St_dovoljenja</u>, <u>Datum_in_ura</u>, Znesek, St_tock)</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-3-NO-Lokacija"></span>
+<img src="assets/img/Normalizacija_primer_3_NO_Lokacija.png" alt="Relacija **Lokacija** v 3. NO" width="100" />
+<p class="caption">
+Slika 15.41: Relacija <strong>Lokacija</strong> v 3. NO
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-3-NO-Voznik"></span>
+<img src="assets/img/Normalizacija_primer_3_NO_Voznik.png" alt="Relacija **Voznik** v 3. NO" width="230" />
+<p class="caption">
+Slika 15.42: Relacija <strong>Voznik</strong> v 3. NO
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-3-NO-Prekrsek"></span>
+<img src="assets/img/Normalizacija_primer_2_NO_Prekrsek.png" alt="Relacija **Prekrsek** v 3. NO" width="300" />
+<p class="caption">
+Slika 15.43: Relacija <strong>Prekrsek</strong> v 3. NO
+</p>
+</div>
+</div>
+</div>
+<div id="poslovna-normalna-oblika-4.-pno" class="section level3 hasAnchor" number="15.3.4">
+<h3><span class="header-section-number">15.3.4</span> 4. poslovna normalna oblika (4. PNO)<a href="P8.html#poslovna-normalna-oblika-4.-pno" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="4" style="list-style-type: decimal">
+<li>PNO se pogosto uporablja za <strong>izvedbo specializacije</strong> (glej sliko <a href="P8.html#fig:slika-Normalizacija-4-PNO-Specializacija#fig:slika-Normalizacija-4-PNO-Specializacija">15.44</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-4-PNO-Specializacija"></span>
+<img src="assets/img/Normalizacija_4_PNO_Specializacija.png" alt="Primer specializacije v 4. PNO" width="500" />
+<p class="caption">
+Slika 15.44: Primer specializacije v 4. PNO
+</p>
+</div>
+<div id="potrebni-pogoji-3" class="section level4 hasAnchor" number="15.3.4.1">
+<h4><span class="header-section-number">15.3.4.1</span> Potrebni pogoji<a href="P8.html#potrebni-pogoji-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>relacija je v <strong>3. NO</strong>,</li>
+<li><strong>atributi</strong> so <strong>odvisni</strong> od primarnega ključa in <strong>ne od vrednosti ključa</strong>,
+<ul>
+<li>specializacija/generalizacija.</li>
+</ul></li>
+</ul>
+</div>
+<div id="koraki-normalizacije-v-4.-pno" class="section level4 hasAnchor" number="15.3.4.2">
+<h4><span class="header-section-number">15.3.4.2</span> Koraki normalizacije v 4. PNO<a href="P8.html#koraki-normalizacije-v-4.-pno" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Relaciji iz 3. NO</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, #Posta, <u>St_dovoljenja</u>)</p>
+</blockquote>
+<p>dodamo nova atributa <strong>Podjetje</strong> (za poklicne voznike) in <strong>Obstojece_tocke</strong> (za zasebne voznike), tako da je nova relacija naslednje oblike (glej sliko <a href="P8.html#fig:slika-Normalizacija-primer-4-NO-Voznik-prej#fig:slika-Normalizacija-primer-4-NO-Voznik-prej">15.45</a>).</p>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, #Posta, <u>St_dovoljenja</u>, Podjetje, Obstojece_tocke)</p>
+</blockquote>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-4-NO-Voznik-prej"></span>
+<img src="assets/img/Normalizacija_primer_4_NO_Voznik_prej.png" alt="Relacija **Voznik** pred začetkom postopka normalizacije v 4. PNO" width="400" />
+<p class="caption">
+Slika 15.45: Relacija <strong>Voznik</strong> pred začetkom postopka normalizacije v 4. PNO
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li><strong>Na podlagi odvisnosti od vrednosti ključa določimo nove relacije</strong> (glej slike <a href="P8.html#fig:slika-Normalizacija-primer-4-NO-Voznik#fig:slika-Normalizacija-primer-4-NO-Voznik">15.46</a>, <a href="P8.html#fig:slika-Normalizacija-primer-4-NO-Poklicni-voznik#fig:slika-Normalizacija-primer-4-NO-Poklicni-voznik">15.47</a> in <a href="P8.html#fig:slika-Normalizacija-primer-4-NO-Zasebni-voznik#fig:slika-Normalizacija-primer-4-NO-Zasebni-voznik">15.48</a>)</li>
+</ol>
+<ul class="odmik">
+<li>
+<blockquote>
+<p><strong>Voznik</strong> (Ime, Priimek, #Posta, <u>St_dovoljenja</u>)<br/>
+<strong>Poklicni_voznik</strong> (<u>#St_dovoljenja</u>, Podjetje)<br/>
+<strong>Zasebni_voznik</strong> (<u>#St_dovoljenja</u>, Obstojece_tocke)</p>
+</blockquote>
+</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-4-NO-Voznik"></span>
+<img src="assets/img/Normalizacija_primer_3_NO_Voznik.png" alt="Relacija **Voznik** v 4. PNO" width="230" />
+<p class="caption">
+Slika 15.46: Relacija <strong>Voznik</strong> v 4. PNO
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-4-NO-Poklicni-voznik"></span>
+<img src="assets/img/Normalizacija_primer_4_NO_Poklicni_voznik.png" alt="Relacija **Poklicni_voznik** v 4. PNO" width="150" />
+<p class="caption">
+Slika 15.47: Relacija <strong>Poklicni_voznik</strong> v 4. PNO
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-primer-4-NO-Zasebni-voznik"></span>
+<img src="assets/img/Normalizacija_primer_4_NO_Zasebni_voznik.png" alt="Relacija **Zasebni_voznik** v 4. PNO" width="180" />
+<p class="caption">
+Slika 15.48: Relacija <strong>Zasebni_voznik</strong> v 4. PNO
+</p>
+</div>
+</div>
+</div>
+<div id="poslovna-normalna-oblika-5.-pno" class="section level3 hasAnchor" number="15.3.5">
+<h3><span class="header-section-number">15.3.5</span> 5. poslovna normalna oblika (5. PNO)<a href="P8.html#poslovna-normalna-oblika-5.-pno" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Relacija je v <strong>5. PNO</strong>, če so <strong>odvisnosti</strong> nad elementi iste entitete ali entitetnega tipa <strong>premaknjene v strukturno relacijo</strong> (glej primer na slikah <a href="P8.html#fig:slika-Normalizacija-5-PNO-koncept#fig:slika-Normalizacija-5-PNO-koncept">15.49</a> in <a href="P8.html#fig:slika-Normalizacija-5-PNO-primer#fig:slika-Normalizacija-5-PNO-primer">15.50</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-5-PNO-koncept"></span>
+<img src="assets/img/Normalizacija_5_PNO_koncept.png" alt="Primer koncepta kosovnice v 5. PNO" width="500" />
+<p class="caption">
+Slika 15.49: Primer koncepta kosovnice v 5. PNO
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-5-PNO-primer"></span>
+<img src="assets/img/Normalizacija_5_PNO_primer.png" alt="Primer kosovnice v 5. PNO" width="550" />
+<p class="caption">
+Slika 15.50: Primer kosovnice v 5. PNO
+</p>
+</div>
+<p>Sliki <a href="P8.html#fig:slika-Normalizacija-5-PNO-izdelek-model#fig:slika-Normalizacija-5-PNO-izdelek-model">15.51</a> in <a href="P8.html#fig:slika-Normalizacija-5-PNO-izdelek-tabela#fig:slika-Normalizacija-5-PNO-izdelek-tabela">15.52</a> prikazujeta primer relacije izdelek v 5. PNO.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-5-PNO-izdelek-model"></span>
+<img src="assets/img/Normalizacija_primer_5_PNO_izdelek_model.png" alt="Primer relacije izdelek v 5. PNO" width="400" />
+<p class="caption">
+Slika 15.51: Primer relacije izdelek v 5. PNO
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Normalizacija-5-PNO-izdelek-tabela"></span>
+<img src="assets/img/Normalizacija_primer_5_PNO_izdelek_tabela.png" alt="Primer relacije izdelek v 5. PNO" width="350" />
+<p class="caption">
+Slika 15.52: Primer relacije izdelek v 5. PNO
+</p>
+</div>
+</div>
+</div>
+<div id="denormalizacija" class="section level2 hasAnchor" number="15.4">
+<h2><span class="header-section-number">15.4</span> Denormalizacija<a href="P8.html#denormalizacija" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Včasih pri načrtovanju podatkovnih baz namerno uporabimo denormalizacijo, predvsem zaradi performančnih vidikov, kar je še posebej aktualno na področju NoSQL podatkovnih baz. Prednosti in slabosti denormalizacije so povzete v tabeli <a href="P8.html#tab:tabela-Prednosti-in-slabosti-denormalizacij#tab:tabela-Prednosti-in-slabosti-denormalizacij">15.2</a>.</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tabela-Prednosti-in-slabosti-denormalizacij">Tabela 15.2: </span>Prednosti in slabosti denormalizacije
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Prednosti <i class="fa-regular fa-thumbs-up"></i>
+</th>
+<th style="text-align:left;">
+Slabosti <i class="fa-regular fa-thumbs-down"></i>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Izračun izpeljanih podatkov vnaprej.
+</td>
+<td style="text-align:left;">
+Izboljša branje, a upočasni ažuriranje.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Manjše potrebe po združevanju tabel.
+</td>
+<td style="text-align:left;">
+Odvisnost od aplikacije (obvladovanje sprememb).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Manjše število tujih ključev.
+</td>
+<td style="text-align:left;">
+Povečana poraba prostora.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Manjše število indeksov.
+</td>
+<td style="text-align:left;">
+Zmanjšana prilagodljivost.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Manjše število relacij.
+</td>
+<td style="text-align:left;">
+ 
+</td>
+</tr>
+</tbody>
+</table>
+<p>Slika <a href="P8.html#fig:slika-NoSQL-podatkovne-baze#fig:slika-NoSQL-podatkovne-baze">15.53</a> prikazuje različne načine organizacije podatkov v okviru relacijskih, analitičnih in NoSQL podatkovnih baz, kjer je predvsem pri slednjih pogosto v uporabi denormalizacija za doseganje večje zmogljivosti.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-NoSQL-podatkovne-baze"></span>
+<img src="assets/img/NoSQL_podatkovne_baze.png" alt="Denormalizacija in NoSQL podatkovne baze" width="600" />
+<p class="caption">
+Slika 15.53: Denormalizacija in NoSQL podatkovne baze
+</p>
+</div>
+<blockquote>
+<p><strong>Normalize</strong> until it <strong>hurts</strong> and <strong>denormalize</strong> until it <strong>works</strong>. (Jovial Remark)</p>
+</blockquote>
+</div>
+<div id="primeri-normalizacije" class="section level2 hasAnchor" number="15.5">
+<h2><span class="header-section-number">15.5</span> Primeri normalizacije<a href="P8.html#primeri-normalizacije" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="normalizacija-računa" class="section level3 hasAnchor" number="15.5.1">
+<h3><span class="header-section-number">15.5.1</span> Normalizacija računa<a href="P8.html#normalizacija-računa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Na podlagi podatkov iz “flat file” oblike (glej sliko <a href="P8.html#fig:slika-Primer-Normalizacija-racuna#fig:slika-Primer-Normalizacija-racuna">15.54</a>), kjer nam <strong>tabela predstavlja podatke o računih</strong> (ki ne ustrezajo pogojem za relacijo), le-te predstavite v obliki relacije in <strong>normalizirajte do 3. NO</strong>!</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Primer-Normalizacija-racuna"></span>
+<img src="assets/img/Primer_Normalizacija_racuna.png" alt="Primer računa" width="600" />
+<p class="caption">
+Slika 15.54: Primer računa
+</p>
+</div>
+</div>
+<div id="normalizacija-reverza" class="section level3 hasAnchor" number="15.5.2">
+<h3><span class="header-section-number">15.5.2</span> Normalizacija reverza<a href="P8.html#normalizacija-reverza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Na podlagi <strong>dokumenta reverza</strong> (glej sliko <a href="P8.html#fig:slika-Primer-Normalizacija-dokument-reverza#fig:slika-Primer-Normalizacija-dokument-reverza">15.55</a>) in podanih <strong>funkcionalnih odvisnosti</strong> (glej sliko <a href="P8.html#fig:slika-Primer-Normalizacija-dokument-reverza-funkcionalne-odvisnosti#fig:slika-Primer-Normalizacija-dokument-reverza-funkcionalne-odvisnosti">15.56</a>) <strong>normalizirajte do 3. NO</strong>!</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Primer-Normalizacija-dokument-reverza"></span>
+<img src="assets/img/Primer_Normalizacija_dokument_reverza.png" alt="Primer dokumenta reverza" width="400" />
+<p class="caption">
+Slika 15.55: Primer dokumenta reverza
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Primer-Normalizacija-dokument-reverza-funkcionalne-odvisnosti"></span>
+<img src="assets/img/Primer_Normalizacija_dokument_reverza_funkcionalne_odvisnosti.png" alt="Funkcionalne odvisnosti za primer dokumenta reverza" width="400" />
+<p class="caption">
+Slika 15.56: Funkcionalne odvisnosti za primer dokumenta reverza
+</p>
+</div>
+</div>
+</div>
+<div id="procesni-vidik" class="section level2 hasAnchor" number="15.6">
+<h2><span class="header-section-number">15.6</span> Procesni vidik<a href="P8.html#procesni-vidik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Podatkovni-vs-procesni-vidik-nacrtovanja"></span>
+<img src="assets/img/Podatkovni_vs_procesni_vidik_nacrtovanja.png" alt="Vloga podatkovnega in procesnega načrtovanja informacijskih sistemov" width="500" />
+<p class="caption">
+Slika 15.57: Vloga podatkovnega in procesnega načrtovanja informacijskih sistemov
+</p>
+</div>
+<div id="dekompozicijski-diagrami" class="section level3 hasAnchor" number="15.6.1">
+<h3><span class="header-section-number">15.6.1</span> Dekompozicijski diagrami<a href="P8.html#dekompozicijski-diagrami" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Dekompozicijski-diagram-1"></span>
+<img src="assets/img/Dekompozicijski_diagram_1.png" alt="Primer uporabe tehnike dekompozicijskih diagramov" width="300" />
+<p class="caption">
+Slika 15.58: Primer uporabe tehnike dekompozicijskih diagramov
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-Dekompozicijski-diagram-2"></span>
+<img src="assets/img/Dekompozicijski_diagram_2.png" alt="Primer uporabe tehnike dekompozicijskih diagramov" width="500" />
+<p class="caption">
+Slika 15.59: Primer uporabe tehnike dekompozicijskih diagramov
+</p>
+</div>
+</div>
+<div id="procesna-logika" class="section level3 hasAnchor" number="15.6.2">
+<h3><span class="header-section-number">15.6.2</span> Procesna logika<a href="P8.html#procesna-logika" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Procesna logika se uporablja za:</p>
+<ul>
+<li>podroben opis <strong>procesov/funkcij</strong> v fazi <strong>analize</strong>,</li>
+<li>podroben opis <strong>modulov</strong> v fazi <strong>načrtovanja</strong>.</li>
+</ul>
+<p>Na voljo so številne tehnike, ki imajo približno enako izrazno moč:</p>
+<ul>
+<li>naravni jezik/poslovna pravila,</li>
+<li>strukturiran jezik,</li>
+<li>odločitvena drevesa,</li>
+<li>diagram prehajanja stanj <em>(angl. <a href="https://en.wikipedia.org/wiki/State_diagram"><i class="fa-brands fa-wikipedia-w"></i>State Transition Diagram</a>)</em>,</li>
+<li><strong>eEPC</strong> <em>(angl. extended <a href="https://en.wikipedia.org/wiki/Event-driven_process_chain"><i class="fa-brands fa-wikipedia-w"></i>Event driven Process Chain</a>)</em>,</li>
+<li><strong>BPMN</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation"><i class="fa-brands fa-wikipedia-w"></i>Business Process Modelling Notation</a>)</em> (glej poglavje <a href="P8.html#BPMN-tehnika">15.6.3</a>).</li>
+</ul>
+</div>
+<div id="BPMN-tehnika" class="section level3 hasAnchor" number="15.6.3">
+<h3><span class="header-section-number">15.6.3</span> BPMN<a href="P8.html#BPMN-tehnika" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong><a href="http://www.bpmn.org/"><i class='fa-solid fa-earth-europe'></i>BPMN</a></strong> je diagramsko usmerjena notacija za opredelitev poslovnih procesov.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-primer"></span>
+<img src="assets/img/BPMN_primer.png" alt="Primer BPMN diagrama" width="300" />
+<p class="caption">
+Slika 15.60: Primer BPMN diagrama
+</p>
+</div>
+<p>Omogoča vse <strong>3 ravni procesnega modeliranja</strong>:</p>
+<ul>
+<li><strong>risanje diagramov</strong> poslovnih procesov,</li>
+<li><strong>podrobnejši opis procesov</strong> z dodatnimi informacijami,</li>
+<li><strong>popolne procesne modele</strong>, ki omogočajo analiziranje, simulacije in/ali izvajanje poslovnih procesov.</li>
+</ul>
+<p><strong>Prednosti</strong> standarda BPMN:</p>
+<ul>
+<li>izmenjava modelov poslovnih procesov med različnimi proizvajalci,</li>
+<li>mehanizem za generiranje izvršljivih poslovnih procesov (<a href="https://en.wikipedia.org/wiki/Business_Process_Execution_Language"><i class="fa-brands fa-wikipedia-w"></i>BPEL</a>, <a href="http://www.omg.org/spec/BPMN/2.0/"><i class='fa-solid fa-earth-europe'></i>BPMN 2.0</a>).</li>
+</ul>
+<div id="osnovni-koncepti" class="section level4 hasAnchor" number="15.6.3.1">
+<h4><span class="header-section-number">15.6.3.1</span> Osnovni koncepti<a href="P8.html#osnovni-koncepti" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="aktivnosti" class="section level5 hasAnchor" number="15.6.3.1.1">
+<h5><span class="header-section-number">15.6.3.1.1</span> Aktivnosti<a href="P8.html#aktivnosti" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Opravilo"></span>
+<img src="assets/img/BPMN_Opravilo.png" alt="**Opravilo** (tudi posebne vrste opravil, npr. uporabniško opravilo)" width="70" />
+<p class="caption">
+Slika 15.61: <strong>Opravilo</strong> (tudi posebne vrste opravil, npr. uporabniško opravilo)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Podproces"></span>
+<img src="assets/img/BPMN_Podproces.png" alt="**Podproces**" width="70" />
+<p class="caption">
+Slika 15.62: <strong>Podproces</strong>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Ponavljajoce-opravilo"></span>
+<img src="assets/img/BPMN_Ponavljajoce_opravilo.png" alt="**Ponavljajoče opravilo**" width="130" />
+<p class="caption">
+Slika 15.63: <strong>Ponavljajoče opravilo</strong>
+</p>
+</div>
+</div>
+<div id="dogodki" class="section level5 hasAnchor" number="15.6.3.1.2">
+<h5><span class="header-section-number">15.6.3.1.2</span> Dogodki<a href="P8.html#dogodki" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Dogodke prikažemo s simbolom kroga in se med seboj ločijo po obliki mejne črte.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Zacetni-dogodek"></span>
+<img src="assets/img/BPMN_Zacetni_dogodek.png" alt="**Začetni** dogodek" width="30" />
+<p class="caption">
+Slika 15.64: <strong>Začetni</strong> dogodek
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Vmesni-dogodek"></span>
+<img src="assets/img/BPMN_Vmesni_dogodek.png" alt="**Vmesni** dogodek" width="30" />
+<p class="caption">
+Slika 15.65: <strong>Vmesni</strong> dogodek
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Koncni-dogodek"></span>
+<img src="assets/img/BPMN_Koncni_dogodek.png" alt="**Končni** dogodek" width="30" />
+<p class="caption">
+Slika 15.66: <strong>Končni</strong> dogodek
+</p>
+</div>
+<p>Za posamezne dogodke imamo na voljo različne vrste prožilcev, ki jih označujemo z ikonami (glej sliko <a href="P8.html#fig:slika-BPMN-Posebni-dogodki#fig:slika-BPMN-Posebni-dogodki">15.67</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Posebni-dogodki"></span>
+<img src="assets/img/BPMN_Posebni_dogodki.png" alt="Posebni dogodki" width="500" />
+<p class="caption">
+Slika 15.67: Posebni dogodki
+</p>
+</div>
+</div>
+<div id="vejitve-1" class="section level5 hasAnchor" number="15.6.3.1.3">
+<h5><span class="header-section-number">15.6.3.1.3</span> Vejitve<a href="P8.html#vejitve-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Vejitve so namenjene nadzoru sekvenčnega toka. Prikažemo jih s simbolom romba, kjer ikona označuje vrsto vejitve (glej sliko <a href="P8.html#fig:slika-BPMN-Vejitve#fig:slika-BPMN-Vejitve">15.68</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Vejitve"></span>
+<img src="assets/img/BPMN_Vejitve.png" alt="Vejitve" width="500" />
+<p class="caption">
+Slika 15.68: Vejitve
+</p>
+</div>
+</div>
+<div id="povezave-1" class="section level5 hasAnchor" number="15.6.3.1.4">
+<h5><span class="header-section-number">15.6.3.1.4</span> Povezave<a href="P8.html#povezave-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Sekvencni-tok"></span>
+<img src="assets/img/BPMN_Sekvencni_tok.png" alt="**Sekvenčni tok** prikazuje zaporedje aktivnosti v procesu." width="100" />
+<p class="caption">
+Slika 15.69: <strong>Sekvenčni tok</strong> prikazuje zaporedje aktivnosti v procesu.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Sporocilni-tok"></span>
+<img src="assets/img/BPMN_Sporocilni_tok.png" alt="**Sporočilni tok** prikazuje tok sporočila od pošiljatelja k prejemniku." width="100" />
+<p class="caption">
+Slika 15.70: <strong>Sporočilni tok</strong> prikazuje tok sporočila od pošiljatelja k prejemniku.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Asociacija"></span>
+<img src="assets/img/BPMN_Asociacija.png" alt="**Asociacija** je namenjena povezovanju podatkov, informacij in izdelkov z objekti toka." width="100" />
+<p class="caption">
+Slika 15.71: <strong>Asociacija</strong> je namenjena povezovanju podatkov, informacij in izdelkov z objekti toka.
+</p>
+</div>
+</div>
+</div>
+<div id="primeri" class="section level4 hasAnchor" number="15.6.3.2">
+<h4><span class="header-section-number">15.6.3.2</span> Primeri<a href="P8.html#primeri" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="naročanje-pice" class="section level5 hasAnchor" number="15.6.3.2.1">
+<h5><span class="header-section-number">15.6.3.2.1</span> Naročanje pice<a href="P8.html#naročanje-pice" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-narocanje-pice"></span>
+<img src="assets/img/BPMN_Narocanje_pice.png" alt="Primer BPMN procesnega diagrama pri naročanju pice" width="600" />
+<p class="caption">
+Slika 15.72: Primer BPMN procesnega diagrama pri naročanju pice
+</p>
+</div>
+</div>
+<div id="podelitev-nobelove-nagrade" class="section level5 hasAnchor" number="15.6.3.2.2">
+<h5><span class="header-section-number">15.6.3.2.2</span> Podelitev Nobelove nagrade<a href="P8.html#podelitev-nobelove-nagrade" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Nobelova-nagrada"></span>
+<img src="assets/img/BPMN_Nobelova_nagrada.png" alt="Primer BPMN procesnega diagrama pri podelitvi Nobelove nagrade" width="800" />
+<p class="caption">
+Slika 15.73: Primer BPMN procesnega diagrama pri podelitvi Nobelove nagrade
+</p>
+</div>
+</div>
+<div id="nabava-in-naročanje" class="section level5 hasAnchor" number="15.6.3.2.3">
+<h5><span class="header-section-number">15.6.3.2.3</span> Nabava in naročanje<a href="P8.html#nabava-in-naročanje" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-BPMN-Nabava-in-narocanje"></span>
+<img src="assets/img/BPMN_Nabava_in_narocanje.png" alt="Primer BPMN procesnega diagrama pri nabavi in naročanju" width="500" />
+<p class="caption">
+Slika 15.74: Primer BPMN procesnega diagrama pri nabavi in naročanju
+</p>
+</div>
+</div>
+<div id="medsebojno-ocenjevanje" class="section level5 hasAnchor" number="15.6.3.2.4">
+<h5><span class="header-section-number">15.6.3.2.4</span> Medsebojno ocenjevanje<a href="P8.html#medsebojno-ocenjevanje" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Na sliki <a href="P8.html#fig:slika-GUI-medsebojno-ocenjevanje-BPMN#fig:slika-GUI-medsebojno-ocenjevanje-BPMN">15.75</a> je <strong>uporabniški vmesnik</strong>, na podlagi katerega izdelajmo <strong>BPMN procesni diagram</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-GUI-medsebojno-ocenjevanje-BPMN"></span>
+<img src="assets/img/GUI_medsebojno_ocenjevanje.png" alt="Primer uporabniškega vmesnika medsebojnega ocenjevanja" width="800" />
+<p class="caption">
+Slika 15.75: Primer uporabniškega vmesnika medsebojnega ocenjevanja
+</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="8">
+<li id="fn8"><p>angl. Extended Entity Relationship (EER)<a href="P8.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    $("a").click(function(e) {
+      if (
+        $(this).has(".fa-solid").length == 1 || 
+        $(this).has(".fa-brands").length == 1 || 
+        $(this).has(".fa-regular").length == 1 || 
+        $(this).has("img.git").length == 1
+      ) {
+        e.preventDefault();
+        window.open($(this).attr("href"), '_blank');
+      }
+    });
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6109Y2092"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6109Y2092');
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="P7.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="P9.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/lib/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

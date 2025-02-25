@@ -1,0 +1,479 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css");
+
+.status-zeleno {
+  color: green;
+}
+
+.status-oranzno {
+  color: orange;
+}
+
+.status-rdece {
+  color: #990000;
+}
+
+table {
+  width: 100% !important;
+}
+
+table.dodatnoGradivo {
+  border: none;
+}
+
+table.dodatnoGradivo tr,
+table.dodatnoGradivo td {
+  vertical-align: top;
+  border: none !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.todo,
+todo {
+  background-color: #ffe6e6;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 6px;
+}
+
+.review,
+review {
+  background-color: #fff5e6;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 6px;
+}
+
+.komentar,
+komentar {
+  background-color: #fff9e6;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 6px;
+  color: #cc9900;
+}
+
+.oznaka {
+  background-color: black;
+  color: white;
+  padding: 5px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+}
+
+.vrstica {
+  display: inline-block;
+}
+
+.vrstica img {
+  vertical-align: middle;
+  margin-right: 20px;
+  padding-bottom: 10px;
+}
+
+.vrstica h3 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sklop1 {
+  padding: 3px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #ffffcc;
+  color: #808000;
+  font-weight: bold;
+}
+
+td.sklop1 {
+  background-color: rgba(255, 255, 204, 0.5);
+  padding: 0px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  text-align: center;
+  font-weight: normal;
+}
+
+.sklop2 {
+  padding: 3px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #fff2e6;
+  color: #b35900;
+  font-weight: bold;
+}
+
+td.sklop2 {
+  background-color: rgba(255, 242, 230, 0.5);
+  padding: 0px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  text-align: center;
+  font-weight: normal;
+}
+
+.sklop3 {
+  padding: 3px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #d9ffb3;
+  color: #264d00;
+  font-weight: bold;
+}
+
+td.sklop3 {
+  background-color: rgba(217, 255, 179, 0.5);
+  padding: 0px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  text-align: center;
+  font-weight: normal;
+}
+
+.sklop4 {
+  padding: 3px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #e6f7ff;
+  color: #006699;
+  font-weight: bold;
+}
+
+td.sklop4 {
+  background-color: rgba(230, 247, 255, 0.5);
+  padding: 0px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  text-align: center;
+  font-weight: normal;
+}
+
+.sklop5 {
+  padding: 3px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #f9e6ff;
+  color: #730099;
+  font-weight: bold;
+}
+
+td.sklop5 {
+  background-color: rgba(249, 230, 255, 0.5);
+  padding: 0px !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  text-align: center;
+  font-weight: normal;
+}
+
+.rdece,
+.r {
+  color: #990000;
+}
+
+.z {
+  color: #006600;
+}
+.o {
+  color: #cc6600;
+}
+
+.manjse {
+  font-size: 80% !important;
+}
+
+.git {
+  height: 17px;
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+.rok {
+  font-size: 80% !important;
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+.google-translate-povezava,
+.pisava-sans-forgetica {
+  cursor: pointer;
+}
+
+.google-translate-povezava:hover,
+.pisava-sans-forgetica:hover {
+  text-decoration: underline;
+}
+
+table.sourceCode {
+  line-height: inherit;
+}
+
+mark {
+  background: #ffffcc;
+}
+
+dodaj {
+  background: #d9ffb3;
+}
+
+izbrisi {
+  background: #fff2e6;
+  text-decoration: line-through;
+}
+
+.dataTables_scroll td {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dataTables_paginate {
+  padding: 10px !important;
+}
+
+.dataTables_paginate span a,
+.dataTables_paginate a {
+  padding-right: 6px !important;
+  padding-left: 6px !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: black !important;
+}
+
+.dataTables_scrollHead th,
+.tabela-manjsa th {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+
+.dataTables_scrollBody td,
+.tabela-manjsa td {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  font-size: smaller !important;
+}
+
+.okrogla-oznaka {
+  background: #666;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 5px;
+  text-align: center;
+  width: 1.6em;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.tocke {
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 0;
+  border-radius: 6px;
+  background-color: #d9ffb3;
+  color: #264d00;
+  font-weight: bold;
+}
+
+.github {
+  height: 12px;
+  /*vertical-align: top; */
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+@font-face {
+  font-family: "SansForgetica";
+  src: url("https://teaching.lavbic.net/cdn/fonts/SansForgetica-Regular.otf")
+    format("opentype");
+}
+
+.navadno {
+  font-weight: normal !important;
+}
+
+.zeleno {
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #d9ffb3;
+}
+
+.vijolicno {
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #f9e6ff;
+}
+
+.temno-oranzno {
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #ff6600;
+  color: #ffffff;
+  display: block !important;
+  width: 100% !important;
+}
+
+.svetlo-oranzno {
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #ffeee6;
+  display: block !important;
+  width: 100% !important;
+}
+
+.rumeno {
+  padding: 5px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #fff2cc;
+  display: block !important;
+  width: 100% !important;
+}
+
+.tveganje {
+  width: 800px;
+}
+
+.tveganje th,
+.tveganje td {
+  width: 16.67%;
+}
+
+.tveganje,
+.tveganje th {
+  border: 5px solid rgb(255, 255, 255) !important;
+}
+
+.tveganje td {
+  vertical-align: top;
+}
+
+.tveganje th {
+  vertical-align: middle;
+  padding: 0px !important;
+}
+
+.sredina {
+  text-align: center;
+}
+
+#pokaziVseResitve,
+#skrijVseResitve,
+#pokaziVsaNavodilaZaOddajo,
+#skrijVsaNavodilaZaOddajo,
+#pokaziVsaNavodilaZaVrednotenje,
+#skrijVsaNavodilaZaVrednotenje,
+#pokaziVseSmernice,
+#skrijVseSmernice {
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.odmik {
+  list-style-type: none;
+}
+
+img {
+  filter: drop-shadow(2px 2px 2px white) drop-shadow(-2px -2px 2px white);
+}
+
+.terminskiPlan {
+  display: block;
+  overflow: auto;
+}
+
+.nizka {
+  background-color: #95d350;
+}
+.srednjenizka {
+  background-color: #e3f1da;
+}
+.srednja {
+  background-color: #ffe799;
+}
+.srednjevisoka {
+  background-color: #f6caac;
+}
+.visoka {
+  background-color: #cc0000;
+  color: #ffffff;
+}
+.stopnja {
+  border-radius: 4px;
+}
+
+summary {
+  cursor: pointer;
+  display: list-item;
+  margin-bottom: 10px;
+}
+summary:hover {
+  text-decoration: underline;
+}
+
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal h6 {
+  color: inherit;
+}
+
+small.izvajalci, details.izvajalci summary {
+  color: #660000;
+  background-color: rgba(255, 230, 230, 0.3);
+  border-radius: 8px;
+  padding: 4px;
+  padding-left: 10px;
+}
+
+small.box, details.box summary {
+  color: #808080;
+  background-color: rgba(255, 230, 230, 0.3);
+  border-radius: 8px;
+  padding: 4px;
+  padding-left: 10px;
+}
+
+details.box div {
+  color: #808080;
+}
+
+details.izvajalci summary:hover, details.box summary:hover {
+  text-decoration: none;
+}
+
+details.izvajalci[open] {
+  border-radius: 8px;
+  background-color: rgba(255, 230, 230, 0.3);
+}
+
+details.box[open] {
+  border-radius: 8px;
+  background-color: rgba(255, 230, 230, 0.3);
+}
+
+details.izvajalci[open] > div, details.box[open] > div {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  border-radius: 8px;
+}
+
+.fa-solid, .fa-brands, .fa-regular {
+  padding-right: 3px;
+}
+
+.skupaj {
+  white-space:nowrap;
+}

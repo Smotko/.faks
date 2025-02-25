@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Poglavje 1 P1 Upravljanje IT | Osnove informacijskih sistemov 2023/2024</title>
+  <meta name="description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Poglavje 1 P1 Upravljanje IT | Osnove informacijskih sistemov 2023/2024" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Poglavje 1 P1 Upravljanje IT | Osnove informacijskih sistemov 2023/2024" />
+  
+  <meta name="twitter:description" content="Skripta za pomoč pri predmetu Osnove informacijskih sistemov 2023/2024" />
+  
+
+<meta name="author" content="izr. prof. dr. Dejan Lavbič" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="P1-V1.html"/>
+<script src="assets/lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="assets/lib/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="assets/lib/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="assets/lib/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="assets/lib/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="assets/lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="assets/lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/style/stil.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="index.html#terminski-plan-izvajanja-predmeta">OIS 2023/2024 terminski plan</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Uvod</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#splošne-informacije"><i class="fa fa-check"></i>Splošne informacije</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavatelj"><i class="fa fa-check"></i>Predavatelj</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#asistent"><i class="fa fa-check"></i>Asistent</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#terminski-plan-izvajanja-predmeta"><i class="fa fa-check"></i>Terminski plan izvajanja predmeta</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pravila-igre"><i class="fa fa-check"></i>Pravila igre</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#predavanja"><i class="fa fa-check"></i>Predavanja</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#vaje"><i class="fa fa-check"></i>Vaje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ocenjevanje"><i class="fa fa-check"></i>Ocenjevanje</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pisni-izpiti"><i class="fa fa-check"></i>Pisni izpiti</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#priporočena-literatura"><i class="fa fa-check"></i>Priporočena literatura</a></li>
+</ul></li>
+<li class="part"><span><b>I sklop: Poslovni informacijski sistemi in upravljanje informatike</b></span></li>
+<li class="chapter" data-level="1" data-path="P1.html"><a href="P1.html"><i class="fa fa-check"></i><b>1</b> <span class="sklop1 oznaka">P1</span> Upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="P1.html"><a href="P1.html#ogrodje-digitalne-preobrazbe"><i class="fa fa-check"></i><b>1.1</b> Ogrodje digitalne preobrazbe</a></li>
+<li class="chapter" data-level="1.2" data-path="P1.html"><a href="P1.html#uvod-1"><i class="fa fa-check"></i><b>1.2</b> Uvod</a></li>
+<li class="chapter" data-level="1.3" data-path="P1.html"><a href="P1.html#upravljanje-it-in-vloga-informatike"><i class="fa fa-check"></i><b>1.3</b> Upravljanje IT in vloga informatike</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="P1.html"><a href="P1.html#vloga-vodstva-pri-upravljanju-it"><i class="fa fa-check"></i><b>1.3.1</b> Vloga vodstva pri upravljanju IT</a></li>
+<li class="chapter" data-level="1.3.2" data-path="P1.html"><a href="P1.html#ključna-vprašanja-o-it"><i class="fa fa-check"></i><b>1.3.2</b> Ključna vprašanja o IT</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="P1.html"><a href="P1.html#ogrodje-za-upravljanje-it"><i class="fa fa-check"></i><b>1.4</b> Ogrodje za upravljanje IT</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="P1.html"><a href="P1.html#ključne-odločitve"><i class="fa fa-check"></i><b>1.4.1</b> Ključne odločitve</a></li>
+<li class="chapter" data-level="1.4.2" data-path="P1.html"><a href="P1.html#ključni-odločevalci"><i class="fa fa-check"></i><b>1.4.2</b> Ključni odločevalci</a></li>
+<li class="chapter" data-level="1.4.3" data-path="P1.html"><a href="P1.html#strukture-in-procesi-odločanja"><i class="fa fa-check"></i><b>1.4.3</b> Strukture in procesi odločanja</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="P1-V1.html"><a href="P1-V1.html"><i class="fa fa-check"></i><b>2</b> <span class="sklop1 oznaka">P1</span> → <span class="sklop3 oznaka">V1</span> Obvladovanje verzij</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="P1-V1.html"><a href="P1-V1.html#zgodovina-vcs"><i class="fa fa-check"></i><b>2.1</b> Zgodovina VCS</a></li>
+<li class="chapter" data-level="2.2" data-path="P1-V1.html"><a href="P1-V1.html#osnovne-operacije-vcs"><i class="fa fa-check"></i><b>2.2</b> Osnovne operacije VCS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="P1-V1.html"><a href="P1-V1.html#VCS-create"><i class="fa fa-check"></i><b>2.2.1</b> Create</a></li>
+<li class="chapter" data-level="2.2.2" data-path="P1-V1.html"><a href="P1-V1.html#VCS-checkout"><i class="fa fa-check"></i><b>2.2.2</b> Checkout</a></li>
+<li class="chapter" data-level="2.2.3" data-path="P1-V1.html"><a href="P1-V1.html#VCS-commit"><i class="fa fa-check"></i><b>2.2.3</b> Commit</a></li>
+<li class="chapter" data-level="2.2.4" data-path="P1-V1.html"><a href="P1-V1.html#VCS-update"><i class="fa fa-check"></i><b>2.2.4</b> Update</a></li>
+<li class="chapter" data-level="2.2.5" data-path="P1-V1.html"><a href="P1-V1.html#VCS-add"><i class="fa fa-check"></i><b>2.2.5</b> Add</a></li>
+<li class="chapter" data-level="2.2.6" data-path="P1-V1.html"><a href="P1-V1.html#VCS-edit"><i class="fa fa-check"></i><b>2.2.6</b> Edit</a></li>
+<li class="chapter" data-level="2.2.7" data-path="P1-V1.html"><a href="P1-V1.html#VCS-delete"><i class="fa fa-check"></i><b>2.2.7</b> Delete</a></li>
+<li class="chapter" data-level="2.2.8" data-path="P1-V1.html"><a href="P1-V1.html#VCS-rename"><i class="fa fa-check"></i><b>2.2.8</b> Rename</a></li>
+<li class="chapter" data-level="2.2.9" data-path="P1-V1.html"><a href="P1-V1.html#VCS-move"><i class="fa fa-check"></i><b>2.2.9</b> Move</a></li>
+<li class="chapter" data-level="2.2.10" data-path="P1-V1.html"><a href="P1-V1.html#VCS-status"><i class="fa fa-check"></i><b>2.2.10</b> Status</a></li>
+<li class="chapter" data-level="2.2.11" data-path="P1-V1.html"><a href="P1-V1.html#VCS-diff"><i class="fa fa-check"></i><b>2.2.11</b> Diff</a></li>
+<li class="chapter" data-level="2.2.12" data-path="P1-V1.html"><a href="P1-V1.html#VCS-revert"><i class="fa fa-check"></i><b>2.2.12</b> Revert</a></li>
+<li class="chapter" data-level="2.2.13" data-path="P1-V1.html"><a href="P1-V1.html#VCS-log"><i class="fa fa-check"></i><b>2.2.13</b> Log</a></li>
+<li class="chapter" data-level="2.2.14" data-path="P1-V1.html"><a href="P1-V1.html#VCS-tag"><i class="fa fa-check"></i><b>2.2.14</b> Tag</a></li>
+<li class="chapter" data-level="2.2.15" data-path="P1-V1.html"><a href="P1-V1.html#VCS-branch"><i class="fa fa-check"></i><b>2.2.15</b> Branch</a></li>
+<li class="chapter" data-level="2.2.16" data-path="P1-V1.html"><a href="P1-V1.html#VCS-merge"><i class="fa fa-check"></i><b>2.2.16</b> Merge</a></li>
+<li class="chapter" data-level="2.2.17" data-path="P1-V1.html"><a href="P1-V1.html#VCS-resolve"><i class="fa fa-check"></i><b>2.2.17</b> Resolve</a></li>
+<li class="chapter" data-level="2.2.18" data-path="P1-V1.html"><a href="P1-V1.html#VCS-lock"><i class="fa fa-check"></i><b>2.2.18</b> Lock</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="P1-V1.html"><a href="P1-V1.html#posebnosti-dvcs"><i class="fa fa-check"></i><b>2.3</b> Posebnosti DVCS</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="P1-V1.html"><a href="P1-V1.html#clone"><i class="fa fa-check"></i><b>2.3.1</b> Clone</a></li>
+<li class="chapter" data-level="2.3.2" data-path="P1-V1.html"><a href="P1-V1.html#primerjava-cvcs-in-dvcs"><i class="fa fa-check"></i><b>2.3.2</b> Primerjava CVCS in DVCS</a></li>
+<li class="chapter" data-level="2.3.3" data-path="P1-V1.html"><a href="P1-V1.html#push"><i class="fa fa-check"></i><b>2.3.3</b> Push</a></li>
+<li class="chapter" data-level="2.3.4" data-path="P1-V1.html"><a href="P1-V1.html#pull"><i class="fa fa-check"></i><b>2.3.4</b> Pull</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="P1-V1.html"><a href="P1-V1.html#dobre-prakse-uporabe-git"><i class="fa fa-check"></i><b>2.4</b> Dobre prakse uporabe Git</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="P1-V1.html"><a href="P1-V1.html#osrednji-repozitorij-in-sodelovanje-med-skupinami"><i class="fa fa-check"></i><b>2.4.1</b> Osrednji repozitorij in sodelovanje med skupinami</a></li>
+<li class="chapter" data-level="2.4.2" data-path="P1-V1.html"><a href="P1-V1.html#razdelitev-po-vejah-razvoja"><i class="fa fa-check"></i><b>2.4.2</b> Razdelitev po vejah razvoja</a></li>
+<li class="chapter" data-level="2.4.3" data-path="P1-V1.html"><a href="P1-V1.html#sporočila-uveljavitev"><i class="fa fa-check"></i><b>2.4.3</b> Sporočila uveljavitev</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="P1-V1.html"><a href="P1-V1.html#dodatno-gradivo"><i class="fa fa-check"></i><b>2.5</b> Dodatno gradivo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="P2.html"><a href="P2.html"><i class="fa fa-check"></i><b>3</b> <span class="sklop1 oznaka">P2</span> Delovni model, arhitektura podjetja in vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="P2.html"><a href="P2.html#delovni-model-in-zrelost-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1</b> Delovni model in zrelost arhitekture podjetja</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="P2.html"><a href="P2.html#delovni-model"><i class="fa fa-check"></i><b>3.1.1</b> Delovni model</a></li>
+<li class="chapter" data-level="3.1.2" data-path="P2.html"><a href="P2.html#arhitektura-podjetja"><i class="fa fa-check"></i><b>3.1.2</b> Arhitektura podjetja</a></li>
+<li class="chapter" data-level="3.1.3" data-path="P2.html"><a href="P2.html#posledice-zrelosti-arhitekture-podjetja"><i class="fa fa-check"></i><b>3.1.3</b> Posledice zrelosti arhitekture podjetja</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="P2.html"><a href="P2.html#vrednotenje-naložb"><i class="fa fa-check"></i><b>3.2</b> Vrednotenje naložb</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="P2.html"><a href="P2.html#parametrični-pristop-od-zgoraj-navzdol"><i class="fa fa-check"></i><b>3.2.1</b> Parametrični pristop od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.2" data-path="P2.html"><a href="P2.html#pristop-od-spodaj-navzgor"><i class="fa fa-check"></i><b>3.2.2</b> Pristop od spodaj navzgor</a></li>
+<li class="chapter" data-level="3.2.3" data-path="P2.html"><a href="P2.html#ocena-proračuna"><i class="fa fa-check"></i><b>3.2.3</b> Ocena proračuna</a></li>
+<li class="chapter" data-level="3.2.4" data-path="P2.html"><a href="P2.html#ocena-proracuna-s-pristopm-navzdol"><i class="fa fa-check"></i><b>3.2.4</b> Primer ocene proračuna s pristopom od zgoraj navzdol</a></li>
+<li class="chapter" data-level="3.2.5" data-path="P2.html"><a href="P2.html#UCP"><i class="fa fa-check"></i><b>3.2.5</b> Formalna metoda za ocenjevanje stroškov programske opreme</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="P2.html"><a href="P2.html#nematerialne-koristi"><i class="fa fa-check"></i><b>3.3</b> Nematerialne koristi</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="P2.html"><a href="P2.html#zmogljivost-informacijske-tehnologije"><i class="fa fa-check"></i><b>3.3.1</b> Zmogljivost informacijske tehnologije</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="P2-V3.html"><a href="P2-V3.html"><i class="fa fa-check"></i><b>4</b> <span class="sklop1 oznaka">P2</span> → <span class="sklop3 oznaka">V3</span> Uvod v HTML in CSS</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="P2-V3.html"><a href="P2-V3.html#html"><i class="fa fa-check"></i><b>4.1</b> HTML</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki"><i class="fa fa-check"></i><b>4.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.1.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek"><i class="fa fa-check"></i><b>4.1.2</b> Zaključek</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="P2-V3.html"><a href="P2-V3.html#CSS"><i class="fa fa-check"></i><b>4.2</b> CSS</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="P2-V3.html"><a href="P2-V3.html#gradniki-1"><i class="fa fa-check"></i><b>4.2.1</b> Gradniki</a></li>
+<li class="chapter" data-level="4.2.2" data-path="P2-V3.html"><a href="P2-V3.html#zaključek-1"><i class="fa fa-check"></i><b>4.2.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="P3.html"><a href="P3.html"><i class="fa fa-check"></i><b>5</b> <span class="sklop1 oznaka">P3</span> Tveganja, IT naložbeni portfelj in povračilo sredstev</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="P3.html"><a href="P3.html#tveganja-pri-projektih-it"><i class="fa fa-check"></i><b>5.1</b> Tveganja pri projektih IT</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="P3.html"><a href="P3.html#upoštevanje-tveganja-pri-vrednotenju-naložb-v-it"><i class="fa fa-check"></i><b>5.1.1</b> Upoštevanje tveganja pri vrednotenju naložb v IT</a></li>
+<li class="chapter" data-level="5.1.2" data-path="P3.html"><a href="P3.html#kako-podjetja-upoštevajo-tveganja"><i class="fa fa-check"></i><b>5.1.2</b> Kako podjetja upoštevajo tveganja?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="P3.html"><a href="P3.html#pristop-z-opcijami-pri-naložbah-v-it"><i class="fa fa-check"></i><b>5.2</b> Pristop z opcijami pri naložbah v IT</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="P3.html"><a href="P3.html#primer-starbuck"><i class="fa fa-check"></i><b>5.2.1</b> Primer Starbuck</a></li>
+<li class="chapter" data-level="5.2.2" data-path="P3.html"><a href="P3.html#primer-opcije"><i class="fa fa-check"></i><b>5.2.2</b> Primer implementacije sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="P3.html"><a href="P3.html#ogrodje-za-vrednotenje-naložb-v-it"><i class="fa fa-check"></i><b>5.3</b> Ogrodje za vrednotenje naložb v IT</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="P3.html"><a href="P3.html#pasti-prekinitve"><i class="fa fa-check"></i><b>5.3.1</b> Pasti prekinitve</a></li>
+<li class="chapter" data-level="5.3.2" data-path="P3.html"><a href="P3.html#pasti-odložitve"><i class="fa fa-check"></i><b>5.3.2</b> Pasti odložitve</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="P3.html"><a href="P3.html#it-naložbeni-portfelj"><i class="fa fa-check"></i><b>5.4</b> IT naložbeni portfelj</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="P3.html"><a href="P3.html#upravljanje-portfelja-it"><i class="fa fa-check"></i><b>5.4.1</b> Upravljanje portfelja IT</a></li>
+<li class="chapter" data-level="5.4.2" data-path="P3.html"><a href="P3.html#lastnosti-različnih-skupin-sredstev-it"><i class="fa fa-check"></i><b>5.4.2</b> Lastnosti različnih skupin sredstev IT</a></li>
+<li class="chapter" data-level="5.4.3" data-path="P3.html"><a href="P3.html#strateška-usmeritev-in-upravljanje-portfelja"><i class="fa fa-check"></i><b>5.4.3</b> Strateška usmeritev in upravljanje portfelja</a></li>
+<li class="chapter" data-level="5.4.4" data-path="P3.html"><a href="P3.html#proces-upravljanja-portfelja-it"><i class="fa fa-check"></i><b>5.4.4</b> Proces upravljanja portfelja IT</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="P3.html"><a href="P3.html#povračilo-sredstev-za-it"><i class="fa fa-check"></i><b>5.5</b> Povračilo sredstev za IT</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="P3.html"><a href="P3.html#razumevanje-izziva-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.1</b> Razumevanje izziva povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.2" data-path="P3.html"><a href="P3.html#različni-pristopi-povračila-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.2</b> Različni pristopi povračila sredstev za IT</a></li>
+<li class="chapter" data-level="5.5.3" data-path="P3.html"><a href="P3.html#posledice-povračil-sredstev-za-it"><i class="fa fa-check"></i><b>5.5.3</b> Posledice povračil sredstev za IT</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="P3-V3.html"><a href="P3-V3.html"><i class="fa fa-check"></i><b>6</b> <span class="sklop1 oznaka">P3</span> → <span class="sklop3 oznaka">V3</span> JavaScript na strani odjemalca</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="P3-V3.html"><a href="P3-V3.html#JavaScript"><i class="fa fa-check"></i><b>6.1</b> JavaScript</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="P3-V3.html"><a href="P3-V3.html#gradniki-2"><i class="fa fa-check"></i><b>6.1.1</b> Gradniki</a></li>
+<li class="chapter" data-level="6.1.2" data-path="P3-V3.html"><a href="P3-V3.html#zaključek-2"><i class="fa fa-check"></i><b>6.1.2</b> Zaključek</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="P4.html"><a href="P4.html"><i class="fa fa-check"></i><b>7</b> <span class="sklop1 oznaka">P4</span> Upravljanje sprememb, IS, podatek, informacija, znanje</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="P4.html"><a href="P4.html#upravljanje-sprememb"><i class="fa fa-check"></i><b>7.1</b> Upravljanje sprememb</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="P4.html"><a href="P4.html#razumevanje-odpora-uporabnikov"><i class="fa fa-check"></i><b>7.1.1</b> Razumevanje odpora uporabnikov</a></li>
+<li class="chapter" data-level="7.1.2" data-path="P4.html"><a href="P4.html#odpor-uporabnikov-do-sprememb-perspektiva-pristranskosti"><i class="fa fa-check"></i><b>7.1.2</b> Odpor uporabnikov do sprememb: perspektiva pristranskosti</a></li>
+<li class="chapter" data-level="7.1.3" data-path="P4.html"><a href="P4.html#model-prilagajanja-uporabniku"><i class="fa fa-check"></i><b>7.1.3</b> Model prilagajanja uporabniku</a></li>
+<li class="chapter" data-level="7.1.4" data-path="P4.html"><a href="P4.html#različni-modeli-sprejetosti-uporabnikov"><i class="fa fa-check"></i><b>7.1.4</b> Različni modeli sprejetosti uporabnikov</a></li>
+<li class="chapter" data-level="7.1.5" data-path="P4.html"><a href="P4.html#ključni-vzvodi-pri-uvajanju-informacijskega-sistema"><i class="fa fa-check"></i><b>7.1.5</b> Ključni vzvodi pri uvajanju informacijskega sistema</a></li>
+<li class="chapter" data-level="7.1.6" data-path="P4.html"><a href="P4.html#kako-učinkovito-uvesti-spremembe-kritični-dejavniki-uspeha"><i class="fa fa-check"></i><b>7.1.6</b> Kako učinkovito uvesti spremembe: kritični dejavniki uspeha</a></li>
+<li class="chapter" data-level="7.1.7" data-path="P4.html"><a href="P4.html#primerjava-evolucijske-in-revolucionarne-spremembe"><i class="fa fa-check"></i><b>7.1.7</b> Primerjava evolucijske in revolucionarne spremembe</a></li>
+<li class="chapter" data-level="7.1.8" data-path="P4.html"><a href="P4.html#projektno-vodenje-v-primerjavi-z-učnim-pristopom"><i class="fa fa-check"></i><b>7.1.8</b> Projektno vodenje v primerjavi z učnim pristopom</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="P4.html"><a href="P4.html#sistem"><i class="fa fa-check"></i><b>7.2</b> Sistem</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="P4.html"><a href="P4.html#opredelitve-osnovnih-pojmov"><i class="fa fa-check"></i><b>7.2.1</b> Opredelitve osnovnih pojmov</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="P4.html"><a href="P4.html#podatek-informacija-in-znanje"><i class="fa fa-check"></i><b>7.3</b> Podatek, informacija in znanje</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="P4.html"><a href="P4.html#podatek-in-informacija"><i class="fa fa-check"></i><b>7.3.1</b> Podatek in informacija</a></li>
+<li class="chapter" data-level="7.3.2" data-path="P4.html"><a href="P4.html#značilnosti-informacij"><i class="fa fa-check"></i><b>7.3.2</b> Značilnosti informacij</a></li>
+<li class="chapter" data-level="7.3.3" data-path="P4.html"><a href="P4.html#raziskava-o-kakovosti-informacij"><i class="fa fa-check"></i><b>7.3.3</b> Raziskava o kakovosti informacij</a></li>
+<li class="chapter" data-level="7.3.4" data-path="P4.html"><a href="P4.html#znanje"><i class="fa fa-check"></i><b>7.3.4</b> Znanje</a></li>
+<li class="chapter" data-level="7.3.5" data-path="P4.html"><a href="P4.html#povezanost-podatka-informacije-in-znanja"><i class="fa fa-check"></i><b>7.3.5</b> Povezanost podatka, informacije in znanja</a></li>
+<li class="chapter" data-level="7.3.6" data-path="P4.html"><a href="P4.html#primeri-interpretacij-informacij"><i class="fa fa-check"></i><b>7.3.6</b> Primeri interpretacij informacij</a></li>
+<li class="chapter" data-level="7.3.7" data-path="P4.html"><a href="P4.html#znanje-vs.-védenje"><i class="fa fa-check"></i><b>7.3.7</b> Znanje vs. védenje</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="P4-V4.html"><a href="P4-V4.html"><i class="fa fa-check"></i><b>8</b> <span class="sklop1 oznaka">P4</span> → <span class="sklop3 oznaka">V4</span> Odjemalec/strežnik in Node.js</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="P4-V4.html"><a href="P4-V4.html#razvoj-enostavnega-spletnega-strežnika"><i class="fa fa-check"></i><b>8.1</b> Razvoj enostavnega spletnega strežnika</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="P4-V4.html"><a href="P4-V4.html#hello-world"><i class="fa fa-check"></i><b>8.1.1</b> Hello World</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="P4-V4.html"><a href="P4-V4.html#spremenljivke-na-strežniku"><i class="fa fa-check"></i><b>8.2</b> Spremenljivke na strežniku</a></li>
+<li class="chapter" data-level="8.3" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-statičnih-spletnih-strani"><i class="fa fa-check"></i><b>8.3</b> Strežnik statičnih spletnih strani</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="P4-V4.html"><a href="P4-V4.html#knjižnice-ki-jih-bo-naš-projekt-uporabljal"><i class="fa fa-check"></i><b>8.3.1</b> Knjižnice, ki jih bo naš projekt uporabljal</a></li>
+<li class="chapter" data-level="8.3.2" data-path="P4-V4.html"><a href="P4-V4.html#uvoz-statičnih-datotek"><i class="fa fa-check"></i><b>8.3.2</b> Uvoz statičnih datotek</a></li>
+<li class="chapter" data-level="8.3.3" data-path="P4-V4.html"><a href="P4-V4.html#začnemo-s-pisanjem-kode-na-strežniku"><i class="fa fa-check"></i><b>8.3.3</b> Začnemo s pisanjem kode na strežniku</a></li>
+<li class="chapter" data-level="8.3.4" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-objekt-strežnika-in-ga-osnovno-nastavimo"><i class="fa fa-check"></i><b>8.3.4</b> Pripravimo objekt strežnika in ga osnovno nastavimo</a></li>
+<li class="chapter" data-level="8.3.5" data-path="P4-V4.html"><a href="P4-V4.html#strežnik-poženemo"><i class="fa fa-check"></i><b>8.3.5</b> Strežnik poženemo</a></li>
+<li class="chapter" data-level="8.3.6" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-še-manjkajočo-metodo-za-strežbo-statične-vsebine"><i class="fa fa-check"></i><b>8.3.6</b> Pripravimo še manjkajočo metodo za strežbo statične vsebine</a></li>
+<li class="chapter" data-level="8.3.7" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-metodo-za-obvladovanje-napak"><i class="fa fa-check"></i><b>8.3.7</b> Pripravimo metodo za obvladovanje napak</a></li>
+<li class="chapter" data-level="8.3.8" data-path="P4-V4.html"><a href="P4-V4.html#pripravimo-tudi-metodo-ki-vrne-datoteko-odjemalcu"><i class="fa fa-check"></i><b>8.3.8</b> Pripravimo tudi metodo, ki vrne datoteko odjemalcu</a></li>
+<li class="chapter" data-level="8.3.9" data-path="P4-V4.html"><a href="P4-V4.html#preverimo-delovanje-strežbe-statičnih-strani"><i class="fa fa-check"></i><b>8.3.9</b> Preverimo delovanje strežbe statičnih strani</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-statičnih-strani-dodamo-predpomnjenje"><i class="fa fa-check"></i><b>8.4</b> Strežniku statičnih strani dodamo predpomnjenje</a></li>
+<li class="chapter" data-level="8.5" data-path="P4-V4.html"><a href="P4-V4.html#strežniku-dodamo-dinamične-strani"><i class="fa fa-check"></i><b>8.5</b> Strežniku dodamo dinamične strani</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="P4-V4.html"><a href="P4-V4.html#popravimo-nastavitev-strežnika"><i class="fa fa-check"></i><b>8.5.1</b> Popravimo nastavitev strežnika</a></li>
+<li class="chapter" data-level="8.5.2" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-metodo-za-obdelavo-sporočila"><i class="fa fa-check"></i><b>8.5.2</b> Implementiramo metodo za obdelavo sporočila</a></li>
+<li class="chapter" data-level="8.5.3" data-path="P4-V4.html"><a href="P4-V4.html#implementiramo-zahvalo-uporabniku"><i class="fa fa-check"></i><b>8.5.3</b> Implementiramo zahvalo uporabniku</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="P4-V4.html"><a href="P4-V4.html#testiranje-in-dodatno-gradivo"><i class="fa fa-check"></i><b>8.6</b> Testiranje in dodatno gradivo</a></li>
+</ul></li>
+<li class="part"><span><b>II sklop: Arhitektura poslovnega informacijskega sistema</b></span></li>
+<li class="chapter" data-level="9" data-path="DN.html"><a href="DN.html"><i class="fa fa-check"></i><b>9</b> <span class="sklop3 oznaka">DN</span> Spletna aplikacija FRI izletnik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="DN.html"><a href="DN.html#DN1"><i class="fa fa-check"></i><b>9.1</b> Spletna aplikacija <small>(1. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="DN.html"><a href="DN.html#opis-naloge-in-navodila"><i class="fa fa-check"></i><b>9.1.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.2" data-path="DN.html"><a href="DN.html#vzpostavitev-repozitorija"><i class="fa fa-check"></i><b>9.1.2</b> Vzpostavitev repozitorija <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.3" data-path="DN.html"><a href="DN.html#DN11"><i class="fa fa-check"></i><b>9.1.3</b> Skladnja strani in stilska preobrazba <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.4" data-path="DN.html"><a href="DN.html#DN12"><i class="fa fa-check"></i><b>9.1.4</b> Podpora funkcionalnosti na odjemalcu in strežniku <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.1.5" data-path="DN.html"><a href="DN.html#združevanje-sprememb-v-repozitoriju"><i class="fa fa-check"></i><b>9.1.5</b> Združevanje sprememb v repozitoriju <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="DN.html"><a href="DN.html#DN2"><i class="fa fa-check"></i><b>9.2</b> Dopolnitev načrta in implementacija nove funkcionalnosti <small class="skupaj">(2. del)</small></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="DN.html"><a href="DN.html#DN-navodila"><i class="fa fa-check"></i><b>9.2.1</b> Opis naloge in navodila <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.2" data-path="DN.html"><a href="DN.html#DN-ideja"><i class="fa fa-check"></i><b>9.2.2</b> Opis osnovne ideje predloga <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.3" data-path="DN.html"><a href="DN.html#DN-Generiranje-podatkov"><i class="fa fa-check"></i><b>9.2.3</b> Generiranje podatkov <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.4" data-path="DN.html"><a href="DN.html#DN-nacrt"><i class="fa fa-check"></i><b>9.2.4</b> Načrt informacijske rešitve <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+<li class="chapter" data-level="9.2.5" data-path="DN.html"><a href="DN.html#DN-implementacija"><i class="fa fa-check"></i><b>9.2.5</b> Implementacija funkcionalnosti <i class="skrivanje fa-solid fa-circle-exclamation"></i></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="P5.html"><a href="P5.html"><i class="fa fa-check"></i><b>10</b> <span class="sklop2 oznaka">P5</span> Metamodel delovnega sistema in arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="P5.html"><a href="P5.html#metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1</b> Metamodel delovnega sistema</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="P5.html"><a href="P5.html#razmerje-med-informacijskim-sistemom-in-delovnim-sistemom"><i class="fa fa-check"></i><b>10.1.1</b> Razmerje med informacijskim sistemom in delovnim sistemom</a></li>
+<li class="chapter" data-level="10.1.2" data-path="P5.html"><a href="P5.html#različni-pogledi-na-metamodel-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.2</b> Različni pogledi na metamodel delovnega sistema</a></li>
+<li class="chapter" data-level="10.1.3" data-path="P5.html"><a href="P5.html#primeri-metamodelov-delovnega-sistema"><i class="fa fa-check"></i><b>10.1.3</b> Primeri metamodelov delovnega sistema</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="P5.html"><a href="P5.html#arhitektura-poslovnega-informacijskega-sistema"><i class="fa fa-check"></i><b>10.2</b> Arhitektura poslovnega informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="P5.html"><a href="P5.html#uvod-v-poslovne-informacijske-sisteme"><i class="fa fa-check"></i><b>10.2.1</b> Uvod v poslovne informacijske sisteme</a></li>
+<li class="chapter" data-level="10.2.2" data-path="P5.html"><a href="P5.html#poklici-povezani-s-poslovnimi-informacijskimi-sistemi"><i class="fa fa-check"></i><b>10.2.2</b> Poklici, povezani s poslovnimi informacijskimi sistemi</a></li>
+<li class="chapter" data-level="10.2.3" data-path="P5.html"><a href="P5.html#razumevanje-poslovnih-procesov"><i class="fa fa-check"></i><b>10.2.3</b> Razumevanje poslovnih procesov</a></li>
+<li class="chapter" data-level="10.2.4" data-path="P5.html"><a href="P5.html#poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.4</b> Poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.5" data-path="P5.html"><a href="P5.html#primeri-poslovnih-sistemov"><i class="fa fa-check"></i><b>10.2.5</b> Primeri poslovnih sistemov</a></li>
+<li class="chapter" data-level="10.2.6" data-path="P5.html"><a href="P5.html#poslovni-sistemi-in-poslovne-funkcije"><i class="fa fa-check"></i><b>10.2.6</b> Poslovni sistemi in poslovne funkcije</a></li>
+<li class="chapter" data-level="10.2.7" data-path="P5.html"><a href="P5.html#podjetja-in-poslovni-procesi"><i class="fa fa-check"></i><b>10.2.7</b> Podjetja in poslovni procesi</a></li>
+<li class="chapter" data-level="10.2.8" data-path="P5.html"><a href="P5.html#primerjava-največjih-ponudnikov"><i class="fa fa-check"></i><b>10.2.8</b> Primerjava največjih ponudnikov</a></li>
+<li class="chapter" data-level="10.2.9" data-path="P5.html"><a href="P5.html#zgodovina-sistema-sap"><i class="fa fa-check"></i><b>10.2.9</b> Zgodovina sistema SAP</a></li>
+<li class="chapter" data-level="10.2.10" data-path="P5.html"><a href="P5.html#komponente-poslovnih-informacijskih-sistemov"><i class="fa fa-check"></i><b>10.2.10</b> Komponente poslovnih informacijskih sistemov</a></li>
+<li class="chapter" data-level="10.2.11" data-path="P5.html"><a href="P5.html#integracija-poslovnih-aplikacij"><i class="fa fa-check"></i><b>10.2.11</b> Integracija poslovnih aplikacij</a></li>
+<li class="chapter" data-level="10.2.12" data-path="P5.html"><a href="P5.html#elektronska-izmenjava-podatkov"><i class="fa fa-check"></i><b>10.2.12</b> Elektronska izmenjava podatkov</a></li>
+<li class="chapter" data-level="10.2.13" data-path="P5.html"><a href="P5.html#ERP-podrobnosti"><i class="fa fa-check"></i><b>10.2.13</b> ERP</a></li>
+<li class="chapter" data-level="10.2.14" data-path="P5.html"><a href="P5.html#CRM-podrobnosti"><i class="fa fa-check"></i><b>10.2.14</b> CRM</a></li>
+<li class="chapter" data-level="10.2.15" data-path="P5.html"><a href="P5.html#SCM-podrobnosti"><i class="fa fa-check"></i><b>10.2.15</b> SCM</a></li>
+<li class="chapter" data-level="10.2.16" data-path="P5.html"><a href="P5.html#KM-podrobnosti"><i class="fa fa-check"></i><b>10.2.16</b> KM</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="P5-V5.html"><a href="P5-V5.html"><i class="fa fa-check"></i><b>11</b> <span class="sklop2 oznaka">P5</span> → <span class="sklop3 oznaka">V5</span> Povezovanje na podatkovno bazo</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="P5-V5.html"><a href="P5-V5.html#priprava-okolja"><i class="fa fa-check"></i><b>11.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="11.2" data-path="P5-V5.html"><a href="P5-V5.html#razširitev-arhitekture-odjemalecstrežnik-s-podatkovno-bazo"><i class="fa fa-check"></i><b>11.2</b> Razširitev arhitekture odjemalec/strežnik s podatkovno bazo</a></li>
+<li class="chapter" data-level="11.3" data-path="P5-V5.html"><a href="P5-V5.html#chinook-podatkovna-baza"><i class="fa fa-check"></i><b>11.3</b> Chinook podatkovna baza</a></li>
+<li class="chapter" data-level="11.4" data-path="P5-V5.html"><a href="P5-V5.html#poizvedovalni-jezik-sql"><i class="fa fa-check"></i><b>11.4</b> Poizvedovalni jezik SQL</a></li>
+<li class="chapter" data-level="11.5" data-path="P5-V5.html"><a href="P5-V5.html#podatkovna-baza-sqlite"><i class="fa fa-check"></i><b>11.5</b> Podatkovna baza SQLite</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="P5-V5.html"><a href="P5-V5.html#vsebina-podatkovne-baze"><i class="fa fa-check"></i><b>11.5.1</b> Vsebina podatkovne baze</a></li>
+<li class="chapter" data-level="11.5.2" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic"><i class="fa fa-check"></i><b>11.5.2</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.5.3" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-vseh-vrednosti-v-tabeli"><i class="fa fa-check"></i><b>11.5.3</b> Prikaz vseh vrednosti v tabeli</a></li>
+<li class="chapter" data-level="11.5.4" data-path="P5-V5.html"><a href="P5-V5.html#filtriranje-zapisov"><i class="fa fa-check"></i><b>11.5.4</b> Filtriranje zapisov</a></li>
+<li class="chapter" data-level="11.5.5" data-path="P5-V5.html"><a href="P5-V5.html#prikaz-podatkov-iz-več-tabel"><i class="fa fa-check"></i><b>11.5.5</b> Prikaz podatkov iz več tabel</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="P5-V5.html"><a href="P5-V5.html#uporaba-ogrodja-express.js-za-poenostavitev-razvoja-aplikacij"><i class="fa fa-check"></i><b>11.6</b> Uporaba ogrodja Express.js za poenostavitev razvoja aplikacij</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="P5-V5.html"><a href="P5-V5.html#namestitev-knjižnic-1"><i class="fa fa-check"></i><b>11.6.1</b> Namestitev knjižnic</a></li>
+<li class="chapter" data-level="11.6.2" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-brez-uporabe-express"><i class="fa fa-check"></i><b>11.6.2</b> Hello World brez uporabe Express</a></li>
+<li class="chapter" data-level="11.6.3" data-path="P5-V5.html"><a href="P5-V5.html#hello-world-z-express"><i class="fa fa-check"></i><b>11.6.3</b> Hello World z Express</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="P5-V5.html"><a href="P5-V5.html#master-detail-načrtovalski-vzorec"><i class="fa fa-check"></i><b>11.7</b> Master-detail načrtovalski vzorec</a></li>
+<li class="chapter" data-level="11.8" data-path="P5-V5.html"><a href="P5-V5.html#primer-pesmi-po-žanrih"><i class="fa fa-check"></i><b>11.8</b> Primer: Pesmi po žanrih</a>
+<ul>
+<li class="chapter" data-level="11.8.1" data-path="P5-V5.html"><a href="P5-V5.html#potrebne-knjižnice"><i class="fa fa-check"></i><b>11.8.1</b> Potrebne knjižnice</a></li>
+<li class="chapter" data-level="11.8.2" data-path="P5-V5.html"><a href="P5-V5.html#funkcija-ki-v-povratnem-klicu-vrača-seznam-žanrov"><i class="fa fa-check"></i><b>11.8.2</b> Funkcija, ki v povratnem klicu vrača seznam žanrov</a></li>
+<li class="chapter" data-level="11.8.3" data-path="P5-V5.html"><a href="P5-V5.html#zaključek-osnovne-funkcionalnosti-strežnika"><i class="fa fa-check"></i><b>11.8.3</b> Zaključek osnovne funkcionalnosti strežnika</a></li>
+<li class="chapter" data-level="11.8.4" data-path="P5-V5.html"><a href="P5-V5.html#testiranje-osnovne-funkcionalnosti-master"><i class="fa fa-check"></i><b>11.8.4</b> Testiranje osnovne funkcionalnosti (master)</a></li>
+<li class="chapter" data-level="11.8.5" data-path="P5-V5.html"><a href="P5-V5.html#dodajanje-seznama-pesmi-detail"><i class="fa fa-check"></i><b>11.8.5</b> Dodajanje seznama pesmi (detail)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="P6.html"><a href="P6.html"><i class="fa fa-check"></i><b>12</b> <span class="sklop2 oznaka">P6</span> Zgodovina, ključne vloge in vrste IS</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="P6.html"><a href="P6.html#e-poslovanje"><i class="fa fa-check"></i><b>12.1</b> E-poslovanje</a></li>
+<li class="chapter" data-level="12.2" data-path="P6.html"><a href="P6.html#e-trgovanje"><i class="fa fa-check"></i><b>12.2</b> E-trgovanje</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="P6.html"><a href="P6.html#zgodovina-e-trgovanja"><i class="fa fa-check"></i><b>12.2.1</b> Zgodovina e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.2" data-path="P6.html"><a href="P6.html#tehnologije-e-trgovanja"><i class="fa fa-check"></i><b>12.2.2</b> Tehnologije e-trgovanja</a></li>
+<li class="chapter" data-level="12.2.3" data-path="P6.html"><a href="P6.html#osnovne-komponente-e-trgovanja"><i class="fa fa-check"></i><b>12.2.3</b> Osnovne komponente e-trgovanja</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="P6.html"><a href="P6.html#zgodovina-in-ključne-vloge-is"><i class="fa fa-check"></i><b>12.3</b> Zgodovina in ključne vloge IS</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="P6.html"><a href="P6.html#zgodovinski-pregled-pomembnih-dogodkov-v-računalništvu"><i class="fa fa-check"></i><b>12.3.1</b> Zgodovinski pregled pomembnih dogodkov v računalništvu</a></li>
+<li class="chapter" data-level="12.3.2" data-path="P6.html"><a href="P6.html#razvoj-tehnologij"><i class="fa fa-check"></i><b>12.3.2</b> Razvoj tehnologij</a></li>
+<li class="chapter" data-level="12.3.3" data-path="P6.html"><a href="P6.html#razvoj-it-za-podporo-is"><i class="fa fa-check"></i><b>12.3.3</b> Razvoj IT za podporo IS</a></li>
+<li class="chapter" data-level="12.3.4" data-path="P6.html"><a href="P6.html#razvoj-informacijske-podpore-po-ravneh-odločanja"><i class="fa fa-check"></i><b>12.3.4</b> Razvoj informacijske podpore po ravneh odločanja</a></li>
+<li class="chapter" data-level="12.3.5" data-path="P6.html"><a href="P6.html#zgodovina-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.3.5</b> Zgodovina informacijskih sistemov</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="P6.html"><a href="P6.html#vrste-informacijskih-sistemov"><i class="fa fa-check"></i><b>12.4</b> Vrste informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-poslovanju"><i class="fa fa-check"></i><b>12.4.1</b> Sistemi za podporo poslovanju</a></li>
+<li class="chapter" data-level="12.4.2" data-path="P6.html"><a href="P6.html#sistemi-za-podporo-odločanju"><i class="fa fa-check"></i><b>12.4.2</b> Sistemi za podporo odločanju</a></li>
+<li class="chapter" data-level="12.4.3" data-path="P6.html"><a href="P6.html#specializirani-sistemi"><i class="fa fa-check"></i><b>12.4.3</b> Specializirani sistemi</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="P6-V6.html"><a href="P6-V6.html"><i class="fa fa-check"></i><b>13</b> <span class="sklop2 oznaka">P6</span> → <span class="sklop3 oznaka">V6</span> Seja, košarica, XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="P6-V6.html"><a href="P6-V6.html#priprava-okolja-1"><i class="fa fa-check"></i><b>13.1</b> Priprava okolja</a></li>
+<li class="chapter" data-level="13.2" data-path="P6-V6.html"><a href="P6-V6.html#namestitev-knjižnic-in-vključitev-podatkovne-baze"><i class="fa fa-check"></i><b>13.2</b> Namestitev knjižnic in vključitev podatkovne baze</a></li>
+<li class="chapter" data-level="13.3" data-path="P6-V6.html"><a href="P6-V6.html#seja"><i class="fa fa-check"></i><b>13.3</b> Seja</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="P6-V6.html"><a href="P6-V6.html#globalne-spremenljivke-vs.-seja"><i class="fa fa-check"></i><b>13.3.1</b> Globalne spremenljivke vs. seja</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="P6-V6.html"><a href="P6-V6.html#nakupovalna-košarica"><i class="fa fa-check"></i><b>13.4</b> Nakupovalna košarica</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="P6-V6.html"><a href="P6-V6.html#primer-nakupovanja-pesmi-iz-seznama-100-najbolje-prodajanih"><i class="fa fa-check"></i><b>13.4.1</b> Primer nakupovanja pesmi iz seznama 100 najbolje prodajanih</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="P6-V6.html"><a href="P6-V6.html#xml-in-e-slog"><i class="fa fa-check"></i><b>13.5</b> XML in e-SLOG</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="P6-V6.html"><a href="P6-V6.html#dokumentacija"><i class="fa fa-check"></i><b>13.5.1</b> Dokumentacija</a></li>
+<li class="chapter" data-level="13.5.2" data-path="P6-V6.html"><a href="P6-V6.html#dopolnitve-primera-nakupovanja-pesmi"><i class="fa fa-check"></i><b>13.5.2</b> Dopolnitve primera nakupovanja pesmi</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III sklop: Analiza, načrtovanje in razvoj poslovnih informacijskih sistemov</b></span></li>
+<li class="chapter" data-level="14" data-path="P7.html"><a href="P7.html"><i class="fa fa-check"></i><b>14</b> <span class="sklop3 oznaka">P7</span> Razvojni modeli informacijskih sistemov in metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="P7.html"><a href="P7.html#zgodovina-razvoja-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.1</b> Zgodovina razvoja informacijskih sistemov</a></li>
+<li class="chapter" data-level="14.2" data-path="P7.html"><a href="P7.html#razvojni-model-informacijskega-sistema"><i class="fa fa-check"></i><b>14.2</b> Razvojni model informacijskega sistema</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="P7.html"><a href="P7.html#SDLC-studija-izvedljivosti"><i class="fa fa-check"></i><b>14.2.1</b> Študija izvedljivosti</a></li>
+<li class="chapter" data-level="14.2.2" data-path="P7.html"><a href="P7.html#SDLC-zbiranje-zahtev"><i class="fa fa-check"></i><b>14.2.2</b> Zbiranje zahtev</a></li>
+<li class="chapter" data-level="14.2.3" data-path="P7.html"><a href="P7.html#SDLC-analiza"><i class="fa fa-check"></i><b>14.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="14.2.4" data-path="P7.html"><a href="P7.html#SDLC-nacrt"><i class="fa fa-check"></i><b>14.2.4</b> Načrtovanje</a></li>
+<li class="chapter" data-level="14.2.5" data-path="P7.html"><a href="P7.html#SDLC-implementacija"><i class="fa fa-check"></i><b>14.2.5</b> Implementacija</a></li>
+<li class="chapter" data-level="14.2.6" data-path="P7.html"><a href="P7.html#SDLC-pregled-in-vzdrzevanje"><i class="fa fa-check"></i><b>14.2.6</b> Pregled in vzdrževanje</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="P7.html"><a href="P7.html#metodologija"><i class="fa fa-check"></i><b>14.3</b> Metodologija</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="P7.html"><a href="P7.html#tehnike"><i class="fa fa-check"></i><b>14.3.1</b> Tehnike</a></li>
+<li class="chapter" data-level="14.3.2" data-path="P7.html"><a href="P7.html#orodja"><i class="fa fa-check"></i><b>14.3.2</b> Orodja</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="P7.html"><a href="P7.html#variante-razvojnih-modelov-informacijskih-sistemov"><i class="fa fa-check"></i><b>14.4</b> Variante razvojnih modelov informacijskih sistemov</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="P7.html"><a href="P7.html#Zaporedni-razvojni-model"><i class="fa fa-check"></i><b>14.4.1</b> Zaporedni oz. slapovni razvojni model</a></li>
+<li class="chapter" data-level="14.4.2" data-path="P7.html"><a href="P7.html#Iterativni-razvojni-model"><i class="fa fa-check"></i><b>14.4.2</b> Iterativni razvojni model</a></li>
+<li class="chapter" data-level="14.4.3" data-path="P7.html"><a href="P7.html#Prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.3</b> Prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.4" data-path="P7.html"><a href="P7.html#Iterativni-prototipni-razvojni-model"><i class="fa fa-check"></i><b>14.4.4</b> Iterativni/prototipni razvojni model</a></li>
+<li class="chapter" data-level="14.4.5" data-path="P7.html"><a href="P7.html#Inkrementalni-razvojni-model"><i class="fa fa-check"></i><b>14.4.5</b> Inkrementalni razvojni model</a></li>
+<li class="chapter" data-level="14.4.6" data-path="P7.html"><a href="P7.html#iterativnost-vs.-inkrementalnost"><i class="fa fa-check"></i><b>14.4.6</b> Iterativnost vs. inkrementalnost</a></li>
+<li class="chapter" data-level="14.4.7" data-path="P7.html"><a href="P7.html#Kombinirani-razvojni-model"><i class="fa fa-check"></i><b>14.4.7</b> Kombinirani razvojni model</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="P7.html"><a href="P7.html#metodologije-razvoja"><i class="fa fa-check"></i><b>14.5</b> Metodologije razvoja</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="P7.html"><a href="P7.html#različne-opredelitve-v-literaturi"><i class="fa fa-check"></i><b>14.5.1</b> Različne opredelitve v literaturi</a></li>
+<li class="chapter" data-level="14.5.2" data-path="P7.html"><a href="P7.html#metodologija-v-terminološkem-slovarju"><i class="fa fa-check"></i><b>14.5.2</b> Metodologija v terminološkem slovarju</a></li>
+<li class="chapter" data-level="14.5.3" data-path="P7.html"><a href="P7.html#naša-opredelitev"><i class="fa fa-check"></i><b>14.5.3</b> Naša opredelitev</a></li>
+<li class="chapter" data-level="14.5.4" data-path="P7.html"><a href="P7.html#elementi-metodologije"><i class="fa fa-check"></i><b>14.5.4</b> Elementi metodologije</a></li>
+<li class="chapter" data-level="14.5.5" data-path="P7.html"><a href="P7.html#upravljanje-z-znanjem"><i class="fa fa-check"></i><b>14.5.5</b> Upravljanje z znanjem</a></li>
+<li class="chapter" data-level="14.5.6" data-path="P7.html"><a href="P7.html#formalna-vs.-neformalna-metodologija"><i class="fa fa-check"></i><b>14.5.6</b> Formalna vs. neformalna metodologija</a></li>
+<li class="chapter" data-level="14.5.7" data-path="P7.html"><a href="P7.html#agilni-koncepti-in-metodologije"><i class="fa fa-check"></i><b>14.5.7</b> Agilni koncepti in metodologije</a></li>
+<li class="chapter" data-level="14.5.8" data-path="P7.html"><a href="P7.html#metamodel-metodologije-razvoja-informacijskega-sistema"><i class="fa fa-check"></i><b>14.5.8</b> Metamodel metodologije razvoja informacijskega sistema</a></li>
+<li class="chapter" data-level="14.5.9" data-path="P7.html"><a href="P7.html#ogrodja-za-primerjavo-metodologij"><i class="fa fa-check"></i><b>14.5.9</b> Ogrodja za primerjavo metodologij</a></li>
+<li class="chapter" data-level="14.5.10" data-path="P7.html"><a href="P7.html#učinkovitost-različnih-oblik-komunikacije"><i class="fa fa-check"></i><b>14.5.10</b> Učinkovitost različnih oblik komunikacije</a></li>
+<li class="chapter" data-level="14.5.11" data-path="P7.html"><a href="P7.html#vpliv-velikosti-na-posebnosti-razvojne-skupine"><i class="fa fa-check"></i><b>14.5.11</b> Vpliv velikosti na posebnosti razvojne skupine</a></li>
+<li class="chapter" data-level="14.5.12" data-path="P7.html"><a href="P7.html#Kriticni-projekti"><i class="fa fa-check"></i><b>14.5.12</b> Kritični projekti</a></li>
+<li class="chapter" data-level="14.5.13" data-path="P7.html"><a href="P7.html#Komunikacija-in-povratne-informacije"><i class="fa fa-check"></i><b>14.5.13</b> Komunikacija in povratne informacije</a></li>
+<li class="chapter" data-level="14.5.14" data-path="P7.html"><a href="P7.html#primer-google-inženirji-vs.-managerji"><i class="fa fa-check"></i><b>14.5.14</b> Primer: Google: Inženirji vs. managerji</a></li>
+<li class="chapter" data-level="14.5.15" data-path="P7.html"><a href="P7.html#Discipliniranost-izkusnje-in-znanje"><i class="fa fa-check"></i><b>14.5.15</b> Discipliniranost, izkušnje in znanje</a></li>
+<li class="chapter" data-level="14.5.16" data-path="P7.html"><a href="P7.html#Odkloni-od-nacrtovane-resitve"><i class="fa fa-check"></i><b>14.5.16</b> Odkloni od načrtovane rešitve</a></li>
+<li class="chapter" data-level="14.5.17" data-path="P7.html"><a href="P7.html#evolucija-razvoja-programske-opreme"><i class="fa fa-check"></i><b>14.5.17</b> Evolucija razvoja programske opreme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="P8.html"><a href="P8.html"><i class="fa fa-check"></i><b>15</b> <span class="sklop3 oznaka">P8</span> Strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="P8.html"><a href="P8.html#uvod-v-strukturni-razvoj"><i class="fa fa-check"></i><b>15.1</b> Uvod v strukturni razvoj</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="P8.html"><a href="P8.html#Strukturni-zajem-in-specifikaija-zahtev"><i class="fa fa-check"></i><b>15.1.1</b> Zajem in specifikacija zahtev</a></li>
+<li class="chapter" data-level="15.1.2" data-path="P8.html"><a href="P8.html#Strukturni-analiza"><i class="fa fa-check"></i><b>15.1.2</b> Analiza</a></li>
+<li class="chapter" data-level="15.1.3" data-path="P8.html"><a href="P8.html#Strukturni-nacrtovanje"><i class="fa fa-check"></i><b>15.1.3</b> Načrtovanje</a></li>
+<li class="chapter" data-level="15.1.4" data-path="P8.html"><a href="P8.html#Strukturni-testiranje"><i class="fa fa-check"></i><b>15.1.4</b> Testiranje</a></li>
+<li class="chapter" data-level="15.1.5" data-path="P8.html"><a href="P8.html#Strukturni-namestitev-in-uvedba"><i class="fa fa-check"></i><b>15.1.5</b> Namestitev in uvedba</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="P8.html"><a href="P8.html#podatkovno-načrtovanje"><i class="fa fa-check"></i><b>15.2</b> Podatkovno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="P8.html"><a href="P8.html#relacijski-model"><i class="fa fa-check"></i><b>15.2.1</b> Relacijski model</a></li>
+<li class="chapter" data-level="15.2.2" data-path="P8.html"><a href="P8.html#matematična-opredelitev"><i class="fa fa-check"></i><b>15.2.2</b> Matematična opredelitev</a></li>
+<li class="chapter" data-level="15.2.3" data-path="P8.html"><a href="P8.html#entitetni-diagram"><i class="fa fa-check"></i><b>15.2.3</b> Entitetni diagram</a></li>
+<li class="chapter" data-level="15.2.4" data-path="P8.html"><a href="P8.html#različne-ravni-podatkovnega-modeliranja"><i class="fa fa-check"></i><b>15.2.4</b> Različne ravni podatkovnega modeliranja</a></li>
+<li class="chapter" data-level="15.2.5" data-path="P8.html"><a href="P8.html#Postopek-konceptualno-nacrtovanje"><i class="fa fa-check"></i><b>15.2.5</b> Konceptualno načrtovanje</a></li>
+<li class="chapter" data-level="15.2.6" data-path="P8.html"><a href="P8.html#prehod-iz-konceptualnega-v-logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.6</b> Prehod iz konceptualnega v logično načrtovanje</a></li>
+<li class="chapter" data-level="15.2.7" data-path="P8.html"><a href="P8.html#logično-načrtovanje"><i class="fa fa-check"></i><b>15.2.7</b> Logično načrtovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="P8.html"><a href="P8.html#Postopek-normalizacija"><i class="fa fa-check"></i><b>15.3</b> Normalizacija</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="P8.html"><a href="P8.html#normalna-oblika-1.-no"><i class="fa fa-check"></i><b>15.3.1</b> 1. normalna oblika (1. NO)</a></li>
+<li class="chapter" data-level="15.3.2" data-path="P8.html"><a href="P8.html#normalna-oblika-2.-no"><i class="fa fa-check"></i><b>15.3.2</b> 2. normalna oblika (2. NO)</a></li>
+<li class="chapter" data-level="15.3.3" data-path="P8.html"><a href="P8.html#normalna-oblika-3.-no"><i class="fa fa-check"></i><b>15.3.3</b> 3. normalna oblika (3. NO)</a></li>
+<li class="chapter" data-level="15.3.4" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-4.-pno"><i class="fa fa-check"></i><b>15.3.4</b> 4. poslovna normalna oblika (4. PNO)</a></li>
+<li class="chapter" data-level="15.3.5" data-path="P8.html"><a href="P8.html#poslovna-normalna-oblika-5.-pno"><i class="fa fa-check"></i><b>15.3.5</b> 5. poslovna normalna oblika (5. PNO)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="P8.html"><a href="P8.html#denormalizacija"><i class="fa fa-check"></i><b>15.4</b> Denormalizacija</a></li>
+<li class="chapter" data-level="15.5" data-path="P8.html"><a href="P8.html#primeri-normalizacije"><i class="fa fa-check"></i><b>15.5</b> Primeri normalizacije</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="P8.html"><a href="P8.html#normalizacija-računa"><i class="fa fa-check"></i><b>15.5.1</b> Normalizacija računa</a></li>
+<li class="chapter" data-level="15.5.2" data-path="P8.html"><a href="P8.html#normalizacija-reverza"><i class="fa fa-check"></i><b>15.5.2</b> Normalizacija reverza</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="P8.html"><a href="P8.html#procesni-vidik"><i class="fa fa-check"></i><b>15.6</b> Procesni vidik</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="P8.html"><a href="P8.html#dekompozicijski-diagrami"><i class="fa fa-check"></i><b>15.6.1</b> Dekompozicijski diagrami</a></li>
+<li class="chapter" data-level="15.6.2" data-path="P8.html"><a href="P8.html#procesna-logika"><i class="fa fa-check"></i><b>15.6.2</b> Procesna logika</a></li>
+<li class="chapter" data-level="15.6.3" data-path="P8.html"><a href="P8.html#BPMN-tehnika"><i class="fa fa-check"></i><b>15.6.3</b> BPMN</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="P9.html"><a href="P9.html"><i class="fa fa-check"></i><b>16</b> <span class="sklop3 oznaka">P9</span> Objektno usmerjena analiza, načrtovanje in modeliranje</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="P9.html"><a href="P9.html#objektno-usmerjena-analiza-in-načrtovanje"><i class="fa fa-check"></i><b>16.1</b> Objektno usmerjena analiza in načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="P9.html"><a href="P9.html#OO-thinking"><i class="fa fa-check"></i><b>16.1.1</b> Objektno usmerjeno razmišljanje</a></li>
+<li class="chapter" data-level="16.1.2" data-path="P9.html"><a href="P9.html#načrtovanje-v-procesu-razvoja-programske-opreme"><i class="fa fa-check"></i><b>16.1.2</b> Načrtovanje v procesu razvoja programske opreme</a></li>
+<li class="chapter" data-level="16.1.3" data-path="P9.html"><a href="P9.html#načrtovanje-z-upoštevanjem-kakovosti"><i class="fa fa-check"></i><b>16.1.3</b> Načrtovanje z upoštevanjem kakovosti</a></li>
+<li class="chapter" data-level="16.1.4" data-path="P9.html"><a href="P9.html#razred-odgovornost-sodelovanje"><i class="fa fa-check"></i><b>16.1.4</b> Razred, odgovornost, sodelovanje</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="P9.html"><a href="P9.html#objektno-usmerjeno-načrtovanje"><i class="fa fa-check"></i><b>16.2</b> Objektno usmerjeno načrtovanje</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="P9.html"><a href="P9.html#izdelava-modelov-načrta"><i class="fa fa-check"></i><b>16.2.1</b> Izdelava modelov načrta</a></li>
+<li class="chapter" data-level="16.2.2" data-path="P9.html"><a href="P9.html#razvoj-programskih-jezikov"><i class="fa fa-check"></i><b>16.2.2</b> Razvoj programskih jezikov</a></li>
+<li class="chapter" data-level="16.2.3" data-path="P9.html"><a href="P9.html#stiri-nacrtovalska-nacela"><i class="fa fa-check"></i><b>16.2.3</b> Štiri načrtovalska načela</a></li>
+<li class="chapter" data-level="16.2.4" data-path="P9.html"><a href="P9.html#načrtovalska-struktura-v-programskem-jeziku-java-in-uml-razrednih-diagramih"><i class="fa fa-check"></i><b>16.2.4</b> Načrtovalska struktura v programskem jeziku Java in UML razrednih diagramih</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="P9.html"><a href="P9.html#načrtovalska-načela"><i class="fa fa-check"></i><b>16.3</b> Načrtovalska načela</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="P9.html"><a href="P9.html#vrednotenje-kompleksnosti-načrta"><i class="fa fa-check"></i><b>16.3.1</b> Vrednotenje kompleksnosti načrta</a></li>
+<li class="chapter" data-level="16.3.2" data-path="P9.html"><a href="P9.html#načelo-ločevanja-pomislekov"><i class="fa fa-check"></i><b>16.3.2</b> Načelo ločevanja pomislekov</a></li>
+<li class="chapter" data-level="16.3.3" data-path="P9.html"><a href="P9.html#skrivanje-informacij"><i class="fa fa-check"></i><b>16.3.3</b> Skrivanje informacij</a></li>
+<li class="chapter" data-level="16.3.4" data-path="P9.html"><a href="P9.html#konceptualna-celovitost"><i class="fa fa-check"></i><b>16.3.4</b> Konceptualna celovitost</a></li>
+<li class="chapter" data-level="16.3.5" data-path="P9.html"><a href="P9.html#načela-posploševanja"><i class="fa fa-check"></i><b>16.3.5</b> Načela posploševanja</a></li>
+<li class="chapter" data-level="16.3.6" data-path="P9.html"><a href="P9.html#preverjanje-modela"><i class="fa fa-check"></i><b>16.3.6</b> Preverjanje modela</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="P10.html"><a href="P10.html"><i class="fa fa-check"></i><b>17</b> <span class="sklop3 oznaka">P10</span> Objektni razvoj, simulacija razvoja informacijskega sistema za bankomat in simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="P10.html"><a href="P10.html#objektni-razvoj"><i class="fa fa-check"></i><b>17.1</b> Objektni razvoj</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="P10.html"><a href="P10.html#rup-proces-razvoja"><i class="fa fa-check"></i><b>17.1.1</b> RUP proces razvoja</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="P10.html"><a href="P10.html#simulacija-razvoja-informacijskega-sistema-za-bankomat"><i class="fa fa-check"></i><b>17.2</b> Simulacija razvoja informacijskega sistema za bankomat</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="P10.html"><a href="P10.html#predstavitev-problema"><i class="fa fa-check"></i><b>17.2.1</b> Predstavitev problema</a></li>
+<li class="chapter" data-level="17.2.2" data-path="P10.html"><a href="P10.html#Bankomat-Zbiranje-zahtev"><i class="fa fa-check"></i><b>17.2.2</b> Zajem zahtev</a></li>
+<li class="chapter" data-level="17.2.3" data-path="P10.html"><a href="P10.html#Bankomat-Analiza"><i class="fa fa-check"></i><b>17.2.3</b> Analiza</a></li>
+<li class="chapter" data-level="17.2.4" data-path="P10.html"><a href="P10.html#Bankomat-Pregledni-nacrt"><i class="fa fa-check"></i><b>17.2.4</b> Pregledni načrt</a></li>
+<li class="chapter" data-level="17.2.5" data-path="P10.html"><a href="P10.html#Bankomat-Podroben-nacrt"><i class="fa fa-check"></i><b>17.2.5</b> Podroben načrt</a></li>
+<li class="chapter" data-level="17.2.6" data-path="P10.html"><a href="P10.html#Bankomat-Implementacija"><i class="fa fa-check"></i><b>17.2.6</b> Implementacija</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="P10.html"><a href="P10.html#Simulacija-projekta"><i class="fa fa-check"></i><b>17.3</b> Simulacija projekta</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="P10.html"><a href="P10.html#pravila"><i class="fa fa-check"></i><b>17.3.1</b> Pravila</a></li>
+<li class="chapter" data-level="17.3.2" data-path="P10.html"><a href="P10.html#izračun-točk-simulacije"><i class="fa fa-check"></i><b>17.3.2</b> Izračun točk simulacije</a></li>
+<li class="chapter" data-level="17.3.3" data-path="P10.html"><a href="P10.html#potek-simulacije"><i class="fa fa-check"></i><b>17.3.3</b> Potek simulacije</a></li>
+<li class="chapter" data-level="17.3.4" data-path="P10.html"><a href="P10.html#gradivo"><i class="fa fa-check"></i><b>17.3.4</b> Gradivo</a></li>
+<li class="chapter" data-level="17.3.5" data-path="P10.html"><a href="P10.html#nakljucni-dogodki-simulacije"><i class="fa fa-check"></i><b>17.3.5</b> Naključni dogodki pri simulaciji</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV sklop: Infrastruktura in trendi</b></span></li>
+<li class="chapter" data-level="18" data-path="P11.html"><a href="P11.html"><i class="fa fa-check"></i><b>18</b> <span class="sklop4 oznaka">P11</span> Semantični splet in tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="P11.html"><a href="P11.html#semantični-splet"><i class="fa fa-check"></i><b>18.1</b> Semantični splet</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="P11.html"><a href="P11.html#splet-v-številkah"><i class="fa fa-check"></i><b>18.1.1</b> Splet v številkah</a></li>
+<li class="chapter" data-level="18.1.2" data-path="P11.html"><a href="P11.html#iskalniki-najdejo-le-del-spleta"><i class="fa fa-check"></i><b>18.1.2</b> Iskalniki “najdejo” le del spleta</a></li>
+<li class="chapter" data-level="18.1.3" data-path="P11.html"><a href="P11.html#vloga-svetovnega-spleta"><i class="fa fa-check"></i><b>18.1.3</b> Vloga svetovnega spleta</a></li>
+<li class="chapter" data-level="18.1.4" data-path="P11.html"><a href="P11.html#semantična-integracija-podatkov"><i class="fa fa-check"></i><b>18.1.4</b> Semantična integracija podatkov</a></li>
+<li class="chapter" data-level="18.1.5" data-path="P11.html"><a href="P11.html#primer-organizacije-potovanj"><i class="fa fa-check"></i><b>18.1.5</b> Primer organizacije potovanj</a></li>
+<li class="chapter" data-level="18.1.6" data-path="P11.html"><a href="P11.html#osnova-so-podatki"><i class="fa fa-check"></i><b>18.1.6</b> Osnova so podatki</a></li>
+<li class="chapter" data-level="18.1.7" data-path="P11.html"><a href="P11.html#semantični-splet-1"><i class="fa fa-check"></i><b>18.1.7</b> Semantični splet</a></li>
+<li class="chapter" data-level="18.1.8" data-path="P11.html"><a href="P11.html#web-x"><i class="fa fa-check"></i><b>18.1.8</b> Web X</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="P11.html"><a href="P11.html#tehnologija-veriženja-blokov"><i class="fa fa-check"></i><b>18.2</b> Tehnologija veriženja blokov</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="P11.html"><a href="P11.html#uvod-v-osnovne-pojme"><i class="fa fa-check"></i><b>18.2.1</b> Uvod v osnovne pojme</a></li>
+<li class="chapter" data-level="18.2.2" data-path="P11.html"><a href="P11.html#osnovni-princip-delovanja"><i class="fa fa-check"></i><b>18.2.2</b> Osnovni princip delovanja</a></li>
+<li class="chapter" data-level="18.2.3" data-path="P11.html"><a href="P11.html#zgodovinski-pregled-razvoja-in-trendov-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.3</b> Zgodovinski pregled razvoja in trendov tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.4" data-path="P11.html"><a href="P11.html#mehanizmi-soglasja"><i class="fa fa-check"></i><b>18.2.4</b> Mehanizmi soglasja</a></li>
+<li class="chapter" data-level="18.2.5" data-path="P11.html"><a href="P11.html#področja-uporabe-tehnologije-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.5</b> Področja uporabe tehnologije veriženja blokov</a></li>
+<li class="chapter" data-level="18.2.6" data-path="P11.html"><a href="P11.html#pametne-pogodbe"><i class="fa fa-check"></i><b>18.2.6</b> Pametne pogodbe</a></li>
+<li class="chapter" data-level="18.2.7" data-path="P11.html"><a href="P11.html#kdaj-uporabiti-tehnologijo-veriženja-blokov"><i class="fa fa-check"></i><b>18.2.7</b> Kdaj uporabiti tehnologijo veriženja blokov?</a></li>
+<li class="chapter" data-level="18.2.8" data-path="P11.html"><a href="P11.html#projekti-na-fakulteti"><i class="fa fa-check"></i><b>18.2.8</b> Projekti na fakulteti</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="P12.html"><a href="P12.html"><i class="fa fa-check"></i><b>19</b> <span class="sklop5 oznaka">P12</span> Računalništvo v oblaku, IT varnost in Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="P12.html"><a href="P12.html#računalništvo-v-oblaku"><i class="fa fa-check"></i><b>19.1</b> Računalništvo v oblaku</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="P12.html"><a href="P12.html#izbira-oblačne-storitve"><i class="fa fa-check"></i><b>19.1.1</b> Izbira oblačne storitve</a></li>
+<li class="chapter" data-level="19.1.2" data-path="P12.html"><a href="P12.html#realizacija-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.2</b> Realizacija računalništva v oblaku</a></li>
+<li class="chapter" data-level="19.1.3" data-path="P12.html"><a href="P12.html#virtualizacija"><i class="fa fa-check"></i><b>19.1.3</b> Virtualizacija</a></li>
+<li class="chapter" data-level="19.1.4" data-path="P12.html"><a href="P12.html#modeli-računalništva-v-oblaku"><i class="fa fa-check"></i><b>19.1.4</b> Modeli računalništva v oblaku</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="P12.html"><a href="P12.html#it-varnost"><i class="fa fa-check"></i><b>19.2</b> IT varnost</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="P12.html"><a href="P12.html#napadi"><i class="fa fa-check"></i><b>19.2.1</b> Napadi</a></li>
+<li class="chapter" data-level="19.2.2" data-path="P12.html"><a href="P12.html#najboljše-prakse-protiukrepov"><i class="fa fa-check"></i><b>19.2.2</b> Najboljše prakse protiukrepov</a></li>
+<li class="chapter" data-level="19.2.3" data-path="P12.html"><a href="P12.html#postopek-razkrivanja-ranljivosti"><i class="fa fa-check"></i><b>19.2.3</b> Postopek razkrivanja ranljivosti</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="P12.html"><a href="P12.html#marshmallow-challenge"><i class="fa fa-check"></i><b>19.3</b> Marshmallow challenge</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="P12.html"><a href="P12.html#izziv"><i class="fa fa-check"></i><b>19.3.1</b> Izziv</a></li>
+<li class="chapter" data-level="19.3.2" data-path="P12.html"><a href="P12.html#zaključki"><i class="fa fa-check"></i><b>19.3.2</b> Zaključki</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="literatura.html"><a href="literatura.html"><i class="fa fa-check"></i>Literatura</a></li>
+<li class="divider"></li>
+<li><a href="https://ucilnica.fri.uni-lj.si/course/view.php?id=54">eUčilnica</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="index.html">Osnove informacijskih sistemov 2023/2024</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="P1" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Poglavje 1</span> <span class="sklop1 oznaka">P1</span> Upravljanje IT<a href="P1.html#P1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="vrstica">
+<img src="assets/img/ninja/ninja_03_go_right.png">
+<h3>
+<span class="sklop1 oznaka">P1</span>
+</h3>
+</div>
+<div id="ogrodje-digitalne-preobrazbe" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Ogrodje digitalne preobrazbe<a href="P1.html#ogrodje-digitalne-preobrazbe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ogrodje digitalne preobrazbe s ključnimi elementi ljudi, procesov in tehnologij, je osnovni nabor orodij, ki ga uporabljajo vodje poslovnih sistemov za upravljanje organizacijskih sprememb in ima bogato zgodovino, saj sega v šestdeseta leta prejšnjega stoletja. <a href="https://en.wikipedia.org/wiki/Harold_Leavitt"><i class="fa-brands fa-wikipedia-w"></i>Harold Leavitt</a> je z diamantnim model <em>(angl. <a href="https://cio-wiki.org/wiki/Leavitt%27s_Alignment_Model"><i class="fa-brands fa-wikipedia-w"></i>Diamond model</a>)</em> postavil temelje razumevanja zapletenega ravnovesja med strukturo, ljudmi, tehnologijo in nalogami v organizaciji. Lewitt je trdil, da sprememba ena komponente vedno vpliva na druge, kar zahteva celovit pristop k upravljanju sprememb.</p>
+<p>Lewittov model se je sčasoma razvil in poenostavil iz diamantnega modela v zlati trikotnik <em>(angl. Golden triangle)</em> ljudi, procesov in tehnologije. To evolucijo je poganjalo združevanje strukture in nalog v to, kar sedaj imenujemo proces. Tako smo prišli do poenostavljenega ogrodja, ki ga je v devetdesetih letih prejšnjega stoletja populariziral <a href="https://en.wikipedia.org/wiki/Bruce_Schneier"><i class="fa-brands fa-wikipedia-w"></i>Bruce Schneier</a>. Ta različica je postala nova poslovna mantra, ki poudarja potrebo po ravnovesju in prilagodljivosti v vseh treh komponentah za doseganje uspešnih sprememb.</p>
+<p>Kot prikazuje slika <a href="P1.html#fig:slika-ogrodje-digitalne-preobrazbe#fig:slika-ogrodje-digitalne-preobrazbe">1.1</a>, v trenutni digitalni dobi podatki delujejo kot osrednji element ogrodja digitalne preobrazbe in obogatijo vsako komponento z uporabnimi vpogledi ter omogočajo bolj fokusiran pristop k digitalni preobrazbi. Vključitev podatkov v središče ogrodja pomeni tudi širše razumevanje njihove vloge pri doseganju uspešne digitalne transformacije.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slika-ogrodje-digitalne-preobrazbe"></span>
+<img src="assets/img/Ogrodje_digitalne_preobrazbe.png" alt="Ključni elementi za posodobitev poslovanja v okviru **ogrodja digitalne preobrazbe**" width="800" />
+<p class="caption">
+Slika 1.1: Ključni elementi za posodobitev poslovanja v okviru <strong>ogrodja digitalne preobrazbe</strong>
+</p>
+</div>
+<p>Podatki niso zgolj rezultat tehnologije, ampak strateški vir, ki omogoča rast ljudi in optimizacijo procesov. Omogoča navigacijo po zapleteni digitalni krajini, od povečanja medsebojnega sodelovanja akterjev do napovedovanja tržnih trendov in zmanjševanja tveganj.</p>
+</div>
+<div id="uvod-1" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Uvod<a href="P1.html#uvod-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>V okviru tega predavanja želimo doseči naslednje cilje:</p>
+<ol style="list-style-type: decimal">
+<li>opredeliti pojem <strong>upravljanja IT</strong> oz. <strong>upravljanja informatike</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Corporate_governance_of_information_technology"><i class="fa-brands fa-wikipedia-w"></i>IT governance</a>)</em> in ga razložiti (glej poglavje <a href="P1.html#upravljanje-it-in-vloga-informatike">1.3</a>),</li>
+<li>opredeliti <strong>ogrodje za upravljanje IT</strong> (glej poglavje <a href="P1.html#ogrodje-za-upravljanje-it">1.4</a>),
+<ul>
+<li>Upravljanje informatike pomeni sprejemanje odločitev o IT, odločanje o tem, kdo bo sprejel te odločitve in nato, kako se bodo te odločitve sprejele.</li>
+</ul></li>
+<li>zagotoviti mehanizem za uskladitev IT s poslovno strategijo in cilji organizacije, kjer bomo uporabili konstrukt <strong>delovnega modela</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Operating_model"><i class="fa-brands fa-wikipedia-w"></i>Operating Model</a>)</em> in zrelosti <strong>arhitekture podjetja</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Enterprise_architecture"><i class="fa-brands fa-wikipedia-w"></i>Enterprise Architecture (<strong>EA</strong>)</a>)</em>.</li>
+</ol>
+<p>Prvo vprašanje, ki si ga moramo postaviti je: <strong>zakaj nas to sploh zanima?</strong> Na sliki <a href="P1.html#fig:delezStroskovIT#fig:delezStroskovIT">1.2</a> so prikazane naložbe v IT s strani podjetij v ZDA. Opazimo lahko, da <strong>stroški za upravljanje IT</strong> v podjetjih z leti <strong>naraščajo</strong>, kjer povprečna organizacija porabi <span class="math inline">\(5,7\ \%\)</span> svojih prihodkov za IT.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:delezStroskovIT"></span>
+<img src="assets/img/SIM_IT_Trends_Study_Average_IT_Spending.png" alt="Povprečni **stroški za IT** kot **delež prihodkov** glede na [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;SIM IT Trends Study](https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf)" width="600" />
+<p class="caption">
+Slika 1.2: Povprečni <strong>stroški za IT</strong> kot <strong>delež prihodkov</strong> glede na <a href="https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf"><i class='fa-solid fa-earth-europe'></i>SIM IT Trends Study</a>
+</p>
+</div>
+<p>Če imate približno 1 milijardo <span class="math inline">\((10^9)\)</span> prihodkov, to pomeni, da letno porabite približno 57 milijonov <span class="math inline">\((10^6)\)</span> za investicije v IT.</p>
+<p>Prav tako se povečuje <strong>delež podjetij</strong>, ki namenjajo za <strong>stroške IT</strong> vedno <strong>večji delež prihodkov</strong>, kot to prikazuje slika <a href="P1.html#fig:delez-organizacij-gor-dol-stagnacija#fig:delez-organizacij-gor-dol-stagnacija">1.3</a>. Raziskava je namreč pokazala, da več kot <span class="math inline">\(80\ \%\)</span> vseh organizacij naložbe v IT povečuje.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:delez-organizacij-gor-dol-stagnacija"></span>
+<img src="assets/img/SIM_IT_Trends_Study_Percentage_of_organizations_change.png" alt="**Delež podjetij**, ki **spreminjajo proračune za IT** glede na [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;SIM IT Trends Study](https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf)" width="600" />
+<p class="caption">
+Slika 1.3: <strong>Delež podjetij</strong>, ki <strong>spreminjajo proračune za IT</strong> glede na <a href="https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf"><i class='fa-solid fa-earth-europe'></i>SIM IT Trends Study</a>
+</p>
+</div>
+<p>Na podlagi grafov <a href="P1.html#fig:delezStroskovIT#fig:delezStroskovIT">1.2</a> in <a href="P1.html#fig:delez-organizacij-gor-dol-stagnacija#fig:delez-organizacij-gor-dol-stagnacija">1.3</a> lahko ugotovimo, da podjetja v ZDA zelo veliko vlagajo v IT oz. informatiko. Na žalost pa je donosnost teh naložb bolj zaskrbljujoča. <strong>Učinkovitost</strong> različnih <strong>vrst projektov IT</strong> se namreč zelo <strong>razlikuje</strong>, kar prikazuje slika <a href="P1.html#fig:ucinkovitost-projektov-IT#fig:ucinkovitost-projektov-IT">1.4</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ucinkovitost-projektov-IT"></span>
+<img src="assets/img/McKinsey_Digital_Performance_of_IT_projects.svg" alt="Študija [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;McKinsey Digital](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value) o pravočasni izvedbi obsežnih projektov IT" width="600" />
+<p class="caption">
+Slika 1.4: Študija <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value"><i class='fa-solid fa-earth-europe'></i>McKinsey Digital</a> o pravočasni izvedbi obsežnih projektov IT
+</p>
+</div>
+<p>Na podlagi študije <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value"><i class='fa-solid fa-earth-europe'></i>McKinsey Digital</a> lahko opazimo, da povprečen projekt presega prvotni proračun za <span class="math inline">\(45\ \%\)</span>. To pomeni, da če smo pričakovali porabo <span class="math inline">\(100\ €\)</span> za projekt, je bila na koncu dejanska poraba <span class="math inline">\(145\ €\)</span>.</p>
+<p>Povprečen projekt tudi časovno zaostaja za prvotnim načrtom za <span class="math inline">\(7\ \%\)</span>. Prav tako pa takšen projekt v povprečju doseže zgolj <span class="math inline">\(56\ \%\)</span> pričakovnih koristi. To preprosto pomeni, da je podjetje zaradi določenega projekta pričakovalo zaslužek <span class="math inline">\(100\ €\)</span>, vendar se je izkazalo, da so iztržili zgolj <span class="math inline">\(56\ €\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:razlogi-za-neucinkovitost-projektov-IT"></span>
+<img src="assets/img/McKinsey_Digital_Issues_for_project_failures.svg" alt="Študija [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;McKinsey Digital](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value) o **razlogih za neuspešnost projektov IT**" width="600" />
+<p class="caption">
+Slika 1.5: Študija <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value"><i class='fa-solid fa-earth-europe'></i>McKinsey Digital</a> o <strong>razlogih za neuspešnost projektov IT</strong>
+</p>
+</div>
+<p>Kot prikazuje slika <a href="P1.html#fig:delez-organizacij-gor-dol-stagnacija#fig:delez-organizacij-gor-dol-stagnacija">1.3</a> je eden izmed zaključkov študije <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/delivering-large-scale-it-projects-on-time-on-budget-and-on-value"><i class='fa-solid fa-earth-europe'></i>McKinsey Digital</a> ta, da je glavni razlog za neuspešno izvedene projekte pomanjkanje fokusa oz. jasnih ciljev oz. cilji niso bili usklajeni s poslovnimi cilji in strategijo organizacije.</p>
+<p>Ta neusklajenost je zelo dobro izpostavljena v študiji <a href="https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf"><i class='fa-solid fa-earth-europe'></i>SIM IT Trends Study</a>, kjer so izvedli anketo med vodilnimi delavci na področju informatike. V okviru študije so jih je zanimali najpomembnejši vidiki upravljanja, s katerimi se srečujejo in zanimivo je, da je bilo <strong>usklajevanje IT s poslovanjem</strong> v zadnjih 10 letih eno <strong>glavnih vidikov upravljanja</strong>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pomembni-vidiki-informatike"></span>
+<img src="assets/img/SIM_IT_Trends_Study_Most_Important_IT_Management_Issues.png" alt="**Najbolj pomembni vidiki**, s katerimi **se ukvarja informatika**, glede na [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;SIM IT Trends Study](https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf)" width="600" />
+<p class="caption">
+Slika 1.6: <strong>Najbolj pomembni vidiki</strong>, s katerimi <strong>se ukvarja informatika</strong>, glede na <a href="https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf"><i class='fa-solid fa-earth-europe'></i>SIM IT Trends Study</a>
+</p>
+</div>
+<p>Ta ugotovitev nas pripelje do <strong>obvladovanja informatike</strong>, ki je odgovor na to težavo, kjer podjetja vlagajo v IT, vendar ne dosežejo pričakovanih rezultatov. Obvladovanje informatike se torej ukvarja s tem, kaj lahko organizacije naredijo, da bo informatika usklajena in bo prispevala h skupnim ciljem in strategijam organizacije.</p>
+<p>V okviru predmeta se bomo zato ukvarjali tudi z vprašanjem <strong>kako dobro investirati v IT odločitve ob zavedanju dodanih vrednosti investicij</strong>.</p>
+</div>
+<div id="upravljanje-it-in-vloga-informatike" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Upravljanje IT in vloga informatike<a href="P1.html#upravljanje-it-in-vloga-informatike" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Obstaja več vrst opredelitev <strong>upravljanja IT</strong> oz. <strong>upravljanja informatike</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Corporate_governance_of_information_technology"><i class="fa-brands fa-wikipedia-w"></i>IT Governance</a>)</em>, kjer v nadaljevanju najprej podajamo definicijo združevanja revizorjev <a href="https://en.wikipedia.org/wiki/Institute_of_Internal_Auditors"><i class="fa-brands fa-wikipedia-w"></i>Institute of Internal Auditors (IIA)</a>:</p>
+<blockquote>
+<p><strong>Upravljanje IT</strong> predstavlja vodenje, organizacijske strukture in proces, ki zagotavljajo, da IT podjetja podpira strategije in cilje organizacije.</p>
+</blockquote>
+<p>Naslednja opredelitev je s strani svetovalnega podjetja <a href="https://en.wikipedia.org/wiki/Gartner"><i class="fa-brands fa-wikipedia-w"></i>Gartner</a>, in sicer:</p>
+<blockquote>
+<p><strong>Upravljanje IT</strong> predstavlja nabor procesov, ki zagotavljajo učinkovito uporabo IT pri delovanju organizacije ob doseganju njenih ciljev.</p>
+</blockquote>
+<p>V kontekstu <strong>vodenja</strong> (iz zgornje definicije IIA) se pojavljajo naslednje vloge:</p>
+<ul>
+<li>direktorji v upravnem odboru, ki je odgovoren za upravljanje informatike,</li>
+<li><a href="https://en.wikipedia.org/wiki/Chief_information_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>CIO</strong> <em>(angl. Chief Information Officer)</em></a> ali drugi višji IT vodstveni delavci v upravnem odboru,</li>
+<li>odbori na ravni uprave za spremljanje in upravljanje IT.</li>
+</ul>
+<div id="vloga-vodstva-pri-upravljanju-it" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Vloga vodstva pri upravljanju IT<a href="P1.html#vloga-vodstva-pri-upravljanju-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vodstvo ima v okviru upravljanja IT naslednji vlogi:</p>
+<ul>
+<li><strong>spremljajo</strong> in <strong>nadzirajo</strong>, kjer so odgovorni za postavljanje naslednjih vprašanj:
+<ul>
+<li>Ali podjetje dobro vlaga v IT?</li>
+<li>Ali IT prispeva k uspešnosti podjetja?</li>
+<li>Ali smo skladni s predpisi?</li>
+</ul></li>
+<li>zagotavljajo <strong>storitve</strong>,
+<ul>
+<li>Zagotavljanje strokovnega znanja.</li>
+<li>Prednostni dostop do zunanjih ponudnikov IT.
+<ul>
+<li>Povsem običajno je, da organizaciji primanjkuje strokovnega znanja, zato mora vodstvo poskrbeti dostop do zunanjega ponudnika storitev in omogočiti njegovo uporabo.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Torej, naloga vodstva je zagotavljanje nadzora in strokovnega znanja ter dostop do zunanjih strokovnjakov.</p>
+<p>Če je <strong>vodstvo pri upravljanju IT neuspešno</strong>, to pogosto vpliva na ceno delnice, ki pade in ta padec je povezan tudi s spsremembami v upravi. Na voljo sta naslednja ukrepa:</p>
+<ul>
+<li>povečanje števila izvršilnih direktorjev s kompetencami IT,
+<ul>
+<li>Motivacija za ta ukrep je v neuspehu, do katerega je prišlo zaradi neuspešnega upravljanja IT, ki je posledica pomanjkanja strokovnega znanja in izkušenj.</li>
+</ul></li>
+<li>zamenjava <a href="https://en.wikipedia.org/wiki/Chief_information_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>CIO</strong> <em>(angl. Chief Information Officer)</em></a> / <a href="https://en.wikipedia.org/wiki/Chief_technology_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>CTO</strong> <em>(angl. Chief Technology Officer)</em></a>,
+<ul>
+<li>Primer takšnega ukrepanja pri podjetju <a href="https://en.wikipedia.org/wiki/Target_Corporation"><i class="fa-brands fa-wikipedia-w"></i><strong>Target Corporation</strong></a>:
+<ul>
+<li><ol start="19" style="list-style-type: decimal">
+<li>decembra, 2013 je podjetje Target Corporation potrdilo nepooblaščen vdor z razkritjem 40 milijonov številk kreditnih kartic v obdobju 3 tednov pred Božičem.</li>
+</ol></li>
+<li><ol start="10" style="list-style-type: decimal">
+<li>januarja, 2014 je podjetje dodatno potrdilo krajo osebnih podatkov kar 70 milijonov strank.</li>
+</ol></li>
+<li>Od marca 2014 so delnice podjetja padle za 6 % od trenutka razkritja vdora.</li>
+<li><ol start="6" style="list-style-type: decimal">
+<li>marca, 2014 je odstopi CIO podjetja.</li>
+</ol></li>
+<li><ol start="5" style="list-style-type: decimal">
+<li>maja, 2014 sta zaradi posledic razkritja osebnih podatkov strank odstopila <a href="https://en.wikipedia.org/wiki/Chief_executive_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>CEO</strong> <em>(angl. Chief Executive Officer)</em></a> in predsednik uprave.</li>
+</ol></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Slika <a href="P1.html#fig:pomembnost-upravljanja-IT#fig:pomembnost-upravljanja-IT">1.7</a> prikazuje ugotovitve številnih študij, in sicer pozitiven vpliv upravljanja IT. Izkaže se, da upravljanje IT vpliva na usklajenost IT in poslovanja, kar nadalje vpliva na uspešnost podjetja.</p>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pomembnost-upravljanja-IT"></span>
+<img src="https://teaching.lavbic.net/plantuml/svg/RLCxRjj04ErvYeLTf8cAs33WmZ0G6N6W9aYX88sQ4NT8BRcS8MPNLAmWH_0XSf5KzhqoNDeo9RCXYFcytv2XTjI2G6FMaDUby9Pipfx5H04AsaAAsOTm60iRiBnpL9e2VC3ihMEnWAsFI_mLFtjNKgER9jS7IhPn5atGD-Juq68sMWCHtjqbohLN3QEMO1w1Ie_cTsP60eVfdniNyNtzvgRb1firyUsjESVhuggm_HIBHHaspw_kvzTVxh8_8oxYE4spUw4fcEAGJ2dmS40yAaNr3WVl7ejun05vP9cFX9mQ7WOc1MHlOPpzQ0KwNm5LkAB5yin0C8lbL-vG22Z7ezbGUwYGE4IprwaLEJ8j1y-TxiFBxdmR7648XyCTGxJu_BT7M57BjiBOxntbh23tJfhlA0LBapHaAL5jVFkaoSmCImdazf2xIWqRjffVQgYOo2tMnghTfyTUbTQDQGLjJqfkOmWyF_zRcqwrPaWsdMj4SP6GjYElWqN21AMM5qlz_WGYbgv2imSpDFOMVOqVbOnp3DXFHYbnYkCoSHHE8tvw952srrW6VoqglElUT_RwntJign0xJYAe7k6F3sTcipwkYNkapaLs4dAgNfvYY2itSNOxUTP9wDU54_J_" alt="Pomembnost in vpliv upravljanja IT PlantUML." width="550" />
+<p class="caption">
+Slika 1.7: Pomembnost in vpliv upravljanja IT <a href="https://teaching.lavbic.net/plantuml/uml/RLCxRjj04ErvYeLTf8cAs33WmZ0G6N6W9aYX88sQ4NT8BRcS8MPNLAmWH_0XSf5KzhqoNDeo9RCXYFcytv2XTjI2G6FMaDUby9Pipfx5H04AsaAAsOTm60iRiBnpL9e2VC3ihMEnWAsFI_mLFtjNKgER9jS7IhPn5atGD-Juq68sMWCHtjqbohLN3QEMO1w1Ie_cTsP60eVfdniNyNtzvgRb1firyUsjESVhuggm_HIBHHaspw_kvzTVxh8_8oxYE4spUw4fcEAGJ2dmS40yAaNr3WVl7ejun05vP9cFX9mQ7WOc1MHlOPpzQ0KwNm5LkAB5yin0C8lbL-vG22Z7ezbGUwYGE4IprwaLEJ8j1y-TxiFBxdmR7648XyCTGxJu_BT7M57BjiBOxntbh23tJfhlA0LBapHaAL5jVFkaoSmCImdazf2xIWqRjffVQgYOo2tMnghTfyTUbTQDQGLjJqfkOmWyF_zRcqwrPaWsdMj4SP6GjYElWqN21AMM5qlz_WGYbgv2imSpDFOMVOqVbOnp3DXFHYbnYkCoSHHE8tvw952srrW6VoqglElUT_RwntJign0xJYAe7k6F3sTcipwkYNkapaLs4dAgNfvYY2itSNOxUTP9wDU54_J_"><small><i class='fa-solid fa-diagram-project'></i>PlantUML</small></a>.
+</p>
+</div>
+<p><strong>Upravljanje IT</strong> je bilo izmerjeno na različne načine, kjer sta na sliki <a href="P1.html#fig:pomembnost-upravljanja-IT#fig:pomembnost-upravljanja-IT">1.7</a> izpostavljena 2 vidika:</p>
+<ul>
+<li>Ali je podjetje imelo opredeljen <strong>organizacijski odbor</strong>, ki je skrbel za spremljanje in upravljanje naložb ter načrtov za IT?</li>
+<li>Ali je podjetje imelo opredeljen <strong>postopek določanja prednostnih naložb v IT</strong>, kjer so ocenili vse predloge in nato izbrali najboljšega?</li>
+</ul>
+<p>Upravljanje IT je povezano z <strong>usklajenost IT in poslovanja</strong>:</p>
+<ul>
+<li>Usklajenost IT je merjena kot usklajenost med IT in poslovanjem pri izdelkih, kjer se odloča, katere izdelke predstaviti trgu.</li>
+<li>Prav tako je bila usklajenost merjena kot procesna usklajenost (npr. na katerih trgih naj podjetje deluje).</li>
+</ul>
+<p>Nadalje usklajenost IT in poslovanja vpliva na <strong>uspešnost podjetja</strong>:</p>
+<ul>
+<li>Usklajenost IT in poslovanja vodi do zboljšav na področju finančne uspešnosti, kar se meri kot izboljšanje donosnosti sredstev in donosnosti lastniškega kapitala.</li>
+<li>Prav tako so pozitivni vplivi merljivi pri operativni uspešnost (npr. učinkovitost procesov v organizaciji glede na konkurenco) in zadovoljstvu strank (npr. kako zadovoljni so kupci v primerjavi s konkurenco).</li>
+</ul>
+<p>Rezultati študije so jasni, da upravljanje IT preko usklajenosti z IT in poslovanjem vpliva na uspešnost podjetja.</p>
+</div>
+<div id="ključna-vprašanja-o-it" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Ključna vprašanja o IT<a href="P1.html#ključna-vprašanja-o-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Če ste v vlogi vodilnega na področju informatike in ste odgovorni za upravljanje IT, so to naslednja vprašanja, na katere morate najti odgovore:</p>
+<ol style="list-style-type: decimal">
+<li>Kako bo <strong>IT vplival na konkurenco</strong> v naši panogi?
+<ul>
+<li>Kdo so naši novi tekmeci?</li>
+<li>Kako nam IT pomaga pri doseganju prednosti pred tradicionalnimi in novimi tekmeci?</li>
+<li>Kako lahko uporabimo IT za vstop na nove trge?</li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Zelo dobro morate razumeti vlogo informatike na področju, kjer deluje vaše podjetje in kako izkoristite vse priložnosti, ki so na voljo.</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Ali naši <strong>poslovni načrti vključujejo</strong> celoten <strong>potencial IT</strong> za izboljšanje uspešnosti poslovanja?
+<ul>
+<li>Ali IT podpira operativno učinkovitost in strateško agilnost?</li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Narediti morate vse za izboljšanje operativne učinkovitosti, kot tudi zagotavljati priložnosti za inovacije.</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Ali imamo potrebne <strong>zmogljivosti za zagotavljanje dodane vrednosti</strong> iz naslova IT?</li>
+</ol>
+<blockquote>
+<p>Zagotoviti moramo predvsem dovolj ustrezno izobraženega IT kadra, da lahko izkoristimo vse priložnosti, ki jih IT ponuja.</p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Ali je naš <strong>IT naložbeni portfelj usklajen</strong> s priložnostmi in nevarnostmi?
+<ul>
+<li>Ali portfelj uravnoteži kratkoročne in dolgoročne potrebe?</li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Zagotoviti moramo, da je trenutni IT naložbeni portfelj skladen s trenutnimi potrebami ter je hkrati pripravljene na izzive podjetja v prihodnosti.</p>
+</blockquote>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Kdo je odgovoren za IT</strong> in kako od njega to odgovornost zahtevamo?</li>
+</ol>
+<blockquote>
+<p>V podjetju morajo obstajati posamezniki, ki zagotavljajo, da podjetje izvaja prave naložbe IT in hkrati tudi uživa dodano vrednost teh naložb.</p>
+</blockquote>
+<ol start="6" style="list-style-type: decimal">
+<li>Ali smo <strong>zadovoljni</strong> z našo <strong>stopnjo tveganja</strong> IT?</li>
+</ol>
+<blockquote>
+<p>Zavedamo se, da je naš portfelj naložb povezan s številnimi tveganji. Zagotoviti moramo, da vsa tveganja razumemo in smo sprejeli ukrepe za zaščito pred temi tveganji.</p>
+</blockquote>
+<p>Upravljanje IT si lahko predstavljamo kot skupek pojmov, ki so predstavljeni v tabeli <a href="P1.html#tab:skupek-pojmov-upravljanja-IT#tab:skupek-pojmov-upravljanja-IT">1.1</a>. Pri tem pogledu sta pomembna <strong>strateški</strong> in <strong>taktični vidik</strong>.</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+<strong>Strateški</strong> vidik
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+<strong>Taktični</strong> vidik
+</div>
+</th>
+</tr>
+</thead>
+<caption>
+<span id="tab:skupek-pojmov-upravljanja-IT">Tabela 1.1: </span>Skupek pojmov, povezanih z <strong>upravljanjem IT</strong>
+</caption>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Uskladitev organizacijske in IT strategije
+</td>
+<td style="text-align:center;">
+Realizacija priložnosti, povezanih z IT
+</td>
+<td style="text-align:center;">
+Realizacija projekta IT in dodana vrednost
+</td>
+<td style="text-align:center;">
+Učinkovito upravljanje in odgovorna raba virov IT
+</td>
+<td style="text-align:center;">
+Učinkovito obvladovanje poslovnih tveganj, povezanih z IT
+</td>
+<td style="text-align:center;">
+Skladnost z zakoni, predpisi in standardi podjetja
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Strateški vidik</strong> se najprej ukvarja predvsem z uskladitvijo organizacijski in IT strategije. To pomeni, da ima organizacija opredeljene procese, metode in standarde, ki zagotavljajo, da so poslovni načrti usklajeni z načrti IT ter da so načrti IT usklajeni s poslovnimi načrti. Druga pomembnost lastnost je realizacija priložnosti, povezanih z IT, kjer je treba zagotoviti, da izkoristimo vse priložnosti, ki jih IT omogoča.</p>
+<p><strong>Taktični vidik</strong> je sestavljen iz 4 elementov. Prvi element je realizacija projekta IT in dodana vrednosti, kjer se zavedamo da se naložbe IT izvajajo na ravni posameznih projektov in pri tem moramo zagotavljati, da posamezni projekti doegajo svoje cilje. To pomeni, da so projekti pravočasni in uresničujejo načrtovano dodano vrednost. Drugi taktični element je učinkovito upravljanje in odgovorna raba virov IT, kjer moramo zagotavljati, da vire IT uporabljamo odgovorno (npr. pri drugačnem načinu uporabe programske opreme poskrbimo, da so vse licence ustrezno posodobljene). Tretji taktični element je učinkovito obvladovanje poslovnih tveganj, povezanih z IT. V portfelju naložb v IT torej obstajajo velika tveganja, kjer se moramo prepričati, da smo vsa ocenili in predvidili ustrezne zaščitne ukrepe. Nazadnje, četrti taktični element predstavlja skladnost z zakoni, predpisi in standardi podjetja.</p>
+<p>Pri upravljanju IT moramo tako zagotoviti ustreznost strateškega in taktičnega vidika.</p>
+</div>
+</div>
+<div id="ogrodje-za-upravljanje-it" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Ogrodje za upravljanje IT<a href="P1.html#ogrodje-za-upravljanje-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Upravljanje IT smo predhodno opredelili kot vodenje, organizacijske strukture in proces, ki zagotavljajo, da IT podjetje podpira strategije in cilje organizacije. Posledično to pomeni, da so sprejete odločitve skladne s strategijo IT in strategijo organizacije in njenimi cilji.</p>
+<div id="ključne-odločitve" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Ključne odločitve<a href="P1.html#ključne-odločitve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri tem nas z vidika <strong>informatike</strong> zanimajo naslednja <strong>ključna vprašanja</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Katere odločitve</strong> je treba sprejeti?</li>
+<li><strong>Kdo sprejema</strong> te odločitve?</li>
+<li><strong>Kako se</strong> te odločitve <strong>sprejemajo</strong>?</li>
+</ol>
+<p>Pri tem je treba sprejeti <strong>ključne odločitve</strong>, ki so predstavljene v tabeli <a href="P1.html#tab:kljucne-odlocitve#tab:kljucne-odlocitve">1.2</a>.</p>
+<table class="tabela-manjsa">
+<caption>
+<span id="tab:kljucne-odlocitve">Tabela 1.2: </span>Ključne odločitve
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Odločitev
+</th>
+<th style="text-align:left;">
+Opis
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>Načela IT</strong>
+</td>
+<td style="text-align:left;">
+Cilji IT na ravni podjetja - kakšna je vloga IT.<br><strong>Poslovno načelo</strong>: Ekonomija obsega in operativna učinkovitost ↔︎ <strong>IT načelo</strong>: Standardizirani poslovni procesi.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Arhitektura IT</strong>
+</td>
+<td style="text-align:left;">
+Organizacijska logika za poslovne proces, aplikacije, podatke in infrastrukturo. Zahteve za standardizacijo procesov in integracijo podatkov.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Infrastruktura IT</strong>
+</td>
+<td style="text-align:left;">
+Strežniki, namizni računalniki, omrežja, podatkovne baze in običajne aplikacije. Skupna infrastruktura storitev, ki jo je treba zagotoviti.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Poslovne aplikacije</strong>
+</td>
+<td style="text-align:left;">
+Programi, ki se neposredno uporabljajo za poslovne potrebe. Katere poslovne zahteve potrebujejo IT aplikacije na ravni podjetja in poslovne enote.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Naložbe v IT</strong>
+</td>
+<td style="text-align:left;">
+Koliko investirati v IT? Katere projekte IT financirati?
+</td>
+</tr>
+</tbody>
+</table>
+<p>Prva ključna odločitev je o <strong>načelu IT</strong>, kjer se vprašamo kakšna je vloga IT v organizaciji oz. kakšne cilje naj IT poskuša doseči. Cilje IT seveda določajo poslovni cilji, tj. poslovna načela vplivajo na načeta IT in obratno. Npr. podjetje želi tekmovati z ekonomijo obsega <em>(angl. economy of scale)</em> in operativno učinkovitostjo <em>(angl. operational efficiency)</em> in v skladu s tem informatika sklene standardizirati poslovne procese, da le-ti prispevajo k standardizaciji poslovnih procesov, ki pozitivno vpliva na ekonomijo obsega in operativno učinkovitost.</p>
+<p><strong>Arhitektura IT</strong> je druga ključna odločitev in se nanaša na ključne poslovne procese in podatkovne elemente v organizaciji. Ukvarja se s ključnimi tehnologijami podatkovnimi zahtevami, ki jih omenjeni procesi potrebujejo. V okviru arhitekture IT se ukvarjamo tudi z identifikacijo poslovnih procesov, ki jih je treba standardizirati in kakšna raven integracije podatkov je potrebna čez celotno organizacijo.</p>
+<p>Naslednja ključna odločitev je o <strong>infrastrukturi IT</strong>, ki se obravnava računsko moč, omrežja, storitve shranjevanja podatkov in običajne aplikacije, ki jih potrebujemo pri poslovanju. V okviru infrastrukture se odločamo o infrastrukturnih storitvah, ki jih zagotavljamo na lokalni ravni oz. na ravni poslovne enote.</p>
+<p>Ključna odločitev o <strong>poslovnih aplikacijah</strong> je naslenja, kjer se ukvarjamo z aplikacijami, ki jih uporabljamo za neposredno podporo poslovnim potrebam. V okviru te odločitve nas zanima, katere so tiste poslovne zahteve, ki potrebujejo aplikacije na ravni podjetja, na ravni poslovne enote oz. je dovolj aplikacija na lokalni ravni.</p>
+<p>Zadnja ključna odločitev se ukvarja z <strong>naložbami v IT</strong>, in sicer koliko naj podjetje vloži v IT oz. katere projekte dejansko financirati.</p>
+<p>Seveda ima vseh teh 5 odločitev isti cilj, in sicer podpirati poslovne cilje podjetja. Kot prikazuje slika <a href="P1.html#fig:kljucne-odlocitve-IT#fig:kljucne-odlocitve-IT">1.8</a>, so nekatere odločitve bolj tehnične, druge pa bolj vodstvene narave.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:kljucne-odlocitve-IT"></span>
+<img src="assets/img/Kljucne_odlocitve_IT.png" alt="5 ključnih odločitev IT" width="300" />
+<p class="caption">
+Slika 1.8: 5 ključnih odločitev IT
+</p>
+</div>
+<p>Odločitvi o infrastrukturi IT in arhitekturi IT sta tehnični, ki jih sprejemajo višje vodstvo informatike. Načela IT ter naložbe v IT pa so večinoma vodstvene odločitve. Potrebe poslovnih aplikacij pa se ponavadi odločajo tako s tehničnimi kot vodstvenimi vložki. Vsekakor se glede zahtev posameznih aplikacij odločijo uporabniki, vendar ima ta odločitev tudi pomembno presojo s strani tehnološke izvedljivosti.</p>
+</div>
+<div id="ključni-odločevalci" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Ključni odločevalci<a href="P1.html#ključni-odločevalci" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sedaj bomo razpravljali o tem, kdo sprejema ključne odločitve, predstavljene v prejšnjem poglavju. Poznamo 6 arhetipov <em>(angl. <a href="https://en.wikipedia.org/wiki/Archetype"><i class="fa-brands fa-wikipedia-w"></i>archetype</a>)</em> pri poslovnem odločanju, ki so povzeti v tabeli <a href="P1.html#tab:kljucni-odlocevalci#tab:kljucni-odlocevalci">1.3</a>.</p>
+<table class="tabela-manjsa">
+<caption>
+<span id="tab:kljucni-odlocevalci">Tabela 1.3: </span>Kdo sprejema odločitve oz. ključni odločevalci
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Arhetip
+</th>
+<th style="text-align:left;">
+Kdo ima pravico odločanja?
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<strong>Poslovna monarhija <small style='white-space:nowrap'><em>(angl. Business Monarhy)</em></smal></strong>
+</td>
+<td style="text-align:left;">
+Poslovni direktorji (lahko vključujejo tudi CIO), kjer se oddelek za IT ne odloča samostojno.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Monarhija IT <small style='white-space:nowrap'><em>(angl. IT Monarchy)</em></small></strong>
+</td>
+<td style="text-align:left;">
+Posameznik ali skupina vodij IT.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Fevdalno <small style='white-space:nowrap'><em>(angl. Feudal)</em></small></strong>
+</td>
+<td style="text-align:left;">
+Vodje poslovnih enot, linijski vodje.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Zvezno <small style='white-space:nowrap'><em>(angl. Federal)</em></small></strong>
+</td>
+<td style="text-align:left;">
+Skupno odločanje vodstva na ravni C in poslovnih enot. Kot dodatne udeležence lahko vključijo vodje IT. Enakovredno sodelovanje državne in občinske veje oblasti.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Duopol IT <small style='white-space:nowrap'><em>(angl. IT Duopoly)</em></small></strong>
+</td>
+<td style="text-align:left;">
+IT in poslovanje (CXO ali vodje poslovnih enot).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<strong>Anarhija <small style='white-space:nowrap'><em>(angl. Anarchy)</em></small></strong>
+</td>
+<td style="text-align:left;">
+Vsak posamezni uporabnik.
+</td>
+</tr>
+</tbody>
+</table>
+<p>Pri pristopu <strong>poslovne monarhije</strong> vodje podjetij, kar lahko tudi vključuje vodjo informatike. V tem primeru CIO ne sprejema odločitev samostojno. Ko govorimo o <strong>monarhiji IT</strong> vodja informatike samostojno ali skupinsko sprejme ključne odločitve IT. Pri <strong>fevdalnem pristopu</strong> vodje poslovnih enot ali linijski vodje sprejemajo ključne odločitve IT. Ko je v uporabi <strong>zvezni pristop</strong>, višji poslovni direktorji in poslovne enote skupaj sprejemajo ključne IT odločitve. Zvezni pristop je zelo podoben sodelovanju državne in občinske veje oblasti. Pri <strong>duopolu IT</strong> vodstvo IT in poslovni direktorji skupaj sprejemajo ključne IT odločitve. Pri <strong>anarhiji</strong> se vsak uporabnik odloča, kaj mu najbolj ustreza in sam sprejema odločitve IT.</p>
+<p>Na sliki <a href="P1.html#fig:razlicni-nacini-odlocanja#fig:razlicni-nacini-odlocanja">1.9</a> so povzeti različni načini poslovnega odločanja glede na stopnjo decentralizacije.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:razlicni-nacini-odlocanja"></span>
+<img src="assets/img/Razlicni_nacini_odlocanja.png" alt="Različni načini odločanja" width="350" />
+<p class="caption">
+Slika 1.9: Različni načini odločanja
+</p>
+</div>
+<p>Če ključne odločitve sprejema poslovna monarhija ali monarhija IT, so takšne odločitve IT zelo <strong>centralizirane</strong>. Če uporabljamo takšen pristop k odločanju, je ključni cilj informatike doseči učinkovitost ali pa se želi podjetje osredotočiti na dobičkonosnost. Torej, če sta dobičkonosnost ali učinkovitost gonilni sili podjetja, potem je smiselna uporaba centraliziranega pristopa k sprejemanju odločitev IT.</p>
+<p>Če podjetje stremi k razlikovanju od konkurence ali odzivnost, potem lahko dovoli bolj avtonmno odločanje. Pri tem načinu se odločitve sprejemajo na fevdalen način, kjer posamezna poslovna enota oz. posamezne dislocirane geografske enote same sprejemajo odločitve IT, ki so v njihovem najboljšem interesu. To pomeni, da so odločitve bolj <strong>decentralizirane</strong>.</p>
+<p>Če pa želi podjetje <strong>uravnotežiti</strong> učinkovitost in odzivnost ter inovativnost, se lahko izbere zvezni pristop k odločanju, kjer podjetje in poslovna enota, z ali brez sodelovanja informatike, sprejema odločitve IT. Podobno v duopolu IT, informatika in poslovna enota, skupaj sprejemajo odločitve IT.</p>
+<p>Na sliki <a href="P1.html#fig:trendi-organizacijske-strukture-IT#fig:trendi-organizacijske-strukture-IT">1.10</a> je prikazan način sprejemanja odločitev v ZDA, in sicer gre za podatke študije <a href="https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf"><i class='fa-solid fa-earth-europe'></i>SIM IT Trends Study</a>, kjer so vodje informatike v anketi podali način sprejemanja odločitev IT. Opazimo lahko, da so odločitve IT do velike mere centralizirane, z manjšim padcem v zadnjem letu, vendar je še vedno prisoten dolgoročni trend v prid centralizacije.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:trendi-organizacijske-strukture-IT"></span>
+<img src="assets/img/SIM_IT_Trends_Study_IT_Organization_Structure_Trends.png" alt="**Trendi organizacijske strukture IT**, glede na [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;SIM IT Trends Study](https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf)" width="600" />
+<p class="caption">
+Slika 1.10: <strong>Trendi organizacijske strukture IT</strong>, glede na <a href="https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf"><i class='fa-solid fa-earth-europe'></i>SIM IT Trends Study</a>
+</p>
+</div>
+<p>S tem povezano vprašanje pa je tudi, <strong>komu poroča</strong> oz. odgovarja <strong>CIO</strong>?</p>
+<p>Rezultati študije <a href="https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2022_SIM_IT_Trends_Study_-_FINAL.pdf"><i class='fa-solid fa-earth-europe'></i>SIM IT Trends Study</a> nakazujejo, da skoraj <span class="math inline">\(\frac{1}{2}\)</span> <span class="math inline">\((46,9\ \%)\)</span> vodij informatike (CIO) poroča generalnemu direktorju (CEO) in približno <span class="math inline">\(\frac{1}{5}\)</span> <span class="math inline">\((22,6\ \%)\)</span> vodja informatike (CIO) poroča finančnemu direktorju (CFO).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:komu-CIO-poroca"></span>
+<img src="assets/img/SIM_IT_Trends_Study_To_Whom_CIO_Reports.png" alt="**Komu CIO poroča**, glede na [&lt;i class='fa-solid fa-earth-europe'&gt;&lt;/i&gt;SIM IT Trends Study](https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2021_SIM_IT_Trends_Study_-_2022_Comprehensive_Reprt_-_20211201.pdf)" width="600" />
+<p class="caption">
+Slika 1.11: <strong>Komu CIO poroča</strong>, glede na <a href="https://higherlogicdownload.s3.amazonaws.com/SIMNET/face6240-1a51-4033-84b7-40cb7aec9edc/UploadedImages/2021_SIM_IT_Trends_Study_-_2022_Comprehensive_Reprt_-_20211201.pdf"><i class='fa-solid fa-earth-europe'></i>SIM IT Trends Study</a>
+</p>
+</div>
+<p>Namesto tega bi se lahko vprašali <strong>komu</strong> bi <strong>CIO moral poročati</strong>? Kot prikazuje tabela <a href="P1.html#tab:komu-bi-CIO-moral-porocati#tab:komu-bi-CIO-moral-porocati">1.4</a>, se lahko to vprašamo komu bi CIO v idealnem primeru moral poročati, glede na strateško pozicioniranje podjetja.</p>
+<table class="tabela-manjsa table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:komu-bi-CIO-moral-porocati">Tabela 1.4: </span><strong>Komu</strong> bi <strong>CIO moral poročati</strong>?
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Strateško pozicioniranje
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Razlikovanje
+</th>
+<th style="text-align:center;">
+Obvladovanje<br>stroškov
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="2">
+<td colspan="3" style="border-bottom: 1px solid;">
+<strong>Poročanje CIO</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>CEO</strong>
+</td>
+<td style="text-align:center;">
+CIO → <strong>CEO</strong> z<br>razlikovanjem
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>CFO</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+CIO → <strong>CFO</strong> z<br>obvladovanjem<br>stroškov
+</td>
+</tr>
+</tbody>
+</table>
+<p>Če podjetje tekmuje na trgu glede na razlikovanju od konkurence, potem bi moral vodja informatike (CIO) poročati izvršnemu direkturju (CEO), ki predstavlja gonilo strategije podjetja. V tem primeru je velik poudarek na inovacijah in IT je gonilo tega.</p>
+<p>V primeru, ko podjetje deluje na podlagi stroškovno usmerjenega vodstva oz. želijo biti učinkoviti, je vloga IT, da zagotavlja podporo in potem v tem primeru vodja informatike (CIO) poroča finančnemu direktorju (CFO).</p>
+<details class="box">
+<summary>
+<i class="fa-brands fa-rocketchat"></i><strong>ChatGPT</strong>: Who should CIO report to?
+</summary>
+<div>
+<p>The reporting structure of a <a href="https://en.wikipedia.org/wiki/Chief_information_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>Chief Information Officer (CIO)</strong></a> can vary depending on the organization’s size, structure, and industry. Generally, there are several common reporting relationships for CIOs:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://en.wikipedia.org/wiki/Chief_executive_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>CEO (Chief Executive Officer)</strong></a>: In many organizations, especially smaller ones, the CIO reports directly to the CEO. This ensures a direct line of communication between IT strategy and overall business strategy.</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Chief_operating_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>COO (Chief Operating Officer)</strong></a>: Some organizations have the CIO report to the COO, particularly if the focus is on aligning IT functions with operational efficiency.</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Chief_financial_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>CFO (Chief Financial Officer)</strong></a>: In some companies, the CIO reports to the CFO, especially if the emphasis is on cost control, financial management, and aligning IT investments with overall financial goals.</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Chief_data_officer"><i class="fa-brands fa-wikipedia-w"></i><strong>CDO (Chief Digital Officer)</strong></a>: As organizations increasingly focus on digital transformation, some CIOs report to a Chief Digital Officer who oversees both IT and digital strategy.</p></li>
+<li><p><strong>C-suite or Board of Directors</strong>: In some cases, the CIO may report directly to the broader executive team or even the board of directors, especially if technology plays a crucial role in the organization’s strategic direction.</p></li>
+<li><p><strong>Shared Services or Operations</strong>: In a few instances, especially in larger organizations, the CIO may report to a head of shared services or operations, depending on the organizational structure.</p></li>
+</ol>
+<p>Ultimately, the reporting structure should be aligned with the organization’s goals and the role of technology in achieving those goals. It’s not uncommon for the reporting structure to change as the organization evolves or as technology becomes a more integral part of its operations.</p>
+</div>
+</details>
+</div>
+<div id="strukture-in-procesi-odločanja" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Strukture in procesi odločanja<a href="P1.html#strukture-in-procesi-odločanja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pri odločanju nas zanimata predvsem 2 vidika:</p>
+<ul>
+<li>katere so pogosto uporabljene strukture odločanja (glej poglavje <a href="P1.html#strukture-odlocanja">1.4.3.1</a> in</li>
+<li>kateri so pogosto uporabljeni procesi odločanja (glej poglavje <a href="P1.html#procesi-odlocanja">1.4.3.2</a>).</li>
+</ul>
+<div id="strukture-odlocanja" class="section level4 hasAnchor" number="1.4.3.1">
+<h4><span class="header-section-number">1.4.3.1</span> Strukture odločanja<a href="P1.html#strukture-odlocanja" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Ko govorimo o strukturah odločanja, se za opis struktur uporabljajo različni izrazi. Na tem mestu bomo predstavili zgolj najbolj pogosto uporabljene:</p>
+<ul>
+<li><strong>Izvršni odbor</strong> <em>(angl. Executive Committee)</em>, <strong>usmerjevalni odbor za IT</strong> <em>(angl. IT Steering Committee)</em>, <strong>odbor za politiko IT</strong> <em>(angl. IT Policy Board)</em>: manjše število vodstvenih delavcev na visoki ravni, med katerimi je pogosto tudi CIO, sprejema ključne odločitve o IT, kot so načela IT, da se zagotovi usklajenost poslovanja in IT.</li>
+<li><strong>Odbor za arhitekturo IT</strong> <em>(angl. IT Architecture Committee)</em>, <strong>odbor za pregled arhitekture IT</strong> <em>(angl. IT Architecture Review Board)</em>: višjo vodstveni delavci IT opredelijo ključne standarde IT in včasih odobrijo izjeme.</li>
+<li><strong>Procesni svet</strong> <em>(angl. Process Councils)</em>, <strong>lastniki poslovnih procesov</strong> <em>(angl. Process Owners)</em>, <strong>vodje odnosov med poslovanjem in IT</strong> <em>(angl. Business/IT Relationship Managers)</em>: razumevanje tako IT kot poslovanja. Določanje procesnih standardov ter odobritev procesnih eksperimentov in sprememb.</li>
+</ul>
+</div>
+<div id="procesi-odlocanja" class="section level4 hasAnchor" number="1.4.3.2">
+<h4><span class="header-section-number">1.4.3.2</span> Procesi odločanja<a href="P1.html#procesi-odlocanja" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Naslednji element pri odločanju so procesi odločenja, in sicer kateri procesi odločanja se uporabijo za zagotovitev skladnosti poslovanja in IT.</p>
+<ul>
+<li><strong>Postopek odobritve naložbe v IT</strong> <em>(angl. IT Investment Approval Process)</em>: standardizirane predloge za odobritev naložb v IT za opis usklajenosti s poslovno strategijo, finančno analizo in oceno tveganja. Gre za najpogostejši postopek odločanja.
+<ul>
+<li>Različni uporabniki iz različnih poslovnih enot predstavijo svoje ideje projektov IT.</li>
+<li>Kako bomo izbrali med različnimi predlaganimi projekti?</li>
+<li>Podjetja razvijajo standardiziran postopek naložb v IT, kjer je opredeljeno:
+<ul>
+<li>kako predstaviti idejo,</li>
+<li>zagotoviti, da je usklajena s poslovno strategijo,</li>
+<li>finančna analiza,</li>
+<li>opisana tveganja, povezana s projektom IT.</li>
+</ul></li>
+</ul></li>
+<li><strong>Postopek izjem arhitekture IT</strong> <em>(angl. IT Architecture Exception Process)</em>: standardi so pomembni pri učinkovitosti, vendar so občasno potrebne izjeme.
+<ul>
+<li>Pričakuje se, da projekti IT sledijo opredeljenim standardom IT, zato se postopek izjem arhitekture IT uporablja za oceno ali nov predlagan projekt ustreza opredeljenim standardom IT oz. dovolimo izjemo.</li>
+</ul></li>
+<li><strong>Sporazum o ravni storitve</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/Service-level_agreement"><i class="fa-brands fa-wikipedia-w"></i>Service Level Agreement (<strong>SLA</strong>)</a>)</em> <strong>in povračilo stroškov</strong> <em>(angl. <a href="https://en.wikipedia.org/wiki/IT_chargeback_and_showback"><i class="fa-brands fa-wikipedia-w"></i>IT chargeback</a>)</em>: Določitev ravni storitve IT in razmerje med stroškom in ceno storitve.
+<ul>
+<li>Cilj tega postopka je zagotovitev, da organizacija IT vlaga sredstava v razvoj storitev, ki jih uporabniki želijo ter, da je cena, ki jo zaračunavajo, usklajena s tržno ceno teh storitev.</li>
+<li>Cene lahko uporabniki uporabijo pri oceni ali organizacija IT deluje učinkovito.
+<ul>
+<li>Če organizacija IT zaračunava zelo visoko ceno v primerjavi s tržno ceno, potem se lahko razume, da organizacija IT ni učinkovita.</li>
+</ul></li>
+</ul></li>
+<li><strong>Sledenje projektni in poslovni dodani vrednosti</strong> <em>(angl. Project and Business Value Tracking)</em>: sledenje razvoju novih sistemov in dodani vrednosti, ki izhajajo iz vpeljave.
+<ul>
+<li>Ko je projekt odobren in potek, proces sledenja projektu pomaga uporabniku, da se prepriča o pričakovani dodani vrednosti.</li>
+<li>Ko je projekt zaključen in sistem implementiran, se uporablja podoben postopek za spremljanje dodane vrednosti, ki jo prinaša nov sistem.</li>
+</ul></li>
+</ul>
+</div>
+<div id="najboljši-pristop-k-upravljanju-it" class="section level4 hasAnchor" number="1.4.3.3">
+<h4><span class="header-section-number">1.4.3.3</span> “Najboljši” pristop k upravljanju IT<a href="P1.html#najboljši-pristop-k-upravljanju-it" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Najboljši model upravlja IT ne obstaja, saj je vedno odvisen od ciljev poslovanja organizacije. Višje vodstvo se mora najprej odločiti glede poslovnih ciljev: <strong>dobičkonosnost</strong>, <strong>rast</strong> ali <strong>ravnotežje</strong> med dobičkonosnostjo in rastjo, kjer je treba uskladiti stroške in koristi sinergije in avtonomije.</p>
+<p>Če vodstvo želi učinkovitost, potem je lahko sinergija centralizacije bolj primerna, če pa želi odzivnost in inovativnost, je mogoče bolj primeren decentraliziran pristop k upravljanju informatike.</p>
+<p>V nadaljevanju si bomo pogledal dva najbolj pogosto uporabljena pristopa za upravljanje IT. Če podjetje pristopa k upravljanju IT zaradi <strong>dobičkonosnosti</strong>, potem bo struktura upravljanja takšna, kot prikazuje tabela <a href="P1.html#tab:upravljanje-IT-za-dobickonosnost#tab:upravljanje-IT-za-dobickonosnost">1.5</a>. Podjetje bo verjetno za odločanje o načelih IT, strategije infrastrukture IT, arhitekturo IT in naložbe v IT ter določanje prioritet uporabila poslovno monarhijo. O teh vidikih v tem primeru odločajo višji poslovni direktorji v možni povezavi s CIO. O potrebah poslovnih aplikacijah pa se odloča zvezno, tj. o aplikacijah za celotno podjetje se odloča na ravni podjetja, medtem ko se o vloga poslovnih enot odloča lokalno na ravni poslovnih enot.</p>
+<table class="tabela-manjsa">
+<caption>
+<span id="tab:upravljanje-IT-za-dobickonosnost">Tabela 1.5: </span>Upravljanje IT za <strong>dobičkonosnost</strong>
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Domena
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Načela IT
+</th>
+<th style="text-align:center;">
+Strategije infrastrukture IT
+</th>
+<th style="text-align:center;">
+Arhitektura IT
+</th>
+<th style="text-align:center;">
+Potrebe poslovnih aplikacij
+</th>
+<th style="text-align:center;">
+Naložbe v IT in določanje prioritet
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="6">
+<td colspan="6" style="border-bottom: 1px solid;">
+<strong>Stil</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Poslovna monarhija</strong>
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Monarhija IT</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Fevdalno</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Zvezno</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Duopol IT</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Anarhija</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+</tbody>
+</table>
+<p>V nasprotju s prejšnjim pristopom, bi upravljanje IT za <strong>rast</strong> izgledalo tako, kot prikazuje tabela <a href="P1.html#tab:upravljanje-IT-za-rast#tab:upravljanje-IT-za-rast">1.6</a>. O načelih IT, potrebah poslovnih aplikacij in naložbah v IT ter določanje prioritet se odloča duopol IT, tj. odločajo vodje informatike in poslovni direktorji. Glede strategije infrastrukture IT in arhitekture IT pa odloča monarhija IT, kjer višji vodstveni delavci odločajo o infrastrukturi in arhitekturi. Potrebe poslovnih aplikacij pa se kljub temu določajo na zvezni način, tj. o aplikacijah za celotno podjetje se odloča na ravni podjetja in o vlogah poslovnih enot se odloča na decentraliziran način s strani posameznih poslovnih enot.</p>
+<table class="tabela-manjsa">
+<caption>
+<span id="tab:upravljanje-IT-za-rast">Tabela 1.6: </span>Upravljanje IT za <strong>rast</strong>
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Domena
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Načela IT
+</th>
+<th style="text-align:center;">
+Strategije infrastrukture IT
+</th>
+<th style="text-align:center;">
+Arhitektura IT
+</th>
+<th style="text-align:center;">
+Potrebe poslovnih aplikacij
+</th>
+<th style="text-align:center;">
+Naložbe v IT in določanje prioritet
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="6">
+<td colspan="6" style="border-bottom: 1px solid;">
+<strong>Stil</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Poslovna monarhija</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Monarhija IT</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Fevdalno</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Zvezno</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Duopol IT</strong>
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+<i class="fa-regular fa-circle-check"></i>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+<strong>Anarhija</strong>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+    $("a").click(function(e) {
+      if (
+        $(this).has(".fa-solid").length == 1 || 
+        $(this).has(".fa-brands").length == 1 || 
+        $(this).has(".fa-regular").length == 1 || 
+        $(this).has("img.git").length == 1
+      ) {
+        e.preventDefault();
+        window.open($(this).attr("href"), '_blank');
+      }
+    });
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q6109Y2092"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q6109Y2092');
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="P1-V1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="assets/lib/gitbook-2.6.7/js/app.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="assets/lib/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
