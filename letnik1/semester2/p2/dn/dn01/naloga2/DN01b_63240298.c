@@ -2,50 +2,49 @@
 
 int main(){
 
-	int st = 0;
-	int des = 0;
+	unsigned long st = 0b0;
 	int stevec = 0;
-	char input;  
+	char input = '0';
 	
 	while((input = getchar()) != '\n'){
-	
 		if(stevec > 0){
-			st *= 10;		
+			st = st << 1;		
 		}
 		st += input - '0';
 		stevec ++;
 	}
 	
+	int des = 0;
 	int stevec2 = 1;
+	
 	while(st > 0){
-		des += (st%10)*stevec2;
-		st /= 10;
+		des += (st%2)*stevec2;
+		st /= 2;
 		stevec2 *= 2;
 	}
 	
 	int output = 0;
-	while(des > 1){
+	int deljivo = 1;
+	
+	while(des > deljivo){
 		output++;
+		if(des%2 != 0)
+			deljivo = 0;
 		des/=2;
 	}
-	int outputCopy = output;
+	
 	int test = 1;
 	char vmesni = 0;
-	int stevec3 = 0;
+	int outputcopy = output;
 	
-	while(outputCopy > 9 || outputCopy < -9){
+	while(output > 9){
 		test *= 10;
-		outputCopy /= 10;
+		output /= 10;
 	}
 	while(test > 0){
-		if(output < 0 && stevec3 == 0){
-			putchar('-');
-			output *= (-1);
-			stevec3++;
-		}
-		vmesni = output/test + '0';
+		vmesni = outputcopy/test + '0';
 		putchar(vmesni);
-		output %= test;
+		outputcopy %= test;
 		test /= 10;
 	}
 	putchar('\n');
