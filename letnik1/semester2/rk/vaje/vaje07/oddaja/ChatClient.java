@@ -2,7 +2,6 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 import org.json.simple.JSONObject;
-import java.time.*;
 
 public class ChatClient extends Thread
 {
@@ -80,18 +79,10 @@ public class ChatClient extends Thread
 				//2. tip sporocila (javno)
 				json.put("Tip Sporocila", "Javno");
 			}
-
-			/* ZAOSTAJA ZA 2h
 			long pretekliCas = System.currentTimeMillis() / 1000; //v sekundah
 			long ura = (pretekliCas / 3600) % 24;
 			long minuta = (pretekliCas / 60) % 60;
 			String cas = Long.toString(ura) + "h " + Long.toString(minuta) + "min";
-			*/
-			//package java.time
-			ZoneId casovniPas = ZoneId.of("Europe/Ljubljana");
-			LocalTime trenutniCas = LocalTime.now(casovniPas);
-			String cas = trenutniCas.getHour() + ":" + trenutniCas.getMinute();
-
 			json.put("Cas Posiljanja", cas);
 			json.put("Besedilo Sporocila", userInput);
 			this.sendMessage(json.toJSONString(), out); // send the message to the chat server

@@ -7,8 +7,7 @@ import org.json.simple.parser.ParseException;
 
 public class ChatServer {
 	protected int serverPort = 8888; //Popravek (1234)
-	//protected List<Socket> clients = new ArrayList<Socket>(); // list of clients
-	
+	protected List<Socket> clients = new ArrayList<Socket>(); // list of clients
 
 	public static void main(String[] args) throws Exception {
 		new ChatServer();
@@ -73,21 +72,6 @@ public class ChatServer {
 		}
 	}
 
-	// send a message to a specific client connected to the server
-	public void sendToOneClient(String message) throws Exception {
-		Iterator<Socket> i = clients.iterator();
-		while (i.hasNext()) { // iterate through the client list
-			Socket socket = (Socket) i.next(); // get the socket for communicating with this client
-			try {
-				DataOutputStream out = new DataOutputStream(socket.getOutputStream()); // create output stream for sending messages to the client
-				out.writeUTF(message); // send message to the client
-			} catch (Exception e) {
-				System.err.println("[system] could not send message to a client");
-				e.printStackTrace(System.err);
-			}
-		}
-	}
-
 	public void removeClient(Socket socket) {
 		synchronized(this) {
 			clients.remove(socket);
@@ -119,30 +103,23 @@ class ChatServerConnector extends Thread {
 
 		while (true) { // infinite loop in which this thread waits for incoming messages and processes them
 			String msg_received;
-			String tip = "";
-			String posiljatelj = "";
-			String cas = " ";
-			String besedilo = " ";
-			String prejemnik = "";
-
 			try {
 				msg_received = in.readUTF(); // read the message from the client
 				JSONParser parser = new JSONParser();
 				try {
 					JSONObject parsedObj = (JSONObject) parser.parse(msg_received); //parse
 					
-					tip = (String) parsedObj.get("Tip Sporocila");
-					posiljatelj = (String) parsedObj.get("Ime Posiljatelja");
-					cas = (String) parsedObj.get("Cas Posiljanja");
-					besedilo = (String) parsedObj.get("Besedilo Sporocila");
-					prejemnik = (String) parsedObj.get("Ime Prejemnika");
+					String tip = (String) parsedObj.get("Tip Sporocila");
+					String posiljatelj = (String) parsedObj.get("Ime Posiljatelja");
+					String cas = (String) parsedObj.get("Cas vnosa");
+					String besedilo = (String) parsedObj.get("Besedilo Sporocila");
+					String prejemnik = (String) parsedObj.get("Ime Prejemnika");
 
 					System.out.println("Tip Sporocila: " + tip);
 					System.out.println("Ime Posiljatelja: " + posiljatelj);  
-					System.out.println("Cas posiljanja: " + cas);  
+					System.out.println("Cas vnosa: " + cas);  
 					System.out.println("Besedilo Sporocila: " + besedilo);  
-					System.out.println("Ime Prejemnika: " + prejemnik);
-
+					System.out.println("Ime Prejemnika: " + prejemnik);  
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
@@ -159,29 +136,14 @@ class ChatServerConnector extends Thread {
 
 			System.out.println("[RKchat] [" + this.socket.getPort() + "] : " + msg_received); // print the incoming message in the console
 
-			String msg_send = "";
-			if(tip.equals("Prijava")){
-				msg_send = posiljatelj + " se je prijavil!\n";
-			}else{
-				msg_send = "[" + cas + "] " + posiljatelj + "\n" + besedilo.toUpperCase() + "\n";
-			}
+			String msg_send = "someone said: " + msg_received.toUpperCase(); // TODO
 
-			if(tip.equals("Zasebno")){
-				try {
-					this.server.sendToOneClient(msg_send); // send message to one client
-				} catch (Exception e) {
-					System.err.println("[system] there was a problem while sending the message to client on port");
-					e.printStackTrace(System.err);
-					continue;
-				}
-			}else{
-				try {
-					this.server.sendToAllClients(msg_send); // send message to all clients
-				} catch (Exception e) {
-					System.err.println("[system] there was a problem while sending the message to all clients");
-					e.printStackTrace(System.err);
-					continue;
-				}
+			try {
+				this.server.sendToAllClients(msg_send); // send message to all clients
+			} catch (Exception e) {
+				System.err.println("[system] there was a problem while sending the message to all clients");
+				e.printStackTrace(System.err);
+				continue;
 			}
 		}
 	}
