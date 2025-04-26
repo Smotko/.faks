@@ -1,0 +1,188 @@
+NALOGE ZA RK SE NE SMEŠ LOTITI V NEDELJO ZVEČER!!!!!
+----------------------------------
+1)
+/ # ping 192.168.9.10
+PING 192.168.9.10 (192.168.9.10): 56 data bytes
+64 bytes from 192.168.9.10: seq=0 ttl=62 time=5.041 ms
+64 bytes from 192.168.9.10: seq=1 ttl=62 time=5.181 ms
+64 bytes from 192.168.9.10: seq=2 ttl=62 time=3.520 ms
+64 bytes from 192.168.9.10: seq=3 ttl=62 time=6.597 ms
+64 bytes from 192.168.9.10: seq=4 ttl=62 time=6.270 ms
+64 bytes from 192.168.9.10: seq=5 ttl=62 time=12.435 ms
+64 bytes from 192.168.9.10: seq=6 ttl=62 time=2.465 ms
+64 bytes from 192.168.9.10: seq=7 ttl=62 time=9.767 ms
+64 bytes from 192.168.9.10: seq=8 ttl=62 time=4.777 ms
+64 bytes from 192.168.9.10: seq=9 ttl=62 time=10.554 ms
+64 bytes from 192.168.9.10: seq=10 ttl=62 time=2.079 ms
+64 bytes from 192.168.9.10: seq=11 ttl=62 time=10.708 ms
+64 bytes from 192.168.9.10: seq=12 ttl=62 time=3.707 ms
+^C
+--- 192.168.9.10 ping statistics ---
+13 packets transmitted, 13 packets received, 0% packet loss
+round-trip min/avg/max = 2.079/6.392/12.435 ms
+/ # traceroute 192.168.9.10
+traceroute to 192.168.9.10 (192.168.9.10), 30 hops max, 46 byte packets
+ 1  10.2.0.1 (10.2.0.1)  1.085 ms  1.263 ms  0.741 ms
+ 2  1.1.1.2 (1.1.1.2)  1.881 ms  2.073 ms  3.633 ms
+ 3  192.168.9.10 (192.168.9.10)  2.132 ms  11.128 ms  3.164 ms
+/ # ping 192.168.9.10
+PING 192.168.9.10 (192.168.9.10): 56 data bytes
+64 bytes from 192.168.9.10: seq=0 ttl=61 time=10.964 ms
+64 bytes from 192.168.9.10: seq=1 ttl=61 time=3.843 ms
+64 bytes from 192.168.9.10: seq=2 ttl=61 time=4.857 ms
+64 bytes from 192.168.9.10: seq=3 ttl=61 time=8.154 ms
+64 bytes from 192.168.9.10: seq=4 ttl=61 time=7.587 ms
+64 bytes from 192.168.9.10: seq=5 ttl=61 time=6.668 ms
+64 bytes from 192.168.9.10: seq=6 ttl=61 time=9.595 ms
+64 bytes from 192.168.9.10: seq=7 ttl=61 time=14.249 ms
+64 bytes from 192.168.9.10: seq=8 ttl=61 time=11.570 ms
+64 bytes from 192.168.9.10: seq=9 ttl=61 time=15.222 ms
+64 bytes from 192.168.9.10: seq=10 ttl=61 time=5.450 ms
+64 bytes from 192.168.9.10: seq=11 ttl=61 time=3.178 ms
+64 bytes from 192.168.9.10: seq=12 ttl=61 time=9.671 ms
+^C
+--- 192.168.9.10 ping statistics ---
+13 packets transmitted, 13 packets received, 0% packet loss
+round-trip min/avg/max = 3.178/8.539/15.222 ms
+/ # traceroute 192.168.9.10
+traceroute to 192.168.9.10 (192.168.9.10), 30 hops max, 46 byte packets
+ 1  10.2.0.1 (10.2.0.1)  0.984 ms  1.116 ms  0.452 ms
+ 2  1.1.1.9 (1.1.1.9)  2.441 ms  3.514 ms  4.524 ms
+ 3  1.1.1.5 (1.1.1.5)  7.284 ms  9.942 ms  4.867 ms
+ 4  192.168.9.10 (192.168.9.10)  3.951 ms  16.520 ms  6.604 ms
+
+2)
+1.1.1.8/30 dev eth2  proto kernel  scope link  src 1.1.1.10
+10.2.0.0/16 dev eth0  proto kernel  scope link  src 10.2.0.1
+127.0.0.0/8 dev lo  proto kernel  scope link  src 127.0.0.1
+172.16.8.0/24 via 1.1.1.9 dev eth2  proto zebra  metric 1
+192.168.9.0/24 via 1.1.1.9 dev eth2  proto zebra
+
+1.1.1.4/30 dev eth2  proto kernel  scope link  src 1.1.1.5
+10.2.0.0/16 via 1.1.1.6 dev eth2  proto zebra
+127.0.0.0/8 dev lo  proto kernel  scope link  src 127.0.0.1
+172.16.8.0/24 via 1.1.1.6 dev eth2  proto zebra  metric 1
+192.168.9.0/24 dev eth0  proto kernel  scope link  src 192.168.9.1
+
+1.1.1.8/30 dev eth2  proto kernel  scope link  src 1.1.1.10
+10.2.0.0/16 dev eth0  proto kernel  scope link  src 10.2.0.1
+127.0.0.0/8 dev lo  proto kernel  scope link  src 127.0.0.1
+172.16.8.0/24 via 1.1.1.9 dev eth2  proto zebra  metric 1
+192.168.9.0/24 via 1.1.1.9 dev eth2  proto zebra
+
+3)
+R1)
+vyos@vyos:~$ configure
+[edit]
+vyos@vyos# set system host-name R1
+[edit]
+vyos@vyos# set interfaces ethernet eth1 address 1.1.1.1/30
+[edit]
+vyos@vyos# set interfaces ethernet eth2 address 1.1.1.10/30
+[edit]
+vyos@vyos# set interfaces ethernet eth0 address 10.2.0.1/16
+[edit]
+vyos@vyos#
+[edit]
+vyos@vyos# set protocols bgp 65531 parameters router-id 10.2.0.1
+[edit]
+vyos@vyos# set protocols bgp 65531 neighbor 1.1.1.2 remote-as 65532
+[edit]
+vyos@vyos# set protocols bgp 65531 neighbor 1.1.1.9 remote-as 65533
+[edit]
+vyos@vyos# set protocols bgp 65531 network 10.2.0.0/16
+[edit]
+vyos@vyos# commit
+[ system host-name R1 ]
+Stopping enhanced syslogd: rsyslogd.
+Starting enhanced syslogd: rsyslogd.
+
+[edit]
+vyos@vyos# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@vyos# exit
+exit
+
+R2)
+vyos@vyos:~$ configure
+[edit]
+vyos@vyos# set system host-name R2
+[edit]
+vyos@vyos# set interfaces ethernet eth1 address 1.1.1.2/30
+[edit]
+vyos@vyos# set interfaces ethernet eth2 address 1.1.1.5/30
+[edit]
+vyos@vyos# set interfaces ethernet eth0 address 192.168.9.1/24
+[edit]
+vyos@vyos#
+[edit]
+vyos@vyos# set protocols bgp 65532 parameters router-id 192.168.9.1
+[edit]
+vyos@vyos# set protocols bgp 65532 neighbor 1.1.1.1 remote-as 65531
+[edit]
+vyos@vyos# set protocols bgp 65532 neighbor 1.1.1.6 remote-as 65533
+[edit]
+vyos@vyos# set protocols bgp 65532 network 192.168.9.0/24
+[edit]
+vyos@vyos# commit
+[ system host-name R2 ]
+Stopping enhanced syslogd: rsyslogd.
+Starting enhanced syslogd: rsyslogd.
+
+[edit]
+vyos@vyos# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@vyos# exit
+exit
+
+R3)
+vyos@vyos:~$ configure
+[edit]
+vyos@vyos# set system host-name R3
+[edit]
+vyos@vyos# set interfaces ethernet eth1 address 1.1.1.6/30
+[edit]
+vyos@vyos# set interfaces ethernet eth2 address 1.1.1.9/30
+[edit]
+vyos@vyos# set interfaces ethernet eth0 address 172.16.8.1/24
+[edit]
+vyos@vyos#
+[edit]
+vyos@vyos# set protocols bgp 65533 parameters router-id 172.16.8.1
+[edit]
+vyos@vyos# set protocols bgp 65533 neighbor 1.1.1.5 remote-as 65532
+[edit]
+vyos@vyos# set protocols bgp 65533 neighbor 1.1.1.10 remote-as 65531
+[edit]
+vyos@vyos# set protocols bgp 65533 network 172.16.8.0/24
+[edit]
+vyos@vyos# commit
+[ system host-name R3 ]
+Stopping enhanced syslogd: rsyslogd.
+Starting enhanced syslogd: rsyslogd.
+
+[edit]
+vyos@vyos# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+vyos@vyos# exit
+exit
+
+
+PC1)
+/ # ip addr add 10.2.0.10/16 dev eth0
+/ # ip route add default via 10.2.0.1
+
+PC2)
+/ # ip addr add 192.168.9.10/24 dev eth0
+/ # ip route add default via 192.168.9.1
+
+PC3)
+/ # ip addr add 172.16.8.10/24 dev eth0
+/ # ip route add default via 172.16.8.1
+
