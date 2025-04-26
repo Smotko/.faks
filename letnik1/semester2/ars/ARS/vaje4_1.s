@@ -1,41 +1,30 @@
-; vaje 4 naloga 1
+.data # 0x400
+TAB:    .byte 17, 11, 20, 7, 8
+MAX:    .byte 0
+DEC:    .byte 0
+BIT:    .byte 0
 
-		.data
-		.org 0x400
-STEV1:	.word16 2323
-STEV2:	.word16 4343
-STEV3:	.byte -127
-STEV4:	.byte 6
-		.align 4
-STEV5:	.word 23456
-STEV6:	.word 43210
-SUM16:	.space 4
-MUL:	.space 4
-DIV:	.space 4
-SUM:	.space 4
-DIF:	.space 4
+        .text
+        addi x4, x0, 5    # dolzina polja
+        addi x2, x0, 0    # max
+        addi x10, x0, 10
+        addi x5, x0, 0    # koliko st. je vecjih od 10
+        addi x7, x0, 0    # koliko jih ima  b3=0 in b1=0
+        addi x3, x0, TAB
+LOOP:   lb x1, 0(x3)
+        blt x1, x2, MANJSI  # x1 < max
+        add x2, x0, x1      # max <- x1
+MANJSI: bge x10, x1, LE_10    # if (x1 < 10) -> LE_10
+        addi x5, x5, 1    
+LE_10:  andi x6, x1, 0x00a    # 0000 0000 1010 (maska)
+        addi x8, x0, 0x00a
+        beq x6, x8, b3_b1_1
+        addi x7, x7, 1
+b3_b1_1:addi x3, x3, 1
+        addi x4, x4, -1
+        blt x0, x4, LOOP
+        sb x2, MAX(x30)
+        sb x5, DEC(x30)
+        sb x7, BIT(x30)
 
-		.code
-		.org 0x0
-
-		lh r1, STEV1(r0)
-		lh r2, STEV2(r0)
-		addu r3, r1, r2
-		sw SUM16(r0), r3
-		
-		lb r4, STEV3(r0)
-		lb r5, STEV4(r0)
-		sll r6, r4, r5
-		sw MUL(r0), r3
-
-		srai r7, r4, #5
-		sw DIV(r0), r7
-
-		lw r8, STEV5(r0)
-		lw r9, STEV6(r0)
-		add r10, r8, r9
-		sw SUM(r0), r10
-
-		sub r11, r9, r8
-		sw DIF(r0), r11
-		halt
+ 
