@@ -1,12 +1,14 @@
 import java.io.*;
 import java.net.*;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import org.json.simple.JSONObject;
-import java.time.*;
 
 public class ChatClient extends Thread
 {
-	protected int serverPort = 8888; //popravek (1234)
+	protected int serverPort = 8888; //edit (1234)
 
 	public static void main(String[] args) throws Exception {
 		new ChatClient();
@@ -24,6 +26,7 @@ public class ChatClient extends Thread
 
 		//copy pasted from below
 		BufferedReader std_in = new BufferedReader(new InputStreamReader(System.in));
+		//navodila
 		System.out.println(
 		"\nNavodila za uporabo:\n" +
 		"Sledite navodilom izpisanim na komandno vrstico.\n" +
@@ -37,6 +40,7 @@ public class ChatClient extends Thread
 		json.put("Tip Sporocila", "Prijava");
         json.put("Ime Posiljatelja", uporabnskoIme);
 
+		//implementation of the whitelist
 		/*
 		if(!whitelist.contains(uporabnskoIme.toUpperCase())){
 			System.out.println("Niste whitelistani!");
@@ -52,7 +56,7 @@ public class ChatClient extends Thread
 			out = new DataOutputStream(socket.getOutputStream()); // create output stream for sending messages
 			System.out.println("[system] connected");
 
-			//1. tip sporocila (prijava novega uporabnika)
+			//1. type of message (prijava novega uporabnika)
 			this.sendMessage(json.toJSONString(), out);
 
 			ChatClientMessageReceiver message_receiver = new ChatClientMessageReceiver(in); // create a separate thread for listening to messages from the chat server
@@ -77,20 +81,22 @@ public class ChatClient extends Thread
 				String naslovPrejemnika = std_in.readLine();
 				json.put("Ime Prejemnika", naslovPrejemnika);
 			}else{
-				//2. tip sporocila (javno)
+				//2. type of message (javno)
 				json.put("Tip Sporocila", "Javno");
 			}
 
-			/* ZAOSTAJA ZA 2h
+			/* this way is 2h behind 
 			long pretekliCas = System.currentTimeMillis() / 1000; //v sekundah
 			long ura = (pretekliCas / 3600) % 24;
 			long minuta = (pretekliCas / 60) % 60;
 			String cas = Long.toString(ura) + "h " + Long.toString(minuta) + "min";
 			*/
-			//package java.time
+
+			//package java.time, to correctly display time
 			ZoneId casovniPas = ZoneId.of("Europe/Ljubljana");
 			LocalTime trenutniCas = LocalTime.now(casovniPas);
-			String cas = trenutniCas.getHour() + ":" + trenutniCas.getMinute();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
+			String cas = trenutniCas.format(formatter);
 
 			json.put("Cas Posiljanja", cas);
 			json.put("Besedilo Sporocila", userInput);
@@ -128,6 +134,11 @@ class ChatClientMessageReceiver extends Thread {
 			String message;
 			while ((message = this.in.readUTF()) != null) { // read new message
 				System.out.println("[RKchat] " + message); // print the message to the console
+
+				//the message will only be lower case, if a user already exists
+				if(message.equals("A user with this username already exists, please choose a different one!")){
+					System.exit(1);
+				}
 			}
 		} catch (Exception e) {
 			System.err.println("[system] could not read message");
