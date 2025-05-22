@@ -6,6 +6,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import org.json.simple.JSONObject;
 
+import javax.net.ssl.*;
+import java.security.*;
+
 public class ChatClient extends Thread
 {
 	protected int serverPort = 8888; //edit (1234)
@@ -23,7 +26,33 @@ public class ChatClient extends Thread
 		List<String> whitelist  = new ArrayList<>();
 		whitelist.addAll(List.of("POLDE", "ANZE"));
 		*/
+		/* 
+		String passphrase = "clientpassword";
 
+		// preberi datoteko s strežnikovim certifikatom
+		KeyStore serverKeyStore = KeyStore.getInstance("JKS");
+		serverKeyStore.load(new FileInputStream("server.public"), "public".toCharArray());
+
+		// preberi datoteko s svojim certifikatom in tajnim ključem
+		KeyStore clientKeyStore = KeyStore.getInstance("JKS");
+		clientKeyStore.load(new FileInputStream("client.private"), passphrase.toCharArray());
+
+		// vzpostavi SSL kontekst (komu zaupamo, kakšni so moji tajni ključi in certifikati)
+		TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
+		tmf.init(serverKeyStore);
+		KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
+		kmf.init(clientKeyStore, passphrase.toCharArray());
+		SSLContext sslContext = SSLContext.getInstance("TLS");
+		sslContext.init(kmf.getKeyManagers(), tmf.getTrustManagers(), (new SecureRandom()));
+
+		String host = "localhost";
+		// kreiramo socket
+		SSLSocketFactory sf = sslContext.getSocketFactory();
+		SSLSocket socket2 = (SSLSocket) sf.createSocket(host, serverPort);
+		socket2.setEnabledCipherSuites(new String[] { "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" }); // dovoljeni nacin kriptiranja (CipherSuite)
+		socket2.startHandshake(); // eksplicitno sprozi SSL Handshake
+		*/
+		
 		//copy pasted from below
 		BufferedReader std_in = new BufferedReader(new InputStreamReader(System.in));
 		//navodila

@@ -7,6 +7,9 @@ import org.json.simple.parser.ParseException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import javax.net.ssl.*;
+import java.security.*;
+
 public class ChatServer {
 	protected int serverPort = 8888; //edit (1234)
 	protected List<Socket> clients = new ArrayList<Socket>(); // list of clients
@@ -29,12 +32,37 @@ public class ChatServer {
 		return uporabnikVtic;
 	}
 
-	public ChatServer() {
+	public ChatServer() throws Exception{
 	
 		System.setProperty("java.net.preferIPv4Stack", "false");
 		System.setProperty("java.net.preferIPv6Addresses", "true");
 		ServerSocket serverSocket = null;
+		String passphrase = "serverpwd";
+		/* 
+		// preberi datoteko z odjemalskimi certifikati
+		KeyStore clientKeyStore = KeyStore.getInstance("JKS"); // KeyStore za shranjevanje odjemalčevih javnih ključev (certifikatov)
+		clientKeyStore.load(new FileInputStream("clients.public"), "public".toCharArray());
 
+		// preberi datoteko s svojim certifikatom in tajnim ključem
+		KeyStore serverKeyStore = KeyStore.getInstance("JKS"); // KeyStore za shranjevanje strežnikovega tajnega in javnega ključa
+		serverKeyStore.load(new FileInputStream("server.private"), passphrase.toCharArray());
+
+		// vzpostavi SSL kontekst (komu zaupamo, kakšni so moji tajni ključi in certifikati)
+		TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
+		tmf.init(clientKeyStore);
+		KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
+		kmf.init(serverKeyStore, passphrase.toCharArray());
+		SSLContext sslContext = SSLContext.getInstance("TLS");
+		sslContext.init(kmf.getKeyManagers(), tmf.getTrustManagers(), (new SecureRandom()));
+
+		// kreiramo socket
+		SSLServerSocketFactory factory = sslContext.getServerSocketFactory();
+		SSLServerSocket ss = (SSLServerSocket) factory.createServerSocket(serverPort);
+		ss.setNeedClientAuth(true); // tudi odjemalec se MORA predstaviti s certifikatom
+		ss.setEnabledCipherSuites(new String[] {"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"});
+
+		*/
+		
 		// create socket
 		try {
 			serverSocket = new ServerSocket(); // create the ServerSocket 
