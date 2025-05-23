@@ -37,8 +37,10 @@ public class ChatServer {
 		System.setProperty("java.net.preferIPv4Stack", "false");
 		System.setProperty("java.net.preferIPv6Addresses", "true");
 		ServerSocket serverSocket = null;
+
+
 		String passphrase = "serverpwd";
-		/* 
+
 		// preberi datoteko z odjemalskimi certifikati
 		KeyStore clientKeyStore = KeyStore.getInstance("JKS"); // KeyStore za shranjevanje odjemalčevih javnih ključev (certifikatov)
 		clientKeyStore.load(new FileInputStream("clients.public"), "public".toCharArray());
@@ -57,15 +59,15 @@ public class ChatServer {
 
 		// kreiramo socket
 		SSLServerSocketFactory factory = sslContext.getServerSocketFactory();
-		SSLServerSocket ss = (SSLServerSocket) factory.createServerSocket(serverPort);
 		ss.setNeedClientAuth(true); // tudi odjemalec se MORA predstaviti s certifikatom
 		ss.setEnabledCipherSuites(new String[] {"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"});
 
-		*/
+		
 		
 		// create socket
 		try {
-			serverSocket = new ServerSocket(); // create the ServerSocket 
+			serverSocket = new ServerSocket(); // create the ServerSocket
+			SSLServerSocket ss = (SSLServerSocket) factory.createServerSocket(serverPort);
 			//removed (this.serverPort)
 			serverSocket.bind(new InetSocketAddress("::0", this.serverPort)); //new
 		} catch (Exception e) {

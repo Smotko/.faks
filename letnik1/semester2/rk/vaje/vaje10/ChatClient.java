@@ -26,13 +26,14 @@ public class ChatClient extends Thread
 		List<String> whitelist  = new ArrayList<>();
 		whitelist.addAll(List.of("POLDE", "ANZE"));
 		*/
-		/* 
+		 
 		String passphrase = "clientpassword";
 
 		// preberi datoteko s strežnikovim certifikatom
 		KeyStore serverKeyStore = KeyStore.getInstance("JKS");
 		serverKeyStore.load(new FileInputStream("server.public"), "public".toCharArray());
-
+		
+		
 		// preberi datoteko s svojim certifikatom in tajnim ključem
 		KeyStore clientKeyStore = KeyStore.getInstance("JKS");
 		clientKeyStore.load(new FileInputStream("client.private"), passphrase.toCharArray());
@@ -51,9 +52,10 @@ public class ChatClient extends Thread
 		SSLSocket socket2 = (SSLSocket) sf.createSocket(host, serverPort);
 		socket2.setEnabledCipherSuites(new String[] { "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256" }); // dovoljeni nacin kriptiranja (CipherSuite)
 		socket2.startHandshake(); // eksplicitno sprozi SSL Handshake
-		*/
+		
 		
 		//copy pasted from below
+
 		BufferedReader std_in = new BufferedReader(new InputStreamReader(System.in));
 		//navodila
 		System.out.println(
@@ -67,7 +69,8 @@ public class ChatClient extends Thread
 		
         JSONObject json = new JSONObject();
 		json.put("Tip Sporocila", "Prijava");
-        json.put("Ime Posiljatelja", uporabnskoIme);
+
+        //json.put("Ime Posiljatelja", uporabnskoIme);
 
 		//implementation of the whitelist
 		/*
@@ -108,7 +111,7 @@ public class ChatClient extends Thread
 				json.put("Tip Sporocila", "Zasebno");
 				System.out.println("Prosim vnesite ime prejemnika, (pazite na VELIKE in male crke!):");
 				String naslovPrejemnika = std_in.readLine();
-				json.put("Ime Prejemnika", naslovPrejemnika);
+				//json.put("Ime Prejemnika", naslovPrejemnika);
 			}else{
 				//2. type of message (javno)
 				json.put("Tip Sporocila", "Javno");

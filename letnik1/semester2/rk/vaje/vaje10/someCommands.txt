@@ -1,5 +1,0 @@
-C:\Program Files\Java\jdk-23.0.1\bin
-
-keytool -genkeypair -alias mycert -keyalg RSA -keysize 2048 -validity 365 -keystore keystore2.jks -storetype JKS -storepass changeit -keypass changeit -dname "CN=localhost, OU=Development, O=MyCompany, L=NewYork, ST=NY, C=US"
-Generating 2.048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 365 days
-        for: CN=localhost, OU=Development, O=MyCompany, L=NewYork, ST=NY, C=US
