@@ -39,7 +39,7 @@ public class ChatServer {
 		ServerSocket serverSocket = null;
 
 
-		String passphrase = "serverpwd";
+		   
 
 		// preberi datoteko z odjemalskimi certifikati
 		KeyStore clientKeyStore = KeyStore.getInstance("JKS"); // KeyStore za shranjevanje odjemalčevih javnih ključev (certifikatov)
@@ -57,17 +57,19 @@ public class ChatServer {
 		SSLContext sslContext = SSLContext.getInstance("TLS");
 		sslContext.init(kmf.getKeyManagers(), tmf.getTrustManagers(), (new SecureRandom()));
 
-		// kreiramo socket
-		SSLServerSocketFactory factory = sslContext.getServerSocketFactory();
-		ss.setNeedClientAuth(true); // tudi odjemalec se MORA predstaviti s certifikatom
-		ss.setEnabledCipherSuites(new String[] {"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"});
+		
 
 		
 		
 		// create socket
 		try {
 			serverSocket = new ServerSocket(); // create the ServerSocket
+			
+			SSLServerSocketFactory factory = sslContext.getServerSocketFactory();
 			SSLServerSocket ss = (SSLServerSocket) factory.createServerSocket(serverPort);
+			// kreiramo socket
+			ss.setNeedClientAuth(true); // tudi odjemalec se MORA predstaviti s certifikatom
+			ss.setEnabledCipherSuites(new String[] {"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"});
 			//removed (this.serverPort)
 			serverSocket.bind(new InetSocketAddress("::0", this.serverPort)); //new
 		} catch (Exception e) {

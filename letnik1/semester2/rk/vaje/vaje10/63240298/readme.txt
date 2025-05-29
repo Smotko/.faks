@@ -1,5 +1,27 @@
-@echo off
+Navodila za zagon, ostala navodila so vidna po zagonu odjemalca.
+Nahajati, se je potrebno v mapi, v kateri so json-simple-1.1.1.jar, ChatServer.java, ChatClient.java ter certifikati
 
+1)Ukazi v CMD-ju za zagon streznika
+
+javac -cp "json-simple-1.1.1.jar" ChatServer.java
+java -cp "json-simple-1.1.1.jar;." ChatServer
+
+
+2)Ukazi v novem zavihku CMD-ja za zagon odjemalca
+
+javac -cp "json-simple-1.1.1.jar" ChatClient.java
+
+2.1)
+
+java -cp "json-simple-1.1.1.jar;." ChatClient <uporabnisko_ime> //<uporabnisko_ime> zamenjajte z anze, stane oz. dezi
+
+2.1) tocko ponavljajte, za vecje stevilo uporabnikov
+
+
+Nacin generiranja kljucov prilozenih v ZIP:
+Nahajati, se je potrebno v mapi ...\Java\jdk-<jdk_version>\bin v administratorskem nacinu //<jdk_version> zamenjajte z verzijio jdk
+
+@echo off
 rem Generate Stane's public/private key pair into private keystore
 echo Generating Stane's public private key pair
 keytool -genkey -alias staneprivate -keystore stane.private -storetype PKCS12 -keyalg rsa -dname "CN=stane" -storepass stanepwd -keypass stanepwd -validity 365
@@ -10,7 +32,7 @@ keytool -genkey -alias anzeprivate -keystore anze.private -storetype PKCS12 -key
 
 rem Generate Dezi's public/private key pair into private keystore
 echo Generating Dezi's public private key pair
-keytool -genkey -alias dezicaprivate -keystore dezi.private -storetype PKCS12 -keyalg rsa -dname "CN=dezi" -storepass dezipwd -keypass dezipwd -validity 365
+keytool -genkey -alias deziprivate -keystore dezi.private -storetype PKCS12 -keyalg rsa -dname "CN=dezi" -storepass dezipwd -keypass dezipwd -validity 365
 
 rem Generate server public/private key pair
 echo Generating server public private key pair
