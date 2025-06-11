@@ -1,0 +1,7 @@
+NE
+DA
+DA
+NE
+DA
+DA
+DA

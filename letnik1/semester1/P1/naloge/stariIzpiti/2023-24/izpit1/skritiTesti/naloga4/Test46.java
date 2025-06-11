@@ -1,0 +1,21 @@
+
+import java.util.*;
+
+public class Test46 {
+
+    public static void main(String[] args) {
+        List<String> la = List.of("aao", "aat", "abi", "aca", "afw", "ahg", "ajq", "ake", "alw", "anh", "apr", "aqx", "ata", "atc", "auq", "avg", "awe", "awl", "awm", "awv", "axr", "bbs", "bdp", "bgh", "bht", "bio", "bke", "bkh", "bmr", "bnf", "brt", "buh", "bwe", "bwo", "byu", "bzw", "cau", "cbu", "ccd", "cdg", "cdy", "cho", "cil", "cio", "cjz", "clf", "clx", "cot", "cpu", "cug", "cwj", "cws", "cxv", "cya", "cyp", "dak", "das", "dbl", "dch", "dck", "dda", "ddh", "dej", "dem", "dgc", "dgv", "dhu", "djp", "dln", "dlw", "dnk", "dri", "dtk", "dts", "dtv", "dvp", "dxi", "dxl", "dxn", "dxy", "dzw", "ead", "ebv", "ect", "ecv", "ecx", "edi", "edz", "efs", "egv", "ehq", "ein", "ejs", "emb", "emi", "emt", "epa", "eqf", "eqv", "esa", "euf", "evi", "evn", "ewb", "fdt", "fek", "fer", "ffn", "fic", "fiq", "fjx", "fle", "foa", "fom", "fos", "fpd", "fsk", "fsv", "fti", "fua", "fui", "fvf", "fwo", "fzx", "gak", "gao", "gav", "gcw", "gej", "ggq", "ghg", "gjq", "gms", "gnv", "gqz", "gsq", "gsw", "gtl", "guy", "gvg", "gwe", "gwz", "gyv", "hap", "hbb", "hct", "hef", "hgv", "hiy", "hke", "hmt", "hnt", "hnx", "hoc", "hql", "hrt", "htz", "hut", "hxz", "hyc", "iak", "iau", "ibn", "ibs", "idp", "ien", "ieq", "iew", "igi", "igm", "iin", "ilk", "ils", "ioj", "ira", "irg", "isq", "isx", "itn", "iuw", "iwp", "iwz", "iyc", "jbq", "jbu", "jbw", "jdb", "jec", "jez", "jgh", "jhk", "jig", "jin", "jiu", "jjj", "jkc", "jnq", "jru", "jsu", "jsz", "jtc", "jti", "jwb", "jxj", "jym", "jze", "kbw", "kei", "kgs", "khg", "kjk", "kqs", "krl", "ksc", "ktl", "ktm", "ktx", "kum", "kvy", "kwk", "kxb", "ldu", "lfi", "lhv", "ljj", "ljo", "lkf", "lkt", "lly", "lmc", "lot", "lou", "lrq", "lth", "lvn", "lwa", "lyq", "lzb", "lzj", "lzv", "lzw", "maf", "mai", "mfp", "mio", "mjd", "mlr", "mlz", "mmc", "mpi", "mtp", "mtr", "mur", "mut", "mvm", "mvt", "mwb", "mwj", "mwy", "mxf", "mzw", "nar", "nbh", "nbp", "nbt", "ncv", "nek", "ner", "nfs", "nge", "nhd", "noh", "now", "npr", "npv", "nqx", "nrs", "nub", "nuz", "nva", "nwg", "nww", "nye", "nzq", "ocm", "odx", "ohl", "ohr", "oio", "ory", "otf", "oue", "ouj", "ovw", "oxh", "pcj", "pdp", "pdz", "pjb", "pnd", "pnt", "pog", "pqj", "prz", "pud", "puj", "pwn", "pxe", "pxr", "pxs", "pzg", "qal", "qaw", "qcb", "qcf", "qcp", "qda", "qgc", "qgm", "qhp", "qkr", "qoa", "qqj", "qtq", "qut", "quw", "qvg", "qvj", "qvw", "qwh", "qzx", "raj", "rau", "rcj", "rfb", "rho", "rhs", "ric", "rkp", "rlb", "rlz", "rmz", "rny", "rrr", "rrv", "rsi", "rsm", "rsu", "ryw", "rzm", "sao", "sbs", "scs", "sek", "ser", "sjx", "skh", "slb", "sls", "smv", "sov", "spq", "spy", "srf", "stz", "svp", "swf", "szn", "tap", "tbu", "tcd", "tda", "til", "tiy", "tlm", "tls", "tmu", "tur", "tux", "txs", "tyh", "ubg", "ubs", "udg", "udj", "udx", "uec", "ufx", "ugk", "uio", "uiz", "ujo", "uli", "umx", "unt", "uph", "urc", "urt", "ush", "usw", "usz", "uub", "uvr", "uwb", "uwd", "uwv", "vbb", "vbd", "vbx", "vet", "vli", "vmh", "vmy", "vnm", "vog", "vol", "vpc", "vqi", "vtr", "vuc", "vwy", "vxf", "vxh", "wat", "wbp", "wcv", "wfa", "wfg", "wfv", "wgk", "wgy", "whd", "wjg", "wjn", "wkk", "wks", "wmc", "woy", "wpk", "wsi", "wzm", "wzz", "xca", "xef", "xhb", "xhh", "xij", "xka", "xkt", "xlz", "xoa", "xri", "xrx", "xus", "xuw", "xvo", "xwc", "xwf", "xww", "xxh", "xyi", "xzq", "ycr", "ydg", "yeu", "yev", "ygf", "ygs", "yil", "ynk", "ypm", "yri", "yzt", "yzw", "zcd", "zdq", "zfh", "zgh", "zhh", "zoy", "zrr", "zsn", "zuw", "zvc", "zxw", "zyg", "zyu", "zzc");
+        List<String> lb = List.of("adj", "big", "bjb", "bor", "bya", "clh", "crf", "cxs", "cxt", "dfn", "dmo", "dzy", "enf", "eqo", "etu", "evt", "her", "hxg", "hya", "igi", "ihp", "irp", "iuj", "jpc", "jxs", "ldu", "lgr", "lin", "lwx", "mas", "mav", "mwh", "oai", "ogn", "ooe", "pap", "pbm", "pgg", "rgp", "rht", "rwb", "sie", "skp", "ujt", "upz", "vaz", "vot", "vvg", "vyk", "wmz", "wzw", "xgy", "yxt", "zcy", "zfc", "zho", "zip");
+        List<String> lc = it2list(Cetrta.zlitje(la.iterator(), lb.iterator()));
+        System.out.println(lc);
+    }
+
+    private static <T> List<T> it2list(Iterator<T> it) {
+        List<T> seznam = new ArrayList<>();
+        while (it.hasNext()) {
+            T element = it.next();
+            seznam.add(element);
+        }
+        return seznam;
+    }
+}

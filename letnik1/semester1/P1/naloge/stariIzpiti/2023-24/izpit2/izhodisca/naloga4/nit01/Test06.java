@@ -1,0 +1,27 @@
+
+import java.util.*;
+import java.util.function.*;
+
+public class Test06 {
+
+    public static void main(String[] args) {
+        Comparator<Cas> comp = (a, b) -> a.compareTo(b);
+
+        List<List<Cas>> seznami = List.of(
+            List.of(new Cas(0, 31), new Cas(20, 31), new Cas(17, 51), new Cas(20, 34), new Cas(8, 48)),
+            List.of(new Cas(0, 31), new Cas(20, 34), new Cas(1, 7), new Cas(20, 34), new Cas(1, 7), new Cas(20, 31), new Cas(1, 7), new Cas(20, 31), new Cas(5, 34), new Cas(17, 51), new Cas(5, 34), new Cas(17, 51), new Cas(5, 34), new Cas(14, 32), new Cas(5, 34), new Cas(14, 32), new Cas(8, 48), new Cas(8, 48), new Cas(8, 48), new Cas(8, 48), new Cas(8, 48), new Cas(8, 48), new Cas(8, 48), new Cas(8, 48), new Cas(23, 57), new Cas(5, 34), new Cas(17, 51), new Cas(5, 34), new Cas(20, 31), new Cas(1, 7), new Cas(20, 31), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(23, 57), new Cas(0, 31), new Cas(17, 51)),
+            List.of(new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(1, 7), new Cas(23, 57), new Cas(1, 7), new Cas(23, 57), new Cas(1, 7), new Cas(23, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(0, 31), new Cas(22, 57), new Cas(5, 34), new Cas(22, 57), new Cas(5, 34), new Cas(22, 57), new Cas(8, 48), new Cas(22, 57), new Cas(8, 48), new Cas(22, 57), new Cas(8, 48), new Cas(22, 57), new Cas(8, 48), new Cas(20, 34), new Cas(14, 32), new Cas(20, 34), new Cas(14, 32), new Cas(20, 34), new Cas(17, 51), new Cas(20, 31), new Cas(17, 51), new Cas(20, 31), new Cas(17, 51), new Cas(20, 31), new Cas(17, 51), new Cas(17, 51), new Cas(17, 51), new Cas(17, 51), new Cas(20, 31), new Cas(17, 51), new Cas(20, 31), new Cas(17, 51), new Cas(20, 31), new Cas(14, 32), new Cas(20, 31), new Cas(14, 32), new Cas(20, 34), new Cas(8, 48), new Cas(20, 34), new Cas(8, 48), new Cas(20, 34), new Cas(8, 48), new Cas(22, 57), new Cas(5, 34), new Cas(22, 57), new Cas(5, 34), new Cas(22, 57), new Cas(5, 34), new Cas(22, 57), new Cas(1, 7), new Cas(23, 57), new Cas(1, 7), new Cas(23, 57), new Cas(1, 7), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(5, 34)),
+            List.of(new Cas(0, 31), new Cas(23, 57), new Cas(5, 34), new Cas(20, 34), new Cas(14, 32), new Cas(17, 51), new Cas(20, 31), new Cas(8, 48), new Cas(22, 57), new Cas(1, 7)),
+            List.of(new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(23, 57), new Cas(0, 31), new Cas(22, 57), new Cas(0, 31), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(20, 34), new Cas(5, 34), new Cas(20, 34), new Cas(5, 34), new Cas(20, 34), new Cas(5, 34), new Cas(20, 34), new Cas(8, 48), new Cas(20, 34), new Cas(8, 48), new Cas(20, 34), new Cas(8, 48), new Cas(20, 31), new Cas(14, 32), new Cas(20, 31), new Cas(14, 32), new Cas(20, 31), new Cas(14, 32), new Cas(17, 51), new Cas(14, 32), new Cas(14, 32), new Cas(14, 32), new Cas(14, 32), new Cas(14, 32), new Cas(14, 32), new Cas(17, 51), new Cas(14, 32), new Cas(17, 51), new Cas(8, 48), new Cas(17, 51), new Cas(8, 48), new Cas(20, 31), new Cas(8, 48), new Cas(20, 31), new Cas(5, 34), new Cas(20, 31), new Cas(5, 34), new Cas(20, 34), new Cas(1, 7), new Cas(20, 34), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(0, 31), new Cas(23, 57), new Cas(0, 31)),
+            List.of(new Cas(0, 31), new Cas(20, 34), new Cas(0, 31), new Cas(23, 57), new Cas(1, 7), new Cas(23, 57), new Cas(1, 7), new Cas(23, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(1, 7), new Cas(22, 57), new Cas(5, 34), new Cas(23, 57), new Cas(5, 34), new Cas(20, 34), new Cas(5, 34), new Cas(20, 31), new Cas(8, 48), new Cas(20, 31), new Cas(8, 48), new Cas(20, 31), new Cas(8, 48), new Cas(20, 31), new Cas(8, 48), new Cas(20, 31), new Cas(8, 48), new Cas(17, 51), new Cas(14, 32), new Cas(17, 51), new Cas(14, 32), new Cas(17, 51), new Cas(14, 32), new Cas(14, 32), new Cas(14, 32), new Cas(8, 48), new Cas(14, 32), new Cas(8, 48), new Cas(17, 51), new Cas(8, 48), new Cas(17, 51), new Cas(8, 48), new Cas(17, 51), new Cas(8, 48), new Cas(20, 31), new Cas(5, 34), new Cas(20, 34), new Cas(5, 34), new Cas(20, 34), new Cas(1, 7), new Cas(20, 34), new Cas(0, 31), new Cas(22, 57), new Cas(0, 31), new Cas(23, 57)),
+            List.of(new Cas(0, 31), new Cas(23, 57), new Cas(5, 34), new Cas(20, 34), new Cas(14, 32), new Cas(17, 51), new Cas(20, 31), new Cas(8, 48), new Cas(22, 57), new Cas(1, 7)),
+            List.of(new Cas(8, 48)),
+            List.of(new Cas(0, 31), new Cas(23, 57), new Cas(22, 57), new Cas(20, 34), new Cas(14, 32), new Cas(17, 51), new Cas(20, 31), new Cas(8, 48), new Cas(5, 34), new Cas(1, 7)),
+            List.of(new Cas(0, 31), new Cas(23, 57), new Cas(5, 34), new Cas(20, 31), new Cas(14, 32), new Cas(17, 51), new Cas(20, 34), new Cas(8, 48), new Cas(22, 57), new Cas(1, 7))
+        );
+
+        for (List<Cas> seznam: seznami) {
+            System.out.println(Cetrta.alternirajoceMonotono(seznam, comp));
+        }
+    }
+}

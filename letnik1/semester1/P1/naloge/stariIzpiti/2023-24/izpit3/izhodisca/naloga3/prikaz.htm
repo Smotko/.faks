@@ -1,0 +1,1013 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>Prikaz rezultatov testiranja</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style>
+            .tableBase { border-collapse: collapse; }
+            .tableBase > tbody > tr > td { border: 1px solid black; padding: 7px;}
+            .tableResults { table-layout: fixed; border-spacing: 0px; border-collapse: separate; }
+            table#nasredini { margin-left:auto; margin-right:auto; }
+            table tbody td.hoverOk {background-color:#9F9; border: 1px solid #63B563; width: 15px; color: black; text-align: center; }
+            .hoverOk:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #63B563; }
+            .hoverOk:hover td { background: transparent; }
+            .hoverOk > a:link, .hoverOk > a:visited, .hoverOk > a:hover, .hoverOk > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverErr {background-color:#FFBF00; border: 1px solid #CB9800; width: 15px; color: black; text-align: center; }
+            .hoverErr:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #CB9800; }
+            .hoverErr:hover td { background: transparent; }
+            .hoverErr > a:link, .hoverErr > a:visited, .hoverErr > a:hover, .hoverErr > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverRuntime {background-color:#FF9; border: 1px solid #D8D87E; width: 15px; color: black; text-align: center; }
+            .hoverRuntime:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #D8D87E; }
+            .hoverRuntime:hover td { background: transparent; }
+            .hoverRuntime > a:link, .hoverRuntime > a:visited, .hoverRuntime > a:hover, .hoverRuntime > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverCompile {background-color:#C00000; border: 1px solid #710B0B; width: 15px; color: black; text-align: center; }
+            .hoverCompile:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #710B0B; }
+            .hoverCompile:hover td { background: transparent; }
+            .hoverCompile > a:link, .hoverCompile > a:visited, .hoverCompile > a:hover, .hoverCompile > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverMissing {background-color:#F0F0F0; border: 1px solid #ABABAB; width: 15px; color: black; text-align: center; }
+            .hoverMissing:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #ABABAB; }
+            .hoverMissing:hover td { background: transparent; }
+            .hoverMissing > a:link, .hoverMissing > a:visited, .hoverMissing > a:hover, .hoverMissing > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverTimeout {background-color:#B9F; border: 1px solid #9070CE; width: 15px; color: black; text-align: center; }
+            .hoverTimeout:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #9070CE; }
+            .hoverTimeout:hover td { background: transparent; }
+            .hoverTimeout > a:link, .hoverTimeout > a:visited, .hoverTimeout > a:hover, .hoverTimeout > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverImage {background-color:#D0E0F0; border: 1px solid #a6b3c0; width: 15px; color: black; text-align: center; }
+            .hoverImage:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #a6b3c0; }
+            .hoverImage:hover td { background: transparent; }
+            .hoverImage > a:link, .hoverImage > a:visited, .hoverImage > a:hover, .hoverImage > a:active { color: black; font-size: 0.9em; }
+            .tableCommon { border-collapse: collapse; }
+            .tableOK > tbody > tr > td { border: 1px solid #63B563; padding: 7px;}
+            .tableError > tbody > tr > td { border: 1px solid #CB9800; padding: 7px;}
+            .tableRuntime > tbody > tr > td { border: 1px solid #D8D87E; padding: 7px;}
+            .tableCompiler > tbody > tr > td { border: 1px solid #710B0B; padding: 7px;}
+            .tableMissing > tbody > tr > td { border: 1px solid #ABABAB; padding: 7px;}
+            .tableTimeout > tbody > tr > td { border: 1px solid #9070CE; padding: 7px;}
+            .tableImage > tbody > tr > td { border: 1px solid #a6b3c0; padding: 7px;}
+            .tableSummary { table-layout: fixed; }
+            .texttt { font-family: DejaVu Sans Mono, monospace; font-size: 0.8em; }
+            table.diff > tbody > tr > td { border: none; font-family: DejaVu Sans Mono, monospace}
+            .diff_add { color: green; font-family: DejaVu Sans Mono, monospace; }
+            .diff_sub { color: blue; font-family: DejaVu Sans Mono, monospace; }
+            .diff_chg { color: red; font-family: DejaVu Sans Mono, monospace; }
+            a { color: blue; text-decoration: none; height: 100%; width: 100%; vertical-align: middle; }
+            a:link { color: blue; text-decoration: none; }
+            a:link { color: blue; text-decoration: none; }
+            a:hover { color: blue; text-decoration: underline; }
+            body, td { font: normal normal 100%/1.0 DejaVu Sans, sans-serif; }
+            h1 { font-weight: bold; font-size: 150%; }
+            h2 { font-weight: normal; font-size: 125%; border-top: 1px solid black; border-bottom: 1px solid black; background: #DEF; padding: 5px; margin-top: 36px; margin-bottom: 36px}
+            .container{ margin: 0px auto; width: 70%; min-width: 700px; margin-top: 1.8cm; margin-bottom: 1.8cm; }
+            .rwordb{ color: blue; font-weight: bold; }
+            .rwordv{ color:#8000ff; font-weight: bold; }
+            .vcomment{ color: green; }
+            .bcomment{ color: green; }
+            .niz{ color:#a31515; }
+            .stevilo{ color:#ff8000; }
+            tab { padding-left: 4em; }
+            #grad1 {
+                background: -webkit-linear-gradient(left, #E0E0E0 , white);
+                background: -o-linear-gradient(right, #E0E0E0, white);
+                background: -moz-linear-gradient(right, #E0E0E0, white);
+                background: linear-gradient(to right, #E0E0E0 , white);
+            }
+            #grad2 {
+                background: -webkit-linear-gradient(left, #9F9 , white);
+                background: -o-linear-gradient(right, #9F9, white);
+                background: -moz-linear-gradient(right, #9F9, white);
+                background: linear-gradient(to right, #9F9 , white);
+            }
+            .capSlika { display:block; height: 25px; margin:0 auto; font-size: 1.0em; text-align: left; }
+            .dborder { padding: 0px; border: 1px solid #CACACA; }
+            .capText { display: block; margin:0 auto; font-size: 0.9em; text-align: left; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <a name="top"></a>
+        <h1 id="grad2" style="padding: 10px; border: 0px solid black; color: #000000;">Rezultati preverjanja metod programa (12/12)</h1>
+        <div style="height: 20px"></div>
+        <a name="summary"></a>
+        <h2>Povzetek rezultatov</h2>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                <td class="hoverOk"><a href="#testcase1">1</a></td>
+                <td class="hoverOk"><a href="#testcase2">2</a></td>
+                <td class="hoverOk"><a href="#testcase3">3</a></td>
+                <td class="hoverOk"><a href="#testcase4">4</a></td>
+                <td class="hoverOk"><a href="#testcase5">5</a></td>
+                <td class="hoverOk"><a href="#testcase6">6</a></td>
+                <td class="hoverOk"><a href="#testcase7">7</a></td>
+                <td class="hoverOk"><a href="#testcase8">8</a></td>
+                <td class="hoverOk"><a href="#testcase9">9</a></td>
+                <td class="hoverOk"><a href="#testcase10">10</a></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                <td class="hoverOk"><a href="#testcase11">11</a></td>
+                <td class="hoverOk"><a href="#testcase12">12</a></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <div style="height: 20px"></div>
+        <h2>Rezultati</h2>
+        <a name="testcase1"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 1</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test01 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport1"</span>,  <span class="stevilo">50</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info1"</span>,    <span class="stevilo">30</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film1"</span>,   <span class="stevilo">120</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info2"</span>,    <span class="stevilo">40</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info3"</span>,    <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport2"</span>,  <span class="stevilo">60</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film2"</span>,    <span class="stevilo">30</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info4"</span>,    <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film3"</span>,    <span class="stevilo">80</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport3"</span>,  <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film4"</span>,    <span class="stevilo">30</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info5"</span>,    <span class="stevilo">70</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">0</span>, <span class="stevilo">0</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">4</span>, <span class="stevilo">55</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">8</span>, <span class="stevilo">20</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">11</span>, <span class="stevilo">47</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">14</span>, <span class="stevilo">29</span>)));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            9:30<br/>14:25<br/>17:50<br/>21:17<br/>23:59<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase2"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test02 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"xTsdC8"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"xMtns"</span>, <span class="stevilo">22</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"65Jh74"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"0wdf6iV"</span>, <span class="stevilo">18</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"8objet"</span>, <span class="stevilo">11</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Tnphn"</span>, <span class="stevilo">35</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"NkuvlK"</span>, <span class="stevilo">24</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"7lxHX"</span>, <span class="stevilo">41</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"kRsX2"</span>, <span class="stevilo">23</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"h1eQqc5"</span>, <span class="stevilo">33</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"aJ5msYA"</span>, <span class="stevilo">30</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"wXgwDb"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"LwyJShF"</span>, <span class="stevilo">34</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"epy4ySV"</span>, <span class="stevilo">22</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Vgqel"</span>, <span class="stevilo">10</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"eHaii"</span>, <span class="stevilo">27</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"BBqb66"</span>, <span class="stevilo">11</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"6aq8SQ"</span>, <span class="stevilo">25</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"keqLh"</span>, <span class="stevilo">35</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Fby47"</span>, <span class="stevilo">33</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"mCRdsiG"</span>, <span class="stevilo">27</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"C6dlPW"</span>, <span class="stevilo">23</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"a3XDu"</span>, <span class="stevilo">26</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"pLuwP"</span>, <span class="stevilo">18</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">12</span>, <span class="stevilo">25</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">1</span>, <span class="stevilo">45</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">9</span>, <span class="stevilo">27</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">3</span>, <span class="stevilo">2</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">3</span>, <span class="stevilo">22</span>)));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            21:52<br/>11:12<br/>18:54<br/>12:29<br/>12:49<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase3"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 3</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test03 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"WOqI4"</span>, <span class="stevilo">10</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"h1eQqc5"</span>, <span class="stevilo">18</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"n7ClKj"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"3ixux"</span>, <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"KJvC0s"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"NkSg1"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"EpKdBtD"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"2Q7hO"</span>, <span class="stevilo">11</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"hV2M2a0"</span>, <span class="stevilo">7</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"sqk1Cqb"</span>, <span class="stevilo">1</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"4YOHf"</span>, <span class="stevilo">9</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"RGb5uCE"</span>, <span class="stevilo">1</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"SB45fq"</span>, <span class="stevilo">21</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"JSJtmq"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"7EFj4xj"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"yWYrIg5"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"E7kp4E"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"OGYuLSP"</span>, <span class="stevilo">16</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"dbQpr"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"JoUcXDv"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"vVtiU"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"LQeRg"</span>, <span class="stevilo">10</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"gwcwi"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"SXtfK"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"E5RxGME"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Bu4PK"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"RswxNI"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"jT1Lfw6"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"cNgynAw"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"eHaii"</span>, <span class="stevilo">10</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"FfGmXVG"</span>, <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"cDJJLC4"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Mal2GX"</span>, <span class="stevilo">11</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"3LcnGh"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"uhUCu"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"PeKKM"</span>, <span class="stevilo">5</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"kHQYd"</span>, <span class="stevilo">9</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"1mDKM77"</span>, <span class="stevilo">13</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"uGwiI"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"dgpTlub"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"lAiAW"</span>, <span class="stevilo">1</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"oOxTFm"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"MbR1U"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"nbCL8"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"v0txJ"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Ne0Fi"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"M7NxBiA"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">6</span>, <span class="stevilo">42</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">5</span>, <span class="stevilo">30</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">14</span>, <span class="stevilo">39</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">9</span>, <span class="stevilo">3</span>)));<br/>
+<tab><tab>System.out.println(program.konec(<span class="rwordb">new</span> Cas(<span class="stevilo">9</span>, <span class="stevilo">55</span>)));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            15:31<br/>14:19<br/>23:28<br/>17:52<br/>18:44<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase4"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 4</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test04 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport1"</span>,  <span class="stevilo">50</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info1"</span>,    <span class="stevilo">30</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film1"</span>,   <span class="stevilo">120</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info2"</span>,    <span class="stevilo">40</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info3"</span>,    <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport2"</span>,  <span class="stevilo">60</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film2"</span>,    <span class="stevilo">30</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info4"</span>,    <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film3"</span>,    <span class="stevilo">80</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport3"</span>,  <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film4"</span>,    <span class="stevilo">30</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info5"</span>,    <span class="stevilo">70</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>Tretja.Film film = program.zadnjiFilm();<br/>
+<tab><tab>System.out.println(film);<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Film&nbsp;|&nbsp;Film4&nbsp;|&nbsp;30<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase5"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 5</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test05 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"JGNVCc"</span>, <span class="stevilo">9</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"I73L6Dy"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"DKVjNN5"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"dGbOnnB"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"hDRTndp"</span>, <span class="stevilo">21</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"EkmoId"</span>, <span class="stevilo">23</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"oOxTFm"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"qpTdOQH"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"tcwFC"</span>, <span class="stevilo">9</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"d08ABVC"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Pc50l"</span>, <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"LwyJShF"</span>, <span class="stevilo">7</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"xcJ5PG"</span>, <span class="stevilo">21</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"LTq2Rxn"</span>, <span class="stevilo">23</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"GGm5CF"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Se5iQ7"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"6DceAc"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"wpiNr8P"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"fYAQCdv"</span>, <span class="stevilo">10</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"56bdPGq"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"sAahA0"</span>, <span class="stevilo">13</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"rGB4QFQ"</span>, <span class="stevilo">7</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"bw2JS62"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Mrk14V"</span>, <span class="stevilo">10</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"v0txJ"</span>, <span class="stevilo">13</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"s2UgVbj"</span>, <span class="stevilo">22</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"ucwPyS"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"3HpTMF"</span>, <span class="stevilo">21</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"ORYB0m"</span>, <span class="stevilo">21</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"g3wtf4"</span>, <span class="stevilo">5</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"0QoVWc"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"IhvChT2"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"hwoDaM"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"6VC30"</span>, <span class="stevilo">13</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"REURPF"</span>, <span class="stevilo">5</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"xEncDE"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"dlk3x"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"4tUg1C"</span>, <span class="stevilo">18</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"gxXPDpO"</span>, <span class="stevilo">13</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"epy4ySV"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"DAgEGk"</span>, <span class="stevilo">23</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"NkSg1"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"rBYvg6"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>Tretja.Film film = program.zadnjiFilm();<br/>
+<tab><tab>System.out.println(film);<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Film&nbsp;|&nbsp;DAgEGk&nbsp;|&nbsp;23<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase6"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 6</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test06 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"tfSgAtR"</span>, <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"gRgkU"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"dbQpr"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"syCXJSJ"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"KmaON"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"0XMj7Ra"</span>, <span class="stevilo">34</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"YAlK4Q"</span>, <span class="stevilo">27</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"lvYdJhI"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"pP5e6J"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"yWsQTk"</span>, <span class="stevilo">1</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"cDJJLC4"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"v5vx2Q4"</span>, <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"oC0qeF"</span>, <span class="stevilo">16</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"EglvB"</span>, <span class="stevilo">26</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"pOWpq"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Bu4PK"</span>, <span class="stevilo">25</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"hL0U0"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"HcVF3a"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Il7Vbh"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"AOK8b"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"256Mbp"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"4PfWT"</span>, <span class="stevilo">29</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"iyfr6"</span>, <span class="stevilo">19</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"EcdMv"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"WlqTD6"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"KEAcYOB"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"wYDgdQ"</span>, <span class="stevilo">5</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"NI6Kubm"</span>, <span class="stevilo">32</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>Tretja.Film film = program.zadnjiFilm();<br/>
+<tab><tab>System.out.println(film);<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            Film&nbsp;|&nbsp;NI6Kubm&nbsp;|&nbsp;32<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase7"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 7</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test07 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport1"</span>,  <span class="stevilo">50</span>),<br/>
+<tab><tab><tab>new Tretja.Info("Info1",    30),  <span class="vcomment">// do naslednje informativne oddaje je 120 minut<br/></span>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film1"</span>,   <span class="stevilo">120</span>),<br/>
+<tab><tab><tab>new Tretja.Info("Info2",    40),  <span class="vcomment">// do naslednje informativne oddaje je 0 minut<br/></span>
+<tab><tab><tab>new Tretja.Info("Info3",    20),  <span class="vcomment">// do naslednje informativne oddaje je 90 minut<br/></span>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport2"</span>,  <span class="stevilo">60</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film2"</span>,    <span class="stevilo">30</span>),<br/>
+<tab><tab><tab>new Tretja.Info("Info4",    20),  <span class="vcomment">// do naslednje informativne oddaje je 130 minut<br/></span>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film3"</span>,    <span class="stevilo">80</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Sport3"</span>,  <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Film4"</span>,    <span class="stevilo">30</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Info5"</span>,    <span class="stevilo">70</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">0</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">129</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">130</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">131</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">200</span>));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            false<br/>false<br/>true<br/>true<br/>true<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase8"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 8</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test08 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"mxOeN"</span>, <span class="stevilo">35</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"3LcnGh"</span>, <span class="stevilo">45</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Edjh0jI"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"n5gvDE"</span>, <span class="stevilo">48</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"UaQXi"</span>, <span class="stevilo">11</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"IKM6han"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"TaGRp"</span>, <span class="stevilo">25</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"4tUg1C"</span>, <span class="stevilo">1</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"MQOVssj"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"rRBjf"</span>, <span class="stevilo">1</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"FYh2a"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"VC2Yu"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"lvYdJhI"</span>, <span class="stevilo">18</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"E5RxGME"</span>, <span class="stevilo">13</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"f8L8RWJ"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"R2hE0"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"dpSCuo"</span>, <span class="stevilo">33</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"pvTFd"</span>, <span class="stevilo">39</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"f01g5yE"</span>, <span class="stevilo">24</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"PQV7o"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">0</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">8</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">16</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">24</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">32</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">40</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">48</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">56</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">64</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">72</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">80</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">88</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">96</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">104</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">112</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">120</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">128</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">136</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">144</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">152</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">160</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">168</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">176</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">184</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">192</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">200</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">208</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">216</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">224</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">232</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">240</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">248</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">256</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">264</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">272</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">280</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">288</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">296</span>));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase9"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 9</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test09 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = <span class="rwordb">new</span> Tretja.Program(<span class="rwordb">new</span> Tretja.Oddaja[]{<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"jG6QfV"</span>, <span class="stevilo">13</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"XhXhx"</span>, <span class="stevilo">7</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"UinG3"</span>, <span class="stevilo">14</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"LQeRg"</span>, <span class="stevilo">16</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"erl5m"</span>, <span class="stevilo">20</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"N5Ag5"</span>, <span class="stevilo">16</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"mCRdsiG"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"7Yso2dO"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"fYcaj"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"DPFr6"</span>, <span class="stevilo">3</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"YYYE0d"</span>, <span class="stevilo">10</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"UECmQ"</span>, <span class="stevilo">16</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"sAahA0"</span>, <span class="stevilo">11</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"RtjwM"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"riB4bP"</span>, <span class="stevilo">16</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"rr8EQO"</span>, <span class="stevilo">7</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"UjNvlBP"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"0xeBQ"</span>, <span class="stevilo">18</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"mWMK8vq"</span>, <span class="stevilo">9</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"dgpTlub"</span>, <span class="stevilo">7</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"q80GC"</span>, <span class="stevilo">22</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"cKMamkd"</span>, <span class="stevilo">18</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"Il7Vbh"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"YR7X8L"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"wALuNP"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"yPYWT"</span>, <span class="stevilo">17</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"mkxrXBY"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"7EFj4xj"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"r5rr7"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"rGB4QFQ"</span>, <span class="stevilo">22</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"Q2LvW"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"uImYD"</span>, <span class="stevilo">18</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"Hw5HWdM"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"mSNXky"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"IMfM3G1"</span>, <span class="stevilo">6</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"6A8SgHi"</span>, <span class="stevilo">1</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"SB45fq"</span>, <span class="stevilo">8</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"YkqS6d"</span>, <span class="stevilo">22</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"aE3vB"</span>, <span class="stevilo">4</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"y1FbRyB"</span>, <span class="stevilo">2</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Info(<span class="niz">"KuCnV"</span>, <span class="stevilo">12</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"1cjhtJ"</span>, <span class="stevilo">5</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Sport(<span class="niz">"wDkoMhW"</span>, <span class="stevilo">1</span>),<br/>
+<tab><tab><tab><span class="rwordb">new</span> Tretja.Film(<span class="niz">"m6eaT05"</span>, <span class="stevilo">15</span>),<br/>
+<tab><tab>});<br/>
+<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">0</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">5</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">10</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">15</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">20</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">25</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">30</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">35</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">40</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">45</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">50</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">55</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">60</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">65</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">70</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">75</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">80</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">85</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">90</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">95</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">100</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">105</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">110</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">115</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">120</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">125</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">130</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">135</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">140</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">145</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">150</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">155</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">160</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">165</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">170</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">175</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">180</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">185</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">190</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">195</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">200</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">205</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">210</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">215</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">220</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">225</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">230</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">235</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">240</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">245</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">250</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">255</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">260</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">265</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">270</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">275</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">280</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">285</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">290</span>));<br/>
+<tab><tab>System.out.println(program.infoDovoljPogosto(<span class="stevilo">295</span>));<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>false<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/>true<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase10"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 10</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test10 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = Tretja.Program.sportVesDan(<span class="niz">"Nogomet"</span>, <span class="stevilo">100</span>);<br/>
+<tab><tab>System.out.println(program);<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            [Sport&nbsp;|&nbsp;Nogomet_1&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_2&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_3&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_4&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_5&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_6&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_7&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_8&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_9&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_10&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_11&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_12&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_13&nbsp;|&nbsp;100,&nbsp;Sport&nbsp;|&nbsp;Nogomet_14&nbsp;|&nbsp;100]<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase11"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 11</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test11 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = Tretja.Program.sportVesDan(<span class="niz">"ueJjn"</span>, <span class="stevilo">76</span>);<br/>
+<tab><tab>System.out.println(program);<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            [Sport&nbsp;|&nbsp;ueJjn_1&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_2&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_3&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_4&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_5&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_6&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_7&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_8&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_9&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_10&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_11&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_12&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_13&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_14&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_15&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_16&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_17&nbsp;|&nbsp;76,&nbsp;Sport&nbsp;|&nbsp;ueJjn_18&nbsp;|&nbsp;76]<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase12"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 12</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test12 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Program program = Tretja.Program.sportVesDan(<span class="niz">"YDLrMp"</span>, <span class="stevilo">30</span>);<br/>
+<tab><tab>System.out.println(program);<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            [Sport&nbsp;|&nbsp;YDLrMp_1&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_2&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_3&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_4&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_5&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_6&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_7&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_8&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_9&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_10&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_11&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_12&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_13&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_14&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_15&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_16&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_17&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_18&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_19&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_20&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_21&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_22&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_23&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_24&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_25&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_26&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_27&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_28&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_29&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_30&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_31&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_32&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_33&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_34&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_35&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_36&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_37&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_38&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_39&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_40&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_41&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_42&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_43&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_44&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_45&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_46&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_47&nbsp;|&nbsp;30,&nbsp;Sport&nbsp;|&nbsp;YDLrMp_48&nbsp;|&nbsp;30]<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+
+        <div style="height: 30px"></div>
+
+        <table id="grad1" class="tableLegend tableSummary"
+          <tbody>
+            <tr>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #9F9; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">ok</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #FFBF00; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">napaka</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #FF9; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">napaka med izvajanjem</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #C00000; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">se ne prevede</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #B9F; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">timeout (1000 ms)</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #D0E0F0; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">rezultat izrisa</td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a name="bottom"></a>
+        </div>
+    </body>
+    <!-- java class tester version "1.5.12" -->
+    <!-- 9.2.2025 15:38.25 -->
+    <!-- DESKTOP-74LLA2A, fe80::e6ad:8a1d:78d3:bcd5%15 -->
+</html>

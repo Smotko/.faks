@@ -1,2 +1,0 @@
-<nnnnnnnnnnnnnTTTooooKKKKKKKKKKKKKzzzzzz888ddddddddddddddddddh>
-<ddddddddddddBBBBBBBBBBBBBBBBnnnnneeeeeeeeeeeeeeeeeeee99999999gggggggggggggggglllllllllP>

@@ -1,0 +1,9 @@
+111 -> true
+222 -> true
+333 -> false
+444 -> true
+555 -> true
+666 -> true
+777 -> true
+888 -> false
+999 -> true

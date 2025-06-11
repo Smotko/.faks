@@ -1,0 +1,1557 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>Prikaz rezultatov testiranja</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style>
+            .tableBase { border-collapse: collapse; }
+            .tableBase > tbody > tr > td { border: 1px solid black; padding: 7px;}
+            .tableResults { table-layout: fixed; border-spacing: 0px; border-collapse: separate; }
+            table#nasredini { margin-left:auto; margin-right:auto; }
+            table tbody td.hoverOk {background-color:#9F9; border: 1px solid #63B563; width: 15px; color: black; text-align: center; }
+            .hoverOk:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #63B563; }
+            .hoverOk:hover td { background: transparent; }
+            .hoverOk > a:link, .hoverOk > a:visited, .hoverOk > a:hover, .hoverOk > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverErr {background-color:#FFBF00; border: 1px solid #CB9800; width: 15px; color: black; text-align: center; }
+            .hoverErr:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #CB9800; }
+            .hoverErr:hover td { background: transparent; }
+            .hoverErr > a:link, .hoverErr > a:visited, .hoverErr > a:hover, .hoverErr > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverRuntime {background-color:#FF9; border: 1px solid #D8D87E; width: 15px; color: black; text-align: center; }
+            .hoverRuntime:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #D8D87E; }
+            .hoverRuntime:hover td { background: transparent; }
+            .hoverRuntime > a:link, .hoverRuntime > a:visited, .hoverRuntime > a:hover, .hoverRuntime > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverCompile {background-color:#C00000; border: 1px solid #710B0B; width: 15px; color: black; text-align: center; }
+            .hoverCompile:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #710B0B; }
+            .hoverCompile:hover td { background: transparent; }
+            .hoverCompile > a:link, .hoverCompile > a:visited, .hoverCompile > a:hover, .hoverCompile > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverMissing {background-color:#F0F0F0; border: 1px solid #ABABAB; width: 15px; color: black; text-align: center; }
+            .hoverMissing:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #ABABAB; }
+            .hoverMissing:hover td { background: transparent; }
+            .hoverMissing > a:link, .hoverMissing > a:visited, .hoverMissing > a:hover, .hoverMissing > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverTimeout {background-color:#B9F; border: 1px solid #9070CE; width: 15px; color: black; text-align: center; }
+            .hoverTimeout:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #9070CE; }
+            .hoverTimeout:hover td { background: transparent; }
+            .hoverTimeout > a:link, .hoverTimeout > a:visited, .hoverTimeout > a:hover, .hoverTimeout > a:active { color: black; font-size: 0.9em; }
+            table tbody td.hoverImage {background-color:#D0E0F0; border: 1px solid #a6b3c0; width: 15px; color: black; text-align: center; }
+            .hoverImage:hover { background-color: #FAFAF0; !important; color: #000; border: 1px solid #a6b3c0; }
+            .hoverImage:hover td { background: transparent; }
+            .hoverImage > a:link, .hoverImage > a:visited, .hoverImage > a:hover, .hoverImage > a:active { color: black; font-size: 0.9em; }
+            .tableCommon { border-collapse: collapse; }
+            .tableOK > tbody > tr > td { border: 1px solid #63B563; padding: 7px;}
+            .tableError > tbody > tr > td { border: 1px solid #CB9800; padding: 7px;}
+            .tableRuntime > tbody > tr > td { border: 1px solid #D8D87E; padding: 7px;}
+            .tableCompiler > tbody > tr > td { border: 1px solid #710B0B; padding: 7px;}
+            .tableMissing > tbody > tr > td { border: 1px solid #ABABAB; padding: 7px;}
+            .tableTimeout > tbody > tr > td { border: 1px solid #9070CE; padding: 7px;}
+            .tableImage > tbody > tr > td { border: 1px solid #a6b3c0; padding: 7px;}
+            .tableSummary { table-layout: fixed; }
+            .texttt { font-family: DejaVu Sans Mono, monospace; font-size: 0.8em; }
+            table.diff > tbody > tr > td { border: none; font-family: DejaVu Sans Mono, monospace}
+            .diff_add { color: green; font-family: DejaVu Sans Mono, monospace; }
+            .diff_sub { color: blue; font-family: DejaVu Sans Mono, monospace; }
+            .diff_chg { color: red; font-family: DejaVu Sans Mono, monospace; }
+            a { color: blue; text-decoration: none; height: 100%; width: 100%; vertical-align: middle; }
+            a:link { color: blue; text-decoration: none; }
+            a:link { color: blue; text-decoration: none; }
+            a:hover { color: blue; text-decoration: underline; }
+            body, td { font: normal normal 100%/1.0 DejaVu Sans, sans-serif; }
+            h1 { font-weight: bold; font-size: 150%; }
+            h2 { font-weight: normal; font-size: 125%; border-top: 1px solid black; border-bottom: 1px solid black; background: #DEF; padding: 5px; margin-top: 36px; margin-bottom: 36px}
+            .container{ margin: 0px auto; width: 70%; min-width: 700px; margin-top: 1.8cm; margin-bottom: 1.8cm; }
+            .rwordb{ color: blue; font-weight: bold; }
+            .rwordv{ color:#8000ff; font-weight: bold; }
+            .vcomment{ color: green; }
+            .bcomment{ color: green; }
+            .niz{ color:#a31515; }
+            .stevilo{ color:#ff8000; }
+            tab { padding-left: 4em; }
+            #grad1 {
+                background: -webkit-linear-gradient(left, #E0E0E0 , white);
+                background: -o-linear-gradient(right, #E0E0E0, white);
+                background: -moz-linear-gradient(right, #E0E0E0, white);
+                background: linear-gradient(to right, #E0E0E0 , white);
+            }
+            #grad2 {
+                background: -webkit-linear-gradient(left, #FFBF00 , white);
+                background: -o-linear-gradient(right, #FFBF00, white);
+                background: -moz-linear-gradient(right, #FFBF00, white);
+                background: linear-gradient(to right, #FFBF00 , white);
+            }
+            .capSlika { display:block; height: 25px; margin:0 auto; font-size: 1.0em; text-align: left; }
+            .dborder { padding: 0px; border: 1px solid #CACACA; }
+            .capText { display: block; margin:0 auto; font-size: 0.9em; text-align: left; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <a name="top"></a>
+        <h1 id="grad2" style="padding: 10px; border: 0px solid black; color: #000000;">Rezultati preverjanja metod programa (3/3)</h1>
+        <div style="height: 20px"></div>
+        <a name="summary"></a>
+        <h2>Povzetek rezultatov</h2>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                <td class="hoverOk"><a href="#testcase1">1</a></td>
+                <td class="hoverOk"><a href="#testcase2">2</a></td>
+                <td class="hoverOk"><a href="#testcase3">3</a></td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <table id="nasredini" class="tableBase tableResults">
+            <tbody>
+                <tr>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+        <div style="height: 20px"></div>
+        <h2>Rezultati</h2>
+        <a name="testcase1"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 1</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test01 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Mesto mesto = <span class="rwordb">new</span> Tretja.Mesto(<span class="stevilo">26</span>, <span class="stevilo">19</span>);<br/>
+<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">74</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">28</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">14</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">17</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">30</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">65</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">36</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">11</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">59</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">72</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">31</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">85</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">86</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">89</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">8</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">12</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">71</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">95</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">52</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">29</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">69</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">6</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">34</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">24</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">74</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">36</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">55</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">81</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">70</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">71</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">50</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">95</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">8</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">42</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">31</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">100</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">57</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">89</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">41</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">69</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">99</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">86</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">2</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">18</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">2</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">91</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">62</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">98</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">77</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">94</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">51</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">11</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">69</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">8</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">62</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">65</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">40</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">70</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">95</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">10</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">22</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">42</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">15</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">53</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">11</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">62</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">97</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">51</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">26</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">8</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">76</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">49</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">5</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">74</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">63</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">63</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">56</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            94<br/>122<br/>136<br/>153<br/>316<br/>352<br/>363<br/>363<br/>494<br/>494<br/>494<br/>525<br/>525<br/>785<br/>876<br/>1023<br/>1244<br/>1313<br/>1353<br/>1377<br/>1515<br/>1515<br/>1551<br/>1606<br/>1606<br/>1606<br/>1757<br/>2012<br/>2093<br/>2193<br/>2250<br/>2314<br/>2444<br/>2612<br/>2700<br/>2700<br/>2784<br/>2784<br/>2875<br/>2971<br/>3033<br/>3131<br/>3341<br/>3542<br/>3647<br/>3812<br/>3906<br/>3921<br/>3921<br/>3921<br/>3974<br/>4024<br/>4024<br/>4086<br/>4183<br/>4234<br/>4344<br/>4393<br/>4393<br/>4472<br/>4472<br/>4472<br/>4674<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase2"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test02 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Mesto mesto = <span class="rwordb">new</span> Tretja.Mesto(<span class="stevilo">26</span>, <span class="stevilo">25</span>);<br/>
+<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">86</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">92</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">87</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">45</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">33</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">28</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">70</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">55</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">29</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">26</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">51</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">82</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">52</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">87</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">47</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">5</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">1</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">3</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">43</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">94</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">44</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">40</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">83</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">28</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">24</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">89</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">9</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">77</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">60</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">90</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">26</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">17</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">48</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">35</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">26</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">75</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">99</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">49</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">33</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">82</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">25</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">6</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">86</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">32</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">99</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">11</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">6</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">83</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">10</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">24</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">88</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">32</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">17</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">16</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">47</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">7</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">43</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">49</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">75</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">44</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">87</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">24</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">46</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">37</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">58</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">12</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">26</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">3</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">4</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">46</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">48</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">73</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">26</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">45</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">75</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">12</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">92</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">58</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">25</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">43</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">34</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">38</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">100</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">93</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">27</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">81</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">21</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">71</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">73</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">71</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">90</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">81</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">38</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">10</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">100</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">78</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">89</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">66</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">30</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">97</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">9</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">45</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">83</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">22</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">77</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">50</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">81</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">70</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">3</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">2</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">72</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">22</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">16</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">62</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">22</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">14</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">100</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">11</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">21</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">90</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">25</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">71</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">99</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">50</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">23</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">41</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">16</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">30</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">77</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">59</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">58</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">70</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">100</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">87</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">32</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">69</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">14</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">30</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">79</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">55</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">55</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">7</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">56</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">90</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">31</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">5</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">54</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">99</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">33</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">48</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">100</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">94</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">41</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">47</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">23</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">53</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">4</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">13</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">82</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">87</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">83</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">74</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">72</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">86</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">18</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">77</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">35</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">80</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">50</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">36</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">76</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">4</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">58</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">77</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">11</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">51</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">38</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">44</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">29</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">55</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">1</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">97</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">33</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">66</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">17</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">59</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">93</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">55</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">29</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">32</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">80</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">95</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">93</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">11</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">71</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">59</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">18</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">51</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">1</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">29</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">52</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">18</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">63</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">51</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">74</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">48</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">29</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">84</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">7</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">47</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">65</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">38</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">9</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">32</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">89</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">29</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">41</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">83</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">12</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">48</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">65</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">48</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">70</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">8</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">7</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            330<br/>545<br/>571<br/>884<br/>910<br/>957<br/>1051<br/>1051<br/>1246<br/>1270<br/>1445<br/>1505<br/>1638<br/>1686<br/>1686<br/>1686<br/>1747<br/>1747<br/>1687<br/>1687<br/>1847<br/>1880<br/>1962<br/>1962<br/>1962<br/>1962<br/>1993<br/>1993<br/>2143<br/>2285<br/>2285<br/>2259<br/>2294<br/>2382<br/>2382<br/>2431<br/>2494<br/>2485<br/>2485<br/>2793<br/>2764<br/>2790<br/>2790<br/>2790<br/>2699<br/>2709<br/>2778<br/>2841<br/>2832<br/>2841<br/>2967<br/>3100<br/>3159<br/>3201<br/>3345<br/>3345<br/>3252<br/>3404<br/>3365<br/>3471<br/>3571<br/>3844<br/>3853<br/>3879<br/>4002<br/>4124<br/>4170<br/>4190<br/>4282<br/>4261<br/>4282<br/>4272<br/>4210<br/>4286<br/>4286<br/>4438<br/>4438<br/>4502<br/>4474<br/>4474<br/>4450<br/>4489<br/>4489<br/>4458<br/>4505<br/>4546<br/>4529<br/>4598<br/>4566<br/>4595<br/>4595<br/>4588<br/>4667<br/>4561<br/>4616<br/>4628<br/>4608<br/>4878<br/>4846<br/>4846<br/>4910<br/>4907<br/>5001<br/>5001<br/>4986<br/>5109<br/>5148<br/>5148<br/>5148<br/>5148<br/>5152<br/>5165<br/>5247<br/>5153<br/>5202<br/>5515<br/>5533<br/>5686<br/>5686<br/>5669<br/>5749<br/>5799<br/>5766<br/>5793<br/>5802<br/>5718<br/>5755<br/>5718<br/>5743<br/>5779<br/>5740<br/>5780<br/>5693<br/>5644<br/>5705<br/>5650<br/>5650<br/>5646<br/>5605<br/>5785<br/>5789<br/>5731<br/>5676<br/>5806<br/>5806<br/>5871<br/>5930<br/>5948<br/>6000<br/>5925<br/>5899<br/>5829<br/>5881<br/>6090<br/>6089<br/>6093<br/>6088<br/>6095<br/>6123<br/>6153<br/>6271<br/>6327<br/>6327<br/>6268<br/>6219<br/>6171<br/>6235<br/>6167<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+        <a name="testcase3"></a>
+        <div style="border: 1px solid #63B563">
+            <table class="tableOK tableCommon" style="width: 100%; border: 3px solid #9F9;">
+                <tbody>
+                    <tr>
+                        <td colspan="2" style="background-color: #9F9; color: black;">Testni primer 3</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px;">Vhod</td>
+                        <td class="texttt">
+                            <br/>
+<span class="rwordb">import</span> java.util.*;<br/>
+<br/>
+<span class="rwordv">public</span> <span class="rwordv">class</span> Test03 {<br/>
+<br/>
+<tab><span class="rwordv">public</span> <span class="rwordv">static</span> <span class="rwordv">void</span> main(String[] args) {<br/>
+<tab><tab>Tretja.Mesto mesto = <span class="rwordb">new</span> Tretja.Mesto(<span class="stevilo">29</span>, <span class="stevilo">28</span>);<br/>
+<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">59</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">1</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">57</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">15</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">57</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">5</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">93</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">46</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">69</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">100</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">30</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">6</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">27</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">25</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">27</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">5</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">28</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">65</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">53</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">62</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">27</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">42</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">70</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">57</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">7</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">38</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">64</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">55</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">3</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">92</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">75</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">44</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">27</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">94</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">16</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">37</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">31</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">41</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">27</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">53</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">91</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">27</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">33</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">53</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">36</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">28</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">32</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">74</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">43</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">98</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">13</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">26</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">30</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">62</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">47</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">54</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">36</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">28</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">38</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">21</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">20</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">52</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">51</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">83</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">1</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">92</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">96</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">26</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">39</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">26</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">31</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">21</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">40</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">28</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">30</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">32</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">75</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">21</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">26</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">51</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">13</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">45</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">30</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">6</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">69</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">76</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">27</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">75</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">97</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">100</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">65</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">46</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">92</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">84</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">6</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">70</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">28</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">11</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">27</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">74</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">11</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">68</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">60</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">76</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">16</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">12</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">87</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">27</span>, <span class="stevilo">26</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">38</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">35</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">19</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">28</span>, <span class="stevilo">26</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">11</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">72</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">98</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">9</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">26</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">77</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">65</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">28</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">84</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">28</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">61</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">6</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">73</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">94</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">91</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">20</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">71</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">8</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">1</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">3</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">23</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">12</span>, <span class="stevilo">27</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">16</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">90</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">17</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">16</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">52</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">2</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">32</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">27</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">16</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">85</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">18</span>, <span class="stevilo">12</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">4</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">89</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">24</span>, <span class="stevilo">20</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">92</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">14</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">25</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">26</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">13</span>, <span class="stevilo">27</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">26</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">14</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">19</span>, <span class="stevilo">9</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">10</span>, <span class="stevilo">8</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">7</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">28</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">28</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">14</span>, <span class="stevilo">21</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">18</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">73</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">23</span>, <span class="stevilo">15</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">10</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">0</span>, <span class="stevilo">0</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">90</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">15</span>, <span class="stevilo">7</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">47</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">25</span>, <span class="stevilo">2</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">28</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">3</span>, <span class="stevilo">24</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">3</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">5</span>, <span class="stevilo">22</span>, <span class="rwordb">new</span> Tretja.Poslovna());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">17</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">78</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">22</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">52</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">21</span>, <span class="stevilo">4</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">48</span>));<br/>
+<tab><tab>mesto.postavi(<span class="stevilo">1</span>, <span class="stevilo">5</span>, <span class="rwordb">new</span> Tretja.Stanovanjska(<span class="stevilo">42</span>));<br/>
+<tab><tab>System.out.println(mesto.steviloStanovanj());<br/>
+<tab>}<br/>
+}<br/>
+
+
+<br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Izhod programa</td>
+                        <td class="texttt">
+                            59<br/>59<br/>60<br/>440<br/>609<br/>645<br/>645<br/>670<br/>695<br/>695<br/>917<br/>987<br/>1211<br/>1378<br/>1569<br/>1569<br/>1600<br/>1641<br/>1694<br/>1785<br/>1818<br/>1871<br/>2167<br/>2197<br/>2661<br/>2729<br/>2730<br/>2957<br/>3009<br/>3258<br/>3303<br/>3303<br/>3339<br/>3408<br/>3484<br/>3848<br/>4070<br/>4070<br/>4140<br/>4140<br/>4441<br/>4528<br/>4771<br/>5157<br/>5251<br/>5342<br/>5413<br/>5413<br/>5429<br/>5519<br/>5535<br/>5587<br/>5619<br/>5704<br/>5885<br/>5899<br/>5955<br/>6028<br/>6165<br/>6274<br/>6326<br/>6416<br/><br/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="height: 15px"></div>
+<div style="font-size: 0.8em;">[ <a href="#top">&uparrow;</a> | <a href="#bottom">&downarrow;</a> | 
+<a href="#summary">Povzetek</a> | 
+<a href="#testcase1">Rezultati</a> ]</div><div style="height: 30px"></div>
+
+        <div style="height: 30px"></div>
+
+        <table id="grad1" class="tableLegend tableSummary"
+          <tbody>
+            <tr>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #9F9; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">ok</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #FFBF00; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">napaka</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #FF9; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">napaka med izvajanjem</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #C00000; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">se ne prevede</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #B9F; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">timeout (1000 ms)</td>
+                </tr>
+              </table>
+              </td>
+              <td style="color: black;">
+              <table class="tableLegend">
+                <tr>
+	              <td style="background-color: #D0E0F0; color: black; width: 10px; text-align: center; border: 1px solid black; padding: 2px;"></td>
+	              <td style="font-size: 0.7em; padding: 3px;">rezultat izrisa</td>
+                </tr>
+              </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a name="bottom"></a>
+        </div>
+    </body>
+    <!-- java class tester version "1.5.12" -->
+    <!-- 8.2.2025 14:39.28 -->
+    <!-- DESKTOP-74LLA2A, fe80::e6ad:8a1d:78d3:bcd5%15 -->
+</html>
