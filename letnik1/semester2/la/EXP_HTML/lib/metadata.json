@@ -1,0 +1,617 @@
+{
+  "vaultName": "LAEXP",
+  "lastExport": 1750451489715,
+  "pluginVersion": "1.8.01",
+  "validBodyClasses": "publish css-settings-manager theme-dark show-inline-title show-ribbon",
+  "useCustomHeadContent": false,
+  "useCustomFavicon": false,
+  "files": [
+    "Bazni Vektorji Podprostora.md",
+    "Diagonalizacija Matrike.md",
+    "Določanje Linearno Neodvisnih Vektorjev.md",
+    "Dopolnitev Baznih Vektorjev.md",
+    "Gram-Schmidtov Algoritm.md",
+    "Karakteristični Polinom Matrike.md",
+    "Kofaktor Matrike.md",
+    "LA Izreki.md",
+    "LA K1 Cheetsheet.md",
+    "LA Teorija.md",
+    "LA Teorija Rešitve.md",
+    "Lastna Vrednost Matrike.md",
+    "Lastni Vektor Matrike.md",
+    "Lastnosti Determinante.md",
+    "Linearna Metoda Najmanjših Kvadratov.md",
+    "Linearna Preslikava.md",
+    "Mešani Produkt Vektorjev.md",
+    "Minor Matrike.md",
+    "NALOGA Matrika Linearne Preslike Matrike.md",
+    "Ničelni Prostor Matrike.md",
+    "Nilpotentna Matrika.md",
+    "Norma Vektorja.md",
+    "Ortogonalna Matrika.md",
+    "Ortogonalna Množica.md",
+    "Podobne Matrike.md",
+    "Polinomi z Matrikami.md",
+    "Posplošen Skalarni Produkt.md",
+    "Pravokotna Projekcija Vektorja na Vektor.md",
+    "preamble.sty",
+    "Prehod med Bazami LA.md",
+    "Premica.md",
+    "Pretvorba Matrike v Zgornje Trikotno Obliko.md",
+    "Projekcija Točke na Ravnino.md",
+    "Projekcija Vektorja na Podprostor.md",
+    "QR Razcep Matrike.md",
+    "Reševanje enačb z Matrikami.md",
+    "Row Echelon Form Matrix.md",
+    "Schurov Izrek.md",
+    "Simetrična Matrika.md",
+    "Sled Matrike.md",
+    "Stolpični Prostor Matrike.md",
+    "Transpozicija Matrike.md",
+    "Vektor.md",
+    "Zrcaljenje Točke čez Ravnino.md",
+    "Zveze med Ničelnim in Stolpičnim Prostorom Matrike.md",
+    "lib/fonts/94f2f163d4b698242fef.otf",
+    "lib/fonts/72505e6a122c6acd5471.woff2",
+    "lib/fonts/2d5198822ab091ce4305.woff2",
+    "lib/fonts/c8ba52b05a9ef10f4758.woff2",
+    "lib/fonts/cb10ffd7684cd9836a05.woff2",
+    "lib/fonts/b5f0f109bc88052d4000.woff2",
+    "lib/fonts/cbe0ae49c52c920fd563.woff2",
+    "lib/fonts/535a6cf662596b3bd6a6.woff2",
+    "lib/fonts/70cc7ff27245e82ad414.ttf",
+    "lib/fonts/454577c22304619db035.ttf",
+    "lib/fonts/52ac8f3034507f1d9e53.ttf",
+    "lib/fonts/05b618077343fbbd92b7.ttf",
+    "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
+    "lib/media/6155340132a851f6089e.svg",
+    "lib/fonts/MathJax_Zero.woff",
+    "lib/fonts/MathJax_Main-Regular.woff",
+    "lib/fonts/MathJax_Main-Bold.woff",
+    "lib/fonts/MathJax_Math-Italic.woff",
+    "lib/fonts/MathJax_Main-Italic.woff",
+    "lib/fonts/MathJax_Math-BoldItalic.woff",
+    "lib/fonts/MathJax_Size1-Regular.woff",
+    "lib/fonts/MathJax_Size2-Regular.woff",
+    "lib/fonts/MathJax_Size3-Regular.woff",
+    "lib/fonts/MathJax_Size4-Regular.woff",
+    "lib/fonts/MathJax_AMS-Regular.woff",
+    "lib/fonts/MathJax_Calligraphic-Regular.woff",
+    "lib/fonts/MathJax_Calligraphic-Bold.woff",
+    "lib/fonts/MathJax_Fraktur-Regular.woff",
+    "lib/fonts/MathJax_Fraktur-Bold.woff",
+    "lib/fonts/MathJax_SansSerif-Regular.woff",
+    "lib/fonts/MathJax_SansSerif-Bold.woff",
+    "lib/fonts/MathJax_SansSerif-Italic.woff",
+    "lib/fonts/MathJax_Script-Regular.woff",
+    "lib/fonts/MathJax_Typewriter-Regular.woff",
+    "lib/fonts/MathJax_Vector-Regular.woff",
+    "lib/fonts/MathJax_Vector-Bold.woff"
+  ],
+  "mainDependencies": [
+    "lib/fonts/94f2f163d4b698242fef.otf",
+    "lib/fonts/72505e6a122c6acd5471.woff2",
+    "lib/fonts/2d5198822ab091ce4305.woff2",
+    "lib/fonts/c8ba52b05a9ef10f4758.woff2",
+    "lib/fonts/cb10ffd7684cd9836a05.woff2",
+    "lib/fonts/b5f0f109bc88052d4000.woff2",
+    "lib/fonts/cbe0ae49c52c920fd563.woff2",
+    "lib/fonts/535a6cf662596b3bd6a6.woff2",
+    "lib/fonts/70cc7ff27245e82ad414.ttf",
+    "lib/fonts/454577c22304619db035.ttf",
+    "lib/fonts/52ac8f3034507f1d9e53.ttf",
+    "lib/fonts/05b618077343fbbd92b7.ttf",
+    "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
+    "lib/media/6155340132a851f6089e.svg",
+    "lib/fonts/MathJax_Zero.woff",
+    "lib/fonts/MathJax_Main-Regular.woff",
+    "lib/fonts/MathJax_Main-Bold.woff",
+    "lib/fonts/MathJax_Math-Italic.woff",
+    "lib/fonts/MathJax_Main-Italic.woff",
+    "lib/fonts/MathJax_Math-BoldItalic.woff",
+    "lib/fonts/MathJax_Size1-Regular.woff",
+    "lib/fonts/MathJax_Size2-Regular.woff",
+    "lib/fonts/MathJax_Size3-Regular.woff",
+    "lib/fonts/MathJax_Size4-Regular.woff",
+    "lib/fonts/MathJax_AMS-Regular.woff",
+    "lib/fonts/MathJax_Calligraphic-Regular.woff",
+    "lib/fonts/MathJax_Calligraphic-Bold.woff",
+    "lib/fonts/MathJax_Fraktur-Regular.woff",
+    "lib/fonts/MathJax_Fraktur-Bold.woff",
+    "lib/fonts/MathJax_SansSerif-Regular.woff",
+    "lib/fonts/MathJax_SansSerif-Bold.woff",
+    "lib/fonts/MathJax_SansSerif-Italic.woff",
+    "lib/fonts/MathJax_Script-Regular.woff",
+    "lib/fonts/MathJax_Typewriter-Regular.woff",
+    "lib/fonts/MathJax_Vector-Regular.woff",
+    "lib/fonts/MathJax_Vector-Bold.woff"
+  ],
+  "fileInfo": {
+    "Bazni Vektorji Podprostora.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1418,
+      "exportedPath": "Bazni Vektorji Podprostora.html",
+      "dependencies": []
+    },
+    "Diagonalizacija Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 2354,
+      "exportedPath": "Diagonalizacija Matrike.html",
+      "dependencies": []
+    },
+    "Določanje Linearno Neodvisnih Vektorjev.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1064,
+      "exportedPath": "Določanje Linearno Neodvisnih Vektorjev.html",
+      "dependencies": []
+    },
+    "Dopolnitev Baznih Vektorjev.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 685,
+      "exportedPath": "Dopolnitev Baznih Vektorjev.html",
+      "dependencies": []
+    },
+    "Gram-Schmidtov Algoritm.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1468,
+      "exportedPath": "Gram-Schmidtov Algoritm.html",
+      "dependencies": []
+    },
+    "Karakteristični Polinom Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 814,
+      "exportedPath": "Karakteristični Polinom Matrike.html",
+      "dependencies": []
+    },
+    "Kofaktor Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 234,
+      "exportedPath": "Kofaktor Matrike.html",
+      "dependencies": []
+    },
+    "LA Izreki.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 2942,
+      "exportedPath": "LA Izreki.html",
+      "dependencies": []
+    },
+    "LA K1 Cheetsheet.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 11943,
+      "exportedPath": "LA K1 Cheetsheet.html",
+      "dependencies": []
+    },
+    "LA Teorija.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 10401,
+      "exportedPath": "LA Teorija.html",
+      "dependencies": []
+    },
+    "LA Teorija Rešitve.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 36170,
+      "exportedPath": "LA Teorija Rešitve.html",
+      "dependencies": []
+    },
+    "Lastna Vrednost Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 3417,
+      "exportedPath": "Lastna Vrednost Matrike.html",
+      "dependencies": []
+    },
+    "Lastni Vektor Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1992,
+      "exportedPath": "Lastni Vektor Matrike.html",
+      "dependencies": []
+    },
+    "Lastnosti Determinante.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1166,
+      "exportedPath": "Lastnosti Determinante.html",
+      "dependencies": []
+    },
+    "Linearna Metoda Najmanjših Kvadratov.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 2327,
+      "exportedPath": "Linearna Metoda Najmanjših Kvadratov.html",
+      "dependencies": []
+    },
+    "Linearna Preslikava.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 3087,
+      "exportedPath": "Linearna Preslikava.html",
+      "dependencies": []
+    },
+    "Mešani Produkt Vektorjev.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 638,
+      "exportedPath": "Mešani Produkt Vektorjev.html",
+      "dependencies": []
+    },
+    "Minor Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 222,
+      "exportedPath": "Minor Matrike.html",
+      "dependencies": []
+    },
+    "NALOGA Matrika Linearne Preslike Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1451,
+      "exportedPath": "NALOGA Matrika Linearne Preslike Matrike.html",
+      "dependencies": []
+    },
+    "Ničelni Prostor Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 647,
+      "exportedPath": "Ničelni Prostor Matrike.html",
+      "dependencies": []
+    },
+    "Nilpotentna Matrika.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 151,
+      "exportedPath": "Nilpotentna Matrika.html",
+      "dependencies": []
+    },
+    "Norma Vektorja.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 477,
+      "exportedPath": "Norma Vektorja.html",
+      "dependencies": []
+    },
+    "Ortogonalna Matrika.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 851,
+      "exportedPath": "Ortogonalna Matrika.html",
+      "dependencies": []
+    },
+    "Ortogonalna Množica.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 404,
+      "exportedPath": "Ortogonalna Množica.html",
+      "dependencies": []
+    },
+    "Podobne Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 583,
+      "exportedPath": "Podobne Matrike.html",
+      "dependencies": []
+    },
+    "Polinomi z Matrikami.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1340,
+      "exportedPath": "Polinomi z Matrikami.html",
+      "dependencies": []
+    },
+    "Posplošen Skalarni Produkt.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 668,
+      "exportedPath": "Posplošen Skalarni Produkt.html",
+      "dependencies": []
+    },
+    "Pravokotna Projekcija Vektorja na Vektor.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1183,
+      "exportedPath": "Pravokotna Projekcija Vektorja na Vektor.html",
+      "dependencies": []
+    },
+    "preamble.sty": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 3337,
+      "exportedPath": "preamble.sty",
+      "dependencies": []
+    },
+    "Prehod med Bazami LA.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 2842,
+      "exportedPath": "Prehod med Bazami LA.html",
+      "dependencies": []
+    },
+    "Premica.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 443,
+      "exportedPath": "Premica.html",
+      "dependencies": []
+    },
+    "Pretvorba Matrike v Zgornje Trikotno Obliko.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1630,
+      "exportedPath": "Pretvorba Matrike v Zgornje Trikotno Obliko.html",
+      "dependencies": []
+    },
+    "Projekcija Točke na Ravnino.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 793,
+      "exportedPath": "Projekcija Točke na Ravnino.html",
+      "dependencies": []
+    },
+    "Projekcija Vektorja na Podprostor.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 742,
+      "exportedPath": "Projekcija Vektorja na Podprostor.html",
+      "dependencies": []
+    },
+    "QR Razcep Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 437,
+      "exportedPath": "QR Razcep Matrike.html",
+      "dependencies": []
+    },
+    "Reševanje enačb z Matrikami.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1089,
+      "exportedPath": "Reševanje enačb z Matrikami.html",
+      "dependencies": []
+    },
+    "Row Echelon Form Matrix.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 566,
+      "exportedPath": "Row Echelon Form Matrix.html",
+      "dependencies": []
+    },
+    "Schurov Izrek.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 652,
+      "exportedPath": "Schurov Izrek.html",
+      "dependencies": []
+    },
+    "Simetrična Matrika.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1422,
+      "exportedPath": "Simetrična Matrika.html",
+      "dependencies": []
+    },
+    "Sled Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 586,
+      "exportedPath": "Sled Matrike.html",
+      "dependencies": []
+    },
+    "Stolpični Prostor Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 943,
+      "exportedPath": "Stolpični Prostor Matrike.html",
+      "dependencies": []
+    },
+    "Transpozicija Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 980,
+      "exportedPath": "Transpozicija Matrike.html",
+      "dependencies": []
+    },
+    "Vektor.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 295,
+      "exportedPath": "Vektor.html",
+      "dependencies": []
+    },
+    "Zrcaljenje Točke čez Ravnino.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 519,
+      "exportedPath": "Zrcaljenje Točke čez Ravnino.html",
+      "dependencies": []
+    },
+    "Zveze med Ničelnim in Stolpičnim Prostorom Matrike.md": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 254,
+      "exportedPath": "Zveze med Ničelnim in Stolpičnim Prostorom Matrike.html",
+      "dependencies": []
+    },
+    "lib/fonts/94f2f163d4b698242fef.otf": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 66800,
+      "exportedPath": "lib/fonts/94f2f163d4b698242fef.otf",
+      "dependencies": []
+    },
+    "lib/fonts/72505e6a122c6acd5471.woff2": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 104232,
+      "exportedPath": "lib/fonts/72505e6a122c6acd5471.woff2",
+      "dependencies": []
+    },
+    "lib/fonts/2d5198822ab091ce4305.woff2": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 104332,
+      "exportedPath": "lib/fonts/2d5198822ab091ce4305.woff2",
+      "dependencies": []
+    },
+    "lib/fonts/c8ba52b05a9ef10f4758.woff2": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 98868,
+      "exportedPath": "lib/fonts/c8ba52b05a9ef10f4758.woff2",
+      "dependencies": []
+    },
+    "lib/fonts/cb10ffd7684cd9836a05.woff2": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 106876,
+      "exportedPath": "lib/fonts/cb10ffd7684cd9836a05.woff2",
+      "dependencies": []
+    },
+    "lib/fonts/b5f0f109bc88052d4000.woff2": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 105804,
+      "exportedPath": "lib/fonts/b5f0f109bc88052d4000.woff2",
+      "dependencies": []
+    },
+    "lib/fonts/cbe0ae49c52c920fd563.woff2": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 106108,
+      "exportedPath": "lib/fonts/cbe0ae49c52c920fd563.woff2",
+      "dependencies": []
+    },
+    "lib/fonts/535a6cf662596b3bd6a6.woff2": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 111708,
+      "exportedPath": "lib/fonts/535a6cf662596b3bd6a6.woff2",
+      "dependencies": []
+    },
+    "lib/fonts/70cc7ff27245e82ad414.ttf": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 192740,
+      "exportedPath": "lib/fonts/70cc7ff27245e82ad414.ttf",
+      "dependencies": []
+    },
+    "lib/fonts/454577c22304619db035.ttf": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 161376,
+      "exportedPath": "lib/fonts/454577c22304619db035.ttf",
+      "dependencies": []
+    },
+    "lib/fonts/52ac8f3034507f1d9e53.ttf": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 191568,
+      "exportedPath": "lib/fonts/52ac8f3034507f1d9e53.ttf",
+      "dependencies": []
+    },
+    "lib/fonts/05b618077343fbbd92b7.ttf": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 155288,
+      "exportedPath": "lib/fonts/05b618077343fbbd92b7.ttf",
+      "dependencies": []
+    },
+    "lib/fonts/4bb6ac751d1c5478ff3a.woff2": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 7876,
+      "exportedPath": "lib/fonts/4bb6ac751d1c5478ff3a.woff2",
+      "dependencies": []
+    },
+    "lib/media/6155340132a851f6089e.svg": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 315,
+      "exportedPath": "lib/media/6155340132a851f6089e.svg",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Zero.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1368,
+      "exportedPath": "lib/fonts/MathJax_Zero.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Main-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 34160,
+      "exportedPath": "lib/fonts/MathJax_Main-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Main-Bold.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 34464,
+      "exportedPath": "lib/fonts/MathJax_Main-Bold.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Math-Italic.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 19360,
+      "exportedPath": "lib/fonts/MathJax_Math-Italic.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Main-Italic.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 20832,
+      "exportedPath": "lib/fonts/MathJax_Main-Italic.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Math-BoldItalic.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 19776,
+      "exportedPath": "lib/fonts/MathJax_Math-BoldItalic.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Size1-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 5792,
+      "exportedPath": "lib/fonts/MathJax_Size1-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Size2-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 5464,
+      "exportedPath": "lib/fonts/MathJax_Size2-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Size3-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 3244,
+      "exportedPath": "lib/fonts/MathJax_Size3-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Size4-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 5148,
+      "exportedPath": "lib/fonts/MathJax_Size4-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_AMS-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 40808,
+      "exportedPath": "lib/fonts/MathJax_AMS-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Calligraphic-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 9600,
+      "exportedPath": "lib/fonts/MathJax_Calligraphic-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Calligraphic-Bold.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 9908,
+      "exportedPath": "lib/fonts/MathJax_Calligraphic-Bold.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Fraktur-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 21480,
+      "exportedPath": "lib/fonts/MathJax_Fraktur-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Fraktur-Bold.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 22340,
+      "exportedPath": "lib/fonts/MathJax_Fraktur-Bold.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_SansSerif-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 12660,
+      "exportedPath": "lib/fonts/MathJax_SansSerif-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_SansSerif-Bold.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 15944,
+      "exportedPath": "lib/fonts/MathJax_SansSerif-Bold.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_SansSerif-Italic.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 14628,
+      "exportedPath": "lib/fonts/MathJax_SansSerif-Italic.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Script-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 11852,
+      "exportedPath": "lib/fonts/MathJax_Script-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Typewriter-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 17604,
+      "exportedPath": "lib/fonts/MathJax_Typewriter-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Vector-Regular.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1136,
+      "exportedPath": "lib/fonts/MathJax_Vector-Regular.woff",
+      "dependencies": []
+    },
+    "lib/fonts/MathJax_Vector-Bold.woff": {
+      "modifiedTime": 1750451489715,
+      "sourceSize": 1116,
+      "exportedPath": "lib/fonts/MathJax_Vector-Bold.woff",
+      "dependencies": []
+    }
+  }
+}

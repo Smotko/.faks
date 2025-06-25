@@ -9,3 +9,5 @@ Naloge:
 
 Orodja:
 -kalkulator (fizični)
+
+Opravljeno: DA

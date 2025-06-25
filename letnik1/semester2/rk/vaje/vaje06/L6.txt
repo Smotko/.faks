@@ -1,0 +1,43 @@
+#PC1
+ip 10.0.1.100 /24 10.0.1.1
+
+#PC2
+ip 10.0.2.100 /24 10.0.2.1
+
+#R1
+configure
+set interfaces ethernet eth0 address 10.0.1.1/24
+commit
+save
+exit
+
+show interfaces
+show ip route
+ping 10.0.1.100
+
+configure
+set interfaces ethernet eth2 address 192.168.0.1/30
+set protocols bgp 65536 neighbor 192.168.0.2 remote-as '65537'
+set protocols bgp 65536 neighbor 192.168.0.2 update-source 192.168.0.1
+set protocols bgp 65536 parameters router-id 192.168.0.1
+set protocols bgp 65536 network 10.0.1.0/24
+commit
+save
+exit
+
+
+show ip bgp
+show ip bgp summary
+
+
+#R2
+configure
+set interfaces ethernet eth0 address 10.0.2.1/24
+set interfaces ethernet eth2 address 192.168.0.2/30
+set protocols bgp 65537 neighbor 192.168.0.1 remote-as '65536'
+set protocols bgp 65537 neighbor 192.168.0.1 update-source 192.168.0.2
+set protocols bgp 65537 parameters router-id 192.168.0.2
+set protocols bgp 65537 network 10.0.2.0/24
+commit
+save
+exit

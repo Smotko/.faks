@@ -1,10 +1,10 @@
-ODV - Osnove Digitalnih Vezij (Boolova Algebra, Logične Funkcije, Pomnilne Celice, Avtomati)
+OMA - Osnove Matematične Analize (Zaporedja, Funkcije 1 in 2 Spremenljivk)
 
 Literatura:
--ODV.pdf
+-VSEVENEM.pdf
 
 Naloge:
--
+-oma_zbirka.pdf
 
 Orodja:
--logisim-evolution-3.9.0-all.jar (simulacija vezja)
+/

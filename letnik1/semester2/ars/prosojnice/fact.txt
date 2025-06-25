@@ -1,0 +1,237 @@
+int fact(int n);
+
+int main()
+{
+    fact(4);
+}
+
+int fact(int n)
+{
+    if ( n <= 1)
+        return 1;
+    else 
+    return(n*fact(n-1));
+}
+
+---------------------
+riscv32-unknown-elf-gcc -o fact fact.c
+(brez optimizacije)
+
+riscv32-unknown-elf-objdump -d fact:
+
+000100dc <_start>:
+   100dc:       00002197                auipc   gp,0x2
+   100e0:       d4c18193                addi    gp,gp,-692 # 11e28 <__global_pointer$>
+   100e4:       c3418513                addi    a0,gp,-972 # 11a5c <completed.1>
+   100e8:       c5018613                addi    a2,gp,-944 # 11a78 <__BSS_END__>
+   100ec:       40a60633                sub     a2,a2,a0
+   100f0:       00000593                li      a1,0
+   100f4:       1e8000ef                jal     ra,102dc <memset>
+   100f8:       00000517                auipc   a0,0x0
+   100fc:       3e050513                addi    a0,a0,992 # 104d8 <atexit>
+   10100:       00050863                beqz    a0,10110 <_start+0x34>
+   10104:       00000517                auipc   a0,0x0
+   10108:       3e850513                addi    a0,a0,1000 # 104ec <__libc_fini_array>
+   1010c:       3cc000ef                jal     ra,104d8 <atexit>
+   10110:       130000ef                jal     ra,10240 <__libc_init_array>
+   10114:       00012503                lw      a0,0(sp)
+   10118:       00410593                addi    a1,sp,4
+   1011c:       00000613                li      a2,0
+   10120:       06c000ef                jal     ra,1018c <main>
+   10124:       f71ff06f                j       10094 <exit>
+
+0001018c <main>:
+   1018c:	ff010113          	addi	sp,sp,-16
+   10190:	00112623          	sw	ra,12(sp)
+   10194:	00812423          	sw	s0,8(sp)
+   10198:	01010413          	addi	s0,sp,16
+   1019c:	00400513          	li	a0,4		# arg. 4
+   101a0:	01c000ef          	jal	ra,101bc <fact>
+   101a4:	00000793          	li	a5,0
+   101a8:	00078513          	mv	a0,a5
+   101ac:	00c12083          	lw	ra,12(sp)
+   101b0:	00812403          	lw	s0,8(sp)
+   101b4:	01010113          	addi	sp,sp,16
+   101b8:	00008067          	ret
+
+000101bc <fact>:
+   101bc:	fe010113          	addi	sp,sp,-32
+   101c0:	00112e23          	sw	ra,28(sp)	
+   101c4:	00812c23          	sw	s0,24(sp)	
+   101c8:	02010413          	addi	s0,sp,32
+   101cc:	fea42623          	sw	a0,-20(s0)
+   101d0:	fec42703          	lw	a4,-20(s0)
+   101d4:	00100793          	li	a5,1
+   101d8:	00e7c663          	blt	a5,a4,101e4 <fact+0x28>
+   101dc:	00100793          	li	a5,1
+   101e0:	0280006f          	j	10208 <fact+0x4c>
+   101e4:	fec42783          	lw	a5,-20(s0)
+   101e8:	fff78793          	addi	a5,a5,-1
+   101ec:	00078513          	mv	a0,a5
+   101f0:	fcdff0ef          	jal	ra,101bc <fact>
+   101f4:	00050793          	mv	a5,a0
+   101f8:	fec42583          	lw	a1,-20(s0)
+   101fc:	00078513          	mv	a0,a5
+   10200:	01c000ef          	jal	ra,1021c <__mulsi3>
+   10204:	00050793          	mv	a5,a0
+   10208:	00078513          	mv	a0,a5
+   1020c:	01c12083          	lw	ra,28(sp)
+   10210:	01812403          	lw	s0,24(sp)
+   10214:	02010113          	addi	sp,sp,32
+   10218:	00008067          	ret
+
+0001021c <__mulsi3>:
+   1021c:	00050613          	mv	a2,a0
+   10220:	00000513          	li	a0,0
+   10224:	0015f693          	andi	a3,a1,1
+   10228:	00068463          	beqz	a3,10230 <__mulsi3+0x14>
+   1022c:	00c50533          	add	a0,a0,a2
+   10230:	0015d593          	srli	a1,a1,0x1
+   10234:	00161613          	slli	a2,a2,0x1
+   10238:	fe0596e3          	bnez	a1,10224 <__mulsi3+0x8>
+   1023c:	00008067          	ret
+
+---
+
+riscv32-unknown-elf-gcc -O1 -o fact1 fact.c
+(Optimizacija (O1))
+
+riscv32-unknown-elf-objdump -d fact1:
+
+0001018c <fact>:
+   1018c:       00100793                li      a5,1
+   10190:       00a7c663                blt     a5,a0,1019c <fact+0x10>
+   10194:       00100513                li      a0,1
+   10198:       00008067                ret
+   1019c:       ff010113                addi    sp,sp,-16
+   101a0:       00112623                sw      ra,12(sp)
+   101a4:       00812423                sw      s0,8(sp)
+   101a8:       00050413                mv      s0,a0
+   101ac:       fff50513                addi    a0,a0,-1
+   101b0:       fddff0ef                jal     ra,1018c <fact>
+   101b4:       00040593                mv      a1,s0
+   101b8:       034000ef                jal     ra,101ec <__mulsi3>
+   101bc:       00c12083                lw      ra,12(sp)
+   101c0:       00812403                lw      s0,8(sp)
+   101c4:       01010113                addi    sp,sp,16
+   101c8:       00008067                ret
+
+000101cc <main>:
+   101cc:       ff010113                addi    sp,sp,-16
+   101d0:       00112623                sw      ra,12(sp)
+   101d4:       00400513                li      a0,4
+   101d8:       fb5ff0ef                jal     ra,1018c <fact>
+   101dc:       00000513                li      a0,0
+   101e0:       00c12083                lw      ra,12(sp)
+   101e4:       01010113                addi    sp,sp,16
+   101e8:       00008067                ret
+
+000101ec <__mulsi3>:
+   101ec:       00050613                mv      a2,a0
+   101f0:       00000513                li      a0,0
+   101f4:       0015f693                andi    a3,a1,1
+   101f8:       00068463                beqz    a3,10200 <__mulsi3+0x14>
+   101fc:       00c50533                add     a0,a0,a2
+   10200:       0015d593                srli    a1,a1,0x1
+   10204:       00161613                slli    a2,a2,0x1
+   10208:       fe0596e3                bnez    a1,101f4 <__mulsi3+0x8>
+   1020c:       00008067                ret
+---------
+
+riscv32-unknown-elf-gcc -O2 -o fact2 fact.c
+(Optimizacija (O2))
+
+riscv32-unknown-elf-objdump -d fact2:
+
+000100c4 <main>:
+   100c4:       00000513                li      a0,0
+   100c8:       00008067                ret
+
+00010194 <fact>:
+   10194:       ff010113                addi    sp,sp,-16
+   10198:       00812423                sw      s0,8(sp)
+   1019c:       00112623                sw      ra,12(sp)
+   101a0:       00050413                mv      s0,a0
+   101a4:       00912223                sw      s1,4(sp)
+   101a8:       00100513                li      a0,1
+   101ac:       00855c63                bge     a0,s0,101c4 <fact+0x30>
+   101b0:       00100493                li      s1,1
+   101b4:       00040593                mv      a1,s0
+   101b8:       fff40413                addi    s0,s0,-1
+   101bc:       01c000ef                jal     ra,101d8 <__mulsi3>
+   101c0:       fe941ae3                bne     s0,s1,101b4 <fact+0x20>
+   101c4:       00c12083                lw      ra,12(sp)
+   101c8:       00812403                lw      s0,8(sp)
+   101cc:       00412483                lw      s1,4(sp)
+   101d0:       01010113                addi    sp,sp,16
+   101d4:       00008067                ret
+
+000101d8 <__mulsi3>:
+   101d8:       00050613                mv      a2,a0
+   101dc:       00000513                li      a0,0
+   101e0:       0015f693                andi    a3,a1,1
+   101e4:       00068463                beqz    a3,101ec <__mulsi3+0x14>
+   101e8:       00c50533                add     a0,a0,a2
+   101ec:       0015d593                srli    a1,a1,0x1
+   101f0:       00161613                slli    a2,a2,0x1
+   101f4:       fe0596e3                bnez    a1,101e0 <__mulsi3+0x8>
+   101f8:       00008067                ret
+
+----------------
+-O3:
+
+000100c4 <main>:
+   100c4:       00000513                li      a0,0
+   100c8:       00008067                ret
+
+000100e4 <_start>:
+   100e4:       00002197                auipc   gp,0x2
+   100e8:       d0418193                addi    gp,gp,-764 # 11de8 <__global_pointer$>
+   100ec:       c3418513                addi    a0,gp,-972 # 11a1c <completed.1>
+   100f0:       c5018613                addi    a2,gp,-944 # 11a38 <__BSS_END__>
+   100f4:       40a60633                sub     a2,a2,a0
+   100f8:       00000593                li      a1,0
+   100fc:       19c000ef                jal     ra,10298 <memset>
+   10100:       00000517                auipc   a0,0x0
+   10104:       39450513                addi    a0,a0,916 # 10494 <atexit>
+   10108:       00050863                beqz    a0,10118 <_start+0x34>
+   1010c:       00000517                auipc   a0,0x0
+   10110:       39c50513                addi    a0,a0,924 # 104a8 <__libc_fini_array>
+   10114:       380000ef                jal     ra,10494 <atexit>
+   10118:       0e4000ef                jal     ra,101fc <__libc_init_array>
+   1011c:       00012503                lw      a0,0(sp)
+   10120:       00410593                addi    a1,sp,4
+   10124:       00000613                li      a2,0
+   10128:       f9dff0ef                jal     ra,100c4 <main>
+   1012c:       f69ff06f                j       10094 <exit>
+
+00010194 <fact>:
+   10194:       ff010113                addi    sp,sp,-16
+   10198:       00812423                sw      s0,8(sp)
+   1019c:       00112623                sw      ra,12(sp)
+   101a0:       00050413                mv      s0,a0
+   101a4:       00912223                sw      s1,4(sp)
+   101a8:       00100513                li      a0,1
+   101ac:       00855c63                bge     a0,s0,101c4 <fact+0x30>
+   101b0:       00100493                li      s1,1
+   101b4:       00040593                mv      a1,s0
+   101b8:       fff40413                addi    s0,s0,-1
+   101bc:       01c000ef                jal     ra,101d8 <__mulsi3>
+   101c0:       fe941ae3                bne     s0,s1,101b4 <fact+0x20>
+   101c4:       00c12083                lw      ra,12(sp)
+   101c8:       00812403                lw      s0,8(sp)
+   101cc:       00412483                lw      s1,4(sp)
+   101d0:       01010113                addi    sp,sp,16
+   101d4:       00008067                ret
+
+000101d8 <__mulsi3>:
+   101d8:       00050613                mv      a2,a0
+   101dc:       00000513                li      a0,0
+   101e0:       0015f693                andi    a3,a1,1
+   101e4:       00068463                beqz    a3,101ec <__mulsi3+0x14>
+   101e8:       00c50533                add     a0,a0,a2
+   101ec:       0015d593                srli    a1,a1,0x1
+   101f0:       00161613                slli    a2,a2,0x1
+   101f4:       fe0596e3                bnez    a1,101e0 <__mulsi3+0x8>
+   101f8:       00008067                ret
+

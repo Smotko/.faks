@@ -1,0 +1,154 @@
+\newcommand{\typing}[3][\Gamma]{#1 \vdash #2 : #3} % idk
+
+\newcommand{\najbo}{\coloneqq} %znak :=
+
+
+% Limite
+\newcommand{\limit}[2]{\displaystyle\lim_{{#1}\rightarrow{#2}}}
+\newcommand{\limzero}[1]{\limit{#1}{0}}
+\newcommand{\liminf}[1]{\limit{#1}{\infty}}
+\newcommand{\limninf}[1]{\limit{#1}{-\infty}}
+
+
+%\newcommand{\limfrom}[2]{\lim_{{#1}\rightarrow{#2}^+}}
+
+
+\newcommand{\limxzero}{\limit{x}{0}}
+\newcommand{\limxinf}{\limit{x}{\infty}}
+\newcommand{\limxninf}{\limit{x}{-\infty}}
+
+
+% Common commands
+
+\newcommand{\degree}{^\circ}
+
+\newcommand{\abs}[1]{\lvert{#1}\rvert}
+\newcommand{\Abs}[1]{\bigg\lvert{#1}\bigg\rvert}
+\newcommand{\ABS}[1]{\Bigg\lvert{#1}\Bigg\rvert}
+\newcommand{\oover}[1]{{1\over{#1}}}
+
+\newcommand{\norm}[1]{\lVert{#1}\rVert}
+
+% Parallel
+\newcommand{\pll}{\parallel}
+\newcommand{\npll}{\not \parallel}
+\newcommand{\nperp}{\not \perp}
+
+
+
+
+% Množice
+\newcommand{\unija}{\cup}
+\newcommand{\presek}{\cap}
+
+
+% Logične operacije
+%\newcommand{\xor}{\oplus}
+
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\Lra}{\Leftrightarrow}
+
+
+\newcommand{\ekv}{\Leftrightarrow}
+\newcommand{\ekvi}{\iff}
+
+\newcommand{\then}{\Rightarrow} % =>
+\newcommand{\rthen}{\Leftarrow} % =>
+\newcommand{\tthen}[1]{\Rightarrow \text{#1}} % => \text{}
+
+\newcommand{\xor}{\lxor}
+\newcommand{\lxor}{\veebar}
+
+
+\newcommand{\nand}{\uparrow}
+\newcommand{\nor}{\downarrow}
+
+\newcommand{\lnand}{\nand}
+\newcommand{\lnor}{\nor}
+
+
+\newcommand{\bar}[1]{\  \overline{#1} \ } % make the bar bigger
+\newcommand{\lbar}[1]{\  \overline{#1} \ }
+
+\newcommand{\lvart}[1]{\  {#1} \ } % logical variable - true {v}
+\newcommand{\lvarf}[1]{\  \overline{#1} \ } % logical variable - false \bar{v}
+
+\newcommand{\sledi}{\models} % |=
+
+
+
+\newcommand{\tilde}[1]{\widetilde{#1}} % for ã,...
+
+
+
+
+\newcommand{\odv}[1]{(#1)'}
+\newcommand{\pogoj}[1]{\;;\;#1}
+
+% Vectors
+\newcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\lvec}[1]{\overrightarrow{#1}} % long vector (the arrow spans over the whole group)
+\newcommand{\Vec}[1]{\overrightarrow{#1}}
+
+% \newcommand{\dp}[2]{\vec{#1}\cdot\vec{#2}} % dot product
+\newcommand{\dp}[2]{ { \langle #1, #2 \rangle } }
+
+
+% \newcommand{\vecp}[2]{\vec{#1}\times \vec{#2}} % vector product
+
+\newcommand{\vecl}[1]{\vert \vec{#1} \vert } % vector length
+\newcommand{\Vecl}[1]{\Abs {\lvec{#1}}} % vector length
+
+
+% Arrays
+\newcommand{\arr}[2]{\begin{array}{#1}#2\end{array}}
+\newcommand{\larr}[1]{\begin{array}{l}#1\end{array}}
+
+
+% Sets
+\newcommand{\setof}[1]{ \{#1, #1 + 1, #1 + 2, #1 + 3, \dots\}}
+
+
+% Modular arithmatic
+\newcommand{\nequiv}{\not\equiv} % not equivalent (tripple line equals)
+
+
+
+% Complex number
+\newcommand{\re}[1]{\text{Re}(#1)} % Re(z)
+\newcommand{\im}[1]{\text{Im}(#1)} % Im(z)
+
+% Indukcija
+\newcommand{\iseq}{\stackrel{?}{=}} % = with a ? on top
+\newcommand{\isgt}{\stackrel{?}{\gt}}
+\newcommand{\islt}{\stackrel{?}{\lt}}
+
+\newcommand{\isge}{\stackrel{?}{\ge}}
+\newcommand{\isle}{\stackrel{?}{\le}}
+
+\newcommand{\issim}{\stackrel{?}{\sim}}
+\newcommand{\issledi}{\stackrel{?}{\sledi}}
+
+% Number theory
+%% Misc
+\newcommand{\floor}[1]{\lfloor {#1} \rfloor}
+\newcommand{\ceil}[1]{\lceil {#1} \rceil}
+
+\newcommand{\gcd}[1]{\mathrm{gcd}(#1)}
+\newcommand{\lcm}[1]{\mathrm{lcm}(#1)}
+
+% Matrices
+\newcommand{\rang}[1]{\mathrm{rang}#1}[]
+
+% Permutacije
+\newcommand{\perm}[2]{%
+  \begin{pmatrix}
+  {#1} \\
+  {#2}
+   \end{pmatrix}
+}
+
+
+
+
+

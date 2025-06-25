@@ -16,3 +16,5 @@ Orodja:
 -bash (Unixova lupina) //Za ta predmet sem uporabljal Windows alternativo (cmd)
 -tj.exe, settings.json (namenjeno testiranju)
 -as2client.jar (Kopiranje kode iz vaj)
+
+Opravljeno:DA
