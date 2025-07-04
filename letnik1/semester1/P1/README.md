@@ -1,9 +1,9 @@
 P1 - Programiranje 1 (Java)
 
 Literatura:
--prosojnice (Slo)
--javaOdZacetka.pdf (Slo)
--thinkjava.pdf (Ang)
+-prosojnice
+-javaOdZacetka.pdf
+-thinkjava.pdf
 
 Naloge:
 -vaje
