@@ -1,4 +1,4 @@
-RK - Računalniške Komunikacije (Zaporedja, Funkcije 1 in 2 Spremenljivk)
+RK - Računalniške Komunikacije (Plasti OSI, Protokoli, Kriptografija)
 
 Literatura:
 -prosojnice
@@ -9,3 +9,5 @@ Naloge:
 
 Orodja:
 -GNS
+
+Priprava na 3. rok:

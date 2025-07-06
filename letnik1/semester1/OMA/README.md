@@ -1,10 +1,15 @@
-OMA - Osnove Matematične Analize (Zaporedja, Funkcije 1 in 2 Spremenljivk)
+OMA - Osnove Matematične Analize (Števila, Zaporedja, Funkcije Ene In Več Spremenjlivk)
 
 Literatura:
--VSEVENEM.pdf
+-prosojnice.pdf
+-teorija
 
 Naloge:
 -oma_zbirka.pdf
+-vaje
 
 Orodja:
 /
+
+Priprava na 3. rok:
+

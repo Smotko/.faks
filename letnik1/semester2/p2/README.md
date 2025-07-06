@@ -1,4 +1,4 @@
-OMA - Osnove Matematične Analize (Zaporedja, Funkcije 1 in 2 Spremenljivk)
+P2 - Programiranje 2 (C)
 
 Literatura:
 -VSEVENEM.pdf
@@ -8,3 +8,6 @@ Naloge:
 
 Orodja:
 /
+
+Priprava na 3. rok:
+
